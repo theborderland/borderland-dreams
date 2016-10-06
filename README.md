@@ -52,3 +52,21 @@ and use `admin@example.com` and `password`
 
 ## TODO
 Before final version, change "camps" to creations or dreams.
+
+## Production
+To get the mailing system working - update the app url env by using the following command
+`heroku config:set APP_URL=midburnerotdreams.herokuapp.com`
+
+To set up the image upload make sure to create the S3 user and set the following heroku env variables
+S3_BUCKET_NAME
+AWS_ACCESS_KEY_ID
+AWS_SECRET_ACCESS_KEY
+
+From our experience, if the s3 bucket didn't exist - it was automatically created on first time upload in case your user have write access to s3.
+
+To set up the Sendmail - add it as an addon from heroku and it will AUTOMATICALLY set 
+SENDGRID_USERNAME & SENDGRID_PASSWORD
+
+You need to set up the from email using:
+heroku config:set EMAIL_FROM=app57550168@heroku.com
+

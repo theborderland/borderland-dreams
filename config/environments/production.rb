@@ -79,7 +79,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # needed for urls in mails
-  Rails.application.routes.default_url_options[:host] = 'borderlanddreams.herokuapp.com'
+  Rails.application.routes.default_url_options[:host] = ENV['APP_URL'],
 
   # S3 config
   config.paperclip_defaults = {

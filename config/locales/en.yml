@@ -32,7 +32,7 @@ en:
   welcome_guest_title: "Welcome to your Dreams"
   welcome_guest_text_html: "Congratulations! You've stumbled upon something special! <b>Midburnerot</b> is some awesome fucking shit. I mean, you can't even begin to understand the total exuberance of outlandish hijinks that people come up with for this thing. Dang!</b>"
   welcome_user_title: "Welcome to your Dreams"
-  welcome_user_text_html: "Midburnerot Dreams is a directory of our collective imagination. We dream together and breathe life into our mad and wonderous creations. Dreams need matter to come to life, and this is where we share resources to make that happen. All midbruners get 8 grants to give out as they see fit. Think of these as superpowers, with which you can make dreams into matter! To activate granting for your dream, talk to you friendly local Dream Guide. Pretty neat, huh? Have a look around or create a dream of your own!"
+  welcome_user_text_html: "Midburnerot Dreams is a directory of our collective imagination. We dream together and breathe life into our mad and wonderous creations. Dreams need matter to come to life, and this is where we share resources to make that happen. All midburners get 8 grants to give out as they see fit. Think of these as superpowers, with which you can make dreams into matter! To activate granting for your dream, talk to you friendly local Dream Guide. Pretty neat, huh? Have a look around or create a dream of your own!"
   footer_left_html: "The Midburnerot is a participatory community where we co-create events and gatherings as prototypes for our dreams. It is an empty container, open to your initiative. It is an invitation to play, to reflect, and to engage. If you have any question please ask in our <a href='facebook.com/groups/theborderland/'>Facebook Group</a>."
   footer_right_html: "In Dec 2016, The Midburnerot community will gather in Yeroham Park, Israel. It is a festival, where all the organization and all creative content is created by the participants. The event is for co-creators only, and not open to spectators."
   
@@ -73,10 +73,10 @@ en:
   form_moop_guidetext_html: "All the little things that should not end up just lying around. What kind of moop (Trash et.c) will you and the participants in your creation create, and how will you deal with that?"
   form_plan_label: "Team and plan"
   form_plan_guidetext_html: "What does your team look like and what is your time plan?"
-  form_cocreation_label: "How can other midbruners cocreate with you?"
+  form_cocreation_label: "How can other midburners cocreate with you?"
   form_cocreation_guidetext_html: "How can someone be a part of this project?"
   form_neighbors_label: "Who would your perfect neighbors be?"
-  form_neighbors_guidetext_html: "What kind of midbruners would you like as neighbors?"
+  form_neighbors_guidetext_html: "What kind of midburners would you like as neighbors?"
 
   form_artgrants_headline: "Art grant information"
   form_artgrants_text_html: "<p>If you're not looking for an art grant, leave these fields blank.</p><p>Art grants are given by the Midburnerot community. Each Midburner has 8 art-grants to hand out. You can give all your grants to one project or spread them around. Once a grant has been gifted to a dream, it can't be taken back. Each grant is worth 10 NIS. You should approximate your budget in number of grants needed. For example, if you need 500 NIS this translates into 50 grants.</p>"

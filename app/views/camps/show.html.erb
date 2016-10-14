@@ -97,10 +97,12 @@
             </div>
         <% end %>
 
-        <% random = Camp.order("RANDOM()").first %>
-        <a href="<%= url_for(random) %>" class="btn btn-primary camp-button" role="button">
-            Next random dream <span class="glyphicon glyphicon-random" aria-hidden="true"></span>
-        </a>
+        <% if !current_user || @camp.creator != current_user %>
+            <% random = Camp.order("RANDOM()").first %>
+            <a href="<%= url_for(random) %>" class="btn btn-primary camp-button" role="button">
+                Next random dream <span class="glyphicon glyphicon-random" aria-hidden="true"></span>
+            </a>
+        <% end %>    
 
         <div class="creation-info">
             <ul>
@@ -109,7 +111,7 @@
 
                 <% if current_user && @camp.creator == current_user %>
                     <li><span>
-                        <a href="<%= edit_camp_path(@camp) %>" class="btn btn-primary camp-button" role="btn button">Edit creation</a>
+                        <a href="<%= edit_camp_path(@camp) %>" class="btn btn-primary camp-button" role="btn button">Edit dream</a>
                     </li></span>
                     <li><span>
                         <a href="<%= camp_images_path(@camp) %>" class="btn btn-primary camp-button" role="btn button">Manage images</a>

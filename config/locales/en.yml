@@ -79,7 +79,7 @@ en:
   form_neighbors_guidetext_html: "What kind of midbruners would you like as neighbors?"
 
   form_artgrants_headline: "Art grant information"
-  form_artgrants_text_html: "<p>If you're not looking for an art grant, leave these fields blank.</p><p>Art grants are given by the Borderland comminity. Each Borderling has 8 art-grants to hand out. You can give all your grants to one project or spread them around. Once a grant has been gifted to a dream, it can't be taken back. Each grant is worth 50 DKK. You should approximate your budget in number of grants needed. For example, if you need 5000 DKK this translates into 100 grants.</p>"
+  form_artgrants_text_html: "<p>If you're not looking for an art grant, leave these fields blank.</p><p>Art grants are given by the Midburnerot community. Each Midburner has 8 art-grants to hand out. You can give all your grants to one project or spread them around. Once a grant has been gifted to a dream, it can't be taken back. Each grant is worth 10 NIS. You should approximate your budget in number of grants needed. For example, if you need 500 NIS this translates into 50 grants.</p>"
 
   form_minigrants_label: "Minumum number of grants needed:"
   form_minigrants_guidetext_html: "Necessary minimum budget level, below which you won't get funded."
@@ -90,7 +90,7 @@ en:
 
   # Creation view
   what_is_this_title: "What is this?"
-  what_is_this_text_html: "Congratulations! You've stumbled upon something special. The Borderland is a participatory festival that takes place in Boesdal quarry in Denmark on July 18-24. It's a fully participatory event where everything is created by the participants themselves, with out any spectators. Read more at <a href='http://www.theborderland.se'><b>theborderland.se</b></a> and as questions in our <a href='https://www.facebook.com/groups/theborderland/'>group</a>"
+  what_is_this_text_html: "Congratulations! You've stumbled upon something special. The Midburnerot is a participatory festival that takes place in Boesdal quarry in Denmark on July 18-24. It's a fully participatory event where everything is created by the participants themselves, with out any spectators. Read more at <a href='http://www.theborderland.se'><b>theborderland.se</b></a> and as questions in our <a href='https://www.facebook.com/groups/theborderland/'>group</a>"
 
   creation_info_headline: "Details"
 

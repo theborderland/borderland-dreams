@@ -22,8 +22,8 @@
 en:
   # Front page
   html_direction: "ltr"
-  browser_title_tag: "Borderland Dreams"
-  top_headline_html: "Borderland<br>Dreams"
+  browser_title_tag: "Midburnerot Dreams"
+  top_headline_html: "Midburnerot<br>Dreams"
   creations_menu: "Dreams"
   register_creation_menu: "Create Dream"
   login_menu: "Log in"

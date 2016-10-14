@@ -13,6 +13,7 @@
   font-size: 52px;
   font-family: 'Dosis', sans-serif;
   weight: bold;
+  background: none !important;
 }
 
 .coverphoto-panel {
@@ -22,10 +23,13 @@
 .top_menu {
   padding-top: 0px;
   a {
-    color: rgb(255,255,255);
+    color: white;
     text-decoration: none;
-    &:hover { 
-        color: #eb1478;
+    background: #eb1478;
+    padding: 3px 8px;
+
+    &:hover {
+        background-color: black;
       }
   }
 

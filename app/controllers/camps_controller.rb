@@ -57,6 +57,12 @@ class CampsController < ApplicationController
     if @camp.grants_received + granted > @camp.maxbudget
       granted = @camp.maxbudget - @camp.grants_received
     end
+
+    if current_user.grants < granted
+      flash[:alert] = "Security error cannot grant more then available grants #{granted} / #{current_user.grants}"
+      redirect_to camp_path(@camp) and return
+    end
+
     current_user.grants -= granted
 
     # Increase camp grants.

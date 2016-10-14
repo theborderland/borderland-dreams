@@ -19,26 +19,26 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
+he:
   # Front page
-  html_direction: "ltr"
-  browser_title_tag: "Borderland Dreams"
-  top_headline_html: "Borderland<br>Dreams"
-  creations_menu: "Dreams"
-  register_creation_menu: "Create Dream"
-  login_menu: "Log in"
-  register_menu: "Register"
-  logout_menu: "Log out"
-  welcome_guest_title: "Welcome to your Dreams"
+  html_direction: "rtl"
+  browser_title_tag: "חלומות מידברנרות"
+  top_headline_html: "חלומות<br>מידברנרות"
+  creations_menu: "חלומות"
+  register_creation_menu: "צור חלום"
+  login_menu: "התחבר"
+  register_menu: "הרשמה"
+  logout_menu: "התנתק"
+  welcome_guest_title: "ברוך הבא לחלומות שלנו"
   welcome_guest_text_html: "Congratulations! You've stumbled upon something special! <b>Midburnerot</b> is some awesome fucking shit. I mean, you can't even begin to understand the total exuberance of outlandish hijinks that people come up with for this thing. Dang!</b>"
   welcome_user_title: "Welcome to your Dreams"
   welcome_user_text_html: "Borderland Dreams is a directory of our collective imagination. We dream together and breathe life into our mad and wonderous creations. Dreams need matter to come to life, and this is where we share resources to make that happen. All borderlings get 8 grants to give out as they see fit. Think of these as superpowers, with which you can make dreams into matter! To activate granting for your dream, talk to you friendly local Dream Guide. Pretty neat, huh? Have a look around or create a dream of your own!"
   footer_left_html: "The Borderland is a participatory community where we co-create events and gatherings as prototypes for our dreams. It is an empty container, open to your initiative. It is an invitation to play, to reflect, and to engage. If you have any question please ask in our <a href='facebook.com/groups/theborderland/'>Facebook Group</a>."
   footer_right_html: "In July 18-24 2016, The Borderland community will gather in Boesdal limestone quarry, south of Copenhagen, Denmark. It is a festival, where all the organization and all creative content is created by the participants. The event is for co-creators only, and not open to spectators."
   
-  search_title: "Search"
-  hide_fully_funded: "Hide fully funded"
-  sort_by: "Sort by"
+  search_title: "חיפוש"
+  hide_fully_funded: "הסתר חלומות שמומנו במלואם"
+  sort_by: "מיין לפי"
 
   # Creation registration form
   form_basics_headline: "Dream registration"

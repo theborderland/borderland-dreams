@@ -294,7 +294,7 @@ DEPENDENCIES
   byebug
   cancan
   coffee-rails (~> 4.1.0)
-  devise (= 3.5.3)
+  devise
   dotenv-rails
   draper
   faker
@@ -321,7 +321,7 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 RUBY VERSION
-   ruby 2.3.1p112
+   ruby 2.3.0p0
 
 BUNDLED WITH
    1.13.2

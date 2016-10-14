@@ -32,9 +32,9 @@ en:
   welcome_guest_title: "Welcome to your Dreams"
   welcome_guest_text_html: "Congratulations! You've stumbled upon something special! <b>Midburnerot</b> is some awesome fucking shit. I mean, you can't even begin to understand the total exuberance of outlandish hijinks that people come up with for this thing. Dang!</b>"
   welcome_user_title: "Welcome to your Dreams"
-  welcome_user_text_html: "Borderland Dreams is a directory of our collective imagination. We dream together and breathe life into our mad and wonderous creations. Dreams need matter to come to life, and this is where we share resources to make that happen. All midbruners get 8 grants to give out as they see fit. Think of these as superpowers, with which you can make dreams into matter! To activate granting for your dream, talk to you friendly local Dream Guide. Pretty neat, huh? Have a look around or create a dream of your own!"
-  footer_left_html: "The Borderland is a participatory community where we co-create events and gatherings as prototypes for our dreams. It is an empty container, open to your initiative. It is an invitation to play, to reflect, and to engage. If you have any question please ask in our <a href='facebook.com/groups/theborderland/'>Facebook Group</a>."
-  footer_right_html: "In July 18-24 2016, The Borderland community will gather in Boesdal limestone quarry, south of Copenhagen, Denmark. It is a festival, where all the organization and all creative content is created by the participants. The event is for co-creators only, and not open to spectators."
+  welcome_user_text_html: "Midburnerot Dreams is a directory of our collective imagination. We dream together and breathe life into our mad and wonderous creations. Dreams need matter to come to life, and this is where we share resources to make that happen. All midbruners get 8 grants to give out as they see fit. Think of these as superpowers, with which you can make dreams into matter! To activate granting for your dream, talk to you friendly local Dream Guide. Pretty neat, huh? Have a look around or create a dream of your own!"
+  footer_left_html: "The Midburnerot is a participatory community where we co-create events and gatherings as prototypes for our dreams. It is an empty container, open to your initiative. It is an invitation to play, to reflect, and to engage. If you have any question please ask in our <a href='facebook.com/groups/theborderland/'>Facebook Group</a>."
+  footer_right_html: "In Dec 2016, The Midburnerot community will gather in Yeroham Park, Israel. It is a festival, where all the organization and all creative content is created by the participants. The event is for co-creators only, and not open to spectators."
   
   search_title: "Search"
   hide_fully_funded: "Hide fully funded"
@@ -58,7 +58,7 @@ en:
   form_additional_info_text_html: "Can be filled in later, or not at all if it doesn't apply"
 
   form_description_label: "Full description of concept"
-  form_description_guidetext_html: "Give a full physical and conceptual description, including interactivity how it will fit into the Borderland community. You've got 4096 characters. Make them count."
+  form_description_guidetext_html: "Give a full physical and conceptual description, including interactivity how it will fit into the Midburnerot community. You've got 4096 characters. Make them count."
   form_electricity_label: "Do you need electricity from the grid?"
   form_electricity_guidetext_html: "If yes, how much approximately are we talking?"
   form_light_label: "Will there be light?"

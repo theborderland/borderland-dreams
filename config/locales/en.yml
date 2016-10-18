@@ -103,7 +103,16 @@ en:
   upload_guidetext_html: "Lorem ipsum"
   
   # Grants widget
+  fully_funded: "Fully funded"
   grants_recieved: "Grants Recieved:"
   granting_not_enabled: "Granting not enabled"
   not_funded_yet: "Not funded yet"
   minimum_funding_reached: "Minimum funding reached"
+
+  # Login page
+  log_in: "Log in"
+  email: "Email"
+  password: "Password"
+  remember_me" : "Remember Me"
+  sign_up: "Sign Up"
+  forgot_password: "Forgot your password?"

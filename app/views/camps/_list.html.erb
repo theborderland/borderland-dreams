@@ -34,7 +34,7 @@
                                     <% if camp.minbudget <= camp.grants_received %>
                                         <% if camp.maxbudget <= camp.grants_received %>
                                             <h3><span class="label label-success granting-label">
-                                                <b>Fully funded</b>
+                                                <b><%=t :fully_funded %></b>
                                             </span></h3>
                                         <% else %>
                                             <h3><span class="label label-success granting-label">

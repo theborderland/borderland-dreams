@@ -103,7 +103,20 @@ he:
   upload_guidetext_html: "Lorem ipsum"
 
   # Grants widget
+  fully_funded: "מומן במלואו"
   grants_recieved: "מלגות שהתקבלו:"
   granting_not_enabled: "החלום עדיין לא אושר למלגות"
   not_funded_yet: "טרם מומן"
   minimum_funding_reached: "מימון מינימאלי הושג"
+
+  # Login page
+  log_in: "התחבר"
+  sign_up: "הרשמה"
+  forgot_password: "שכחת את הסיסמא?"
+
+  helpers:
+    label:
+      user:
+        email: "אימייל"
+        password: "סיסמא"
+        remember_me" : "זכור אותי"

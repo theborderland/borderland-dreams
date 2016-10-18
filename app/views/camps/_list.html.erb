@@ -7,6 +7,7 @@
     <div class="camps_list col-xs-12">
 
         <% @camps.each do |camp| %>
+        <div class='col-md-4'>
             <a href="<%= url_for(camp) %>">
 
                 <div class="panel panel-info">
@@ -61,6 +62,7 @@
                     </div>
                 </div>
             </a>
+        </div>
         <% end %>
 
     </div>

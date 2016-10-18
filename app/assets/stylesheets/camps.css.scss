@@ -10,6 +10,10 @@
     line-height: 0;
     clear: both;
   }
+
+  .panel {
+    height: 620px;  
+  }
 }
 
 .top_message {
@@ -97,5 +101,9 @@ body {
 }
 
 
-
+@media (min-width: 992px) {
+  .camp-index img {
+    width: 100%;
+  }
+}
 

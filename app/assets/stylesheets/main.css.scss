@@ -30,11 +30,11 @@ body {
   border-radius: 5px;
 }
 .panel-info {
-  border-color: #eb1478;
+  border-color: $c-pinky;
 }
 
 .panel-info > .panel-heading {
-  background-color: #eb1478;
+  background-color: $c-pinky;
   color: white;
 }
 

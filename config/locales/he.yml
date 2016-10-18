@@ -89,15 +89,21 @@ he:
   form_budgetplan_guidetext_html: "How will you use your budget? Describe your costs, not too specific, not too vague, perfectly balanced."
 
   # Creation view
-  what_is_this_title: "What is this?"
+  what_is_this_title: "מה זה?"
   what_is_this_text_html: "Congratulations! You've stumbled upon something special. The Borderland is a participatory festival that takes place in Boesdal quarry in Denmark on July 18-24. It's a fully participatory event where everything is created by the participants themselves, with out any spectators. Read more at <a href='http://www.theborderland.se'><b>theborderland.se</b></a> and as questions in our <a href='https://www.facebook.com/groups/theborderland/'>group</a>"
 
-  creation_info_headline: "Details"
+  creation_info_headline: "פרטים"
 
   cocreator_application_guidetext: "If you're interested in helping out with this dream, you can add your email to a list which only the dream creator can see."
-  cocreators_list_guidetext: "These people want to co-create with you:"
+  cocreators_list_guidetext: "האנשים הבאים רוצים ליצור איתך:"
 
   # Manage images view
   images_headline: "Lorem ipsum"
   upload_headline: "Lorem ipsum"
   upload_guidetext_html: "Lorem ipsum"
+
+  # Grants widget
+  grants_recieved: "מלגות שהתקבלו:"
+  granting_not_enabled: "החלום עדיין לא אושר למלגות"
+  not_funded_yet: "טרם מומן"
+  minimum_funding_reached: "מימון מינימאלי הושג"

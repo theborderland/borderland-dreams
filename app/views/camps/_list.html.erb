@@ -38,22 +38,22 @@
                                             </span></h3>
                                         <% else %>
                                             <h3><span class="label label-success granting-label">
-                                                <b>Minimum funding reached</b>
+                                                <b><%=t :minimum_funding_reached %></b>
                                             </span></h3>
                                         <% end %>
                                     <% else %>
                                         <h3><span class="label label-warning granting-label">
-                                            <b>Not funded yet</b>
+                                            <b><%=t :not_funded_yet %></b>
                                         </span></h3>
                                     <% end %>
 
                                     <h3><span class="label label-info granting-label">
-                                        <b>Grants recieved </b>
+                                        <b><%=t :grants_recieved %> </b>
                                         <span class="badge"><%= camp.grants_received %></span>
                                     </span></h3>
                                 <% else %>
                                     <h3><span class="label label-warning granting-label">
-                                        <b>Granting not enabled </b>
+                                        <b><%=t :granting_not_enabled %> </b>
                                     </span></h3>
                                 <% end %>
                             <% end %>

@@ -101,3 +101,9 @@ en:
   images_headline: "Lorem ipsum"
   upload_headline: "Lorem ipsum"
   upload_guidetext_html: "Lorem ipsum"
+  
+  # Grants widget
+  grants_recieved: "Grants Recieved:"
+  granting_not_enabled: "Granting not enabled"
+  not_funded_yet: "Not funded yet"
+  minimum_funding_reached: "Minimum funding reached"

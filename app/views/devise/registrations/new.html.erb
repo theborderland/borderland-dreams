@@ -1,10 +1,10 @@
 <% content_for(:head) do %>
-  <% browser_title = "Sign up" + " - " + t(:browser_title_tag) %>
+  <% browser_title = t(:sign_up) + " - " + t(:browser_title_tag) %>
   <title><%= browser_title %></title>
 <% end %>
 
 <div class="sign_up">
-  <h2>Sign up</h2>
+  <h2><%=t :sign_up %></h2>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
@@ -45,7 +45,7 @@
       <% end %>
 
       <div class="actions">
-        <%= f.submit "Sign up", class: "btn btn-success" %>
+        <%= f.submit t(:sign_up), class: "btn btn-success" %>
       </div>
       
   <% end %>

@@ -4,14 +4,14 @@ This is a platform to plan co-created events. It was originally created for Urba
 
 ## To get started
 
-Install ruby 2.3.0 (or any ruby will probably work).
-Install postgres - `brew install postgresql`
-Install postgres - `brew install imagemagick`
-
+* Install ruby 2.3.0 (or any ruby will probably work).
+* Install postgres - `brew install postgresql`
+* Install imagemagick - `brew install imagemagick`
+```
     gem install bundler # if needed
     bundle install
     bundle exec rake db:migrate
-
+```
 To get all the deps and the database set up properly. To start the server:
 
     bundle exec rails s

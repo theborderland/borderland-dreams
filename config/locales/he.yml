@@ -36,6 +36,8 @@ he:
   footer_left_html: "The Midburnerot is a participatory community where we co-create events and gatherings as prototypes for our dreams. It is an empty container, open to your initiative. It is an invitation to play, to reflect, and to engage. If you have any question please ask in our <a href='facebook.com/groups/theborderland/'>Facebook Group</a>."
   footer_right_html: "In Dec 2016, The Midburnerot community will gather in Yeroham Park, Israel. It is a festival, where all the organization and all creative content is created by the participants. The event is for co-creators only, and not open to spectators."
   
+  errors_str: "שגיאות"
+
   search_title: "חיפוש"
   hide_fully_funded: "הסתר חלומות שמומנו במלואם"
   hide_minimum_funded: "הסתר חלומות שמומנו למינימום"
@@ -157,6 +159,29 @@ he:
       short: "%d %b %H:%M"
     pm: pm
 
+  activerecord:
+    errors:
+      models:
+        camp:
+          attributes:
+            name:
+              blank: "אנא בחר שם לחלום"
+            subtitle:
+              blank: "אנא הכנס תקציר חלום"
+            contact_email:
+              blank: "אנא הכנס אימייל"
+            contact_name:
+              blank: "אנא הכנס שם החולם"
+        user:
+          attributes:
+            password:
+              blank: "אנא הכנס סיסמא"
+            email:
+              blank: "אנא הכנס אימייל"
+
+      messages:
+        record_invalid: 'האימות נכשל: %{errors}'
+
 errors:
   format: "%{attribute} %{message}"
   messages:
@@ -180,4 +205,5 @@ errors:
     too_long: ארוך מדי (יותר מ- %{count} תווים)
     too_short: קצר מדי (פחות מ- %{count} תווים)
     wrong_length: לא באורך הנכון (חייב להיות %{count} תווים)
+    not_saved: "לא נשמר"
     

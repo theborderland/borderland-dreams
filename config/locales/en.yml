@@ -36,6 +36,8 @@ en:
   footer_left_html: "The Midburnerot is a participatory community where we co-create events and gatherings as prototypes for our dreams. It is an empty container, open to your initiative. It is an invitation to play, to reflect, and to engage. If you have any question please ask in our <a href='facebook.com/groups/theborderland/'>Facebook Group</a>."
   footer_right_html: "In Dec 2016, The Midburnerot community will gather in Yeroham Park, Israel. It is a festival, where all the organization and all creative content is created by the participants. The event is for co-creators only, and not open to spectators."
   
+  errors: "Errors"
+  
   search_title: "Search"
   hide_fully_funded: "Hide fully funded"
   hide_minimum_funded: "Hide minimum funded"

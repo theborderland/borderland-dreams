@@ -31,7 +31,7 @@ class CampsController < ApplicationController
     if @camp.save
       redirect_to camps_path
     else
-      flash.now[:notice] = "Errors: #{@camp.errors.full_messages.join(', ')}"
+      flash.now[:notice] = "#{t:errors_str}: #{@camp.errors.full_messages.join(', ')}"
       render :new
     end
   end
@@ -81,12 +81,12 @@ class CampsController < ApplicationController
     end
 
     unless current_user.save
-      flash[:notice] = "Errors: #{current_user.errors.full_messages.join(', ')}"
+      flash[:notice] = "#{t:errors_str}: #{current_user.errors.full_messages.join(', ')}"
       redirect_to camp_path(@camp) and return
     end
 
     unless @camp.save
-      flash[:notice] = "Errors: #{@camp.errors.full_messages.join(', ')}"
+      flash[:notice] = "#{t:errors_str}: #{@camp.errors.full_messages.join(', ')}"
       redirect_to camp_path(@camp) and return
     end
 
@@ -100,7 +100,7 @@ class CampsController < ApplicationController
     if @camp.update_attributes camp_params
       redirect_to camp_path(@camp)
     else
-      flash.now[:notice] = "Errors: #{@camp.errors.full_messages.join(', ')}"
+      flash.now[:notice] = "#{t:errors_str}: #{@camp.errors.full_messages.join(', ')}"
       render :edit
     end
   end

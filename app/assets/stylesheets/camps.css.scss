@@ -12,8 +12,13 @@
   }
 
   .panel {
-    height: 620px;  
+    height: 550px;  
+
+    .description {
+      height: 180px;
+    }
   }
+
 }
 
 .top_message {

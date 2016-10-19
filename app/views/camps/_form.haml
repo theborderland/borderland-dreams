@@ -127,6 +127,6 @@
 
   .submit
     -if @camp.name
-      = form.submit "Update dream!", class: 'btn btn-success'
+      = form.submit t(:update_dream), class: 'btn btn-success'
     -else
-      = form.submit "Create dream!", class: 'btn btn-success'
+      = form.submit t(:create_dream), class: 'btn btn-success'

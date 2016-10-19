@@ -100,7 +100,7 @@
         <% if !current_user || @camp.creator != current_user %>
             <% random = Camp.order("RANDOM()").first %>
             <a href="<%= url_for(random) %>" class="btn btn-primary camp-button" role="button">
-                Next random dream <span class="glyphicon glyphicon-random" aria-hidden="true"></span>
+                <%=t :next_random_dream %> <span class="glyphicon glyphicon-random" aria-hidden="true"></span>
             </a>
         <% end %>    
 
@@ -120,7 +120,7 @@
 
                 <br>
 
-                <li><span><b>Contact Name:</b> <%= @camp.contact_name %></span></li>
+                <li><span><b><%=t :contact_name%>:</b> <%= @camp.contact_name %></span></li>
                 <br>
 
                 <% if current_user && current_user.guide %>
@@ -131,9 +131,9 @@
 
                 <!-- Granting system -->
                 <% if @camp.grantingtoggle %>
-                    <% button_text = "Turn off granting" %>
+                    <% button_text = t(:turn_off_granting) %>
                 <% else %>
-                    <% button_text = "Enable granting" %>
+                    <% button_text = t(:enable_granting) %>
                 <% end %>
 
                 <% if current_user && (current_user.guide || current_user.admin) %>
@@ -150,31 +150,31 @@
                         <% if @camp.minbudget <= @camp.grants_received %>
                             <% if @camp.maxbudget <= @camp.grants_received %>
                                 <h3><span class="label label-success granting-label">
-                                    <b>Fully funded</b>
+                                    <b><%=t :fully_funded %></b>
                                 </span></h3>
                             <% else %>
                                 <h3><span class="label label-success granting-label">
-                                    <b>Minimum funding reached</b>
+                                    <b><%=t :minimum_funding_reached %></b>
                                 </span></h3>
                             <% end %>
                         <% else %>
                             <h3><span class="label label-warning granting-label">
-                                <b>Not funded yet</b>
+                                <b><%=t :not_funded_yet %></b>
                             </span></h3>
                         <% end %>
 
                         <h3><span class="label label-info granting-label">
-                            <b>Minimum grants needed </b>
+                            <b><%=t :minimum_grants_needed %></b>
                             <span class="badge"><%= @camp.minbudget %></span>
                         </span></h3>
 
                         <h3><span class="label label-info granting-label">
-                            <b>Needed to fully fund </b>
+                            <b><%=t :needed_to_fully_fund %></b>
                             <span class="badge"><%= @camp.maxbudget %></span>
                         </span></h3>
 
                         <h3><span class="label label-info granting-label">
-                            <b>Grants recieved </b>
+                            <b><%=t :grants_recieved %> </b>
                             <span class="badge"><%= @camp.grants_received %></span>
                         </span></h3>
 
@@ -182,12 +182,12 @@
                         <% if current_user and @camp.minbudget %>
                             <% if current_user.grants > 0 %>
                                 <h3><span class="label label-success granting-label">
-                                    <b>Your available grants </b>
+                                    <b><%=t :your_available_grants %> </b>
                                     <span class="badge"><%= current_user.grants %></span>
                                 </span></h3>
                             <% else %>
                                 <h3><span class="label label-warning granting-label">
-                                    <b>You're out of grants </b>
+                                    <b><%=t :youre_out_of_grants %> </b>
                                 </span></h3>
                             <% end %>
                         <% end %>
@@ -200,15 +200,15 @@
                             <% if current_user && current_user.grants > 0 && !@camp.fullyfunded %>
                                 <h3><span class="label label-primary granting-label">
                                     <%= form_tag({controller: "camps", action: "update_grants"}, method: "patch") do %>
-                                        <%= label_tag 'Give Grants' %>
+                                        <%= label_tag t(:give_grants) %>
                                         <%= number_field_tag 'grants', nil, in: 0..current_user.grants, step: 1 %>
-                                        <%= submit_tag 'I gift thee grants', :class => "btn btn-success" %>
+                                        <%= submit_tag t(:i_gift_thee_grants), :class => "btn btn-success" %>
                                     <% end %>
                                 </span></h3>
                             <% end %>
                         <% else %>
                             <h3><span class="label label-warning granting-label">
-                                <b>No granting for this dream yet! </b>
+                                <b> <%=t :no_granting_yet %></b>
                             </span></h3>
                         <% end %>
 
@@ -281,7 +281,7 @@
                     <% if @camp.creator != current_user %>
                         <li><b><%=t :cocreator_application_guidetext %></b></li>
                         <div class="join_creation">
-                            <%= button_to "Add my name", {action: "join", user: current_user }, {class: 'btn btn-success button'} %>
+                            <%= button_to t(:add_my_name), {action: "join", user: current_user }, {class: 'btn btn-success button'} %>
                         </div>
                     <% end %>
 
@@ -297,7 +297,7 @@
 
                 <% if current_user && (@camp.creator == current_user || current_user.admin) %>
                     <%= form_for @camp, method: :delete do |f| %>
-                        <%= f.submit 'Delete this creation', class: "btn btn-danger" , data: { confirm: 'Are you sure?' } %>
+                        <%= f.submit t(:delete_this_creation), class: "btn btn-danger" , data: { confirm: t(:are_you_sure) } %>
                     <% end %>
                 <% end %>
 

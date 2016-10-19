@@ -1,2 +1,7 @@
 .ruby-version
 .DS_Store
+tmp/*
+log/
+.bundle/
+.env
+public/system/

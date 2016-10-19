@@ -1,4 +1,6 @@
 .camps_list {
+  padding-top: 20px;
+
   clear: both;
   margin: 0 -10px;
 
@@ -7,6 +9,10 @@
     content: "";
     line-height: 0;
     clear: both;
+  }
+
+  .panel {
+    height: 620px;  
   }
 }
 
@@ -75,3 +81,29 @@
 .camp-upload_image {
   margin-top: 20px;
 }
+
+div label input {
+   margin-right:100px;
+}
+
+.granting-label {
+    display:block;
+    text-align: left;
+    margin-top: 10px;
+}
+
+.creation-info {
+  padding-top: 10px;
+}
+
+body {
+    font-family:sans-serif;
+}
+
+
+@media (min-width: 992px) {
+  .camp-index img {
+    width: 100%;
+  }
+}
+

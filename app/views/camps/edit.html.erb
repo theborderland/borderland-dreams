@@ -1,4 +1,7 @@
-<a href="<%= camp_path(@camp) %>" class="camp-back_to_camp_link">Back to dream</a>
+<% content_for(:head) do %>
+  <% browser_title = "Editing " + @camp.name + " - " + t(:browser_title_tag) %>
+  <title><%= browser_title %></title>
+<% end %>
 
 <% if current_user && @camp.creator == current_user %>
 	<%= render 'form' %>

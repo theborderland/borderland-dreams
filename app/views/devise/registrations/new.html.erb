@@ -1,5 +1,10 @@
+<% content_for(:head) do %>
+  <% browser_title = t(:sign_up) + " - " + t(:browser_title_tag) %>
+  <title><%= browser_title %></title>
+<% end %>
+
 <div class="sign_up">
-  <h2>Sign up</h2>
+  <h2><%=t :sign_up %></h2>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
@@ -24,24 +29,25 @@
 
     <% if Rails.configuration.x.firestarter_settings["user_authentication_codes"] %>
 
-    <div class="membership_id_info">
-      <p>To register on the dreams platform, you need to have a membership for The Borderland 2016. On your ticket, you'll find a number as shown in the image below. That's all you need, and you're set!</p>
-    </div>
+      <div class="membership_id_info">
+        <p>To register on the dreams platform, you need to have a membership for The Borderland 2016. On your ticket, you'll find a number as shown in the image below. That's all you need, and you're set!</p>
+      </div>
 
-    <div>
-      <%= image_tag("/assets/billetto.jpg", :class => "img_responsive registration_guide_image") %>
-    </div>
+      <div>
+        <%= image_tag("/assets/billetto.jpg", :class => "img_responsive registration_guide_image") %>
+      </div>
 
-    <div class="field">
-      <%= f.label :Membership_code %><br />
-      <%= f.text_field :ticket_id, autocomplete: "off" %>
-    </div>
+      <div class="field">
+        <%= f.label :Membership_code %><br />
+        <%= f.text_field :ticket_id, autocomplete: "off" %>
+      </div>
 
-    <% end %>
+      <% end %>
 
-    <div class="actions">
-      <%= f.submit "Sign up", class: "btn btn-success" %>
-    </div>
+      <div class="actions">
+        <%= f.submit t(:sign_up), class: "btn btn-success" %>
+      </div>
+      
   <% end %>
 
   <%= render "devise/shared/links" %>

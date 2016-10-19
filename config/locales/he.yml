@@ -1,0 +1,151 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+he:
+  # Front page
+  html_direction: "rtl"
+  browser_title_tag: "חלומות מידברנרות"
+  top_headline_html: "חלומות<br>מידברנרות"
+  creations_menu: "חלומות"
+  register_creation_menu: "צור חלום"
+  login_menu: "התחבר"
+  register_menu: "הרשמה"
+  logout_menu: "התנתק"
+  welcome_guest_title: "ברוך הבא לחלומות שלנו"
+  welcome_guest_text_html: "Congratulations! You've stumbled upon something special! <b>Midburnerot</b> is some awesome fucking shit. I mean, you can't even begin to understand the total exuberance of outlandish hijinks that people come up with for this thing. Dang!</b>"
+  welcome_user_title: "Welcome to your Dreams"
+  welcome_user_text_html: "Midburnerot Dreams is a directory of our collective imagination. We dream together and breathe life into our mad and wonderous creations. Dreams need matter to come to life, and this is where we share resources to make that happen. All midbruners get 8 grants to give out as they see fit. Think of these as superpowers, with which you can make dreams into matter! To activate granting for your dream, talk to you friendly local Dream Guide. Pretty neat, huh? Have a look around or create a dream of your own!"
+  footer_left_html: "The Midburnerot is a participatory community where we co-create events and gatherings as prototypes for our dreams. It is an empty container, open to your initiative. It is an invitation to play, to reflect, and to engage. If you have any question please ask in our <a href='facebook.com/groups/theborderland/'>Facebook Group</a>."
+  footer_right_html: "In Dec 2016, The Midburnerot community will gather in Yeroham Park, Israel. It is a festival, where all the organization and all creative content is created by the participants. The event is for co-creators only, and not open to spectators."
+  
+  search_title: "חיפוש"
+  hide_fully_funded: "הסתר חלומות שמומנו במלואם"
+  sort_by: "מיין לפי"
+
+  # Creation registration form
+  form_basics_headline: "Dream registration"
+
+  form_dream_name_label: "Dream name (required) "
+  form_dream_name_guidetext_html: "What's your dream prototype called?"
+  form_subtitle_label: "Summarize your dream (required)"
+  form_subtitle_guidetext_html: "Brief summary of the dream prototype you are applying for that will go on the front page of the dreams site. Keep it short, under 256 characters."
+  form_creator_name_label: "Your name (required)"
+  form_creator_name_guidetext_html: "What's your name, dreamer?"
+  form_creator_email_label: "Your email (required)"
+  form_creator_email_guidetext_html: "To let people get in touch..."
+  form_contact_phone_label: "Your phonenumber (won't be published)"
+  form_contact_phone_guidetext_html: "For urgent contact if needed."
+
+  form_additional_headline: "Additional information"
+  form_additional_info_text_html: "Can be filled in later, or not at all if it doesn't apply"
+
+  form_description_label: "Full description of concept"
+  form_description_guidetext_html: "Give a full physical and conceptual description, including interactivity how it will fit into the Borderland community. You've got 4096 characters. Make them count."
+  form_electricity_label: "Do you need electricity from the grid?"
+  form_electricity_guidetext_html: "If yes, how much approximately are we talking?"
+  form_light_label: "Will there be light?"
+  form_light_guidetext_html: "Will The Thing be illuminated during the night (yes please!)? How?"
+  form_fire_label: "Will anything burn?"
+  form_fire_guidetext_html: "Tell us about your plans for dealing with big fire, if you have such."
+  form_noise_label: "What is your audio footprint?"
+  form_noise_guidetext_html: "Are you making any noise?"
+  form_nature_label: "Forces of nature"
+  form_nature_guidetext_html: "Boesdal is a windy place, right next to the ocean, light structures have been known to go hilariously airborn, rain has been known to soak things, how are you ready for it?"
+  form_moop_label: "Moop plan (matter out of place)"
+  form_moop_guidetext_html: "All the little things that should not end up just lying around. What kind of moop (Trash et.c) will you and the participants in your creation create, and how will you deal with that?"
+  form_plan_label: "Team and plan"
+  form_plan_guidetext_html: "What does your team look like and what is your time plan?"
+  form_cocreation_label: "How can other midbruners cocreate with you?"
+  form_cocreation_guidetext_html: "How can someone be a part of this project?"
+  form_neighbors_label: "Who would your perfect neighbors be?"
+  form_neighbors_guidetext_html: "What kind of Midbruners would you like as neighbors?"
+
+  form_artgrants_headline: "Art grant information"
+  form_artgrants_text_html: "<p>If you're not looking for an art grant, leave these fields blank.</p><p>Art grants are given by the Borderland comminity. Each Borderling has 8 art-grants to hand out. You can give all your grants to one project or spread them around. Once a grant has been gifted to a dream, it can't be taken back. Each grant is worth 50 DKK. You should approximate your budget in number of grants needed. For example, if you need 5000 DKK this translates into 100 grants.</p>"
+
+  form_minigrants_label: "Minumum number of grants needed:"
+  form_minigrants_guidetext_html: "Necessary minimum budget level, below which you won't get funded."
+  form_maxigrants_label: "Grants needed to fully fund dream:"
+  form_maxigrants_guidetext_html: "How many grants you need to fully fund your project."
+  form_budgetplan_label: "Budget overview"
+  form_budgetplan_guidetext_html: "How will you use your budget? Describe your costs, not too specific, not too vague, perfectly balanced."
+
+  # Creation view
+  what_is_this_title: "מה זה?"
+  what_is_this_text_html: "Congratulations! You've stumbled upon something special. The Borderland is a participatory festival that takes place in Boesdal quarry in Denmark on July 18-24. It's a fully participatory event where everything is created by the participants themselves, with out any spectators. Read more at <a href='http://www.theborderland.se'><b>theborderland.se</b></a> and as questions in our <a href='https://www.facebook.com/groups/theborderland/'>group</a>"
+
+  creation_info_headline: "פרטים"
+
+  cocreator_application_guidetext: "If you're interested in helping out with this dream, you can add your email to a list which only the dream creator can see."
+  cocreators_list_guidetext: "האנשים הבאים רוצים ליצור איתך:"
+
+  # Manage images view
+  images_headline: "Lorem ipsum"
+  upload_headline: "Lorem ipsum"
+  upload_guidetext_html: "Lorem ipsum"
+
+  # Grants widget
+  fully_funded: "מומן במלואו"
+  grants_recieved: "מלגות שהתקבלו:"
+  granting_not_enabled: "החלום עדיין לא אושר למלגות"
+  not_funded_yet: "טרם מומן"
+  minimum_funding_reached: "מימון מינימאלי הושג"
+
+  # Login page
+  log_in: "התחבר"
+  sign_up: "הרשמה"
+  forgot_password: "שכחת את הסיסמא?"
+
+  helpers:
+    label:
+      user:
+        email: "אימייל"
+        password: "סיסמא"
+        too_short: "קצרה מדיי - מינימום 8 תווים"
+        password_confirmation: "אימות סיסמא"
+        remember_me" : "זכור אותי"
+        blank: "לא יכול להשאר ריק"
+        invalid: "לא תקין"
+
+errors:
+  format: "%{attribute} %{message}"
+  messages:
+    accepted: חייב באישור
+    blank: לא יכול להיות ריק
+    confirmation: לא תואם לאישורו
+    empty: לא יכול להיות ריק
+    equal_to: חייב להיות שווה ל- %{count}
+    even: חייב להיות זוגי
+    exclusion: לא זמין
+    greater_than: חייב להיות גדול מ- %{count}
+    greater_than_or_equal_to: חייב להיות גדול או שווה ל- %{count}
+    inclusion: לא נכלל ברשימה
+    invalid: לא תקין
+    less_than: חייב להיות קטן מ- %{count}
+    less_than_or_equal_to: חייב להיות קטן או שווה ל- %{count}
+    not_a_number: חייב להיות מספר
+    not_an_integer: חייב להיות מספר שלם
+    odd: חייב להיות אי זוגי
+    taken: כבר בשימוש
+    too_long: ארוך מדי (יותר מ- %{count} תווים)
+    too_short: קצר מדי (פחות מ- %{count} תווים)
+    wrong_length: לא באורך הנכון (חייב להיות %{count} תווים)
+    

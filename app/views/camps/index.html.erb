@@ -1,47 +1,62 @@
-<% if !user_signed_in? %>
-  <div class="row top_message">
-    <div class="panel panel-default coverphoto-panel">
-      <div class="panel-heading">
+<% content_for(:head) do %>
+  <% browser_title = t(:browser_title_tag) %>
+  <title><%= browser_title %></title>
+  <%= javascript_include_tag 'blueimp_script' %> 
+<% end %>
+
+<div class="row top_message">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <% if user_signed_in? %>
+        <%=t :welcome_user_title %>
+      <% else %>
         <%=t :welcome_guest_title %>
+      <% end %>
+    </div>
+    <div class="panel-body">
+      <div class="col-md-8">
+        <% if user_signed_in? %>
+          <%=t :welcome_user_text_html %>
+        <% else %>
+          <%=t :welcome_guest_text_html %>
+        <% end %>
       </div>
-      <div class="panel-body">
-        <p><%=t :welcome_guest_text_html %></p>
+      <div class="col-md-4">
+        <%= form_for_filterrific @filterrific do |f| %>
+
+        <div>
+          <%=t :search_title %>
+          <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
+          <%= f.text_field(
+            :search_query,
+            class: 'filterrific-periodically-observed'
+          ) %>
+        </div>
+
+        <div class="form-inline">
+          <%= f.check_box(:not_fully_funded, class: 'filterrific-periodically-observed checkbox') %>
+          <span><span class="glyphicon glyphicon-heart gi-1-5x" aria-hidden="true"></span>&nbsp&nbsp<%=t :hide_fully_funded %></span>
+        </div>
+
+        <div class="form-inline">
+          <%= f.check_box(:not_min_funded, class: 'filterrific-periodically-observed checkbox') %>
+          <span class="glyphicon glyphicon-heart-empty gi-1-5x" aria-hidden="true"></span><span>&nbsp&nbspHide minimum funded</span>
+        </div>
+
+        <div class="form-inline">
+          <%= f.check_box(:not_seeking_funding, class: 'filterrific-periodically-observed checkbox') %> 
+          <span class="glyphicon glyphicon-eye-close gi-1-5x" aria-hidden="true"></span><span>&nbsp&nbspHide not open for granting</span>
+        </div>
+
+        <%= render_filterrific_spinner %>
+
+        <% end %>
       </div>
     </div>
   </div>
-  <% else %>
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <%=t :welcome_user_title %>
-      </div>
-      <div class="panel-body">
-        <p><%=t :welcome_user_text_html %></p>
-      </div>
-    </div>
-  <% end %>
-
-
-<div class="camps_list">
-
-  <% @camps.reverse.each do |camp| %>
-  <a href="<%= url_for(camp) %>">
-    <div class="camp_card">
-
-      <% if camp.images.any? %>
-      <% camp.images.each_with_index do |image, index| %>
-      <% if index == 0 %>
-      <% image_path = camp_image_path(camp_id: camp.id, id: image.id) %>
-      <div class="camp_card-img" style="background-image:url('<%= image_path %>')"></div>
-      <% end %>
-      <% end %>
-      <% else %>
-      <div class="camp_card-img" style="background-image:url(<%= asset_path 'bsb_placeholder.jpg' %>)"></div>
-      <% end %>
-
-      <% id = camp.id %>
-      <h1><%= truncate(camp.name, length: 50) %></h1>
-      <span class="camp_card-desc"><%= truncate(camp.subtitle, length: 130) %></span>
-    </div>
-  </a>
-  <% end %>
 </div>
+
+<%= render(
+  partial: 'camps/list',
+  locals: { camps: @camps }
+) %>

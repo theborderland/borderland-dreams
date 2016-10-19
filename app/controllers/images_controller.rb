@@ -3,34 +3,41 @@ class ImagesController < ApplicationController
   before_filter :camp_id
 
   def index
-    @images = Image.where camp_id: @camp_id
+    @images = Image.where(camp_id: @camp_id)
   end
 
   def show
-    image = Image.find_by_id params[:id]
-    send_data image.image, disposition: :inline
+    image = Image.find_by_id(params[:id])
+    #send_data image.image, disposition: :inline
   end
 
   def create
-    image_io = params[:image]
-    if image_io.blank? 
-      flash[:alert] = "No file was chosen!"
-    elsif image_io.content_type != "image/jpeg" and image_io.content_type != "image/gif" and image_io.content_type != "image/png"
-      flash[:alert] = "Image file type must be jpeg, png or gif"
-    elsif image_io.size > 8000000
-      flash[:alert] = "File size must be smaller than 8 mb"
+    @image = Image.new(image_params)
+    @image.user_id = current_user.id
+
+    if @image.save
+      redirect_to camp_images_path(camp_id: @camp_id)
     else
-      Image.create! camp_id: @camp_id, image: image_io.read, user_id: current_user.id
+      render action: 'index'
     end
-    redirect_to camp_images_path(camp_id: @camp_id)
   end
 
   def destroy
-    Image.find_by_id( params[:id] ).destroy!
+    @image = Image.find_by_id(params[:id])
+    @image.attachment = nil
+    @image.save!
+    @image.destroy!
+
     redirect_to camp_images_path(camp_id: @camp_id)
   end
 
   def camp_id
     @camp_id = params[:camp_id]
+  end
+
+  private
+
+  def image_params
+    params.permit(:attachment, :camp_id)
   end
 end

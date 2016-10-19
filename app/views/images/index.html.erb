@@ -1,23 +1,42 @@
-<a href="<%= camp_path(@camp_id) %>" class="camp-back_to_camp_link">Back to dream</a>
+<div class="row">
+    <h2 class="header-sub-heading">Dream images</h2>
+</div>
 
-<h2 class="header-sub-heading">Dream images</h2>
-
-<% @images.each do |image| %>
-  <div class="camp-image">
-    <% image_path = camp_image_path(camp_id: @camp_id, id: image.id) %>
-    <%= image_tag(image_path) %>
-    <%= form_for image, url: image_path,  method: :delete do |form| %>
-      <%= form.submit 'Remove image', { class: 'delete_button' } %>
+<div class="row">
+    <% @images.each do |image| %>
+        <div class="camp-image">
+            <% image_url = image.attachment.url(:medium) %>
+            <%= image_tag(image_url) %>
+            <%= form_for image, url: camp_image_path(image.camp_id, image),  method: :delete do |form| %>
+                <%= form.submit 'Remove image', { class: 'delete_button' } %>
+            <% end %>
+        </div>
     <% end %>
-  </div>
-<% end %>
+</div>
 
-<h2 class="header-sub-heading camp-upload_image">Upload image</h2>
+<div class="row">
+    <a href="<%= camp_path(@camp_id) %>" class="btn btn-info camp-button" role="button">Back to dream</a>
+</div>
 
-<p>Images must be smaller than 8 mb and be in jpg, png or gif format. To make your Dream look really awesome, make sure your images are in landscape format and larger than 1500x800 pixels. </p>
+<div class="row">
+    <h2 class="header-sub-heading camp-upload_image">Upload image</h2>
 
-<%= form_tag camp_images_path(camp_id: @camp_id), method: :post, multipart: true, class: 'camp-upload_image_form' do %>
-  <%= label_tag :image, 'Upload image' %>
-  <%= file_field_tag :image %>
-  <%= submit_tag 'Upload image', class: 'btn btn-success' %>
+    <p>Images must be smaller than 8 mb and be in jpg, png or gif format. To make your Dream look really awesome, make sure your images are in landscape format and larger than 1500x800 pixels. </p>
+
+</div>
+
+
+<%= form_tag camp_images_path(camp_id: @camp_id), method: :post, multipart: true do %>
+    <div class="row">
+        <%= label_tag :attachment, 'Upload image' %>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <%= file_field_tag :attachment %>
+            <%= submit_tag 'Upload image', class: 'btn btn-success camp-button' %>
+        </div>
+        <div class="col-md-4"></div>
+        <div class="col-md-4"></div>
+    </div>
 <% end %>

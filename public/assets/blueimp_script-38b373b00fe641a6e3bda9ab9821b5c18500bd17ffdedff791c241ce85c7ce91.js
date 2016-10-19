@@ -1,5 +1,9 @@
 window.onload = function(){ 
-  document.getElementById('links').onclick = function (event) {
+  var links = document.getElementById('links');
+  if(!links)
+    return;
+  
+  links.onclick = function (event) {
     event = event || window.event;
     var target = event.target || event.srcElement,
       link = target.src ? target.parentNode : target,

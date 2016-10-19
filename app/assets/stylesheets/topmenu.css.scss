@@ -4,7 +4,7 @@
   margin: 0px;
   color: rgb(0, 213, 255);
   width: 100%;
-  height: 240px;
+  height: 210px;
   max-width: none;
 }
 
@@ -13,6 +13,7 @@
   font-size: 52px;
   font-family: 'Dosis', sans-serif;
   weight: bold;
+  background: none !important;
 }
 
 .coverphoto-panel {
@@ -22,25 +23,29 @@
 .top_menu {
   padding-top: 0px;
   a {
-    color: rgb(255,255,255);
+    color: white;
     text-decoration: none;
-    &:hover { 
-        color: rgb(0, 213, 255);
+    background: #eb1478;
+    padding: 3px 8px;
+
+    &:hover {
+        background-color: black;
       }
   }
 
 }
 
 .header-nav {
-  justify-content: flex-start;
   display: inline-block;
-  width: 100%;
   margin-bottom: 10px;
   font-family: 'Dosis', sans-serif;
+  display: -webkit-flex; /* Safari */
+  -webkit-justify-content: space-around; /* Safari 6.1+ */
+  display: flex;
+  justify-content: space-around;
 
   a {
     margin-left: 15px;
-    float: right;
     font-size: 24px;
     font-weight: 500;
   }

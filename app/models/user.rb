@@ -20,22 +20,16 @@ class User < ActiveRecord::Base
     end
   end
 
-  # validate :invite_code_valid, :on => :create
+   validate :invite_code_valid, :on => :create
 
-  # def invite_code_valid
-  #  unless Ticket.exists?(id_code: self.ticket_id)
-  #    self.errors.add(:ticket_id, "membership code is not one we recognize, check again?")
-  #  end
-  #  if User.exists?(ticket_id: self.ticket_id)
-  #    self.errors.add(:ticket_id, "membership code is already registered for another user.")
-  #  end
-  # end
-
-  validate :grants_under_9
-
-  def grants_under_9
-    unless self.grants < 9
-      self.errors.add(:grants, "Oops. You have more than 8 grants.")
+  def invite_code_valid
+    if Rails.configuration.x.firestarter_settings["user_authentication_codes"]
+      unless Ticket.exists?(id_code: self.ticket_id)
+        self.errors.add(:ticket_id, "membership code is not one we recognize, check again?")
+      end
+      if User.exists?(ticket_id: self.ticket_id)
+        self.errors.add(:ticket_id, "membership code is already registered for another user.")
+      end
     end
   end
   

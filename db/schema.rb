@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160414151735) do
+ActiveRecord::Schema.define(version: 20160502195942) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -47,27 +47,32 @@ ActiveRecord::Schema.define(version: 20160414151735) do
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
 
   create_table "camps", force: :cascade do |t|
-    t.string  "name",            limit: 64,               null: false
-    t.string  "subtitle",        limit: 255,              null: false
-    t.string  "contact_email",   limit: 64,               null: false
-    t.string  "contact_name",    limit: 64,               null: false
-    t.string  "contact_phone",   limit: 64
-    t.text    "description",     limit: 4096
-    t.text    "electricity",     limit: 255
-    t.text    "light",           limit: 512
-    t.text    "fire",            limit: 512
-    t.text    "noise",           limit: 255
-    t.text    "nature",          limit: 255
-    t.text    "moop",            limit: 512
-    t.text    "plan",            limit: 1024
-    t.text    "cocreation",      limit: 1024
-    t.text    "neighbors",       limit: 512
-    t.text    "budgetplan",      limit: 1024
-    t.integer "minbudget",                    default: 0
-    t.integer "maxbudget",                    default: 0
-    t.boolean "seeking_members"
-    t.integer "user_id"
-    t.integer "grants_received",              default: 0
+    t.string   "name",            limit: 64,                   null: false
+    t.string   "subtitle",        limit: 255,                  null: false
+    t.string   "contact_email",   limit: 64,                   null: false
+    t.string   "contact_name",    limit: 64,                   null: false
+    t.string   "contact_phone",   limit: 64
+    t.text     "description",     limit: 4096
+    t.text     "electricity",     limit: 255
+    t.text     "light",           limit: 512
+    t.text     "fire",            limit: 512
+    t.text     "noise",           limit: 255
+    t.text     "nature",          limit: 255
+    t.text     "moop",            limit: 512
+    t.text     "plan",            limit: 1024
+    t.text     "cocreation",      limit: 1024
+    t.text     "neighbors",       limit: 512
+    t.text     "budgetplan",      limit: 1024
+    t.integer  "minbudget",                    default: 0
+    t.integer  "maxbudget",                    default: 0
+    t.boolean  "seeking_members"
+    t.integer  "user_id"
+    t.integer  "grants_received",              default: 0
+    t.boolean  "grantingtoggle",               default: false, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "minfunded",                    default: false
+    t.boolean  "fullyfunded",                  default: false
   end
 
   add_index "camps", ["user_id"], name: "index_camps_on_user_id"
@@ -78,6 +83,10 @@ ActiveRecord::Schema.define(version: 20160414151735) do
     t.integer  "camp_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
+    t.datetime "attachment_updated_at"
   end
 
   create_table "memberships", force: :cascade do |t|
@@ -113,7 +122,7 @@ ActiveRecord::Schema.define(version: 20160414151735) do
     t.text     "ticket_id"
     t.boolean  "guide",                  default: false
     t.boolean  "admin",                  default: false
-    t.integer  "grants",                 default: 8
+    t.integer  "grants",                 default: 10
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

@@ -49,6 +49,18 @@ gem 'pundit'
 # Image gallery
 gem 'blueimp-gallery'
 
+# Pagination
+gem 'kaminari-bootstrap'
+gem 'kaminari'
+
+# Filtering
+gem 'filterrific'
+
+# Images at S3
+gem 'paperclip'
+gem 'aws-sdk', '< 2'
+gem 'rmagick'
+
 group :production do
   # needed by herokus
   gem 'rails_12factor'
@@ -61,6 +73,8 @@ group :development, :test do
   gem 'byebug'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
+  # For environment vars
+  gem 'dotenv-rails'
 end
 
 group :development do

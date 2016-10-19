@@ -2,7 +2,16 @@ class CampsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
 
   def index
-    @camps = Camp.all
+    @filterrific = initialize_filterrific(
+      Camp,
+      params[:filterrific]
+    ) or return
+    @camps = @filterrific.find.page(params[:page])
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def new
@@ -27,6 +36,14 @@ class CampsController < ApplicationController
     end
   end
 
+  # Toggle granting
+
+  def toggle_granting
+    @camp = Camp.find(params[:id])
+    @camp.toggle!(:grantingtoggle)
+    redirect_to camp_path(@camp)
+  end
+
   # Handle the grant updates in their own controller action
   def update_grants
     @camp = Camp.find(params[:id])
@@ -35,12 +52,33 @@ class CampsController < ApplicationController
     # of grants given away. Increase the number of grants assigned to the
     # camp by the same number of grants.
 
-    # Decrement user grants.
+    # Decrement user grants. Check first if granting more than needed.
     granted = params['grants'].to_i
+    if @camp.grants_received + granted > @camp.maxbudget
+      granted = @camp.maxbudget - @camp.grants_received
+    end
+
+    if current_user.grants < granted
+      flash[:alert] = "Security error cannot grant more then available grants #{granted} / #{current_user.grants}"
+      redirect_to camp_path(@camp) and return
+    end
+
     current_user.grants -= granted
 
     # Increase camp grants.
     @camp.grants_received += granted
+
+    if @camp.grants_received >= @camp.minbudget
+      @camp.minfunded = true
+    else
+      @camp.minfunded = false
+    end
+
+    if @camp.grants_received >= @camp.maxbudget
+      @camp.fullyfunded = true
+    else
+      @camp.fullyfunded = false
+    end
 
     unless current_user.save
       flash[:notice] = "Errors: #{current_user.errors.full_messages.join(', ')}"

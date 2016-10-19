@@ -1,5 +1,10 @@
+<% content_for(:head) do %>
+  <% browser_title = t(:sign_up) + " - " + t(:browser_title_tag) %>
+  <title><%= browser_title %></title>
+<% end %>
+
 <div class="sign_in">
-  <h2>Log in</h2>
+  <h2><%=t :log_in %></h2>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field">
@@ -14,13 +19,13 @@
 
     <% if devise_mapping.rememberable? -%>
       <div class="field">
-        <%= f.check_box :remember_me %>
+        <%= f.check_box :remember_me%>
         <%= f.label :remember_me %>
       </div>
     <% end -%>
 
     <div class="actions">
-      <%= f.submit "Log in", class: "btn btn-success"  %>
+      <%= f.submit t(:log_in), class: "btn btn-success"  %>
     </div>
   <% end %>
 

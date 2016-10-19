@@ -38,6 +38,8 @@ en:
   
   search_title: "Search"
   hide_fully_funded: "Hide fully funded"
+  hide_minimum_funded: "Hide minimum funded"
+  hide_not_open_for_granting: "Hide not open for granting"
   sort_by: "Sort by"
 
   # Creation registration form

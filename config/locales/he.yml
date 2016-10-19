@@ -38,6 +38,8 @@ he:
   
   search_title: "חיפוש"
   hide_fully_funded: "הסתר חלומות שמומנו במלואם"
+  hide_minimum_funded: "הסתר חלומות שמומנו למינימום"
+  hide_not_open_for_granting: "הסתר לא פתוח למימון"
   sort_by: "מיין לפי"
 
   # Creation registration form
@@ -105,7 +107,7 @@ he:
   # Grants widget
   fully_funded: "מומן במלואו"
   grants_recieved: "מלגות שהתקבלו:"
-  granting_not_enabled: "החלום עדיין לא אושר למלגות"
+  granting_not_enabled: "טרם נפתח למלגות"
   not_funded_yet: "טרם מומן"
   minimum_funding_reached: "מימון מינימאלי הושג"
 

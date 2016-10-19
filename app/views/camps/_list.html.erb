@@ -4,7 +4,7 @@
     <%=t :sort_by%>:
     <%= filterrific_sorting_link(@filterrific, :updated_at) %>
 
-    <div class="camps_list col-xs-12">
+    <div class="camps_list">
 
         <% @camps.each do |camp| %>
         <div class='col-md-4'>
@@ -17,7 +17,6 @@
                     </div>
 
                     <div class="panel-body camp-index">
-
                         <% if camp.images.any? %>
                             <%= image_tag(camp.images.first.attachment.url(:square)) %>
                         <% else %>
@@ -49,7 +48,7 @@
                                     <% end %>
 
                                     <h3><span class="label label-info granting-label">
-                                        <b><%=t :grants_recieved %>: </b>
+                                        <b><%=t :grants_recieved %> </b>
                                         <span class="badge"><%= camp.grants_received %></span>
                                     </span></h3>
                                 <% else %>
@@ -67,7 +66,7 @@
 
     </div>
 
-    <div class="row top_message" align="center">
+    <div class="top_message" align="center">
         <div class="col-xm-12"><%= paginate @camps %></div>
     </div>
 

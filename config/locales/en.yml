@@ -43,6 +43,7 @@ en:
   sort_by: "Sort by"
 
   # Creation registration form
+  form_summary: "Summary"
   form_basics_headline: "Dream registration"
 
   form_dream_name_label: "Dream name (required) "

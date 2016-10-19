@@ -44,7 +44,8 @@ he:
 
   # Creation registration form
   form_basics_headline: "רישום החלום"
-
+  
+  form_summary: "סיכום"
   form_dream_name_label: "שם החלום (חובה) "
   form_dream_name_guidetext_html: "What's your dream prototype called?"
   form_subtitle_label: "Summarize your dream (required)"

@@ -3,6 +3,8 @@
 ## To get started
 
 Install ruby 2.3.0 (or any ruby will probably work).
+Install postgres - `brew install postgresql`
+Install postgres - `brew install imagemagick`
 
     gem install bundler # if needed
     bundle install

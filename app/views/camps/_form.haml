@@ -110,13 +110,13 @@
   .combo#minbudget
   - if Rails.configuration.x.firestarter_settings["granting"]
     = form.label t("form_minigrants_label")
-    = form.number_field :minbudget, :maxlength => 6
+    = form.number_field :minbudget, :maxlength => 6 ,class:'form-control'
     = t("form_minigrants_guidetext_html")
 
   .combo#maxbudget
   - if Rails.configuration.x.firestarter_settings["granting"]
     = form.label t("form_maxigrants_label")
-    = form.number_field :maxbudget, :maxlength => 6
+    = form.number_field :maxbudget, :maxlength => 6 ,class:'form-control'
     = t("form_maxigrants_guidetext_html")
 
   .combo#budgetplan

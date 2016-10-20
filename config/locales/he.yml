@@ -106,6 +106,7 @@ he:
   creation_info_headline: "פרטים"
   next_random_dream: "חלום רנדומלי הבא"
   contact_name: "שם החולם"
+  contact_email: "אימייל"
 
   # Granting adming
   turn_off_granting: "כיבוי אפשרות לגראנט"

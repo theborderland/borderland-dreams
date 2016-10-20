@@ -37,7 +37,7 @@ en:
   footer_right_html: "In Dec 2016, The Midburnerot community will gather in Yeroham Park, Israel. It is a festival, where all the organization and all creative content is created by the participants. The event is for co-creators only, and not open to spectators."
   
   errors: "Errors"
-  
+
   search_title: "Search"
   hide_fully_funded: "Hide fully funded"
   hide_minimum_funded: "Hide minimum funded"
@@ -106,6 +106,7 @@ en:
   creation_info_headline: "Details"
   next_random_dream: "Next random dream"
   contact_name: "Contact Name"
+  contact_email: "Contact Email"
 
   # Granting adming
   turn_off_granting: "Turn off granting"

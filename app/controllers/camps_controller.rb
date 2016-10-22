@@ -91,7 +91,7 @@ class CampsController < ApplicationController
     end
 
     redirect_to camp_path(@camp)
-    flash[:notice] = "Thanks for sending #{granted} grant(s)"
+    flash[:notice] = "#{t:thanks_for_sending, grants: granted}"
   end
 
   def update

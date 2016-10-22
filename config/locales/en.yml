@@ -143,3 +143,5 @@ en:
   remember_me" : "Remember Me"
   sign_up: "Sign Up"
   forgot_password: "Forgot your password?"
+
+  thanks_for_sending: "Thanks for sending %{grants} grant(s)"

@@ -141,6 +141,8 @@ he:
   sign_up: "הרשמה"
   forgot_password: "שכחת את הסיסמא?"
 
+  thanks_for_sending: "תודה על ששלחת %{grants} מענקים"
+
   helpers:
     label:
       user:

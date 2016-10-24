@@ -94,6 +94,8 @@ en:
   form_budgetplan_guidetext_html: "How will you use your budget? Describe your costs, not too specific, not too vague, perfectly balanced."
   create_dream: "Create Dream!"
   update_dream: "Update Dream!"
+  edit_dream: "Edit Dream"
+  manage_images: "Manage Images"
 
   give_grants: 'Give Grants'
   i_gift_thee_grants: 'I gift thee grants'
@@ -116,9 +118,12 @@ en:
   cocreators_list_guidetext: "These people want to co-create with you:"
 
   # Manage images view
-  images_headline: "Lorem ipsum"
-  upload_headline: "Lorem ipsum"
-  upload_guidetext_html: "Lorem ipsum"
+  images_headline: "Dream images"
+  upload_headline: "Upload Image"
+  upload_guidetext_html: "Images must be smaller than 8 mb and be in jpg, png or gif format. To make your Dream look really awesome, make sure your images are in landscape format and larger than 1500x800 pixels."
+  upload_button: "Upload Image"
+  remove_image: "Remove Image"
+  back_to_dream: "Back to dream"
   
   # Grants widget
   fully_funded: "Fully funded"

@@ -111,10 +111,10 @@
 
                 <% if current_user && @camp.creator == current_user %>
                     <li><span>
-                        <a href="<%= edit_camp_path(@camp) %>" class="btn btn-primary camp-button" role="btn button">Edit dream</a>
+                        <a href="<%= edit_camp_path(@camp) %>" class="btn btn-primary camp-button" role="btn button"><%=t :edit_dream %></a>
                     </li></span>
                     <li><span>
-                        <a href="<%= camp_images_path(@camp) %>" class="btn btn-primary camp-button" role="btn button">Manage images</a>
+                        <a href="<%= camp_images_path(@camp) %>" class="btn btn-primary camp-button" role="btn button"><%=t :manage_images %></a>
                     </li></span>
                 <% end %>
 

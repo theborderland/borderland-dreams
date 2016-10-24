@@ -1,5 +1,5 @@
 <div class="row">
-    <h2 class="header-sub-heading">Dream images</h2>
+    <h2 class="header-sub-heading"><%=t :images_headline %></h2>
 </div>
 
 <div class="row">
@@ -8,33 +8,33 @@
             <% image_url = image.attachment.url(:medium) %>
             <%= image_tag(image_url) %>
             <%= form_for image, url: camp_image_path(image.camp_id, image),  method: :delete do |form| %>
-                <%= form.submit 'Remove image', { class: 'delete_button' } %>
+                <%= form.submit t(:remove_image), { class: 'delete_button' } %>
             <% end %>
         </div>
     <% end %>
 </div>
 
 <div class="row">
-    <a href="<%= camp_path(@camp_id) %>" class="btn btn-info camp-button" role="button">Back to dream</a>
+    <a href="<%= camp_path(@camp_id) %>" class="btn btn-info camp-button" role="button"><%=t :back_to_dream %></a>
 </div>
 
 <div class="row">
-    <h2 class="header-sub-heading camp-upload_image">Upload image</h2>
+    <h2 class="header-sub-heading camp-upload_image"><%=t :upload_button %></h2>
 
-    <p>Images must be smaller than 8 mb and be in jpg, png or gif format. To make your Dream look really awesome, make sure your images are in landscape format and larger than 1500x800 pixels. </p>
+    <p><%=t :upload_guidetext_html %> </p>
 
 </div>
 
 
 <%= form_tag camp_images_path(camp_id: @camp_id), method: :post, multipart: true do %>
     <div class="row">
-        <%= label_tag :attachment, 'Upload image' %>
+        <%= label_tag :attachment, t(:upload_button) %>
     </div>
 
     <div class="row">
         <div class="col-md-4">
             <%= file_field_tag :attachment %>
-            <%= submit_tag 'Upload image', class: 'btn btn-success camp-button' %>
+            <%= submit_tag t(:upload_button), class: 'btn btn-success camp-button' %>
         </div>
         <div class="col-md-4"></div>
         <div class="col-md-4"></div>

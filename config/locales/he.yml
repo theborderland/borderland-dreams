@@ -94,6 +94,8 @@ he:
   form_budgetplan_guidetext_html: "איך תשתמשו בתקציב שלכם? תתארו את העלויות שלכם. אל תרדו יותר מדי לפרטים, כמו כן אל תהיו מעורפלים מדי... תמצאו איזון."
   create_dream: "צור חלום!"
   update_dream: "עדכן חלום!"
+  edit_dream: "ערוך חלום"
+  manage_images: "ערוך תמונות"
 
   give_grants: 'הענק גראנט'
   i_gift_thee_grants: 'אני מעניק את הגראנטים'
@@ -116,9 +118,12 @@ he:
   cocreators_list_guidetext: "האנשים הבאים רוצים ליצור איתך:"
 
   # Manage images view
-  images_headline: "לורם איפסום"
-  upload_headline: "לורם איפסום"
-  upload_guidetext_html: "לורם איפסום"
+  images_headline: "תמונות החלום"
+  upload_headline: "העלי תמונה"
+  upload_guidetext_html: "על התמונות להיות קטנות מ-8mb ובפורמט jpg, png, gif.<br>כדי שהחלום יראה טוב ממש, וודאי שהתמונות שלך הן אופקיות וגדולות מ-1500x800 פיקסלים"
+  upload_button: "העלי תמונה"
+  remove_image: "הסירי תמונה"
+  back_to_dream: "חזרי לחלום"
 
   # Grants widget
   fully_funded: "מומן במלואו"

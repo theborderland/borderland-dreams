@@ -25,7 +25,7 @@ he:
   browser_title_tag: "חלומות מידברנרות"
   top_headline_html: "חלומות<br>מידברנרות"
   creations_menu: "חלומות"
-  register_creation_menu: "צור חלום"
+  register_creation_menu: "צרי חלום"
   login_menu: "התחבר"
   register_menu: "הרשמה"
   logout_menu: "התנתק"
@@ -142,7 +142,7 @@ he:
   are_you_sure: "האם את בטוחה?"
 
   # Login page
-  log_in: "התחבר"
+  log_in: "התחברי"
   sign_up: "הרשמה"
   forgot_password: "שכחת את הסיסמא?"
 
@@ -155,8 +155,8 @@ he:
         password: "סיסמא"
         too_short: "קצרה מדיי - מינימום 8 תווים"
         password_confirmation: "אימות סיסמא"
-        remember_me" : "זכור אותי"
-        blank: "לא יכול להשאר ריק"
+        remember_me: "זכרי אותי"
+        blank: "לא יכולה להשאר ריקה"
         invalid: "לא תקין"
 
   time:

@@ -16,7 +16,44 @@
 
     .description {
       height: 180px;
+      margin: 0.5em;
     }
+  }
+
+  .panel-info {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      color: #2a2a2a;
+      border-color: #a8a8a8;
+
+      .name { 
+        text-decoration: underline;
+      }
+    }
+
+    .name {
+      font-size: 16px;
+      font-weight: normal;
+      color: $c-pinky;
+      margin: 0.5em 0.5em;
+      }
+  }
+
+  .panel-info > .panel-heading {
+    background-color: $c-pinky;
+    color: white;
+  }
+
+  .panel-default > .panel-heading {
+    background-color: white;
+    color: black;
+    font-weight: bold;
+  }
+
+  .panel-body {
+    margin: 0;
+    padding: 0;
   }
 
 }

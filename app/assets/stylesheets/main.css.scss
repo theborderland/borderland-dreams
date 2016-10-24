@@ -33,31 +33,6 @@ body {
   border: 1px solid rgb(239, 211, 215);
   border-radius: 5px;
 }
-.panel-info {
-  border: 1px solid rgba(0, 0, 0, 0.1);
-
-  &:hover {
-    color: #2a2a2a;
-    border-color: #a8a8a8;
-
-    .name { 
-      text-decoration: underline;
-    }
-  }
-
-  
-}
-
-.panel-info > .panel-heading {
-  background-color: $c-pinky;
-  color: white;
-}
-
-.panel-default > .panel-heading {
-  background-color: white;
-  color: black;
-  font-weight: bold;
-}
 
 .footer {
   padding-top: 20px;

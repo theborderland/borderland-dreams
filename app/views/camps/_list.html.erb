@@ -11,11 +11,6 @@
             <a href="<%= url_for(camp) %>">
 
                 <div class="panel panel-info">
-
-                    <div class="panel-heading">
-                        <h1><%= truncate(camp.name, length: 50) %></h1>
-                    </div>
-
                     <div class="panel-body camp-index">
                         <% if camp.images.any? %>
                             <%= image_tag(camp.images.first.attachment.url(:square)) %>
@@ -23,8 +18,10 @@
                             <%= image_tag('bsb_placeholder_square.jpg') %>
                         <% end %>
 
+                        <h4 class="name"><%= truncate(camp.name, length: 50) %></h4>
+
                         <div class="description">
-                            <p><%= truncate(camp.subtitle, length: 250) %></p>
+                            <p><%= truncate(camp.subtitle, length: 256) %></p>
                         </div>
 
                         <div class="labels">

@@ -1,3 +1,7 @@
+a:hover {
+  text-decoration: none;
+}
+
 .main_content {
   @extend %holder;
   padding: 20px;
@@ -30,7 +34,18 @@ body {
   border-radius: 5px;
 }
 .panel-info {
-  border-color: $c-pinky;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    color: #2a2a2a;
+    border-color: #a8a8a8;
+
+    .name { 
+      text-decoration: underline;
+    }
+  }
+
+  
 }
 
 .panel-info > .panel-heading {

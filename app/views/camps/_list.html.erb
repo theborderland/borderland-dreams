@@ -13,9 +13,9 @@
                 <div class="panel panel-info">
                     <div class="panel-body camp-index">
                         <% if camp.images.any? %>
-                            <%= image_tag(camp.images.first.attachment.url(:square)) %>
+                            <%= image_tag(camp.images.first.attachment.url(:square), :class => "grow") %>) %>
                         <% else %>
-                            <%= image_tag('bsb_placeholder_square.jpg') %>
+                            <%= image_tag('bsb_placeholder_square.jpg' , :class => "grow") %>
                         <% end %>
 
                         <h4 class="name"><%= truncate(camp.name, length: 50) %></h4>

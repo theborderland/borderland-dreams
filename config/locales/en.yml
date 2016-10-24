@@ -149,4 +149,10 @@ en:
   sign_up: "Sign Up"
   forgot_password: "Forgot your password?"
 
+  registration_text: "To register on the dreams platform, you need to have a membership for The Borderland 2016. On your ticket, you'll find a number as shown in the image below. That's all you need, and you're set!"
+  registration_code: "Membership Code"
+
+  invalid_membership_code: "membership code is not one we recognize, check again?"
+  membership_code_registered: "membership code is already registered for another user."
+
   thanks_for_sending: "Thanks for sending %{grants} grant(s)"

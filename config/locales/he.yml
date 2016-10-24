@@ -146,6 +146,12 @@ he:
   sign_up: "הרשמה"
   forgot_password: "שכחת את הסיסמא?"
 
+  registration_text: "כדי להרשם עליך לקבל קוד. אנא פנה למדריך חלומות בשביל לקבל קוד"
+  registration_code: "קוד הרשמה"
+
+  invalid_membership_code: "הקוד שהוכנס לא תקין. אנא נסי שנית"
+  membership_code_registered: "הקוד שהוכנס כבר בשימוש תחת משתמש אחר. אנא בקש קוד חדש ממדריך החלומות שלך"
+
   thanks_for_sending: "תודה על ששלחת %{grants} מענקים"
 
   helpers:

@@ -25,10 +25,11 @@ class User < ActiveRecord::Base
   def invite_code_valid
     if Rails.configuration.x.firestarter_settings["user_authentication_codes"]
       unless Ticket.exists?(id_code: self.ticket_id)
-        self.errors.add(:ticket_id, "membership code is not one we recognize, check again?")
+        self.errors.add(:ticket_id, I18n.t(:invalid_membership_code))
+        return
       end
       if User.exists?(ticket_id: self.ticket_id)
-        self.errors.add(:ticket_id, "membership code is already registered for another user.")
+        self.errors.add(:ticket_id, I18n.t(:membership_code_registered))
       end
     end
   end

@@ -30,15 +30,15 @@
     <% if Rails.configuration.x.firestarter_settings["user_authentication_codes"] %>
 
       <div class="membership_id_info">
-        <p>To register on the dreams platform, you need to have a membership for The Borderland 2016. On your ticket, you'll find a number as shown in the image below. That's all you need, and you're set!</p>
+        <p><%=t :registration_text %></p>
       </div>
 
       <div>
-        <%= image_tag("/assets/billetto.jpg", :class => "img_responsive registration_guide_image") %>
+        
       </div>
 
       <div class="field">
-        <%= f.label :Membership_code %><br />
+        <%= f.label :Membership_code, t(:registration_code) %><br />
         <%= f.text_field :ticket_id, autocomplete: "off" %>
       </div>
 

@@ -140,11 +140,11 @@ class CampsController < ApplicationController
     #
 
     if !@user
-      flash[:notice] = "You need to be logged in to add your email to the list."
+      flash[:notice] = "#{t:join_dream}"
     elsif @camp.users.include?(@user)
-      flash[:notice] = "Nice! You've already sent your email to the creator."
+      flash[:notice] = "#{t:join_already_sent}"
     else
-      flash[:notice] = "Sweet! You just sent your email adress to the creator."
+      flash[:notice] = "#{t:join_dream}"
       @camp.users << @user
     end
     redirect_to @camp

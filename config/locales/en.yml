@@ -177,3 +177,8 @@ en:
 
   cant_send_less_then_one: "One cannot send less then 1 grants"
   security_more_grants: "Security error cannot grant more then available grants. you tried gifting %{granted} grants. you have %{current_user_grants}. nice try."
+
+  # Add me to dream
+  join_dream: "Sweet! You just sent your email adress to the creator."
+  join_errors_login: "You need to be logged in to add your email to the list."
+  join_already_sent: "Nice! You've already sent your email to the creator."

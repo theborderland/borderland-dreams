@@ -5,6 +5,11 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  def iframe_action
+    response.headers.delete "X-Frame-Options"
+    render_something
+  end
+  
   protected
 
 	def configure_permitted_parameters

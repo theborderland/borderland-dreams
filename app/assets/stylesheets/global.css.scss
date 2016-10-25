@@ -3,6 +3,11 @@
 //
 
 $c-pinky: #eb1478;
+$c-pinky-darker: #D6136E;
+$c-pinky-darkest: #AB0F58;
+$c-blueish: #00D9C0;
+$c-brownish: #56494E;
+$c-brownish-darker: #473C40;
 $c-orange: #fba230;
 $c-orange_dark: #f27a22;
 
@@ -172,3 +177,37 @@ address {
 
 .grow { transition: all .2s ease-in-out; }
 .grow:hover { transform: scale(1.05); }
+
+.label-warning {
+  background-color: $c-blueish;
+}
+
+.label-primary {
+  background-color: $c-brownish;
+}
+
+.label-success {
+  background-color: $c-pinky;
+}
+
+.label-info {
+  background-color: $c-brownish;
+}
+
+
+.btn-success {
+  background-color: $c-pinky;
+
+  &:hover {
+    background-color: $c-pinky-darker !important;
+    border-color: $c-pinky-darker;
+  }
+  &:active {
+    background-color: $c-pinky-darkest !important;
+    border-color: $c-pinky-darker;
+  }
+  &:focus {
+    background-color: $c-pinky-darkest !important;
+    border-color: $c-pinky-darker;
+  }
+}

@@ -145,6 +145,11 @@ he:
   log_in: "התחברי"
   sign_up: "הרשמה"
   forgot_password: "שכחת את הסיסמא?"
+  reset_password_instructions: "שלח הוראות לאיפוס סיסמא"
+  change_your_password: "החלפי סיסמא"
+  change_my_password: "שני סיסמא"
+  new_password: "סיסמא חדשה"
+  confirm_new_password: "אמת סיסמא"
 
   registration_text: "כדי להרשם עליך לקבל קוד. אנא פנה למדריך חלומות בשביל לקבל קוד"
   registration_code: "קוד הרשמה"

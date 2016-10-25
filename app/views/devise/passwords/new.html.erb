@@ -1,5 +1,5 @@
 <% content_for(:head) do %>
-  <% browser_title = "Editing password" + " - " + t(:browser_title_tag) %>
+  <% browser_title = t(:change_your_password) + " - " + t(:browser_title_tag) %>
   <title><%= browser_title %></title>
 <% end %>
 
@@ -15,7 +15,7 @@
     </div>
 
     <div class="actions">
-      <%= f.submit "Send me reset password instructions" , class: "btn btn-success" %>
+      <%= f.submit t(:reset_password_instructions) , class: "btn btn-success" %>
     </div>
   <% end %>
 

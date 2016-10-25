@@ -148,6 +148,13 @@ en:
   remember_me" : "Remember Me"
   sign_up: "Sign Up"
   forgot_password: "Forgot your password?"
+  reset_password_instructions: "Send me reset password instructions"
+  
+  # Change password
+  change_your_password: "Change your password"
+  change_my_password: "Change my password"
+  new_password: "New password"
+  confirm_new_password: "Confirm new password"
 
   registration_text: "To register on the dreams platform, you need to have a membership for The Borderland 2016. On your ticket, you'll find a number as shown in the image below. That's all you need, and you're set!"
   registration_code: "Membership Code"

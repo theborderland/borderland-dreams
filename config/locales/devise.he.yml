@@ -30,7 +30,7 @@ he:
       success: "אושרת בהצלחת דרך חשבון %{kind}."
     passwords:
       no_token: "You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided."
-      send_instructions: "You will receive an email with instructions on how to reset your password in a few minutes."
+      send_instructions: "בקרוב תקבלי אימייל עם הוראות על איך לאפס את הסיסמא שלך."
       send_paranoid_instructions: "If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes."
       updated: "הסיסמא שלך שונתה בהצלחה. את כעת מחוברת."
       updated_not_active: "הסיסמא שונתה בהצלחה."

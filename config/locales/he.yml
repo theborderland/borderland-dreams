@@ -132,7 +132,7 @@ he:
   not_funded_yet: "טרם מומן"
   minimum_funding_reached: "מימון מינימאלי הושג"
   minimum_grants_needed: "מענקים מינימלים שצריכים"
-  needed_to_fully_fund: "מענקים מינימלים שצריכים"
+  needed_to_fully_fund: "מענקים מקסימלים שצריכים"
 
   your_available_grants: "מענקים שהותרו לך"
   youre_out_of_grants: "השתמשת בכל המענקים שלך. ריספקט"

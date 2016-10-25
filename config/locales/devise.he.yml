@@ -18,13 +18,13 @@ he:
       unconfirmed: "אנא היכנסי לאימייל שלך ואשרי אותי לפני שתמשיכי"
     mailer:
       confirmation_instructions:
-        subject: "הוראות אימות"
+        subject: "מידברנרות חלומות - הוראות אימות"
       reset_password_instructions:
-        subject: "הוראות לאיפוס סיסמא"
+        subject: "מידברנרות חלומות - הוראות לאיפוס סיסמא"
       unlock_instructions:
-        subject: "הוראות ביטול נעילה"
+        subject: "מידברנרות חלומות - הוראות ביטול נעילה"
       password_change:
-        subject: "הסיסמא השתנתה"
+        subject: "מידברנרות חלומות - הסיסמא השתנתה"
     omniauth_callbacks:
       failure: "לא ניתן לאשר אותך ב %{kind} בגלל \"%{reason}\"."
       success: "אושרת בהצלחת דרך חשבון %{kind}."

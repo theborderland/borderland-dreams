@@ -180,11 +180,59 @@ he:
     am: am
     formats:
       default: "%a %d %b %H:%M:%S %Z %Y"
-      long: "%d ב%B, %Y %H:%M"
+      long: "%d/%m/%Y %H:%M"
       short: "%d %b %H:%M"
     pm: pm
 
   activerecord:
+    models:
+      camp:
+        one: "חלום"
+        other: "חלומות"
+      user:
+        one: "משתמשת"
+        other: "משתמשות"
+      admin_user:
+        one: "מנהלת"
+        other: "מנהלות"
+    attributes:
+      user:
+        email: "אימייל"
+        encrypted_password: "סיסמא מוצפנת"
+        admin: "מנהלת"
+        guide: "מדריכה"
+        grants: "גראנטים"
+        created_at: "נוצר"
+        updated_at: "עודכן"
+      admin_user:
+        email: "אימייל"
+        created_at: "נוצר"
+      camp:
+        name: "שם"
+        subtitle: "תקציר"
+        contact_email: "אימייל"
+        contact_name: "שם"
+        contact_phone: "פלאפון"
+        description: "תיאור"
+        electricity: "חשמל"
+        light: "תאורה"
+        fire: "אש"
+        noise: "רעש"
+        nature: "חימום"
+        moop: "חשלש"
+        plan: "תוכניות וצוות"
+        cocreation: "שיתוף פעולה"
+        neighbors: "שכנים"
+        budgetplan: "תוכנית תקציב"
+        minbudget: "תקציב מינימלי"
+        maxbudget: "תקציב מקסימלי"
+        grants_received: "מענקים שהוענקו"
+        grantingtoggle: "מענקים מופעלים"
+        created_at: "נוצר"
+        updated_at: "עודכן"
+        minfunded: "מימון מינימלי הושג"
+        fullyfunded: "מימון מקסימלי הושג"
+        
     errors:
       models:
         camp:

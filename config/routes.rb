@@ -11,5 +11,7 @@ Rails.application.routes.draw do
   post 'camps/:id/join' => 'camps#join'
   patch 'camps/:id/update_grants' => 'camps#update_grants'
   patch 'camps/:id/toggle_granting' => 'camps#toggle_granting'
+  get '/pages/:page' => 'pages#show'
+  get '*unmatched_route' => 'application#not_found'
 
 end

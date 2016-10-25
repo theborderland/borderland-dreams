@@ -22,8 +22,13 @@
 he:
   # Front page
   html_direction: "rtl"
+
   browser_title_tag: "חלומות מידברנרות"
   top_headline_html: "חלומות<br>מידברנרות"
+  top_headline_resources: "משאבים >"
+  top_headline_old_dreams: "חלומות שהוגשמו ב-2015"
+  top_headline_faq: "שאלות ותשובות"
+
   creations_menu: "חלומות"
   register_creation_menu: "צרי חלום"
   login_menu: "התחבר"

@@ -22,8 +22,13 @@
 en:
   # Front page
   html_direction: "ltr"
+
   browser_title_tag: "Midburnerot Dreams"
   top_headline_html: "Midburnerot<br>Dreams"
+  top_headline_resources: "Resources >"
+  top_headline_old_dreams: "2015 Dreams"
+  top_headline_faq: "Faq"
+
   creations_menu: "Dreams"
   register_creation_menu: "Create Dream"
   login_menu: "Log in"

@@ -33,6 +33,19 @@
       }
   }
 
+  .dropdown {
+    padding: 3px 8px;
+    
+    .dropdown-menu {
+      background: none;
+      color: white;
+
+      &:hover {
+        background: none;        
+      }
+    }
+  }
+
 }
 
 .header-nav {

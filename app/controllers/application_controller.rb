@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  def not_found
+    render file: "public/404.html", status: :not_found
+  end
+
   def iframe_action
     response.headers.delete "X-Frame-Options"
     render_something

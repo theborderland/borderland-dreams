@@ -5,12 +5,19 @@
 
   <div class="main_content top_menu">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-5">
           <h1><a class="header-top-menu" href="/"><%=t :top_headline_html %></a></h1>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-7">
           <div class="header-nav">
             <a href="/"><%=t :creations_menu %></a>
+            <div class="dropdown">
+                <a class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><%=t :top_headline_resources %></a>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><a href="/pages/faq"><%=t :top_headline_faq %></a></li>
+                <li><a href="/pages/olddreams"><%=t :top_headline_old_dreams %></a></li>
+              </ul>
+            </div>
             <% if user_signed_in? %>
             <%= link_to t("register_creation_menu"), new_camp_path %>
             <% end %>

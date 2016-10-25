@@ -179,19 +179,26 @@ he:
         camp:
           attributes:
             name:
-              blank: "אנא בחר שם לחלום"
+              blank: "אנא בחרי שם לחלום"
             subtitle:
-              blank: "אנא הכנס תקציר חלום"
+              blank: "אנא הכנסי תקציר חלום"
             contact_email:
-              blank: "אנא הכנס אימייל"
+              blank: "אנא הכנסי אימייל"
+              too_short: "קצרה מדיי - מינימום %{count} תווים"
             contact_name:
-              blank: "אנא הכנס שם החולם"
+              blank: "אנא הכנסי שם החולם"
         user:
           attributes:
             password:
               blank: "אנא הכנס סיסמא"
+              confirmation: "הסיסמאות אינן זהות"
+              too_short: "הסיסמא קצרה מדיי - מינימום %{count} תווים"
+            password_confirmation:
+              confirmation: "הסיסמאות אינן זהות"
             email:
               blank: "אנא הכנס אימייל"
+              too_short: "קצרה מדיי - מינימום %{count} תווים"
+              taken: "האימייל כבר נמצא בשימוש. אנא התחברי."
 
       messages:
         record_invalid: 'האימות נכשל: %{errors}'

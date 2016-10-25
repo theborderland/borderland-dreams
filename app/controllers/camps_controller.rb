@@ -54,12 +54,17 @@ class CampsController < ApplicationController
 
     # Decrement user grants. Check first if granting more than needed.
     granted = params['grants'].to_i
+    if(granted <= 0)
+      flash[:alert] = "#{t:cant_send_less_then_one}"
+      redirect_to camp_path(@camp) and return
+    end
+
     if @camp.grants_received + granted > @camp.maxbudget
       granted = @camp.maxbudget - @camp.grants_received
     end
 
     if current_user.grants < granted
-      flash[:alert] = "Security error cannot grant more then available grants #{granted} / #{current_user.grants}"
+      flash[:alert] = "#{t:security_more_grants, granted: granted, current_user_grants: current_user.grants}"
       redirect_to camp_path(@camp) and return
     end
 

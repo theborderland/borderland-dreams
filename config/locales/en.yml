@@ -170,3 +170,5 @@ en:
   reset_pass_didnt: "If you didn't request this, please ignore this email."
   reset_pass_wont_change: "Your password won't change until you access the link above and create a new one."
 
+  cant_send_less_then_one: "One cannot send less then 1 grants"
+  security_more_grants: "Security error cannot grant more then available grants. you tried gifting %{granted} grants. you have %{current_user_grants}. nice try."

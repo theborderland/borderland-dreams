@@ -134,7 +134,7 @@ he:
   minimum_grants_needed: "מענקים מינימלים שצריכים"
   needed_to_fully_fund: "מענקים מקסימלים שצריכים"
 
-  your_available_grants: "מענקים שהותרו לך"
+  your_available_grants: "מענקים שנותרו לך"
   youre_out_of_grants: "השתמשת בכל המענקים שלך. ריספקט"
 
   add_my_name: "תוסיפי את שמי"
@@ -164,6 +164,9 @@ he:
   reset_pass_link_text: "מישהו (כנראה את) ביקש לינק לשנות את הסיסמא. את יכולה לעשות זאת באמצעות הלינק הבא"
   reset_pass_didnt: "אם לא את ביקשת את השינוי. אנא התעלמי ממייל זאת."
   reset_pass_wont_change: "הסיסמא שלך לא תשונה עד שלא תלחצי על הלינק ותצרי אחת חדשה."
+
+  cant_send_less_then_one: "לא ניתן לשלוח פחות מגראנט אחד"
+  security_more_grants: "שגיאת מציאות. לא ניתן לתת יותר גרנטים ממש שיש לך כרגע. ניסית לתת %{granted} ויש לך %{current_user_grants}. נסיון יפה."
 
   helpers:
     label:

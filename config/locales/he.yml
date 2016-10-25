@@ -159,6 +159,12 @@ he:
 
   thanks_for_sending: "תודה על ששלחת %{grants} מענקים"
 
+  # Reset password email
+  reset_pass_hello: "היי"
+  reset_pass_link_text: "מישהו (כנראה את) ביקש לינק לשנות את הסיסמא. את יכולה לעשות זאת באמצעות הלינק הבא"
+  reset_pass_didnt: "אם לא את ביקשת את השינוי. אנא התעלמי ממייל זאת."
+  reset_pass_wont_change: "הסיסמא שלך לא תשונה עד שלא תלחצי על הלינק ותצרי אחת חדשה."
+
   helpers:
     label:
       user:

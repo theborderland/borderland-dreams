@@ -163,3 +163,10 @@ en:
   membership_code_registered: "membership code is already registered for another user."
 
   thanks_for_sending: "Thanks for sending %{grants} grant(s)"
+
+  # Reset password email
+  reset_pass_hello: "Hello"
+  reset_pass_link_text: "Someone has requested a link to change your password. You can do this through the link below."
+  reset_pass_didnt: "If you didn't request this, please ignore this email."
+  reset_pass_wont_change: "Your password won't change until you access the link above and create a new one."
+

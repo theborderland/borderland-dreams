@@ -5,3 +5,4 @@ log/
 .bundle/
 .env
 public/system/
+db/test.sqlite3

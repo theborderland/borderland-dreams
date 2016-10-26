@@ -79,6 +79,12 @@
     = form.text_area :moop, :maxlength => 1024
     = t("form_moop_guidetext_html")
 
+  .combo#recycling
+  - if Rails.configuration.x.firestarter_settings["recycling"]
+    = form.label t("form_recycling_label")
+    = form.text_area :recycling, :maxlength => 512
+    = t("form_recycling_guidetext_html")
+
   .combo#plan
   - if Rails.configuration.x.firestarter_settings["plan"]
     = form.label t("form_plan_label")

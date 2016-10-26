@@ -81,6 +81,8 @@ en:
   form_nature_guidetext_html: "Boesdal is a windy place, right next to the ocean, light structures have been known to go hilariously airborn, rain has been known to soak things, how are you ready for it?"
   form_moop_label: "Moop plan (matter out of place)"
   form_moop_guidetext_html: "All the little things that should not end up just lying around. What kind of moop (Trash et.c) will you and the participants in your creation create, and how will you deal with that?"
+  form_recycling_label: "Recycling plan"
+  form_recycling_guidetext_html: "Where do your materials come from? Are they reusable? What will happen with them after the event?"
   form_plan_label: "Team and plan"
   form_plan_guidetext_html: "What does your team look like and what is your time plan?"
   form_cocreation_label: "How can other midburners cocreate with you?"

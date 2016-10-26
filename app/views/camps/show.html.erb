@@ -49,35 +49,42 @@
             <p><%= simple_format(@camp.subtitle) %></p>
         </div>
 
-        <% if Rails.configuration.x.firestarter_settings["description"] and @camp.description != "" %>
+        <% if Rails.configuration.x.firestarter_settings["description"] and @camp.description.present? %>
             <div class="camp-description">
                 <b><%=t :form_description_label %></b>
                 <p><%= simple_format(@camp.description) %></p>
             </div>
         <% end %>
 
-        <% if Rails.configuration.x.firestarter_settings["plan"] and @camp.plan != "" %>
+        <% if Rails.configuration.x.firestarter_settings["plan"] and @camp.plan.present? %>
             <div class="camp-description">
                 <b><%=t :form_plan_label %></b>
                 <p><%= simple_format(@camp.plan) %></p>
             </div>
         <% end %>
 
-        <% if Rails.configuration.x.firestarter_settings["moop"] and @camp.moop != "" %>
+        <% if Rails.configuration.x.firestarter_settings["moop"] and @camp.moop.present? %>
             <div class="camp-description">
                 <b><%=t :form_moop_label %></b>
                 <p><%= simple_format(@camp.moop) %></p>
             </div>
         <% end %>
 
-        <% if Rails.configuration.x.firestarter_settings["budgetplan"] and @camp.budgetplan != "" %>
+        <% if Rails.configuration.x.firestarter_settings["recycling"] and @camp.recycling.present? %>
+            <div class="camp-description">
+                <b><%=t :form_recycling_label %></b>
+                <p><%= simple_format(@camp.recycling) %></p>
+            </div>
+        <% end %>
+
+        <% if Rails.configuration.x.firestarter_settings["budgetplan"] and @camp.budgetplan.present? %>
             <div class="camp-description">
                 <b><%=t :form_budgetplan_label %></b>
                 <p><%= simple_format(@camp.budgetplan) %></p>
             </div>
         <% end %>
 
-        <% if Rails.configuration.x.firestarter_settings["cocreation"] and @camp.cocreation != "" %>
+        <% if Rails.configuration.x.firestarter_settings["cocreation"] and @camp.cocreation.present? %>
             <div class="camp-description">
                 <b><%=t :form_cocreation_label %></b>
                 <p><%= simple_format(@camp.cocreation) %></p>
@@ -216,7 +223,7 @@
                 <% end %>
                 <!-- End of granting block -->
 
-                <% if Rails.configuration.x.firestarter_settings["electricity"] and @camp.electricity != "" %>
+                <% if Rails.configuration.x.firestarter_settings["electricity"] and @camp.electricity.present? %>
                     <li><span>
                         <b><%=t :form_electricity_label %></b> <%= @camp.electricity %>
                     </span></li>
@@ -225,7 +232,7 @@
                     <br>
                 <% end %>
 
-                <% if Rails.configuration.x.firestarter_settings["light"] and  @camp.light != "" %>
+                <% if Rails.configuration.x.firestarter_settings["light"] and  @camp.light.present? %>
                     <li><span>
                         <b><%=t :form_light_label %></b> <%= @camp.light %>
                     </span></li>
@@ -234,7 +241,7 @@
                     <br>
                 <% end %>
 
-                <% if Rails.configuration.x.firestarter_settings["fire"] and  @camp.fire != "" %>
+                <% if Rails.configuration.x.firestarter_settings["fire"] and  @camp.fire.present? %>
                     <li><span>
                         <b><%=t :form_fire_label %></b> <%= @camp.fire %>
                     </span></li>
@@ -243,7 +250,7 @@
                     <br>
                 <% end %>
 
-                <% if Rails.configuration.x.firestarter_settings["noise"] and  @camp.noise != "" %>
+                <% if Rails.configuration.x.firestarter_settings["noise"] and  @camp.noise.present? %>
                     <li><span>
                         <b><%=t :form_noise_label %></b> <%= @camp.noise %>
                     </span></li>
@@ -252,7 +259,7 @@
                     <br>
                 <% end %>
 
-                <% if Rails.configuration.x.firestarter_settings["nature"] and  @camp.nature != "" %>
+                <% if Rails.configuration.x.firestarter_settings["nature"] and  @camp.nature.present? %>
                     <li><span>
                         <b><%=t :form_nature_label %></b> <%= @camp.nature %>
                     </span></li>
@@ -261,13 +268,13 @@
                     <br>
                 <% end %>
 
-                <% if Rails.configuration.x.firestarter_settings["grants"] and  @camp.minbudget != "" %>
+                <% if Rails.configuration.x.firestarter_settings["grants"] and  @camp.minbudget.present? %>
                     <li><span>
                         <b><%=t :form_minigrants_label %></b> <%= @camp.minbudget %>
                     </span></li>
                 <% end %>
 
-                <% if Rails.configuration.x.firestarter_settings["grants"] and  @camp.maxbudget != "" %>
+                <% if Rails.configuration.x.firestarter_settings["grants"] and  @camp.maxbudget.present? %>
                     <li><span>
                         <b><%=t :form_maxigrants_label %></b> <%= @camp.maxbudget %>
                     </span></li>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161026102105) do
+ActiveRecord::Schema.define(version: 20161026144818) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -59,7 +59,6 @@ ActiveRecord::Schema.define(version: 20161026102105) do
     t.text     "noise",           limit: 255
     t.text     "nature",          limit: 255
     t.text     "moop",            limit: 512
-    t.text     "recycling",       limit: 512
     t.text     "plan",            limit: 1024
     t.text     "cocreation",      limit: 1024
     t.text     "neighbors",       limit: 512
@@ -74,6 +73,7 @@ ActiveRecord::Schema.define(version: 20161026102105) do
     t.datetime "updated_at"
     t.boolean  "minfunded",                    default: false
     t.boolean  "fullyfunded",                  default: false
+    t.text     "recycling",       limit: 512
   end
 
   add_index "camps", ["user_id"], name: "index_camps_on_user_id"
@@ -100,8 +100,7 @@ ActiveRecord::Schema.define(version: 20161026102105) do
   add_index "memberships", ["user_id"], name: "index_memberships_on_user_id"
 
   create_table "tickets", force: :cascade do |t|
-    t.text    "id_code"
-    t.boolean "id_registered", default: false, null: false
+    t.text "id_code"
   end
 
   create_table "users", force: :cascade do |t|

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161026144818) do
+ActiveRecord::Schema.define(version: 20161026145114) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -100,7 +100,8 @@ ActiveRecord::Schema.define(version: 20161026144818) do
   add_index "memberships", ["user_id"], name: "index_memberships_on_user_id"
 
   create_table "tickets", force: :cascade do |t|
-    t.text "id_code"
+    t.text   "id_code"
+    t.string "email",   limit: 64, default: "", null: false
   end
 
   create_table "users", force: :cascade do |t|

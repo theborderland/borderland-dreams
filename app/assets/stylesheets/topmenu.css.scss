@@ -29,7 +29,8 @@
     padding: 3px 8px;
 
     &:hover {
-        background-color: black;
+        color: $c-pinky;
+        background: rgba(0, 0, 0, 0.7) !important;
       }
   }
 

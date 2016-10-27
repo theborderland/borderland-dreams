@@ -113,6 +113,12 @@
   - if Rails.configuration.x.firestarter_settings["granting"]
     = t("form_artgrants_text_html")
 
+  .combo#budgetplan
+  - if Rails.configuration.x.firestarter_settings["budgetplan"]
+    = form.label t("form_budgetplan_label")
+    = form.text_area :budgetplan, :maxlength => 4096
+    = t("form_budgetplan_guidetext_html")
+
   .combo#minbudget
   - if Rails.configuration.x.firestarter_settings["granting"]
     = form.label t("form_minigrants_label")
@@ -124,12 +130,6 @@
     = form.label t("form_maxigrants_label")
     = form.number_field :maxbudget, :maxlength => 6 ,class:'form-control'
     = t("form_maxigrants_guidetext_html")
-
-  .combo#budgetplan
-  - if Rails.configuration.x.firestarter_settings["budgetplan"]
-    = form.label t("form_budgetplan_label")
-    = form.text_area :budgetplan, :maxlength => 4096
-    = t("form_budgetplan_guidetext_html")
 
   .submit
     -if @camp.name

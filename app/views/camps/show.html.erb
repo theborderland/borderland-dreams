@@ -145,7 +145,7 @@
 
                 <% if current_user && (current_user.guide || current_user.admin) %>
                     <%= form_tag({controller: "camps", action: "toggle_granting"}, method: "patch") do %>
-                        <%= submit_tag button_text, :class => "btn btn-primary" %>
+                        <%= submit_tag button_text, :class => "btn btn-danger" %>
                     <% end %>
                 <% end %>
 

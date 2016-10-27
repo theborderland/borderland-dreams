@@ -186,7 +186,7 @@ he:
   helpers:
     label:
       user:
-        email: "אימיילש"
+        email: "אימייל"
         password: "סיסמא"
         too_short: "קצרה מדיי - מינימום 8 תווים"
         password_confirmation: "אימות סיסמא"

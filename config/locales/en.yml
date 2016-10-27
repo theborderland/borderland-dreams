@@ -108,6 +108,8 @@ en:
   i_gift_thee_grants: 'I gift thee grants'
   no_granting_yet: 'No granting for this dream yet!'
 
+  created_new_dream: "Yeah! You've created a dream. Now add some images to your dream"
+
   # Creation view
   what_is_this_title: "What is this?"
   what_is_this_text_html: "Congratulations! You've stumbled upon something special. The Midburnerot is a participatory festival that takes place in Boesdal quarry in Denmark on July 18-24. It's a fully participatory event where everything is created by the participants themselves, with out any spectators. Read more at <a href='http://www.theborderland.se'><b>theborderland.se</b></a> and as questions in our <a href='https://www.facebook.com/groups/theborderland/'>group</a>"
@@ -131,6 +133,7 @@ en:
   upload_button: "Upload Image"
   remove_image: "Remove Image"
   back_to_dream: "Back to dream"
+  error_no_image_selected: "No image selected"
   
   # Grants widget
   fully_funded: "Fully funded"

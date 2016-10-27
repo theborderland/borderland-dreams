@@ -12,6 +12,11 @@ class ImagesController < ApplicationController
   end
 
   def create
+    if params[:attachment].blank?
+      flash[:alert] = t(:error_no_image_selected)
+      redirect_to camp_images_path(camp_id: @camp_id)
+      return
+    end
     @image = Image.new(image_params)
     @image.user_id = current_user.id
 

@@ -15,10 +15,6 @@
 </div>
 
 <div class="row">
-    <a href="<%= camp_path(@camp_id) %>" class="btn btn-info camp-button" role="button"><%=t :back_to_dream %></a>
-</div>
-
-<div class="row">
     <h2 class="header-sub-heading camp-upload_image"><%=t :upload_button %></h2>
 
     <p><%=t :upload_guidetext_html %> </p>
@@ -40,3 +36,7 @@
         <div class="col-md-4"></div>
     </div>
 <% end %>
+<br><br><br>
+<div class="row">
+    <a href="<%= camp_path(@camp_id) %>" class="btn btn-info camp-button" role="button"><%=t :back_to_dream %></a>
+</div>

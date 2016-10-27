@@ -104,9 +104,11 @@ he:
   edit_dream: "ערוך חלום"
   manage_images: "ערוך תמונות"
 
-  give_grants: 'הענק גראנט'
-  i_gift_thee_grants: 'אני מעניק את הגראנטים'
-  no_granting_yet: 'טרם נפתח המענק לחלום זה!'
+  give_grants: "הענק גראנט"
+  i_gift_thee_grants: "אני מעניק את הגראנטים"
+  no_granting_yet: "טרם נפתח המענק לחלום זה!"
+
+  created_new_dream: "יש! יצרת חלום. השלב הבא הוא להוסיף תמונה שרטוט או הדמייה של החלום"
 
   # Creation view
   what_is_this_title: "מה זה?"
@@ -127,10 +129,11 @@ he:
   # Manage images view
   images_headline: "תמונות החלום"
   upload_headline: "העלה תמונה"
-  upload_guidetext_html: "ניתן להעלות סקיצה או הדמייה או סרטוט של איך שהחלום שלכם ייראה. <br>על התמונות להיות קטנות מ-8mb ובפורמט jpg, png, gif.<br>כדי שהחלום יראה טוב ממש, וודאי שהתמונות שלך הן אופקיות וגדולות מ-1500x800 פיקסלים"
+  upload_guidetext_html: "ניתן להעלות סקיצה או הדמייה או שרטוט של איך שהחלום שלכם ייראה. <br>על התמונות להיות קטנות מ-8mb ובפורמט jpg, png, gif.<br>כדי שהחלום יראה טוב ממש, וודאי שהתמונות שלך הן אופקיות וגדולות מ-1500x800 פיקסלים"
   upload_button: "העלי תמונה"
   remove_image: "הסירי תמונה"
   back_to_dream: "חזרי לחלום"
+  error_no_image_selected: "לא נבחרה שום תמונה. אנא בחרי תמונה"
 
   # Grants widget
   fully_funded: "מומן במלואו"

@@ -29,7 +29,8 @@ class CampsController < ApplicationController
     @camp.creator = current_user
 
     if @camp.save
-      redirect_to camps_path
+      flash[:notice] = t('created_new_dream')
+      redirect_to camp_path(@camp)
     else
       flash.now[:notice] = "#{t:errors_str}: #{@camp.errors.full_messages.join(', ')}"
       render :new

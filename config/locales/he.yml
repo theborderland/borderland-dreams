@@ -186,13 +186,15 @@ he:
   helpers:
     label:
       user:
-        email: "אימייל"
+        email: "אימיילש"
         password: "סיסמא"
         too_short: "קצרה מדיי - מינימום 8 תווים"
         password_confirmation: "אימות סיסמא"
         remember_me: "זכרי אותי"
         blank: "לא יכולה להשאר ריקה"
         invalid: "לא תקין"
+      ticket:
+        id_code: "קוד הרשמה"
 
   time:
     am: am
@@ -216,6 +218,8 @@ he:
     attributes:
       user:
         email: "אימייל"
+        password: "סיסמא"
+        ticket_id: "קוד הרשמה"
         encrypted_password: "סיסמא מוצפנת"
         admin: "מנהלת"
         guide: "מדריכה"
@@ -225,6 +229,9 @@ he:
       admin_user:
         email: "אימייל"
         created_at: "נוצר"
+      ticket:
+        id_code: "קוד הרשמה"
+        email: "אימייל"
       camp:
         name: "שם"
         subtitle: "תקציר"
@@ -305,4 +312,3 @@ errors:
     too_short: קצר מדי (פחות מ- %{count} תווים)
     wrong_length: לא באורך הנכון (חייב להיות %{count} תווים)
     not_saved: "לא נשמר"
-    

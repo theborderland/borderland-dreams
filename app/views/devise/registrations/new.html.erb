@@ -14,10 +14,17 @@
       <%= f.email_field :email, autofocus: true %>
     </div>
 
-    <div class="field">
+    <% if Rails.configuration.x.firestarter_settings["user_authentication_codes"] %>
+
+      <div class="field">
       <%= f.label :Membership_code, t(:registration_code) %><br />
+      
+        <%=t :registration_text %>
+      
       <%= f.text_field :ticket_id, autocomplete: "off" %>
     </div>
+
+      <% end %>
 
     <div class="field">
       <%= f.label :password %>
@@ -31,18 +38,6 @@
       <%= f.label :password_confirmation %><br />
       <%= f.password_field :password_confirmation, autocomplete: "off" %>
     </div>
-
-    <% if Rails.configuration.x.firestarter_settings["user_authentication_codes"] %>
-
-      <div class="membership_id_info">
-        <p><%=t :registration_text %></p>
-      </div>
-
-      <div>
-        
-      </div>
-
-      <% end %>
 
       <div class="actions">
         <%= f.submit t(:sign_up), class: "btn btn-success" %>

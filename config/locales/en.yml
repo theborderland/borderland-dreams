@@ -159,6 +159,7 @@ en:
   sign_up: "Sign Up"
   forgot_password: "Forgot your password?"
   reset_password_instructions: "Send me reset password instructions"
+  password_characters_minimum: "Minimum %{count} Characters"
   
   # Change password
   change_your_password: "Change your password"

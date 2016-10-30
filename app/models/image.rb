@@ -5,7 +5,7 @@ class Image < ActiveRecord::Base
                         thumb: '100x100>',
                         square: '311x222#',
                         medium: '300x300>',
-                        large: '500x500>'
+                        large: '2000x2000>'
                       },
                       :convert_options => {
                         :all => "-quality 85 -interlace Plane"

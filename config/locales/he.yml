@@ -195,7 +195,7 @@ he:
         blank: "לא יכולה להשאר ריקה"
         invalid: "לא תקין"
       ticket:
-        id_code: "קוד הרשמה"
+        id_code: "מספר פלאפון - קוד הרשמה"
 
   time:
     am: am
@@ -216,11 +216,14 @@ he:
       admin_user:
         one: "מנהלת"
         other: "מנהלות"
+      ticket:
+        one: "כרטיס"
+        other: "כרטיסים"
     attributes:
       user:
         email: "אימייל"
         password: "סיסמא"
-        ticket_id: "קוד הרשמה"
+        ticket_id: "מספר פלאפון (קוד הרשמה)"
         encrypted_password: "סיסמא מוצפנת"
         admin: "מנהלת"
         guide: "מדריכה"
@@ -231,7 +234,7 @@ he:
         email: "אימייל"
         created_at: "נוצר"
       ticket:
-        id_code: "קוד הרשמה"
+        id_code: "מספר פלאפון (קוד הרשמה)"
         email: "אימייל"
       camp:
         name: "שם"
@@ -259,7 +262,7 @@ he:
         updated_at: "עודכן"
         minfunded: "מימון מינימלי הושג"
         fullyfunded: "מימון מקסימלי הושג"
-        
+
     errors:
       models:
         camp:

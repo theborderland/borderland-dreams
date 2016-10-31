@@ -1,0 +1,15 @@
+.multiprogress {
+  .progress-background {
+    width: 264px;
+    height: 8px;
+    border-radius: 20px;
+    background-color: #dce0e3;
+  }
+  .progress {
+    position: relative;
+    width: 140px;
+    top: -8px;
+    height: 8px;
+    background-image: linear-gradient(93deg, #68c9f7, #3799ec);
+  }
+}

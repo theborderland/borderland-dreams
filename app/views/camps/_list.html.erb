@@ -26,6 +26,7 @@
 
                         <div class="labels">
                             <% if Rails.configuration.x.firestarter_settings["granting_active"] and camp.minbudget %>
+                            <div class="multiprogress"></div>
 
                                 <% if camp.minbudget <= camp.grants_received %>
                                     <% if camp.maxbudget <= camp.grants_received %>

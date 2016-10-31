@@ -1,7 +1,4 @@
 window.onload = function(){ 
-  //Fix the hidden element issue on some chrome browsers
-  window.scroll(0,1);
-  window.scroll(0,0);
   var links = document.getElementById('links');
   if(!links)
     return;

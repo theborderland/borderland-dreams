@@ -185,6 +185,7 @@ he:
   reset_pass_wont_change: "הסיסמא שלך לא תשונה עד שלא תלחצי על הלינק ותצרי אחת חדשה."
 
   cant_send_less_then_one: "לא ניתן לשלוח פחות מגראנט אחד"
+  dream_need_to_have_max_budget: "החלום צריך תחילה להגדיר מקסימום תקציב. אנא פנה לבעל החלום ואו למדריכים החלומות"
   security_more_grants: "שגיאת מציאות. לא ניתן לתת יותר גרנטים ממש שיש לך כרגע. ניסית לתת %{granted} ויש לך %{current_user_grants}. נסיון יפה."
 
   # Add me to dream

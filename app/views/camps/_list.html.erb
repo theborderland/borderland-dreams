@@ -27,7 +27,7 @@
                         <div class="labels">
                             <% if Rails.configuration.x.firestarter_settings["granting_active"] and camp.minbudget %>
 
-                                <% if camp.minbudget <= camp.grants_received and camp.minbudget > 0 and camp.maxbudget > 0 %>
+                                <% if camp.minbudget <= camp.grants_received and camp.maxbudget > 0 %>
                                     <% if camp.maxbudget <= camp.grants_received %>
                                         <h3><span class="label label-success granting-label">
                                             <b><%=t :fully_funded %></b>

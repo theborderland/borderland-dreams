@@ -10,6 +10,10 @@ class Camp < ActiveRecord::Base
 	validates :subtitle, presence: true
 	validates :contact_email, presence: true
 	validates :contact_name, presence: true
+	validates :minbudget, :numericality => { :greater_than_or_equal_to => 0 }
+	validates :minbudget_realcurrency, :numericality => { :greater_than_or_equal_to => 0 }
+	validates :maxbudget, :numericality => { :greater_than_or_equal_to => 0 }
+	validates :maxbudget_realcurrency, :numericality => { :greater_than_or_equal_to => 0 }
 
 	filterrific(
 	default_filter_params: { sorted_by: 'updated_at_desc' },
@@ -84,5 +88,21 @@ class Camp < ActiveRecord::Base
 		return nil  if '0' == flag # checkbox unchecked
 		where(grantingtoggle: true)
 	}
+
+	# Translating the real currency to budget - 1 = 10 coins
+	# This called on create and on update
+	# Rounding up 0.1 = 1, 1.2 = 2
+	before_save do
+		if self.minbudget_realcurrency > 0
+			self.minbudget = (self.minbudget_realcurrency / 10.0).ceil
+		else
+			self.minbudget = 0
+		end
+		if self.maxbudget_realcurrency > 0
+			self.maxbudget = (self.maxbudget_realcurrency / 10.0).ceil
+		else
+			self.maxbudget = 0
+		end
+	end
 
 end

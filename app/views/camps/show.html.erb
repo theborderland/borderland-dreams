@@ -26,10 +26,11 @@
                     <% status = "active" %>
                 <% end %>
                 <% image_url = image.attachment.url(:large)%>
+                <% thumb_url = image.attachment.url(:medium)%>
 
                 <div class="thumbnail">
                     <a href="<%= image_url %>">
-                        <img src="<%= image_url %>">
+                        <img src="<%= thumb_url %>">
                     </a>
                 </div>
 

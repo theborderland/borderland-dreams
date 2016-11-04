@@ -91,14 +91,19 @@ he:
   form_neighbors_guidetext_html: "אילו מיצבי אמנות הייתם רוצים כשכנים?"
 
   form_artgrants_headline: "מידע על מטבעות אמנות"
-  form_artgrants_text_html: "אם אינך מחפש מענק כספי לסיוע הגשמת החלום שלך, השאר את השדות האלה ריקים.<br>מענקים אומנותיים כספיים מעונקים על ידי משתתפי המידברנרות. לכל משתתף שרכש כרטיס לארוע המידברנרות יש 10 מטבעות לחלק. אפשר להעניק את כל עשרת המענקים לפרוייקט אחד או לחלק אותם בין כמה פרוייקטים. ברגע שהוענק מטבע, לא ניתן לקבלו בחזרה. כל מטבע שווה ___.<br>תעריכי את התקציב לפי מספר המענקים שתצטרכו כדי להרים את הפרוייקט. לדוגמא, אם תצטרכי 200 ש\"ח, זה שווה ל ___ מענקים. "
+  form_artgrants_text_html: "אם אינך מחפש מענק כספי לסיוע הגשמת החלום שלך, השאר את השדות האלה ריקים.<br>מענקים אומנותיים כספיים מעונקים כמטבעות על ידי משתתפי המידברנרות. לכל משתתף שרכש כרטיס לארוע המידברנרות יש 10 מטבעות לחלק. אפשר להעניק את כל עשרת המטבעות לפרוייקט אחד או לחלק אותם בין כמה פרוייקטים. ברגע שהוענק מטבע, לא ניתן לקבלו בחזרה. כרגע אנא הכנס את הכסף בשקלים ואנחנו נמירו בהמשך לכמות במטבעות ברגע שייסגר התקציב"
 
-  form_minigrants_label: "מספר מינימלי של מענקים שחייבים"
+  form_minigrants_realcurrency_label: "מספר מינימלי של כסף בשקלים הנדרש ליצירת הפרויקט"
+  form_minigrants_realcurrency_guidetext_html: "התקציב המינימלי שאתה צריך כדי להרים את הפרוייקט, שמתחתיו לא תוכל להרימו"
+  form_maxigrants_realcurrency_label: "תקציב בשקלים שאתה צריך בכדי לממן את החלום במלואו"
+  form_maxigrants_realcurrency_guidetext_html: "כמה כסף אתה צריך כדי לממן את הפרוייקט במלואו"
+
+  form_minigrants_label: "מספר מינימלי של מטבעות שחייבים"
   form_minigrants_guidetext_html: "התקציב המינימלי שאתה צריך כדי להרים את הפרוייקט, שמתחתיו לא תוכל להרימו"
-  form_maxigrants_label: "מענקים שצריכים כדי לממן את החלום במלואו"
-  form_maxigrants_guidetext_html: "כמה מענקים אתה צריך כדי לממן את הפרוייקט במלואו"
+  form_maxigrants_label: "מטבעות שצריכים כדי לממן את החלום במלואו"
+  form_maxigrants_guidetext_html: "כמה מטבעות אתה צריך כדי לממן את הפרוייקט במלואו"
   form_budgetplan_label: "סקירת תקציב"
-  form_budgetplan_guidetext_html: "איך תשתמשו בתקציב שלכם? תתארו את העלויות שלכם. אל תרדו יותר מדי לפרטים, כמו כן אל תהיו מעורפלים מדי... תמצאו איזון."
+  form_budgetplan_guidetext_html: "איך תשתמשו בתקציב שלכם? תתארו את העלויות שלכם לפי נושאים כללים של הצרכים שלכם. לדוג׳ - הובלה, ציוד לקנייה וכדומה."
   create_dream: "צור חלום!"
   update_dream: "עדכן חלום!"
   edit_dream: "ערוך חלום"
@@ -120,8 +125,8 @@ he:
   contact_email: "אימייל"
 
   # Granting adming
-  turn_off_granting: "כיבוי אפשרות לגראנט"
-  enable_granting: "הפעלת אפשרות לגראנט"
+  turn_off_granting: "כיבוי אפשרות למימון"
+  enable_granting: "פתיחת אפשרות למימון"
 
   cocreator_application_guidetext: "אם את מעוניינת להיות חלק מהחלום, את יכולה להוסיף את הכתובת מייל שלך לרשימה שרק היוצרת של החלום יכולה לראות."
   cocreators_list_guidetext: "האנשים הבאים רוצים ליצור איתך:"
@@ -141,13 +146,16 @@ he:
   granting_not_enabled: "טרם נפתח למלגות"
   not_funded_yet: "טרם מומן"
   minimum_funding_reached: "מימון מינימאלי הושג"
-  minimum_grants_needed: "מענקים מינימלים שצריכים"
-  needed_to_fully_fund: "מענקים מקסימלים שצריכים"
+  minimum_grants_needed: "מטבעות מינימלים שצריכים"
+  needed_to_fully_fund: "מטבעות מקסימלים שצריכים"
 
-  your_available_grants: "מענקים שנותרו לך"
-  youre_out_of_grants: "השתמשת בכל המענקים שלך. ריספקט"
+  minimum_grants_realcurrency_needed: "תקציב מינימלי בשקלים"
+  needed_to_fully_fund_realcurrency: "תקציב החלום במלואו בשקלים"
 
-  add_my_name: "תוסיפי את שמי"
+  your_available_grants: "מטבעות שנותרו לך"
+  youre_out_of_grants: "השתמשת בכל המטבעות שלך. ריספקט"
+
+  add_my_name: "הצטרפי לחלום"
   delete_this_creation: "למחוק את החלום הזה"
   are_you_sure: "האם את בטוחה?"
 
@@ -155,7 +163,7 @@ he:
   log_in: "התחברי"
   sign_up: "הרשמה"
   forgot_password: "שכחת את הסיסמא?"
-  reset_password_instructions: "שלח הוראות לאיפוס סיסמא"
+  reset_password_instructions: "שלח לינק איפוס סיסמא"
   change_your_password: "החלפי סיסמא"
   change_my_password: "שני סיסמא"
   new_password: "סיסמא חדשה"
@@ -168,7 +176,7 @@ he:
   invalid_membership_code: "הקוד שהוכנס לא נמצא. אנא נסה שנית. אנא בדוק שאתה מכניס את האימייל והפלאפון שהשתמשת בעת קניית הכרטיס. אם אתה לא מצליח להרשם, פנה ללשכת החלומות - midburnerot.art@gmail.com"
   membership_code_registered: "הקוד שהוכנס כבר בשימוש תחת משתמש אחר. אנא בקש קוד חדש ממדריך החלומות שלך"
 
-  thanks_for_sending: "תודה על ששלחת %{grants} מענקים"
+  thanks_for_sending: "תודה על ששלחת %{grants} מטבעות. את מדהימה!"
 
   # Reset password email
   reset_pass_hello: "היי"
@@ -177,6 +185,7 @@ he:
   reset_pass_wont_change: "הסיסמא שלך לא תשונה עד שלא תלחצי על הלינק ותצרי אחת חדשה."
 
   cant_send_less_then_one: "לא ניתן לשלוח פחות מגראנט אחד"
+  dream_need_to_have_max_budget: "החלום צריך תחילה להגדיר מקסימום תקציב. אנא פנה לבעל החלום ואו למדריכים החלומות"
   security_more_grants: "שגיאת מציאות. לא ניתן לתת יותר גרנטים ממש שיש לך כרגע. ניסית לתת %{granted} ויש לך %{current_user_grants}. נסיון יפה."
 
   # Add me to dream
@@ -195,7 +204,7 @@ he:
         blank: "לא יכולה להשאר ריקה"
         invalid: "לא תקין"
       ticket:
-        id_code: "קוד הרשמה"
+        id_code: "מספר פלאפון - קוד הרשמה"
 
   time:
     am: am
@@ -216,11 +225,14 @@ he:
       admin_user:
         one: "מנהלת"
         other: "מנהלות"
+      ticket:
+        one: "כרטיס"
+        other: "כרטיסים"
     attributes:
       user:
         email: "אימייל"
         password: "סיסמא"
-        ticket_id: "קוד הרשמה"
+        ticket_id: "מספר פלאפון (קוד הרשמה)"
         encrypted_password: "סיסמא מוצפנת"
         admin: "מנהלת"
         guide: "מדריכה"
@@ -231,7 +243,7 @@ he:
         email: "אימייל"
         created_at: "נוצר"
       ticket:
-        id_code: "קוד הרשמה"
+        id_code: "מספר פלאפון (קוד הרשמה)"
         email: "אימייל"
       camp:
         name: "שם"
@@ -253,13 +265,15 @@ he:
         budgetplan: "תוכנית תקציב"
         minbudget: "תקציב מינימלי"
         maxbudget: "תקציב מקסימלי"
-        grants_received: "מענקים שהוענקו"
+        grants_received: "מטבעות שהוענקו"
         grantingtoggle: "מענקים מופעלים"
         created_at: "נוצר"
         updated_at: "עודכן"
         minfunded: "מימון מינימלי הושג"
         fullyfunded: "מימון מקסימלי הושג"
-        
+        minbudget_realcurrency: "מימון מינימלי בשקלים"
+        maxbudget_realcurrency: "מימון מקסימלי בשקלים"
+
     errors:
       models:
         camp:
@@ -273,6 +287,10 @@ he:
               too_short: "קצרה מדיי - מינימום %{count} תווים"
             contact_name:
               blank: "אנא הכנסי שם החולם"
+            maxbudget_realcurrency:
+              greater_than_or_equal_to: "תקציב מקסימלי חייב להיות גדול מאפס אחרת אתה בגרעון."
+            minbudget_realcurrency:
+              greater_than_or_equal_to: "תקציב מקסימלי חייב להיות גדול מאפס אחרת אתה בגרעון."
         user:
           attributes:
             password:

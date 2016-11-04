@@ -4,11 +4,12 @@ class Image < ActiveRecord::Base
                       styles: {
                         thumb: '100x100>',
                         square: '324x222#',
-                        medium: '300x300>',
+                        small: '335x257>',
+                        medium: '700x700>',
                         large: '2000x2000>'
                       },
                       :convert_options => {
-                        :all => "-quality 85 -interlace Plane"
+                        :all => "-quality 95 -interlace Plane"
                       }
                     }
 

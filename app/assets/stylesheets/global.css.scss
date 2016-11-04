@@ -5,7 +5,7 @@
 $c-pinky: #eb1478;
 $c-pinky-darker: #D6136E;
 $c-pinky-darkest: #AB0F58;
-$c-blueish: #00D9C0;
+$c-greenish: #A9CBB7;
 $c-brownish: #56494E;
 $c-brownish-darker: #473C40;
 $c-orange: #fba230;
@@ -179,7 +179,7 @@ address {
 .grow:hover { transform: scale(1.05); }
 
 .label-warning {
-  background-color: $c-blueish;
+  background-color: $c-greenish;
 }
 
 .label-primary {

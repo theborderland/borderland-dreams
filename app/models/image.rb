@@ -4,6 +4,7 @@ class Image < ActiveRecord::Base
                       styles: {
                         thumb: '100x100>',
                         square: '324x222#',
+                        small: '335x257>',
                         medium: '300x300>',
                         large: '2000x2000>'
                       },

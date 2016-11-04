@@ -7,30 +7,42 @@
   border-radius: 5px;
   text-align: center;
   @extend %textOverflowEllipsis;
-
-  &:active {
-    background: darken($c-green, 10%);
-  }
 }
 
 .delete_button {
   @extend %button;
   background: $c-red;
+
+  &:active {
+    background: darken($c-red, 10%);
+  }
 }
 
 .toggle_button {
   @extend %button;
   background: $c-blue;
+
+  &:active {
+    background: darken($c-blue, 10%);
+  }
 }
 
 .granting_button {
   @extend %button;
   background: $c-blue;
+
+  &:active {
+    background: darken($c-blue, 10%);
+  }
 }
 
 .submit_button {
   @extend %button;
   color: $c-green;
+
+  &:active {
+    background: darken($c-green, 10%);
+  }
 }
 
 input,

@@ -5,7 +5,7 @@ class Image < ActiveRecord::Base
                         thumb: '100x100>',
                         square: '324x222#',
                         small: '335x257>',
-                        medium: '600x600>',
+                        medium: '700x700>',
                         large: '2000x2000>'
                       },
                       :convert_options => {

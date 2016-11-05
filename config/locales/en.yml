@@ -94,7 +94,7 @@ en:
   form_artgrants_text_html: "<p>If you're not looking for an art coins, leave these fields blank.</p><p>Art coins are given by the Midburnerot community. Each Midburner has 10 art-coins to hand out. You can give all your grants to one project or spread them around. Once a grant has been gifted to a dream, it can't be taken back. Each grant is worth 10 NIS. Please enter amount in NIS and once the budgeting will be clear we will translate it to the amount in coins</p>"
 
   form_minigrants_realcurrency_label: "Minimum sum of money in NIS needed"
-  form_minigrants_realcurrency_guidetext_html: "Minium funding needed to lift the project, below which you won't get funeded."
+  form_minigrants_realcurrency_guidetext_html: "Minium funding needed to lift the project, below which you won't get funded."
   form_maxigrants_realcurrency_label: "Maximum sum of money in NIS needed to fully fund the dream"
   form_maxigrants_realcurrency_guidetext_html: "How much money in NIS do you need to fully fund your project."
 
@@ -145,6 +145,7 @@ en:
   grants_recieved: "Grants Recieved"
   granting_not_enabled: "Granting not enabled"
   not_funded_yet: "Not funded yet"
+  funded: "funded"
   minimum_funding_reached: "Minimum funding reached"
   minimum_grants_needed: "Minimum grants needed"
   needed_to_fully_fund: "Needed to fully fund"

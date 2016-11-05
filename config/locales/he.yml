@@ -145,6 +145,7 @@ he:
   grants_recieved: "מלגות שהתקבלו:"
   granting_not_enabled: "טרם נפתח למלגות"
   not_funded_yet: "טרם מומן"
+  funded: "מומנו"
   minimum_funding_reached: "מימון מינימאלי הושג"
   minimum_grants_needed: "מטבעות מינימלים שצריכים"
   needed_to_fully_fund: "מטבעות מקסימלים שצריכים"

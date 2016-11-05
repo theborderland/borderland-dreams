@@ -26,33 +26,18 @@
 
                         <div class="labels">
                             <% if Rails.configuration.x.firestarter_settings["granting_active"] and camp.minbudget %>
-                            <div class="multiprogress"></div>
 
-                                <% if camp.minbudget <= camp.grants_received and camp.maxbudget > 0 %>
-                                    <% if camp.maxbudget <= camp.grants_received %>
-                                        <h3><span class="label label-success granting-label">
-                                            <b><%=t :fully_funded %></b>
-                                        </span></h3>
-                                    <% else %>
-                                        <h3><span class="label label-success granting-label">
-                                            <b><%=t :minimum_funding_reached %></b>
-                                        </span></h3>
-                                    <% end %>
+                                <h3 class='budget-info'><%= camp.grants_received %>/<%= camp.maxbudget %><br><%=t :funded %></h3>
+
+                                <!-- Only if never got grants and not opened for granting -->
+                                <% if !camp.grantingtoggle and camp.grants_received <= 0%>
+                                    <h3 class='budget-not-opened'>
+                                        <%=t :granting_not_enabled %>
+                                    </h3>
                                 <% else %>
-                                    <h3><span class="label label-warning granting-label">
-                                        <b><%=t :not_funded_yet %></b>
-                                    </span></h3>
+                                    <div class="budgetprogressbar" data-min="<%= camp.minbudget %>" data-max="<%= camp.maxbudget %>" data-value="<%= camp.grants_received %>"></div>
                                 <% end %>
 
-                                <h3><span class="label label-info granting-label">
-                                    <b><%=t :grants_recieved %> </b>
-                                    <span class="badge"><%= camp.grants_received %></span>
-                                </span></h3>
-                                <% if !camp.grantingtoggle %>
-                                    <h3><span class="label label-warning granting-label">
-                                        <b><%=t :granting_not_enabled %> </b>
-                                    </span></h3>
-                                <% end %>
                             <% end %>
                         </div>
                     </div>

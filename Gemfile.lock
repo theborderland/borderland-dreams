@@ -303,6 +303,7 @@ DEPENDENCIES
   haml
   jbuilder (~> 2.0)
   jquery-rails
+  jquery-ui-rails
   kaminari
   kaminari-bootstrap
   omniauth-facebook
@@ -324,4 +325,4 @@ RUBY VERSION
    ruby 2.3.1
 
 BUNDLED WITH
-   1.13.2
+   1.13.6

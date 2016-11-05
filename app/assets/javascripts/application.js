@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require_tree .
 //= require blueimp-gallery-all
 //= require filterrific/filterrific-jquery
@@ -21,5 +22,5 @@ $(function() {
   	window.scroll(0,1);
   	window.scroll(0,0);
 
-	$('.multiprogress').multiprogress();
+	$('.budgetprogressbar').budgetprogressbar();
 });

@@ -145,47 +145,21 @@
                     <% button_text = t(:enable_granting) %>
                 <% end %>
 
-                <% if current_user && (current_user.guide || current_user.admin) %>
-                    <%= form_tag({controller: "camps", action: "toggle_granting"}, method: "patch") do %>
-                        <%= submit_tag button_text, :class => "btn btn-danger" %>
-                    <% end %>
-                <% end %>
-
                 <!-- Granting system -->
                 <% if Rails.configuration.x.firestarter_settings["granting_active"] and @camp.minbudget %>
 
-                    <li><span>
+                    <li>
 
-                        <% if @camp.minbudget <= @camp.grants_received and @camp.maxbudget > 0 %>
-                            <% if @camp.maxbudget <= @camp.grants_received %>
-                                <h3><span class="label label-success granting-label">
-                                    <b><%=t :fully_funded %></b>
-                                </span></h3>
-                            <% else %>
-                                <h3><span class="label label-success granting-label">
-                                    <b><%=t :minimum_funding_reached %></b>
-                                </span></h3>
-                            <% end %>
+                    <h3 class='budget-info'><%= @camp.grants_received %>/<%= @camp.maxbudget %><br><%=t :funded %></h3>
+
+                        <!-- Only if never got grants and not opened for granting -->
+                        <% if !@camp.grantingtoggle and @camp.grants_received <= 0%>
+                            <h3 class='budget-not-opened'>
+                                <%=t :granting_not_enabled %>
+                            </h3>
                         <% else %>
-                            <h3><span class="label label-warning granting-label">
-                                <b><%=t :not_funded_yet %></b>
-                            </span></h3>
+                            <div class="budgetprogressbar" data-min="<%= @camp.minbudget %>" data-max="<%= @camp.maxbudget %>" data-value="<%= @camp.grants_received %>"></div>
                         <% end %>
-
-                        <h3><span class="label label-info granting-label">
-                            <b><%=t :minimum_grants_needed %></b>
-                            <span class="badge"><%= @camp.minbudget %></span>
-                        </span></h3>
-
-                        <h3><span class="label label-info granting-label">
-                            <b><%=t :needed_to_fully_fund %></b>
-                            <span class="badge"><%= @camp.maxbudget %></span>
-                        </span></h3>
-
-                        <h3><span class="label label-info granting-label">
-                            <b><%=t :grants_recieved %> </b>
-                            <span class="badge"><%= @camp.grants_received %></span>
-                        </span></h3>
 
                         <!-- Show user grants left -->
                         <% if current_user and @camp.minbudget %>
@@ -283,6 +257,12 @@
 
 
                     <br>
+                <% end %>
+
+                <% if current_user && (current_user.guide || current_user.admin) %>
+                    <%= form_tag({controller: "camps", action: "toggle_granting"}, method: "patch") do %>
+                        <%= submit_tag button_text, :class => "btn btn-danger" %>
+                    <% end %>
                 <% end %>
 
                 <% if Rails.configuration.x.firestarter_settings["add_to_list"] %>

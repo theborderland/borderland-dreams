@@ -109,8 +109,8 @@ he:
   edit_dream: "ערוך חלום"
   manage_images: "ערוך תמונות"
 
-  give_grants: "הענק גראנט"
-  i_gift_thee_grants: "אני מעניק את הגראנטים"
+  give_grants: "הענקת מטבעות"
+  i_gift_thee_grants: "הענק מטבעות"
   no_granting_yet: "טרם נפתח המענק לחלום זה!"
 
   created_new_dream: "יש! יצרת חלום. השלב הבא הוא להוסיף תמונה שרטוט או הדמייה של החלום"
@@ -185,7 +185,7 @@ he:
   reset_pass_didnt: "אם לא את ביקשת את השינוי. אנא התעלמי ממייל זאת."
   reset_pass_wont_change: "הסיסמא שלך לא תשונה עד שלא תלחצי על הלינק ותצרי אחת חדשה."
 
-  cant_send_less_then_one: "לא ניתן לשלוח פחות מגראנט אחד"
+  cant_send_less_then_one: "לא ניתן לשלוח פחות ממטבע אחד"
   dream_need_to_have_max_budget: "החלום צריך תחילה להגדיר מקסימום תקציב. אנא פנה לבעל החלום ואו למדריכים החלומות"
   security_more_grants: "שגיאת מציאות. לא ניתן לתת יותר גרנטים ממש שיש לך כרגע. ניסית לתת %{granted} ויש לך %{current_user_grants}. נסיון יפה."
 
@@ -237,7 +237,7 @@ he:
         encrypted_password: "סיסמא מוצפנת"
         admin: "מנהלת"
         guide: "מדריכה"
-        grants: "גראנטים"
+        grants: "מטבעות"
         created_at: "נוצר"
         updated_at: "עודכן"
       admin_user:

@@ -155,6 +155,9 @@ body {
 
 @media (max-width: 992px) {
   .camps_list .panel {
-    height: 35em;
+    height: auto;
+  }
+  .camps_list .camp-index .description {
+    height: auto;
   }
 }

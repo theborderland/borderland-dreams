@@ -160,4 +160,14 @@ body {
   .camps_list .camp-index .description {
     height: auto;
   }
+
+  #links .thumbnail {
+    position: relative;
+    width: 47%;
+    height: 140px;
+    overflow: hidden;
+    display: inline-block;
+    clip-path: inset(10px 20px 30px 40px);
+    margin: 0px;
+  }
 }

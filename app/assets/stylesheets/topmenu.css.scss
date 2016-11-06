@@ -68,4 +68,13 @@
   .header-nav a {
     font-size: 18px;
   }
+  .camps_list .camp-index {
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .camps_list .camp-index img {
+    width: 100%;
+  }
 }

@@ -12,7 +12,6 @@ Rails.application.routes.draw do
   patch 'camps/:id/update_grants' => 'camps#update_grants'
   patch 'camps/:id/toggle_granting' => 'camps#toggle_granting'
   get '/pages/:page' => 'pages#show'
-  get '/googleb4da41cd20a05b2c.html' => 'pages#showstaticgoogle'
   get '*unmatched_route' => 'application#not_found'
 
 end

@@ -37,6 +37,10 @@ class User < ActiveRecord::Base
         self.errors.add(:ticket_id, I18n.t(:invalid_membership_code))
         return
       end
+      unless Ticket.exists?(email: self.email)
+        self.errors.add(:ticket_id, I18n.t(:invalid_membership_code))
+        return
+      end
       if User.exists?(ticket_id: self.ticket_id)
         self.errors.add(:ticket_id, I18n.t(:membership_code_registered))
         return

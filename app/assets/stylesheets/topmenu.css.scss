@@ -29,7 +29,7 @@
     padding: 3px 8px;
 
     &:hover {
-        color: $c-pinky;
+        color: $c-pinky !important;
         background: rgba(0, 0, 0, 0.7) !important;
       }
   }
@@ -62,6 +62,7 @@
     font-size: 24px;
     font-weight: 500;
   }
+
 }
 
 @media (max-width: 992px) {

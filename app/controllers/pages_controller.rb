@@ -7,6 +7,10 @@ class PagesController < ApplicationController
     end
   end
 
+  def showstaticgoogle
+    render file: "public/googleb4da41cd20a05b2c.html"
+  end
+
   private
   def valid_page?
     File.exist?(Pathname.new(Rails.root + "app/views/pages/#{params[:page]}.html.erb"))

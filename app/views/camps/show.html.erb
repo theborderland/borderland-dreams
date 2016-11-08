@@ -24,6 +24,9 @@
                 <% status = "" %>
                 <% if index == 0 %>
                     <% status = "active" %>
+                    <% @mainImage = image.attachment.url(:large) %>
+                    <% puts "ASDFAFSD" %>
+                    <% puts @mainImage %>
                 <% end %>
                 <% image_url = image.attachment.url(:large)%>
                 <% thumb_url = image.attachment.url(:medium)%>
@@ -39,10 +42,15 @@
         </div>
 
         <% content_for(:head) do %>
+            <% puts @mainImage %>
             <% browser_title = @camp.name + " - " + t(:browser_title_tag) %>
             <title><%= browser_title %></title>
             <%= javascript_include_tag 'blueimp_script' %>
             <%= javascript_include_tag 'multiprogress' %>
+            <% if defined? (@mainImage) %>
+                <% @mainImage %>
+                <meta property="og:image" content="<%=t :app_url_for_sharing %><%= @mainImage %> "/>
+            <% end %>
         <% end %>
 
         <!-- Creation text content -->

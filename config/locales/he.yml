@@ -26,6 +26,8 @@ he:
   browser_title_tag: "חלומות מידברנרות"
   # For facebook main page sharing
   main_sharing_description: "חלומות מידברנרות היא פלטפורמה בה אנו חולמים ביחד ומפיחים רוח חיים ליצירות המופרכות והאדירות שלנו. במקום הזה אנחנו חולקים משאבים כדי להגשים חלומות. כל משתתף במידברנרות מקבל 10 מטבעות לחלק לפי שיקול דעתו. תדמיינו את המטבעות האלה ככוחות על שאיתם אתם יכולים לממש את החלומות האלה."
+  # This is for the facebook sharing image base - TODO
+  app_url_for_sharing: "http://dreams.midburnerot.com"
 
   top_headline_html: "חלומות<br>מידברנרות"
   top_headline_resources: "משאבים >"

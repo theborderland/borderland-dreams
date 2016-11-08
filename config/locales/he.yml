@@ -292,7 +292,7 @@ he:
             maxbudget_realcurrency:
               greater_than_or_equal_to: "תקציב מקסימלי חייב להיות גדול מאפס אחרת אתה בגרעון."
             minbudget_realcurrency:
-              greater_than_or_equal_to: "תקציב מקסימלי חייב להיות גדול מאפס אחרת אתה בגרעון."
+              greater_than_or_equal_to: "תקציב מינימלי חייב להיות גדול מאפס אחרת אתה בגרעון."
         user:
           attributes:
             password:

@@ -71,28 +71,28 @@ en:
   form_description_label: "Full description of concept"
   form_description_guidetext_html: "Give a full physical and conceptual description, including interactivity how it will fit into the Midburnerot community. You've got 4096 characters. Make them count."
   form_electricity_label: "Do you need electricity from the grid?"
-  form_electricity_guidetext_html: "If yes, how much approximately are we talking?"
+  form_electricity_guidetext_html: "If yes, how much approximately are we talking in Watt?"
   form_light_label: "Will there be light?"
   form_light_guidetext_html: "Will The Thing be illuminated during the night (yes please!)? How?"
   form_fire_label: "Will anything burn?"
   form_fire_guidetext_html: "Tell us about your plans for dealing with big fire, if you have such."
   form_noise_label: "What is your audio footprint?"
   form_noise_guidetext_html: "Are you making any noise?"
-  form_nature_label: "Forces of nature"
-  form_nature_guidetext_html: "Boesdal is a windy place, right next to the ocean, light structures have been known to go hilariously airborn, rain has been known to soak things, how are you ready for it?"
+  form_nature_label: "Warming the place"
+  form_nature_guidetext_html: "Jerucham lake at this time is a coooolllllddddd place, How is your dream will warm up the participants?"
   form_moop_label: "Moop plan (matter out of place)"
   form_moop_guidetext_html: "All the little things that should not end up just lying around. What kind of moop (Trash et.c) will you and the participants in your creation create, and how will you deal with that?"
   form_recycling_label: "Recycling plan"
   form_recycling_guidetext_html: "Where do your materials come from? Are they reusable? What will happen with them after the event?"
   form_plan_label: "Team and plan"
   form_plan_guidetext_html: "What does your team look like and what is your time plan?"
-  form_cocreation_label: "How can other midburners cocreate with you?"
+  form_cocreation_label: "How can other burners cocreate with you?"
   form_cocreation_guidetext_html: "How can someone be a part of this project?"
   form_neighbors_label: "Who would your perfect neighbors be?"
   form_neighbors_guidetext_html: "What kind of midburners would you like as neighbors? Quiet, Deep playa, Near camps, Near sounds camps, Far away from sounds camps"
 
   form_artgrants_headline: "Art grant information"
-  form_artgrants_text_html: "<p>If you're not looking for an art coins, leave these fields blank.</p><p>Art coins are given by the Midburnerot community. Each Midburner has 10 art-coins to hand out. You can give all your grants to one project or spread them around. Once a grant has been gifted to a dream, it can't be taken back. Each grant is worth 10 NIS. Please enter amount in NIS and once the budgeting will be clear we will translate it to the amount in coins</p>"
+  form_artgrants_text_html: "<p>If you're not looking for an art coins, leave these fields blank.</p><p>Art coins are given by the Midburnerot community. Each Midburner who purchased a ticket has 10 art-coins to hand out. One can give all of the coins to one project or spread them around. Once a coin has been gifted to a dream, it can't be taken back. Please enter the amount in NIS and once the budgeting will be clear we will translate it to the amount in coins</p>"
 
   form_minigrants_realcurrency_label: "Minimum sum of money in NIS needed"
   form_minigrants_realcurrency_guidetext_html: "Minium funding needed to lift the project, below which you won't get funded."
@@ -202,3 +202,39 @@ en:
   join_dream: "Sweet! You just sent your email adress to the creator."
   join_errors_login: "You need to be logged in to add your email to the list."
   join_already_sent: "Nice! You've already sent your email to the creator."
+
+  errors_str: "Errors"
+
+  activerecord:
+    errors:
+      models:
+        camp:
+          attributes:
+            name:
+              blank: "Please select a name for your dream"
+            subtitle:
+              blank: "Please enter dream summary"
+            contact_email:
+              blank: "Please enter email"
+              too_short: "Too short - minimum %{count} characters"
+            contact_name:
+              blank: "Please enter contact name"
+            maxbudget_realcurrency:
+              greater_than_or_equal_to: "Maximum budget must be bigger then zero."
+            minbudget_realcurrency:
+              greater_than_or_equal_to: "Minimum budget must be bigger then zero."
+        user:
+          attributes:
+            password:
+              blank: "Please enter password"
+              confirmation: "Passwords does not match"
+              too_short: "Password too short - minimum %{count} characters"
+            password_confirmation:
+              confirmation: "Password does not match"
+            email:
+              blank: "Please enter email"
+              too_short: "Too short - Minimum %{count} characters"
+              taken: "This email is already being used. Please LOGIN instead."
+
+      messages:
+        record_invalid: 'Auth failed : %{errors}'

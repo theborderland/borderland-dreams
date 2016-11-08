@@ -1,5 +1,5 @@
 
-= form_for @camp do |form|
+= form_for @camp, :html => {:dir => I18n.t(:html_direction) } do |form|
 
   .header-heading
     = t("form_basics_headline")
@@ -29,13 +29,6 @@
     = form.label t("form_contact_phone_label")
     = form.text_field :contact_phone, :maxlength => 64
     = t("form_contact_phone_guidetext_html")
-
-  .header-heading
-  - if Rails.configuration.x.firestarter_settings["additional_info"]
-    = t("form_additional_headline")
-  .combo#additonal
-  - if Rails.configuration.x.firestarter_settings["additional_info"]
-    = t("form_additional_info_text_html")
 
   .combo#description
   - if Rails.configuration.x.firestarter_settings["description"]

@@ -36,7 +36,7 @@ en:
   register_menu: "Register"
   logout_menu: "Log out"
   welcome_guest_title: "Welcome to our Dreams"
-  welcome_guest_text_html: "Congratulations! You've stumbled upon something special! <b>Midburnerot</b> is some awesome fucking shit. I mean, you can't even begin to understand the total exuberance of outlandish hijinks that people come up with for this thing. Dang!</b>"
+  welcome_guest_text_html: "Congratulations! You've stumbled upon something special! <b>Midburnerot</b> is some awesome fucking shit. We dream together and breathe life into our mad and wonderous creations. Dreams need matter to come to life, and this is where we share resources to make that happen. All midburners get 10 grants to give out as they see fit. Think of these as superpowers, with which you can make dreams into matter! To activate granting for your dream, talk to your friendly local Dream Guide. Pretty neat, huh?</b>"
   welcome_user_title: "Welcome to your Dreams!"
   welcome_user_text_html: "Midburnerot Dreams is a directory of our collective imagination. We dream together and breathe life into our mad and wonderous creations. Dreams need matter to come to life, and this is where we share resources to make that happen. All midburners get 10 grants to give out as they see fit. Think of these as superpowers, with which you can make dreams into matter! To activate granting for your dream, talk to your friendly local Dream Guide. Pretty neat, huh? Have a look around or create a dream of your own!"
   footer_left_html: "The Midburnerot is a participatory community where we co-create events and gatherings as prototypes for our dreams. It is an empty container, open to your initiative. It is an invitation to play, to reflect, and to engage. If you have any question please ask in our <a href='facebook.com/groups/theborderland/'>Facebook Group</a>."
@@ -171,7 +171,7 @@ en:
   remember_me" : "Remember Me"
   sign_up: "Sign Up"
   forgot_password: "Forgot your password?"
-  reset_password_instructions: "Send me reset password instructions"
+  reset_password_instructions: "Send me reset password"
   password_characters_minimum: "Minimum %{count} Characters"
   
   # Change password
@@ -180,8 +180,8 @@ en:
   new_password: "New password"
   confirm_new_password: "Confirm new password"
 
-  registration_text: "To register on the dreams platform, you need to buy a ticket for Midburn 2016. If you bought a ticket you can use your email and phone number to register."
-  registration_code: "Membership Code"
+  registration_text: "To register on the dreams platform, you need to buy a ticket for Midburn 2016. If you bought a ticket you can use your phone number to register."
+  registration_code: "Phone number (Membership Code)"
 
   invalid_membership_code: "Cant find a user with that email / code. make sure you use the same email and phone you bought your ticket with"
   membership_code_registered: "membership code is already registered for another user."

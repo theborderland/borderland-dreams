@@ -49,7 +49,7 @@
             <%= javascript_include_tag 'multiprogress' %>
             <% if defined? (@mainImage) %>
                 <% @mainImage %>
-                <meta property="og:image" content="<%=t :app_url_for_sharing %><%= @mainImage %> "/>
+                <meta property="og:image" content="<%= @mainImage %>"/>
             <% end %>
         <% end %>
 

@@ -26,8 +26,6 @@ en:
   browser_title_tag: "Midburnerot Dreams"
   # For facebook main page sharing
   main_sharing_description: "Midburnerot dreams is a place where we dream together and breathe life into our mad creations. We share resources to make dreams happen. All midburners get 10 grants to give out as they see fit. Think of these as superpowers, with which you can make dreams into matter!"
-  # This is for the facebook sharing image base - TODO
-  app_url_for_sharing: "http://dreams.midburnerot.com"
 
   top_headline_html: "Midburnerot<br>Dreams"
   top_headline_resources: "Resources >"

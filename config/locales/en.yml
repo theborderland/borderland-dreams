@@ -35,9 +35,9 @@ en:
   login_menu: "Log in"
   register_menu: "Register"
   logout_menu: "Log out"
-  welcome_guest_title: "Welcome to your Dreams"
+  welcome_guest_title: "Welcome to our Dreams"
   welcome_guest_text_html: "Congratulations! You've stumbled upon something special! <b>Midburnerot</b> is some awesome fucking shit. I mean, you can't even begin to understand the total exuberance of outlandish hijinks that people come up with for this thing. Dang!</b>"
-  welcome_user_title: "Welcome to your Dreams"
+  welcome_user_title: "Welcome to your Dreams!"
   welcome_user_text_html: "Midburnerot Dreams is a directory of our collective imagination. We dream together and breathe life into our mad and wonderous creations. Dreams need matter to come to life, and this is where we share resources to make that happen. All midburners get 10 grants to give out as they see fit. Think of these as superpowers, with which you can make dreams into matter! To activate granting for your dream, talk to your friendly local Dream Guide. Pretty neat, huh? Have a look around or create a dream of your own!"
   footer_left_html: "The Midburnerot is a participatory community where we co-create events and gatherings as prototypes for our dreams. It is an empty container, open to your initiative. It is an invitation to play, to reflect, and to engage. If you have any question please ask in our <a href='facebook.com/groups/theborderland/'>Facebook Group</a>."
   footer_right_html: "In Dec 2016, The Midburnerot community will gather in Yeroham Park, Israel. It is a festival, where all the organization and all creative content is created by the participants. The event is for co-creators only, and not open to spectators."
@@ -118,7 +118,7 @@ en:
 
   # Creation view
   what_is_this_title: "What is this?"
-  what_is_this_text_html: "Congratulations! You've stumbled upon something special. The Midburnerot is a participatory festival that takes place in Boesdal quarry in Denmark on July 18-24. It's a fully participatory event where everything is created by the participants themselves, with out any spectators. Read more at <a href='http://www.theborderland.se'><b>theborderland.se</b></a> and as questions in our <a href='https://www.facebook.com/groups/theborderland/'>group</a>"
+  what_is_this_text_html: "Congratulations! You've stumbled upon something special. The Midburnerot is a participatory festival that takes place in Jerucham lake in Israel on Dec 29-31. It's a fully participatory event where everything is created by the participants themselves, with out any spectators."
 
   creation_info_headline: "Details"
   next_random_dream: "Next random dream"
@@ -144,7 +144,7 @@ en:
   # Grants widget
   fully_funded: "Fully funded"
   grants_recieved: "Grants Recieved"
-  granting_not_enabled: "Granting not enabled"
+  granting_not_enabled: "Granting disabled"
   not_funded_yet: "Not funded yet"
   funded: "funded"
   minimum_funding_reached: "Minimum funding reached"
@@ -180,7 +180,7 @@ en:
   new_password: "New password"
   confirm_new_password: "Confirm new password"
 
-  registration_text: "To register on the dreams platform, you need to have a membership for The Borderland 2016. On your ticket, you'll find a number as shown in the image below. That's all you need, and you're set!"
+  registration_text: "To register on the dreams platform, you need to buy a ticket for Midburn 2016. If you bought a ticket you can use your email and phone number to register."
   registration_code: "Membership Code"
 
   invalid_membership_code: "Cant find a user with that email / code. make sure you use the same email and phone you bought your ticket with"

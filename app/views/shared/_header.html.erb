@@ -10,6 +10,12 @@
         </div>
         <div class="col-md-7">
           <div class="header-nav">
+            <% if I18n.locale == I18n.default_locale %>
+              <%= link_to "EN", :lang=>'en'%>
+            <% else %>
+              <%= link_to "עב", :lang=>'he'%>
+            <%end%>
+
             <div class="dropdown">
                 <a class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><%=t :top_headline_resources %></a>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">

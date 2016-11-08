@@ -4,7 +4,7 @@
   <%= javascript_include_tag 'blueimp_script' %> 
 <% end %>
 
-<div class="top_message">
+<div class="top_message" dir=<%=t :html_direction %>>
   <div class="panel panel-default">
     <div class="panel-heading">
       <% if user_signed_in? %>

@@ -2,6 +2,9 @@
   <% browser_title = t(:browser_title_tag) %>
   <title><%= browser_title %></title>
   <%= javascript_include_tag 'blueimp_script' %> 
+  <meta property="og:title" content="<%= t :browser_title_tag %>" />
+  <meta property="og:description" content="<%= t :welcome_guest_text_html %>" />
+  <meta property="og:image" content="http://dreams.midburnerot.com/assets/coverphoto.jpg" />
 <% end %>
 
 <div class="top_message" dir=<%=t :html_direction %>>

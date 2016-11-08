@@ -24,6 +24,9 @@ en:
   html_direction: "ltr"
 
   browser_title_tag: "Midburnerot Dreams"
+  # For facebook main page sharing
+  main_sharing_description: "Midburnerot dreams is a place where we dream together and breathe life into our mad creations. We share resources to make dreams happen. All midburners get 10 grants to give out as they see fit. Think of these as superpowers, with which you can make dreams into matter!"
+
   top_headline_html: "Midburnerot<br>Dreams"
   top_headline_resources: "Resources >"
   top_headline_dreams: "Dreams"
@@ -36,7 +39,7 @@ en:
   register_menu: "Register"
   logout_menu: "Log out"
   welcome_guest_title: "Welcome to our Dreams"
-  welcome_guest_text_html: "Congratulations! You've stumbled upon something special! <b>Midburnerot</b> is some awesome fucking shit. We dream together and breathe life into our mad and wonderous creations. Dreams need matter to come to life, and this is where we share resources to make that happen. All midburners get 10 grants to give out as they see fit. Think of these as superpowers, with which you can make dreams into matter! To activate granting for your dream, talk to your friendly local Dream Guide. Pretty neat, huh?</b>"
+  welcome_guest_text_html: "Congratulations! You've stumbled upon something special! <b>Midburnerot</b> is some awesome fucking shit. We dream together and breathe life into our mad and wonderous creations. Dreams need matter to come to life, and this is where we share resources to make that happen. All midburners get 10 grants to give out as they see fit. Think of these as superpowers, with which you can make dreams into matter! To activate granting for your dream, talk to your friendly local Dream Guide. Pretty neat, huh?"
   welcome_user_title: "Welcome to your Dreams!"
   welcome_user_text_html: "Midburnerot Dreams is a directory of our collective imagination. We dream together and breathe life into our mad and wonderous creations. Dreams need matter to come to life, and this is where we share resources to make that happen. All midburners get 10 grants to give out as they see fit. Think of these as superpowers, with which you can make dreams into matter! To activate granting for your dream, talk to your friendly local Dream Guide. Pretty neat, huh? Have a look around or create a dream of your own!"
   footer_left_html: "The Midburnerot is a participatory community where we co-create events and gatherings as prototypes for our dreams. It is an empty container, open to your initiative. It is an invitation to play, to reflect, and to engage. If you have any question please ask in our <a href='facebook.com/groups/theborderland/'>Facebook Group</a>."

@@ -37,6 +37,10 @@ class User < ActiveRecord::Base
         self.errors.add(:ticket_id, I18n.t(:invalid_membership_code))
         return
       end
+      unless Ticket.exists?(email: self.email)
+        self.errors.add(:ticket_id, I18n.t(:invalid_membership_code))
+        return
+      end
       if User.exists?(ticket_id: self.ticket_id)
         self.errors.add(:ticket_id, I18n.t(:membership_code_registered))
         return
@@ -58,18 +62,18 @@ class User < ActiveRecord::Base
 
       # TODO: parse event data - will be possible once the ticketing system will be online
       # Validate email and given self.ticket_id
-      mockedTicketId = '6687'
-      mockedEmail = ''
-      if (mockedTicketId != self.ticket_id)
-        # No need to write this as it will output from the next section
-        if !Rails.configuration.x.firestarter_settings["user_authentication_codes"]
-          self.errors.add(:ticket_id, I18n.t(:invalid_membership_code))
-        end
-        return false
-      else
-        Ticket.create(:id_code => self.ticket_id, :email => self.email)
-        return true
-      end
+      # mockedTicketId = '6687'
+      # mockedEmail = ''
+      # if (mockedTicketId != self.ticket_id)
+      #   # No need to write this as it will output from the next section
+      #   if !Rails.configuration.x.firestarter_settings["user_authentication_codes"]
+      #     self.errors.add(:ticket_id, I18n.t(:invalid_membership_code))
+      #   end
+      #   return false
+      # else
+      #   Ticket.create(:id_code => self.ticket_id, :email => self.email)
+      #   return true
+      # end
       return false
     end
   end

@@ -6,7 +6,6 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha256-KXn5puMvxCw+dAYznun+drMdG1IFl3agK0p/pqT9KAo= sha512-2e8qq0ETcfWRI4HJBzQiA3UoyFk6tbNyG+qSaIBZLyW9Xf3sWZHN/lxe9fTh1U45DpPf07yj94KsUHHWe4Yk1A==" crossorigin="anonymous"></script>
 
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-rtl/3.2.0-rc2/css/bootstrap-rtl.min.css" rel="stylesheet" crossorigin="anonymous">
-  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js" crossorigin="anonymous"></script> -->
 
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,400italic' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Dosis:500,300,700' rel='stylesheet' type='text/css'>
@@ -22,7 +21,7 @@
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
       })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
     
-      ga('create', 'UA-76762895-1', 'auto');
+      ga('create', 'UA-86979110-1', 'auto');
       ga('send', 'pageview');
     
     </script>  
@@ -36,10 +35,10 @@
   <%= render "shared/header" %>
   <div class="main_content container">
     <% if notice %>
-    <p class="notice"><%= notice %></p>
+    <p class="notice" dir='<%=t :html_direction %>'><%= notice %></p>
     <% end %>
     <% if alert %>
-    <p class="alert"><%= alert %></p>
+    <p class="alert" dir='<%=t :html_direction %>'><%= alert %></p>
     <% end %>
     <%= yield %>
   </div>

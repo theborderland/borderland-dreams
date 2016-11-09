@@ -3,7 +3,7 @@
   <title><%= browser_title %></title>
 <% end %>
 
-<div class="sign_in">
+<div class="sign_in" dir="<%=t :html_direction %>">
   <h2><%=t :log_in %></h2>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>

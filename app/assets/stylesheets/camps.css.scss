@@ -2,7 +2,7 @@
   padding-top: 20px;
 
   clear: both;
-  margin: 0 -10px;
+  margin: 0;
 
   &:before,
   &:after {
@@ -12,7 +12,7 @@
   }
 
   .panel {
-    height: 560px;  
+    height: 31.5em;
 
     .description {
       height: 180px;
@@ -90,7 +90,7 @@
 
 .camp-image {
   display: inline-block;
-  width: 30%;
+  width: 29%;
   margin-right: 3%;
   margin-bottom: 40px;
 }
@@ -98,7 +98,7 @@
 .thumbnail {
   position: relative;
   width: 30%;
-  height: 100px;
+  height: 140px;
   overflow: hidden;
   display: inline-block;
   clip-path: inset(10px 20px 30px 40px);
@@ -153,3 +153,21 @@ body {
   }
 }
 
+@media (max-width: 992px) {
+  .camps_list .panel {
+    height: auto;
+  }
+  .camps_list .camp-index .description {
+    height: auto;
+  }
+
+  #links .thumbnail {
+    position: relative;
+    width: 47%;
+    height: 140px;
+    overflow: hidden;
+    display: inline-block;
+    clip-path: inset(10px 20px 30px 40px);
+    margin: 0px;
+  }
+}

@@ -3,7 +3,7 @@
   <title><%= browser_title %></title>
 <% end %>
 
-<div class="passwords_new">
+<div class="passwords_new" dir=<%=t :html_direction %>>
   <h2><%=t :forgot_password %></h2>
 
   <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>

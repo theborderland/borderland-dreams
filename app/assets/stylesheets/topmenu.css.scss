@@ -29,7 +29,7 @@
     padding: 3px 8px;
 
     &:hover {
-        color: $c-pinky;
+        color: $c-pinky !important;
         background: rgba(0, 0, 0, 0.7) !important;
       }
   }
@@ -62,10 +62,20 @@
     font-size: 24px;
     font-weight: 500;
   }
+
 }
 
 @media (max-width: 992px) {
   .header-nav a {
     font-size: 18px;
+  }
+  .camps_list .camp-index {
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .camps_list .camp-index img {
+    width: 100%;
   }
 }

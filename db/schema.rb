@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161026145114) do
+ActiveRecord::Schema.define(version: 20161103122306) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -47,33 +47,35 @@ ActiveRecord::Schema.define(version: 20161026145114) do
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
 
   create_table "camps", force: :cascade do |t|
-    t.string   "name",            limit: 64,                   null: false
-    t.string   "subtitle",        limit: 255,                  null: false
-    t.string   "contact_email",   limit: 64,                   null: false
-    t.string   "contact_name",    limit: 64,                   null: false
-    t.string   "contact_phone",   limit: 64
-    t.text     "description",     limit: 4096
-    t.text     "electricity",     limit: 255
-    t.text     "light",           limit: 512
-    t.text     "fire",            limit: 512
-    t.text     "noise",           limit: 255
-    t.text     "nature",          limit: 255
-    t.text     "moop",            limit: 512
-    t.text     "plan",            limit: 1024
-    t.text     "cocreation",      limit: 1024
-    t.text     "neighbors",       limit: 512
-    t.text     "budgetplan",      limit: 1024
-    t.integer  "minbudget",                    default: 0
-    t.integer  "maxbudget",                    default: 0
+    t.string   "name",                   limit: 64,                   null: false
+    t.string   "subtitle",               limit: 255,                  null: false
+    t.string   "contact_email",          limit: 64,                   null: false
+    t.string   "contact_name",           limit: 64,                   null: false
+    t.string   "contact_phone",          limit: 64
+    t.text     "description",            limit: 4096
+    t.text     "electricity",            limit: 255
+    t.text     "light",                  limit: 512
+    t.text     "fire",                   limit: 512
+    t.text     "noise",                  limit: 255
+    t.text     "nature",                 limit: 255
+    t.text     "moop",                   limit: 512
+    t.text     "plan",                   limit: 1024
+    t.text     "cocreation",             limit: 1024
+    t.text     "neighbors",              limit: 512
+    t.text     "budgetplan",             limit: 1024
+    t.integer  "minbudget",                           default: 0
+    t.integer  "maxbudget",                           default: 0
     t.boolean  "seeking_members"
     t.integer  "user_id"
-    t.integer  "grants_received",              default: 0
-    t.boolean  "grantingtoggle",               default: false, null: false
+    t.integer  "grants_received",                     default: 0
+    t.boolean  "grantingtoggle",                      default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "minfunded",                    default: false
-    t.boolean  "fullyfunded",                  default: false
-    t.text     "recycling",       limit: 512
+    t.boolean  "minfunded",                           default: false
+    t.boolean  "fullyfunded",                         default: false
+    t.text     "recycling",              limit: 512
+    t.integer  "minbudget_realcurrency"
+    t.integer  "maxbudget_realcurrency"
   end
 
   add_index "camps", ["user_id"], name: "index_camps_on_user_id"

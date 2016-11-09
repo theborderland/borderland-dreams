@@ -60,6 +60,11 @@ class CampsController < ApplicationController
       redirect_to camp_path(@camp) and return
     end
 
+    if @camp.maxbudget.nil?
+      flash[:alert] = "#{t:dream_need_to_have_max_budget}"
+      redirect_to camp_path(@camp) and return
+    end
+
     if @camp.grants_received + granted > @camp.maxbudget
       granted = @camp.maxbudget - @camp.grants_received
     end

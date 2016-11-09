@@ -1,5 +1,5 @@
 
-= form_for @camp do |form|
+= form_for @camp, :html => {:dir => I18n.t(:html_direction) } do |form|
 
   .header-heading
     = t("form_basics_headline")
@@ -29,13 +29,6 @@
     = form.label t("form_contact_phone_label")
     = form.text_field :contact_phone, :maxlength => 64
     = t("form_contact_phone_guidetext_html")
-
-  .header-heading
-  - if Rails.configuration.x.firestarter_settings["additional_info"]
-    = t("form_additional_headline")
-  .combo#additonal
-  - if Rails.configuration.x.firestarter_settings["additional_info"]
-    = t("form_additional_info_text_html")
 
   .combo#description
   - if Rails.configuration.x.firestarter_settings["description"]
@@ -119,17 +112,17 @@
     = form.text_area :budgetplan, :maxlength => 4096
     = t("form_budgetplan_guidetext_html")
 
-  .combo#minbudget
+  .combo#minbudget_realcurrency
   - if Rails.configuration.x.firestarter_settings["granting"]
-    = form.label t("form_minigrants_label")
-    = form.number_field :minbudget, :maxlength => 6 ,class:'form-control'
-    = t("form_minigrants_guidetext_html")
+    = form.label t("form_minigrants_realcurrency_label")
+    = form.number_field :minbudget_realcurrency, :maxlength => 6 ,class:'form-control'
+    = t("form_minigrants_realcurrency_guidetext_html")
 
-  .combo#maxbudget
+  .combo#maxbudget_realcurrency
   - if Rails.configuration.x.firestarter_settings["granting"]
-    = form.label t("form_maxigrants_label")
-    = form.number_field :maxbudget, :maxlength => 6 ,class:'form-control'
-    = t("form_maxigrants_guidetext_html")
+    = form.label t("form_maxigrants_realcurrency_label")
+    = form.number_field :maxbudget_realcurrency, :maxlength => 6 ,class:'form-control'
+    = t("form_maxigrants_realcurrency_guidetext_html")
 
   .submit
     -if @camp.name

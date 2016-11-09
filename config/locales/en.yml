@@ -183,7 +183,7 @@ en:
   new_password: "New password"
   confirm_new_password: "Confirm new password"
 
-  registration_text: "To register on the dreams platform, you need to buy a ticket for Midburn 2016. If you bought a ticket you can use your phone number to register."
+  registration_text: "Use your phone number to register."
   registration_code: "Phone number (Membership Code)"
 
   invalid_membership_code: "Cant find a user with that email / code. make sure you use the same email and phone you bought your ticket with"

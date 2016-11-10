@@ -98,12 +98,6 @@
                     <% end %>
                     <!-- End of granting block -->
 
-                    <% if Rails.configuration.x.firestarter_settings["add_to_list"] %>
-                        <% if @camp.creator != current_user %>
-                            <%= button_to t(:add_my_name), {action: "join", user: current_user }, {class: 'btn btn-success button join-dream-button'} %>
-                        <% end %>
-                    <% end %>
-
 
                 </div>
             </div>    
@@ -166,6 +160,12 @@
                 <b><%=t :form_cocreation_label %></b>
                 <p><%= simple_format(@camp.cocreation) %></p>
             </div>
+        <% end %>
+
+        <% if Rails.configuration.x.firestarter_settings["add_to_list"] %>
+            <% if @camp.creator != current_user %>
+                <%= button_to t(:add_my_name), {action: "join", user: current_user }, {class: 'btn btn-success button join-dream-button'} %>
+            <% end %>
         <% end %>
 
     </div> <!-- col-md-8 -->

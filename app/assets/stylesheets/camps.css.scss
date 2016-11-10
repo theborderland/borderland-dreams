@@ -72,7 +72,7 @@ $main-image-height: 550px;
 .dream_main_text {
   position: relative;
   height: $main-image-height;
-  width: 60%;
+  width: 75%;
   margin: 0 auto;
   padding: 20px;
   resize: both;
@@ -86,7 +86,7 @@ $main-image-height: 550px;
     left: 50%;
     padding: 20px;
     resize: none;
-    overflow: auto;
+    overflow: hidden;
 
     // TODO - temporary
     .budgetprogressbar {

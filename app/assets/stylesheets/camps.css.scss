@@ -59,6 +59,96 @@
 
 }
 
+$main-image-height: 550px;
+.dream_main_image {
+  -webkit-background-size: cover !important;
+  -moz-background-size: cover !important;
+  -o-background-size: cover !important;
+  background-size: cover !important;
+  width: 100%;
+  height: $main-image-height;
+}
+
+.dream_main_text {
+  position: relative;
+  height: $main-image-height;
+  width: 60%;
+  margin: 0 auto;
+  padding: 20px;
+  resize: both;
+  overflow: hidden;
+
+  div.center-dream {
+    width: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 20px;
+    resize: both;
+    overflow: auto;
+
+    // TODO - temporary
+    .budgetprogressbar {
+      display: none;
+    }
+
+    .budget-info {
+      display: inline-block;
+      margin: 0 12px;
+      font-weight: bold;
+      font-size: 24px;
+      text-align: center;
+    }
+
+    p {
+      padding: 0 0 0.1em 0;
+      margin: 0;
+      font-size: 40px;
+      font-weight: bold;
+    }
+
+    p.dream_main_creator {
+      font-size: 34px;
+      font-weight: normal;
+      padding-bottom: 1.5em;
+    }
+
+    form {
+      display: inline-block;
+      vertical-align: text-bottom;
+    }
+
+    .join-dream-button {
+      padding: 13px 20px;
+      width: auto;
+      margin: 0 10px;
+    }
+
+    .donate-button {
+      background: #364fd1;
+      color: white;
+
+      padding: 13px 20px;
+      width: auto;
+
+      margin: 0 10px;
+
+      &:active {
+        background: darken(#364fd1, 15%) !important;
+      }
+
+      &:hover {
+        background: darken(#364fd1, 10%) !important;
+      }
+
+      &:focus {
+        background: darken(#364fd1, 10%) !important;
+      }
+    }
+  }
+}
+
 .top_message {
   padding: 10px;
 }

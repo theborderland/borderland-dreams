@@ -33,6 +33,7 @@
 <body>
 
   <%= render "shared/header" %>
+  <%= yield(:post_head) %>
   <div class="main_content container">
     <% if notice %>
     <p class="notice" dir='<%=t :html_direction %>'><%= notice %></p>

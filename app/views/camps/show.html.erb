@@ -41,7 +41,7 @@
 
         <% content_for(:post_head) do %>
             <% if defined? (@mainImage) %>
-                <div class='dream_main_image' style="background: linear-gradient(rgba(20,20,20, .7),rgba(20,20,20, .7)),url("<%= @mainImage %>") no-repeat center center fixed">
+                <div class='dream_main_image' style='background: linear-gradient(rgba(20,20,20, .7),rgba(20,20,20, .7)),url("<%= @mainImage %>") no-repeat center center fixed'>
             <% else %>
                 <div class='dream_main_image' style="background: linear-gradient(rgba(20,20,20, .7),rgba(20,20,20, .7)),url('<%= @mainImage %>') no-repeat center center fixed">
             <% end %>

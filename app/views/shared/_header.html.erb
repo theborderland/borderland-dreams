@@ -1,7 +1,7 @@
 <% image_path = image_path("coverphoto.jpg") %>
 
 <header>
-<div class="container coverphoto" style="background-image:url('<%= image_path %>'); background-position: center; ">
+<div class="container coverphoto <%= yield(:cover_head) %>" style="background-image:url('<%= image_path %>');background-position: center; ">
 
   <div class="main_content top_menu">
       <div class="row">

@@ -149,6 +149,7 @@ $main-image-height: 550px;
   }
 }
 
+
 .top_message {
   padding: 10px;
 }
@@ -260,4 +261,15 @@ body {
     clip-path: inset(10px 20px 30px 40px);
     margin: 0px;
   }
+
+  .dream_main_text {
+    width: 100%;
+  }
+
+  .dream_main_text {
+
+    div.center-dream {
+      width: 75%;
+    }
+  } 
 }

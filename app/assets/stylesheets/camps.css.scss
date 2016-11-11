@@ -69,6 +69,11 @@ $main-image-height: 550px;
   height: $main-image-height;
 }
 
+.join-dream-button {
+  padding: 13px 20px;
+  margin: 2em 0;
+}
+
 .dream_main_text {
   position: relative;
   height: $main-image-height;
@@ -117,12 +122,6 @@ $main-image-height: 550px;
     form {
       display: inline-block;
       vertical-align: text-bottom;
-    }
-
-    .join-dream-button {
-      padding: 13px 20px;
-      width: auto;
-      margin: 0 10px;
     }
 
     .donate-button {

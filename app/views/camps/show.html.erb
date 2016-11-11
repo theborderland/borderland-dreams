@@ -177,13 +177,6 @@
             </div>
         <% end %>
 
-        <% if !current_user || @camp.creator != current_user %>
-            <% random = Camp.order("RANDOM()").first %>
-            <a href="<%= url_for(random) %>" class="btn btn-primary camp-button" role="button">
-                <%=t :next_random_dream %> <span class="glyphicon glyphicon-random" aria-hidden="true"></span>
-            </a>
-        <% end %>    
-
         <div class="creation-info">
             <ul>
 
@@ -295,10 +288,19 @@
                     <% end %>
                 <% end %>
 
+                <% if !current_user || @camp.creator != current_user %>
+                    <% random = Camp.order("RANDOM()").first %>
+                    <a href="<%= url_for(random) %>" class="btn btn-primary camp-button" role="button">
+                        <%=t :next_random_dream %> <span class="glyphicon glyphicon-random" aria-hidden="true"></span>
+                    </a>
+                <% end %>
+
                 <% if current_user && (@camp.creator == current_user || current_user.admin) %>
+                    <br>
                     <%= form_for @camp, method: :delete do |f| %>
                         <%= f.submit t(:delete_this_creation), class: "btn btn-danger" , data: { confirm: t(:are_you_sure) } %>
                     <% end %>
+                    <br>
                 <% end %>
 
             </ul>

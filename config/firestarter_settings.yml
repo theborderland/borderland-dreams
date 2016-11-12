@@ -22,6 +22,7 @@ defaults: &defaults
   footer_text: false
   footer_logo: false
   creation_sidebar_welcome: true
+  safetybag: true
 
 development:
   <<: *defaults

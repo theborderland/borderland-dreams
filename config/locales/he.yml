@@ -98,7 +98,7 @@ he:
   form_neighbors_guidetext_html: "אילו מיצבי אמנות הייתם רוצים כשכנים?"
 
   form_basics_safety_bag: "שדות שמסומנים בורוד זוהר הינם שדות חובה לטובת תיק הבטיחות. רובם לא מוצגים בספריית החלומות הציבורית ומיועדים לאישור המיצב"
-  form_safetybag_headline: "מידע לתיק האמנות"
+  form_safetybag_headline: "מידע לתיק בטיחות"
   form_safetybag_crewsize_label: "מספר אנשי צוות"
   form_safetybag_crewsize_guidetext_html: "כמה חולמים אתם?"
   form_safetybag_plan_label: "תכנית עבודה מפורטת לתיק בטיחות - מה בונים קודם"
@@ -313,6 +313,19 @@ he:
         fullyfunded: "מימון מקסימלי הושג"
         minbudget_realcurrency: "מימון מינימלי בשקלים"
         maxbudget_realcurrency: "מימון מקסימלי בשקלים"
+        safetybag_crewsize: "גודל הצוות"
+        safetybag_plan: "תכנית עבודה"
+        safetybag_builder: "אחראי בנייה"
+        safetybag_safetyer: "אחראי בטיחות"
+        safetybag_mooper: "אחראי חשלש"
+        safetybag_materials: "חומרים"
+        safetybag_work_in_height: "עבודה בגובה"
+        safetybag_tools: "כלים"
+        safetybag_grounding: "קיבוע לקרקע"
+        safetybag_safety: "בטיחות"
+        safetybag_electricity: "חשמל"
+        safetybag_daily_routine: "נוהל בקרה יומי"
+        safetybag_other_comments: "תיק בטיחות הערות"
 
     errors:
       models:

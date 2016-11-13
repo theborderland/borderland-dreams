@@ -229,6 +229,7 @@ address {
 
 .btn-success {
   background-color: $c-pinky;
+  border: none;
 
   &:hover {
     background-color: $c-pinky-darker !important;

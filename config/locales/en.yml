@@ -96,6 +96,8 @@ en:
 
   form_basics_safety_bag: "Fields which are marked in ultra pink are required for the safety file. Most of them are not shown in the public dream page"
   form_safetybag_headline: "Safety file info"
+  form_safetybag_show_hide: "Show / Hide Safety file info"
+  form_safetybag_needs_to_fill: "שימו לב שיש למלא את המידע על תיק הבטיחות עד לתאריך 22/11"
   form_safetybag_crewsize_label: "Crew size"
   form_safetybag_crewsize_guidetext_html: "How many people are you?"
   form_safetybag_plan_label: "Details work plan for safety file - what are you building and in what order"

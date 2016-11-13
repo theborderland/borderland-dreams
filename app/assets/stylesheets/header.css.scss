@@ -12,3 +12,25 @@
   weight: bold;
   padding-bottom: 10px;
 }
+
+// What happens to the header when in dream page
+.dream-site-header {
+	padding: 0 !important;
+	height: 132px !important;
+
+	.top_menu {
+		padding: 0 10px;
+	}
+
+	.header-nav {
+		padding: 10px 0;
+	}
+}
+@media (max-width: 992px) {
+	.dream-site-header {
+
+		.header-top-menu {
+			font-size: 36px;
+		}
+	}	
+}

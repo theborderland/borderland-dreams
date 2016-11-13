@@ -110,4 +110,9 @@ class Camp < ActiveRecord::Base
 		end
 	end
 
+	before_destroy do
+		self.memberships.delete_all
+		self.save
+	end
+
 end

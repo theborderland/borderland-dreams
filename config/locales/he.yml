@@ -147,8 +147,8 @@ he:
   edit_dream: "ערוך חלום"
   manage_images: "ערוך תמונות"
 
-  give_grants: "הענקת מטבעות"
-  i_gift_thee_grants: "הענק מטבעות"
+  give_grants: "כמה מטבעות?"
+  i_gift_thee_grants: "תרמו לחלום"
   no_granting_yet: "טרם נפתח המענק לחלום זה!"
 
   created_new_dream: "יש! יצרת חלום. השלב הבא הוא להוסיף תמונה שרטוט או הדמייה של החלום"
@@ -195,7 +195,7 @@ he:
   your_available_grants: "מטבעות שנותרו לך"
   youre_out_of_grants: "השתמשת בכל המטבעות שלך. ריספקט"
 
-  add_my_name: "הצטרפי לחלום"
+  add_my_name: "הצטרפו לחלום"
   delete_this_creation: "למחוק את החלום הזה"
   are_you_sure: "האם את בטוחה?"
 

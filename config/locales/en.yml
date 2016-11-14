@@ -162,6 +162,9 @@ en:
   contact_alternative_name: "Contact Name"
   contact_email: "Contact Email"
 
+  # Guide safetybag
+  creation_safetybaginfo_headline: "Safetyfile info (Shown only to you,guide)"
+
   # Granting adming
   turn_off_granting: "Turn off granting"
   enable_granting: "Enable Granting"

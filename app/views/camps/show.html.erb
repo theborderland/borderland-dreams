@@ -307,6 +307,80 @@
 
         </div> <!-- creation-info -->
 
+        <% if Rails.configuration.x.firestarter_settings["safetybag"] && current_user && current_user.guide%>
+            <div class="safetybag-info">
+                <ul>
+                    <li><span><h2 class="header-sub-heading"><%=t :creation_safetybaginfo_headline %></h2></span></li>
+                    
+                    <li><span>
+                        <b><%=t :form_safetybag_crewsize_label %></b> <%= @camp.safetybag_crewsize %>
+                    </span></li>
+                    <br>
+
+                    <li><span>
+                        <b><%=t :form_safetybag_plan_label %></b> <%= @camp.safetybag_plan %>
+                    </span></li>
+                    <br>
+
+                    <li><span>
+                        <b><%=t :form_safetybag_builder_label %></b> <%= @camp.safetybag_builder %>
+                    </span></li>
+                    <br>
+
+                    <li><span>
+                        <b><%=t :form_safetybag_safetyer_label %></b> <%= @camp.safetybag_safetyer %>
+                    </span></li>
+                    <br>
+
+                    <li><span>
+                        <b><%=t :form_safetybag_mooper_label %></b> <%= @camp.safetybag_mooper %>
+                    </span></li>
+                    <br>
+
+                    <li><span>
+                        <b><%=t :form_safetybag_materials_label %></b> <%= @camp.safetybag_materials %>
+                    </span></li>
+                    <br>
+
+                    <li><span>
+                        <b><%=t :form_safetybag_work_in_height_label %></b> <%= @camp.safetybag_work_in_height %>
+                    </span></li>
+                    <br>
+
+                    <li><span>
+                        <b><%=t :form_safetybag_tools_label %></b> <%= @camp.safetybag_tools %>
+                    </span></li>
+                    <br>
+
+                    <li><span>
+                        <b><%=t :form_safetybag_grounding_label %></b> <%= @camp.safetybag_grounding %>
+                    </span></li>
+                    <br>
+
+                    <li><span>
+                        <b><%=t :form_safetybag_safety_label %></b> <%= @camp.safetybag_safety %>
+                    </span></li>
+                    <br>
+
+                    <li><span>
+                        <b><%=t :form_safetybag_electricity_label %></b> <%= @camp.safetybag_electricity %>
+                    </span></li>
+                    <br>
+
+                    <li><span>
+                        <b><%=t :form_safetybag_daily_routine_label %></b> <%= @camp.safetybag_daily_routine %>
+                    </span></li>
+                    <br>
+
+                    <li><span>
+                        <b><%=t :form_safetybag_other_comments_label %></b> <%= @camp.safetybag_other_comments %>
+                    </span></li>
+                    <br>
+
+
+                </ul>
+            <% end %>
+
     </div> <!-- col-md-3 -->
 
 </div> <!-- row -->

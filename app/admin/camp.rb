@@ -8,7 +8,7 @@ permit_params :name, :description, :size_of_necessary_space,
  :grants_received, :grantingtoggle, :minfunded, :fullyfunded,
 :safetybag_crewsize, :safetybag_plan, :safetybag_builder,
 :safetybag_safetyer, :safetybag_mooper, :safetybag_materials,
-:safetybag_work_in_height, :safetybag_tool, :safetybag_grounding,
+:safetybag_work_in_height, :safetybag_tools, :safetybag_grounding,
 :safetybag_safety, :safetybag_electricity, :safetybag_daily_routine,
 :safetybag_other_comments
 

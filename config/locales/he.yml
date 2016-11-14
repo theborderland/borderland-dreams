@@ -165,6 +165,9 @@ he:
   contact_alternative_name: "שם החולם"
   contact_email: "אימייל"
 
+  # Guide safetybag
+  creation_safetybaginfo_headline: "פרטי תיק בטיחות (מוצג רק לך, מדריך)"
+
   # Granting adming
   turn_off_granting: "כיבוי אפשרות למימון"
   enable_granting: "פתיחת אפשרות למימון"

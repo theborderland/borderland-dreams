@@ -238,6 +238,8 @@ en:
   cant_send_less_then_one: "One cannot send less then 1 grants"
   dream_need_to_have_max_budget: "Dream needs to have maximum budget. please contact dreamer or dream guides"
   security_more_grants: "Security error cannot grant more then available grants. you tried gifting %{granted} grants. you have %{current_user_grants}. nice try."
+  security_cant_delete_dreams_you_dont_own: "One cannot delete dreams he dont own - hacker come join us"
+  security_cant_edit_dreams_you_dont_own: "One cannot delete dreams he dont own - hacker come join us"
 
   # Add me to dream
   join_dream: "Sweet! You just sent your email adress to the creator."

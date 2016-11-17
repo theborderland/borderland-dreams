@@ -233,6 +233,8 @@ he:
   cant_send_less_then_one: "לא ניתן לשלוח פחות ממטבע אחד"
   dream_need_to_have_max_budget: "החלום צריך תחילה להגדיר מקסימום תקציב. אנא פנה לבעל החלום ואו למדריכים החלומות"
   security_more_grants: "שגיאת מציאות. לא ניתן לתת יותר גרנטים ממש שיש לך כרגע. ניסית לתת %{granted} ויש לך %{current_user_grants}. נסיון יפה."
+  security_cant_delete_dreams_you_dont_own: "שגיאה - אתה לא יכול למחוק חלום שלא שייך לך - האקר הצטרף אלינו"
+  security_cant_edit_dreams_you_dont_own: "שגיאה - אתה לא יכול לערוך חלום שלא שייך לך - האקר הצטרף אלינו"
 
   # Add me to dream
   join_dream: "מתיקות! שלחנו את האימייל שלך ליוצרת החלום"

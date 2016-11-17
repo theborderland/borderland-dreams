@@ -106,9 +106,9 @@ $main-image-height: 550px;
       text-align: center;
 
       .budget-box {
+        margin-left: 24px;
+        padding-left: 24px;
         border-left: 1px solid rgba(255,255,255,0.3);
-        flex: 1;
-        margin-bottom: 24px;
       }
 
       h3 {
@@ -120,10 +120,6 @@ $main-image-height: 550px;
         font-size: 16px;
         display: inline-block;
       }
-    }
-
-    .budget-not-opened {
-      flex: 1;
     }
 
     .rect-seperator {
@@ -305,5 +301,18 @@ body {
 }
 
 @media (max-width: 540px) {
+  div.center-dream {
+    .budget-info {
+      .budget-box {
+        flex: 1;
+        margin-left: 0;
+        padding-left: 0;
+        margin-bottom: 24px;
+      }
+    }
 
+    .budget-not-opened {
+      flex: 1;
+    }
+  }
 }

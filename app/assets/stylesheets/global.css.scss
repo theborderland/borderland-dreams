@@ -244,3 +244,9 @@ address {
     border-color: $c-pinky-darker;
   }
 }
+
+@media (max-width: 992px) {
+.row {
+    margin-right: 10px;
+  }
+}

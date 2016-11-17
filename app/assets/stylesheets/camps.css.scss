@@ -77,11 +77,12 @@ $main-image-height: 550px;
 .dream_main_text {
   position: relative;
   height: $main-image-height;
-  width: 75%;
+  width: 93%;
   margin: 0 auto;
   padding: 20px;
   resize: both;
   overflow: hidden;
+
 
   div.center-dream {
     width: 50%;
@@ -99,11 +100,34 @@ $main-image-height: 550px;
     }
 
     .budget-info {
-      display: inline-block;
+      display: flex;
       margin: 0 12px;
-      font-weight: bold;
-      font-size: 24px;
       text-align: center;
+
+      .budget-box {
+        margin-left: 24px;
+        padding-left: 24px;
+        border-left: 1px solid rgba(255,255,255,0.3);
+      }
+
+      h3 {
+        font-size: 26px;
+        font-weight: bold;
+        display: inline-block;
+      }
+      h4 {
+        font-size: 16px;
+        display: inline-block;
+      }
+    }
+
+    .rect-seperator {
+      display: inherit;
+      width: 1px;
+      height: 30px;
+      opacity: 0.3;
+      background-color: white;
+      margin: 0 .6em;
     }
 
     p {
@@ -132,6 +156,8 @@ $main-image-height: 550px;
       width: auto;
 
       margin: 0 10px;
+      font-size: large;
+      font-weight: bold;
 
       &:active {
         background: darken(#364fd1, 15%) !important;
@@ -268,7 +294,7 @@ body {
   .dream_main_text {
 
     div.center-dream {
-      width: 75%;
+      width: 80%;
     }
   } 
 }

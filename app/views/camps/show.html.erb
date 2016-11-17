@@ -51,17 +51,39 @@
                     <% if Rails.configuration.x.firestarter_settings["granting_active"] and @camp.minbudget %>
 
                         <li>
+                            <div class='budget-info'>
+                                <div class='budget-box'>
+                                    <h3><%= @camp.grants_received %></h3><br><h4><%=t :funded %></h4>
+                                </div>
+                                <div class='budget-box'>
+                                    <h3><%= @camp.minbudget %></h3><br><h4><%=t :min_funded %></h4>
+                                </div>
+                                <div class='budget-box'>
+                                    <h3><%= @camp.maxbudget %></h3><br><h4><%=t :max_funded %></h4>
+                                </div>
 
-                        <h3 class='budget-info'><%= @camp.grants_received %>/<%= @camp.maxbudget %><br><%=t :funded %></h3>
+                                <!-- If user grants are > 0, allow user to asign them -->
+                                <!-- Show a form with a drop-down containing user grants -->
+                                <!-- Current iteration shows a number field -->
 
-                        <!-- Only if never got grants and not opened for granting -->
-                        <% if !@camp.grantingtoggle and @camp.grants_received <= 0%>
-                            <h3 class='budget-not-opened'>
-                                <%=t :granting_not_enabled %>
-                            </h3>
-                        <% else %>
-                            <div class="budgetprogressbar" data-min="<%= @camp.minbudget %>" data-max="<%= @camp.maxbudget %>" data-value="<%= @camp.grants_received %>"></div>
-                        <% end %>
+                                <% if @camp.grantingtoggle %>
+                                    <% if current_user && current_user.grants > 0 && !@camp.fullyfunded %>
+                                        <%= form_tag({controller: "camps", action: "update_grants"}, method: "patch") do %>
+                                            <!--<%= label_tag t(:give_grants) %>  -->
+                                            <%= hidden_field_tag 'grants', nil, in: 0..current_user.grants, step: 1, value:1 %> 
+                                            <%= submit_tag t(:i_gift_thee_grants), :class => "btn btn-success donate-button" %>
+                                        <% end %>
+                                    <% end %>
+                                <% end %>
+
+                                <!-- Only if never got grants and not opened for granting -->
+                                <% if !@camp.grantingtoggle and @camp.grants_received <= 0%>
+                                    <h3 class='budget-not-opened'>
+                                        <%=t :granting_not_enabled %>
+                                    </h3>
+                                <% end %>
+                            </div>
+                        </li>
 
                         <!-- Show user grants left -->
                         <% if current_user and @camp.minbudget %>
@@ -76,20 +98,6 @@
                                 </span></h3>
                             <% end %>
                              -->
-                        <% end %>
-
-                        <!-- If user grants are > 0, allow user to asign them -->
-                        <!-- Show a form with a drop-down containing user grants -->
-                        <!-- Current iteration shows a number field -->
-
-                        <% if @camp.grantingtoggle %>
-                            <% if current_user && current_user.grants > 0 && !@camp.fullyfunded %>
-                                <%= form_tag({controller: "camps", action: "update_grants"}, method: "patch") do %>
-                                    <!--<%= label_tag t(:give_grants) %>  -->
-                                    <%= hidden_field_tag 'grants', nil, in: 0..current_user.grants, step: 1, value:1 %> 
-                                    <%= submit_tag t(:i_gift_thee_grants), :class => "btn btn-success donate-button" %>
-                                <% end %>
-                            <% end %>
                         <% end %>
                     <% end %>
                     <!-- End of granting block -->

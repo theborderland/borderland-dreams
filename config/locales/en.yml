@@ -126,6 +126,7 @@ en:
   form_safetybag_other_comments_guidetext_html: "Do you have anything else to say?"
   form_safetybag_is_filled_form: "Does all your crew members filled the"
   form_safetybag_the_form_label: "Event registration form"
+  form_safetybag_remember_sketch: "Please make sure you've uploaded a Sketch along with an image. Without a sketch your safety file won't be approved"
 
   form_artgrants_headline: "Art grant information"
   form_artgrants_text_html: "<p>If you're not looking for an art coins, leave these fields blank.</p><p>Art coins are given by the Midburnerot community. Each Midburner who purchased a ticket has 10 art-coins to hand out. One can give all of the coins to one project or spread them around. Once a coin has been gifted to a dream, it can't be taken back. Please enter the amount in NIS and once the budgeting will be clear we will translate it to the amount in coins</p>"

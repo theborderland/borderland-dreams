@@ -73,7 +73,7 @@ en:
 
   form_description_label: "Full description of concept"
   form_description_guidetext_html: "Give a full physical and conceptual description, including interactivity how it will fit into the Midburnerot community. You've got 4096 characters. Make them count."
-  form_electricity_label: "Do you need electricity from the grid?"
+  form_electricity_label: "Do you need electricity from the grid? How much in Watt?"
   form_electricity_guidetext_html: "If yes, how much approximately are we talking in Watt?"
   form_light_label: "Will there be light?"
   form_light_guidetext_html: "Will The Thing be illuminated during the night (yes please!)? How?"
@@ -110,7 +110,7 @@ en:
   form_safetybag_mooper_guidetext_html: "What is the name of the moop manager"
   form_safetybag_materials_label: "Materials"
   form_safetybag_materials_guidetext_html: "In which materials are you going to use?"
-  form_safetybag_work_in_height_label: "Work in height (If any) - and which?"
+  form_safetybag_work_in_height_label: "Work in height - Yes / No, and which?"
   form_safetybag_work_in_height_guidetext_html: "Will you work in height? if so how?"
   form_safetybag_tools_label: "Tools"
   form_safetybag_tools_guidetext_html: "What tools are you going to use?"

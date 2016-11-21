@@ -187,9 +187,9 @@
 
         <div class="creation-info">
             <ul>
-
-                <li><span><h2 class="header-sub-heading"><%=t :creation_info_headline %></h2></span></li>
-
+                <div class="panel panel-default">
+                    <div class="panel-heading"><h2 class="header-sub-heading"><%=t :creation_info_headline %></h2></div>
+                <div class="panel-body">
                 <% if current_user && @camp.creator == current_user %>
                     <li><span>
                         <a href="<%= edit_camp_path(@camp) %>" class="btn btn-primary camp-button" role="btn button"><%=t :edit_dream %></a>
@@ -198,15 +198,8 @@
                         <a href="<%= camp_images_path(@camp) %>" class="btn btn-primary camp-button" role="btn button"><%=t :manage_images %></a>
                     </li></span>
                 <% end %>
-
-                <br>
-
-                <!-- <li><span><b><%=t :contact_name%>:</b> <%= @camp.contact_name %></span></li> -->
-                <br>
-
                 <% if current_user && current_user.guide %>
                     <li><span><b><%=t :contact_email %>:</b> <%= @camp.contact_email %></span></li>
-
                     <br>
                 <% end %>
 
@@ -310,16 +303,33 @@
                     <% end %>
                     <br>
                 <% end %>
-
+              </div>
             </ul>
 
         </div> <!-- creation-info -->
 
-        <% if Rails.configuration.x.firestarter_settings["safetybag"] && current_user && current_user.guide%>
-            <div class="safetybag-info">
+        <% if Rails.configuration.x.firestarter_settings["safetybag"] && (current_user && current_user.guide || (@camp.creator == current_user))%>
+            <div class="panel panel-default">
+                <div class="panel-heading"><b><%=t :form_extra_team_member_head %></b></div>
+                <div class="panel-body">
                 <ul>
-                    <li><span><h2 class="header-sub-heading"><%=t :creation_safetybaginfo_headline %></h2></span></li>
-                    
+                <li><span><b><%=t :form_safetybag_first_member_name_label %>:</b> <%= @camp.safetybag_firstMemberName %></span></li>
+                <li><span><b><%=t :form_safetybag_second_member_name_label %>:</b> <%= @camp.safetybag_firstMemberEmail %></span></li>
+                <li><span><b><%=t :form_safetybag_first_member_email_label %>:</b> <%= @camp.safetybag_secondMemberName %></span></li>
+                <li><span><b><%=t :form_safetybag_second_member_email_label %>:</b> <%= @camp.safetybag_secondMemberEmail %></span></li>
+                </ul>
+                </div>
+            </div>
+            </li>
+            <br>
+        <% end %>
+
+        <% if Rails.configuration.x.firestarter_settings["safetybag"] && (current_user && current_user.guide || (@camp.creator == current_user)) %>
+            <div class="panel panel-default">
+                
+                <div class="panel-heading"><b><%=t :creation_safetybaginfo_headline %></b></div>
+                <div class="panel-body">
+                <ul>    
                     <li><span>
                         <b><%=t :form_safetybag_crewsize_label %></b> <%= @camp.safetybag_crewsize %>
                     </span></li>
@@ -384,10 +394,10 @@
                         <b><%=t :form_safetybag_other_comments_label %></b> <%= @camp.safetybag_other_comments %>
                     </span></li>
                     <br>
-
-
                 </ul>
-            <% end %>
+                </div>
+            </div>
+        <% end %>
 
     </div> <!-- col-md-3 -->
 

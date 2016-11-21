@@ -114,6 +114,30 @@
       = t("form_neighbors_guidetext_html")
 
   - if Rails.configuration.x.firestarter_settings["safetybag"]
+    .header-heading
+      = t("form_extra_team_member_head")
+    
+    .combo
+      = t("form_extra_team_member_info")
+      = form.label t("form_safetybag_first_member_name_label")
+      = form.text_field :safetybag_firstMemberName, :maxlength => 64
+
+    .combo
+      = form.label t("form_safetybag_first_member_email_label")
+      = form.text_field :safetybag_firstMemberEmail, :maxlength => 64, :type => 'email'
+
+    .combo
+      = form.label t("form_safetybag_second_member_name_label")
+      = form.text_field :safetybag_secondMemberName, :maxlength => 64
+
+    .combo
+      = form.label t("form_safetybag_second_member_email_label")
+      = form.text_field :safetybag_secondMemberEmail, :maxlength => 64, :type => 'email'
+
+    .combo
+      = t("form_extra_extra_team_members_info")
+
+  - if Rails.configuration.x.firestarter_settings["safetybag"]
     
     .header-heading.safetybag-header
       = t("form_safetybag_headline")
@@ -127,7 +151,7 @@
 
       .combo.safety
         = form.label t("form_safetybag_crewsize_label")
-        = form.text_area :safetybag_crewsize, :maxlength => 5
+        = form.text_field :safetybag_crewsize, :maxlength => 5
         = t("form_safetybag_crewsize_guidetext_html")
 
       .combo.safety
@@ -233,7 +257,7 @@
     %div
       %a{ :href => "https://goo.gl/forms/nZM1aSRzxRQ2RMEr2", :target => "blank"}
         = t("form_safetybag_the_form_label")
-          
+
   .submit
     -if @camp.name
       = form.submit t(:update_dream), class: 'btn btn-success'

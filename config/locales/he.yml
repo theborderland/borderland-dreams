@@ -343,6 +343,10 @@ he:
         safetybag_electricity: "בטיחות בחשמל"
         safetybag_daily_routine: "נוהל בקרה יומי"
         safetybag_other_comments: "תיק בטיחות הערות"
+        safetybag_firstMemberName: "שם חבר צוות נוסף"
+        safetybag_firstMemberEmail: "אימייל חבר צוות נוסף"
+        safetybag_secondMemberName: "שם חבר צוות נוסף 2"
+        safetybag_secondMemberEmail: "אימייל חבר צוות נוסף 2"
 
     errors:
       models:

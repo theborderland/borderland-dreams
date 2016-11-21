@@ -124,8 +124,7 @@ en:
   form_safetybag_daily_routine_guidetext_html: "Who will check daily the project and what does it include?"
   form_safetybag_other_comments_label: "Other commnets for safety file"
   form_safetybag_other_comments_guidetext_html: "Do you have anything else to say?"
-  form_safetybag_is_filled_form: "Does all your crew members filled the"
-  form_safetybag_the_form_label: "Event registration form"
+  form_safetybag_the_form_label: "Does all your crew members filled the Insurance Art registration form. Click here"
   form_safetybag_remember_sketch: "Please make sure you've uploaded a Sketch along with an image. Without a sketch your safety file won't be approved"
 
   form_artgrants_headline: "Art grant information"

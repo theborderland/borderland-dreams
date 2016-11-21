@@ -192,8 +192,8 @@
 
       %br
       %div
-        = t("form_safetybag_is_filled_form")
-        = t("form_safetybag_the_form_label")
+        %a{ :href => "https://goo.gl/forms/nZM1aSRzxRQ2RMEr2", :target => "blank"}
+          = t("form_safetybag_the_form_label")
 
       %br
       %div.safetytext
@@ -229,6 +229,11 @@
       = form.number_field :maxbudget_realcurrency, :maxlength => 6 ,class:'form-control'
       = t("form_maxigrants_realcurrency_guidetext_html")
 
+  %br
+    %div
+      %a{ :href => "https://goo.gl/forms/nZM1aSRzxRQ2RMEr2", :target => "blank"}
+        = t("form_safetybag_the_form_label")
+          
   .submit
     -if @camp.name
       = form.submit t(:update_dream), class: 'btn btn-success'

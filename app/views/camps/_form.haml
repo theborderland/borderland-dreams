@@ -1,10 +1,11 @@
 :javascript
   $(function() { $(".hide_show_safetyfile").click(function(){ 
-  if($('.safetybar-info').css('display') === "none") {
-    $('.safetybar-info').fadeIn();
-    }else {
-    $('.safetybar-info').fadeOut();
-    }
+  alert("תיק בטיחות סגור כעת\r\nSafety file section is closed at the moment");
+  /* if($('.safetybar-info').css('display') === "none") {
+  /*   $('.safetybar-info').fadeIn();
+  /*   }else {
+  /*   $('.safetybar-info').fadeOut();
+  /*   }*/
   })});
 
 = form_for @camp, :html => {:dir => I18n.t(:html_direction) } do |form|
@@ -148,67 +149,67 @@
 
       .combo.safety
         = form.label t("form_safetybag_crewsize_label")
-        = form.text_field :safetybag_crewsize, :maxlength => 5
+        = form.text_field :safetybag_crewsize, :maxlength => 5, :disabled => true
         = t("form_safetybag_crewsize_guidetext_html")
 
       .combo.safety
         = form.label t("form_safetybag_plan_label")
-        = form.text_area :safetybag_plan, :maxlength => 4096
+        = form.text_area :safetybag_plan, :maxlength => 4096, :disabled => true
         = t("form_safetybag_plan_guidetext_html")
 
       .combo.safety
         = form.label t("form_safetybag_builder_label")
-        = form.text_area :safetybag_builder, :maxlength => 64
+        = form.text_area :safetybag_builder, :maxlength => 64, :disabled => true
         = t("form_safetybag_builder_guidetext_html")
 
       .combo.safety
         = form.label t("form_safetybag_safetyer_label")
-        = form.text_area :safetybag_safetyer, :maxlength => 64
+        = form.text_area :safetybag_safetyer, :maxlength => 64, :disabled => true
         = t("form_safetybag_safetyer_guidetext_html")
 
       .combo.safety
         = form.label t("form_safetybag_mooper_label")
-        = form.text_area :safetybag_mooper, :maxlength => 64
+        = form.text_area :safetybag_mooper, :maxlength => 64, :disabled => true
         = t("form_safetybag_mooper_guidetext_html")
 
       .combo.safety
         = form.label t("form_safetybag_materials_label")
-        = form.text_area :safetybag_materials, :maxlength => 4096
+        = form.text_area :safetybag_materials, :maxlength => 4096, :disabled => true
         = t("form_safetybag_materials_guidetext_html")
 
       .combo.safety
         = form.label t("form_safetybag_work_in_height_label")
-        = form.text_area :safetybag_work_in_height, :maxlength => 4096
+        = form.text_area :safetybag_work_in_height, :maxlength => 4096, :disabled => true
         = t("form_safetybag_work_in_height_guidetext_html")
 
       .combo.safety
         = form.label t("form_safetybag_tools_label")
-        = form.text_area :safetybag_tools, :maxlength => 4096
+        = form.text_area :safetybag_tools, :maxlength => 4096, :disabled => true
         = t("form_safetybag_tools_guidetext_html")
 
       .combo.safety
         = form.label t("form_safetybag_grounding_label")
-        = form.text_area :safetybag_grounding, :maxlength => 4096
+        = form.text_area :safetybag_grounding, :maxlength => 4096, :disabled => true
         = t("form_safetybag_grounding_guidetext_html")
 
       .combo.safety
         = form.label t("form_safetybag_safety_label")
-        = form.text_area :safetybag_safety, :maxlength => 4096
+        = form.text_area :safetybag_safety, :maxlength => 4096, :disabled => true
         = t("form_safetybag_safety_guidetext_html")
 
       .combo.safety
         = form.label t("form_safetybag_electricity_label")
-        = form.text_area :safetybag_electricity, :maxlength => 4096
+        = form.text_area :safetybag_electricity, :maxlength => 4096, :disabled => true
         = t("form_safetybag_electricity_guidetext_html")
 
       .combo.safety
         = form.label t("form_safetybag_daily_routine_label")
-        = form.text_area :safetybag_daily_routine, :maxlength => 4096
+        = form.text_area :safetybag_daily_routine, :maxlength => 4096, :disabled => true
         = t("form_safetybag_daily_routine_guidetext_html")
 
       .combo.safety
         = form.label t("form_safetybag_other_comments_label")
-        = form.text_area :safetybag_other_comments, :maxlength => 4096
+        = form.text_area :safetybag_other_comments, :maxlength => 4096, :disabled => true
         = t("form_safetybag_other_comments_guidetext_html")
 
       %br

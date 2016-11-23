@@ -23,6 +23,7 @@ defaults: &defaults
   footer_logo: false
   creation_sidebar_welcome: true
   safetybag: true
+  disable_open_new_dream: <%= ENV['disable_open_new_dream'] or false %>
 
 development:
   <<: *defaults

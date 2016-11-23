@@ -1,9 +1,17 @@
+class CanCreateNewDreamValidator < ActiveModel::Validator
+  def validate(record)
+  	if Rails.application.config.x.firestarter_settings['disable_open_new_dream']
+      record.errors[:base] << I18n.t("new_dream_is_disabled")
+    end
+  end
+end
+
 class Camp < ActiveRecord::Base
 	belongs_to :creator, class_name: 'User', foreign_key: 'user_id'
 
 	has_many :memberships
 	has_many :users, through: :memberships
-  has_many :images #, :dependent => :destroy
+    has_many :images #, :dependent => :destroy
 
 	validates :creator, presence: true
 	validates :name, presence: true
@@ -14,6 +22,7 @@ class Camp < ActiveRecord::Base
 	validates :minbudget_realcurrency, :numericality => { :greater_than_or_equal_to => 0 }, allow_blank: true
 	validates :maxbudget, :numericality => { :greater_than_or_equal_to => 0 }, allow_blank: true
 	validates :maxbudget_realcurrency, :numericality => { :greater_than_or_equal_to => 0 }, allow_blank: true
+	validates_with CanCreateNewDreamValidator, :on => :create
 
 	filterrific(
 	default_filter_params: { sorted_by: 'updated_at_desc' },

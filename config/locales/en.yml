@@ -256,6 +256,9 @@ en:
   join_errors_login: "You need to be logged in to add your email to the list."
   join_already_sent: "Nice! You've already sent your email to the creator."
 
+  # Errors
+  new_dream_is_disabled: "Creating new dreams is disabled at the moment. If you think this is a mistake please contact bureau of dreams"
+
   errors_str: "Errors"
 
   activerecord:

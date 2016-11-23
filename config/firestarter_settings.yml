@@ -24,6 +24,7 @@ defaults: &defaults
   creation_sidebar_welcome: true
   safetybag: true
   disable_open_new_dream: <%= ENV['disable_open_new_dream'] or false %>
+  disable_edit_safetybag: <%= ENV['disable_edit_safetybag'] or false %>
 
 development:
   <<: *defaults

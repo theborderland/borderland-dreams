@@ -1,11 +1,17 @@
-:javascript
-  $(function() { $(".hide_show_safetyfile").click(function(){ 
-  if($('.safetybar-info').css('display') === "none") {
-    $('.safetybar-info').fadeIn();
-    }else {
-    $('.safetybar-info').fadeOut();
-    }
-  })});
+- if Rails.configuration.x.firestarter_settings["disable_edit_safetybag"]
+  :javascript
+    $(function() { $(".hide_show_safetyfile").click(function(){ 
+      alert( "עריכת שדות תיק הבטיחות סגור כרגע\r\nSafety file is disabled at the moment" );
+    })});
+- else
+  :javascript
+    $(function() { $(".hide_show_safetyfile").click(function(){ 
+    if($('.safetybar-info').css('display') === "none") {
+      $('.safetybar-info').fadeIn();
+      }else {
+      $('.safetybar-info').fadeOut();
+      }
+    })});
 
 = form_for @camp, :html => {:dir => I18n.t(:html_direction) } do |form|
 

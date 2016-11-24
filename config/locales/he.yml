@@ -42,6 +42,7 @@ he:
   welcome_guest_text_html: "מזל טוב! נתקלתם במשהו מיוחד! <b>מידברנרות</b> זה הדבר הכי מדהים שיש. אתם אפילו לא יכולים לתאר לעצמכם את הרעיונות הייחודיים, והמופרכים שאנשים ממציאים בשביל הדבר הזה! חלומות מידברנרות היא ספריה של הדימיון הקולקטיבי שלנו. אנחנו חולמים ביחד ומפיחים רוח חיים ליצירות המופרכות והאדירות שלנו. חלומות חייבים גם חומר כדי להתממש, ובמקום הזה אנחנו חולקים משאבים כדי שזה יקרה. כל משתתף במידברנרות מקבל 10 מטבעות לחלק לפי שיקול דעתו. תדמיינו את המטבעות האלה ככוחות על שאיתם אתם יכולים לממש את החלומות האלה. תתרשם מהסביבה כדי ליצור חלום משלך."
   welcome_user_title: "ברוכים הבאות לחלומותייך!"
   welcome_user_text_html: "חלומות מידברנרות היא ספריה של הדימיון הקולקטיבי שלנו. אנחנו חולמים ביחד ומפיחים רוח חיים ליצירות המופרכות והאדירות שלנו. חלומות חייבים גם חומר כדי להתממש, ובמקום הזה אנחנו חולקים משאבים כדי שזה יקרה. כל משתתף מידברנרות מקבל 10 מטבעות לחלק לפי שיקול דעתם. תדמיינו את המטבעות האלה ככוחות על שאיתם אתה יכול לממש את החלומות האלה. כדי להפעיל את המטבעות לחלומותיך, דבר עם מדריך חלומות המקומי הידידותי שלך. מגניב, נכון? תתרשם מהסביבה כדי ליצור חלום משלך."
+  header_faq_link: "היי את - האם קראת את עמוד שאלות ותשובות?"
   footer_left_html: "מידברנרות זאת קהילה השתתפותית שבה אנחנו מיצרים ביחד אירועים ומפגשים כפרוטוטייפים לחלומותינו. זה כמו מיכל ריק, פתוח ליוזמתך. זאת הזמנה לשחק, להרהר, ולתקשר. אם יש לכם שאלות, אתם מוזמנים לשאול בקבוצת הפייסבוק שלנו. "
   footer_right_html: " בדצמבר 2016 תתכנס קהילת המידברנרות בפארק ירוחם, ישראל. זה פסטיבל שבו כל האירגון והתוכן היצירתי נעשה על ידי המשתתפים. האירוע מיועד למשתתפים בלבד, ולא פתוחה לצופים."
   
@@ -55,13 +56,16 @@ he:
 
   # Creation registration form
   form_basics_headline: "רישום החלום"
-  
+
+  form_creator_alternative_name_label: "אופציונלי - שם בעל החלום"
+  form_creator_alternative_name_guidetext_html: "כאן ניתן לרשום את השם שנולדת איתו. או לחילופין כינוי/אלטר אגו במידה ותרצה לשמור על אנונימיות"
+
   form_summary: "החלום בקצרה"
   form_dream_name_label: "שם החלום (חובה)"
   form_dream_name_guidetext_html: "איך קוראים לחלום שלך?"
   form_subtitle_label: "סיכום החלום במשפט (נדרש)"
   form_subtitle_guidetext_html: "סיכום קצר של החלום שאת מציעה. סיכום זה יופיע בעמוד הראשי של האתר. תעשי את זה קצר, עד 256 תווים."
-  form_creator_name_label: "שמך (נדרש)"
+  form_creator_name_label: "שמך (נדרש לתיק בטיחות)"
   form_creator_name_guidetext_html: "איך קוראים לך, בעלת החלומות?"
   form_creator_email_label: "כתובת מייל (נדרש)"
   form_creator_email_guidetext_html: "שיכלו להשיג אותך..."
@@ -73,7 +77,7 @@ he:
 
   form_description_label: "תיאור מלא של הרעיון"
   form_description_guidetext_html: "תני תיאור פיזי ורעיוני מלא, שכולל את האינטראקציה עם החלום ואיך הוא משתלב עם קהילת המידברנרות. יש לך 4096 תווים , תנצלי אותם! "
-  form_electricity_label: "האם את זקוקה לחשמל?"
+  form_electricity_label: "האם את זקוקה לחשמל? פרטי בוואטים"
   form_electricity_guidetext_html: "אם כן, כמה חשמל בערך מדובר בוואט?"
   form_light_label: "האם תהיה תאורה?"
   form_light_guidetext_html: "האם זה יהיה מואר גם בלילה (בבקשה כן)? ואם כן, איך?"
@@ -91,33 +95,74 @@ he:
   form_plan_guidetext_html: "איך נראה הצוות שלך ומה הלוחות זמנים שלכם?"
   form_cocreation_label: "כיצד יכולים ברנרים נוספים להצטרף ליצירה שלכם?"
   form_cocreation_guidetext_html: "האם הייתם רוצים שעוד מישהו יצטרף אליכם? איזה יכולות אתם מחפשים? איך מישהי יכולה להשתתף בפרויקט הזה?"
-  form_neighbors_label: "מי הם השכנים המושלמים שלכם?"
-  form_neighbors_guidetext_html: "אילו מיצבי אמנות הייתם רוצים כשכנים?"
+  form_neighbors_label: "מיקומיישן - מי הם השכנים המושלמים שלכם?"
+  form_neighbors_guidetext_html: "מה היה מיקום טוב עבורכם? מבחינת מיקומיישן?"
+
+  form_basics_safety_bag: "שדות שמסומנים בורוד זוהר הינם שדות חובה לטובת תיק הבטיחות. רובם לא מוצגים בספריית החלומות הציבורית ומיועדים לאישור המיצב"
+  form_safetybag_headline: "מידע לתיק בטיחות"
+  form_safetybag_show_hide: "הצג / הסתר שדות תיק בטיחות"
+  form_safetybag_needs_to_fill: "שימו לב לכפתור מעל. ממש כאן מעליי יש ללחוץ ואז קסם. נוסף שימו לב ששיש למלא את המידע על תיק הבטיחות עד לתאריך 22/11"
+  form_safetybag_crewsize_label: "מספר אנשי צוות"
+  form_safetybag_crewsize_guidetext_html: "כמה חולמים אתם?"
+  form_safetybag_plan_label: "פירוט אנשי הצוות ותכנית עבודה מפורטת לתיק בטיחות - מה בונים קודם"
+  form_safetybag_plan_guidetext_html: "תכנית הקמה ועבודה. תכנית פירוק. מהם שמות האנשים המשתתפים בבנייה"
+  form_safetybag_builder_label: "אחראי בניה"
+  form_safetybag_builder_guidetext_html: "מי אחראי על הבנייה"
+  form_safetybag_safetyer_label: "אחראי בטיחות"
+  form_safetybag_safetyer_guidetext_html: "מי אחראי בטיחות"
+  form_safetybag_mooper_label: "אחראי חשל\"ש"
+  form_safetybag_mooper_guidetext_html: "מי אחראי חשל\"ש"
+  form_safetybag_materials_label: "חומרי גלם"
+  form_safetybag_materials_guidetext_html: "באיזה חומרים תשתמשי?"
+  form_safetybag_work_in_height_label: "עבודה בגובה כן/לא ופרט"
+  form_safetybag_work_in_height_guidetext_html: "האם תהיה עבודה בגובה? איזה?"
+  form_extra_team_member_head: "חברי צוות נוספים"
+  form_extra_team_member_headline: "רשמו כאן את כל חבריי צוות החלום בשמות פרטיים"
+  form_extra_team_member_info: "רשמו כאן את חברי הצוות שלכם שעוד לא רשומים לארוע - לצורך הבטחת מקומם. הערה - כרגע יש עד 2 חברי צוות נוספים."
+  form_extra_extra_team_members_info: "אם יש לכם בצוות חברים נוספים שאינם רשומים לאירוע, רשמו אותם (שם+כתובת) ב״הערות נוספות״ תחת תיק הבטיחות. אם יתפנו לנו מקומות נוספים באירוע נרשום גם אותם."
+  form_safetybag_first_member_name_label: "שם חבר צוות"
+  form_safetybag_first_member_email_label: "אימייל חבר צוות"
+  form_safetybag_second_member_name_label: "שם חבר צוות נוסף 2"
+  form_safetybag_second_member_email_label: "אימייל חבר צוות נוסף 2"
+  form_safetybag_tools_label: "כלי עבודה"
+  form_safetybag_tools_guidetext_html: "מעדר? מקדחה? מסור? ידיים?"
+  form_safetybag_grounding_label: "קיבוע המיצב לקרקע"
+  form_safetybag_grounding_guidetext_html: "איך המיצב יהיה מחובר לקרקע?"
+  form_safetybag_safety_label: "אבטוח/סימון/מניעת פציעות"
+  form_safetybag_safety_guidetext_html: "איך תאבטחו את המיצב ומתסמנו אותו?"
+  form_safetybag_electricity_label: "בטיחות בחשמל"
+  form_safetybag_electricity_guidetext_html: "בטיחות בחשמל"
+  form_safetybag_daily_routine_label: "נוהל בקרה יומית"
+  form_safetybag_daily_routine_guidetext_html: "מי בודק את המיצב ומה הוא עושה?"
+  form_safetybag_other_comments_label: "הערות נוספות לתיק הבטיחות"
+  form_safetybag_other_comments_guidetext_html: "יש לכם משהו נוסף שתרצו לציין?"
+  form_safetybag_the_form_label: "האם כל חברי הצוות מילאו טופס מתנדבי אמנות לצורכי ביטוח? לחץ עליי"
+  form_safetybag_remember_sketch: "אנא וודאו כי בנוסף לתמונה, העלתם שרטוט טכני לחלום - ללא שרטוט טכני לא ניתן יהיה לקבל אישור תיק בטיחות"
 
   form_artgrants_headline: "מידע על מטבעות אמנות"
-  form_artgrants_text_html: "אם אינך מחפש מענק כספי לסיוע הגשמת החלום שלך, השאר את השדות האלה ריקים.<br>מענקים אומנותיים כספיים מעונקים כמטבעות על ידי משתתפי המידברנרות. לכל משתתף שרכש כרטיס לארוע המידברנרות יש 10 מטבעות לחלק. אפשר להעניק את כל עשרת המטבעות לפרוייקט אחד או לחלק אותם בין כמה פרוייקטים. ברגע שהוענק מטבע, לא ניתן לקבלו בחזרה. כרגע אנא הכנס את הכסף בשקלים ואנחנו נמירו בהמשך לכמות במטבעות ברגע שייסגר התקציב"
+  form_artgrants_text_html: "אם אינך מחפש מענק כספי לסיוע הגשמת החלום שלך, השאר את השדות האלה ריקים.<br>מענקים אומנותיים כספיים מעונקים כמטבעות על ידי משתתפי המידברנרות. לכל משתתף שרכש כרטיס לארוע המידברנרות יש 10 מטבעות לחלק. אפשר להעניק את כל עשרת המטבעות לפרוייקט אחד או לחלק אותם בין כמה פרוייקטים. ברגע שהוענק מטבע, לא ניתן לקבלו בחזרה. כרגע אנא הכנס את הכסף בשקלים ואנחנו נמירו בהמשך לכמות במטבעות ברגע שייסגר התקציב. חשוב לזכור שזה ארוע קטן וככל שנהיה מינימליסטים כך יותר חלומות יוכלו להתגשם."
 
   form_minigrants_realcurrency_label: "מספר מינימלי של כסף בשקלים הנדרש ליצירת הפרויקט"
-  form_minigrants_realcurrency_guidetext_html: "התקציב המינימלי שאתה צריך כדי להרים את הפרוייקט, שמתחתיו לא תוכל להרימו"
+  form_minigrants_realcurrency_guidetext_html: "התקציב המינימלי שאתה צריך כדי להרים את הפרוייקט, שמתחתיו לא תוכל להרימו. חשוב לזכור שזה ארוע קטן - בוא ננסה להיות מדוייקים ברצונות שלנו וכך כולנו נוכל לחלום יחדיו"
   form_maxigrants_realcurrency_label: "תקציב בשקלים שאתה צריך בכדי לממן את החלום במלואו"
-  form_maxigrants_realcurrency_guidetext_html: "כמה כסף אתה צריך כדי לממן את הפרוייקט במלואו"
+  form_maxigrants_realcurrency_guidetext_html: "כמה כסף אתה צריך כדי לממן את הפרוייקט במלואו. חשוב לזכור שמדובר בארוע קטן - אנא נסה להיות מדוייק"
 
   form_minigrants_label: "מספר מינימלי של מטבעות שחייבים"
   form_minigrants_guidetext_html: "התקציב המינימלי שאתה צריך כדי להרים את הפרוייקט, שמתחתיו לא תוכל להרימו"
   form_maxigrants_label: "מטבעות שצריכים כדי לממן את החלום במלואו"
   form_maxigrants_guidetext_html: "כמה מטבעות אתה צריך כדי לממן את הפרוייקט במלואו"
-  form_budgetplan_label: "סקירת תקציב"
-  form_budgetplan_guidetext_html: "איך תשתמשו בתקציב שלכם? תתארו את העלויות שלכם לפי נושאים כללים של הצרכים שלכם. לדוג׳ - הובלה, ציוד לקנייה וכדומה."
+  form_budgetplan_label: "סקירת התקציב בש\"ח"
+  form_budgetplan_guidetext_html: "איך תשתמשו בתקציב שלכם? תתארו את העלויות שלכם לפי נושאים כללים של הצרכים שלכם בשקלים. לדוג׳ - הובלה, ציוד לקנייה וכדומה."
   create_dream: "צור חלום!"
   update_dream: "עדכן חלום!"
   edit_dream: "ערוך חלום"
   manage_images: "ערוך תמונות"
 
-  give_grants: "הענקת מטבעות"
-  i_gift_thee_grants: "הענק מטבעות"
+  give_grants: "כמה מטבעות?"
+  i_gift_thee_grants: "תרמו לחלום"
   no_granting_yet: "טרם נפתח המענק לחלום זה!"
 
-  created_new_dream: "יש! יצרת חלום. השלב הבא הוא להוסיף תמונה שרטוט או הדמייה של החלום"
+  created_new_dream: "יש! יצרת חלום. השלב הבא הוא להוסיף תמונה, שרטוט טכני או הדמייה של החלום"
 
   # Creation view
   what_is_this_title: "מה זה?"
@@ -126,7 +171,11 @@ he:
   creation_info_headline: "פרטים"
   next_random_dream: "חלום רנדומלי הבא"
   contact_name: "שם החולם"
+  contact_alternative_name: "שם החולם"
   contact_email: "אימייל"
+
+  # Guide safetybag
+  creation_safetybaginfo_headline: "פרטי תיק בטיחות (מוצג רק לך, בעל החלום)"
 
   # Granting adming
   turn_off_granting: "כיבוי אפשרות למימון"
@@ -150,6 +199,8 @@ he:
   granting_not_enabled: "טרם נפתח למלגות"
   not_funded_yet: "טרם מומן"
   funded: "מומנו"
+  min_funded: "מינימום"
+  max_funded: "יעד"
   minimum_funding_reached: "מימון מינימאלי הושג"
   minimum_grants_needed: "מטבעות מינימלים שצריכים"
   needed_to_fully_fund: "מטבעות מקסימלים שצריכים"
@@ -160,7 +211,7 @@ he:
   your_available_grants: "מטבעות שנותרו לך"
   youre_out_of_grants: "השתמשת בכל המטבעות שלך. ריספקט"
 
-  add_my_name: "הצטרפי לחלום"
+  add_my_name: "הצטרפו לחלום"
   delete_this_creation: "למחוק את החלום הזה"
   are_you_sure: "האם את בטוחה?"
 
@@ -175,7 +226,7 @@ he:
   confirm_new_password: "אמת סיסמא"
   password_characters_minimum: "מינימום %{count} תווים"
 
-  registration_text: "אנא הכנס את מספר הפלאפון שלך כקוד."
+  registration_text: "ההרשמה כרגע היא רק לבעלי חלומות (אמנים). ההרשמה הכללית תפתח עוד כשבוע. מבאס אנחנו יודעים אבל היי ממש נעים פה אה? מוזמנת לטייל בין שדות החלומות."
   registration_code: "מספר פלאפון (קוד הרשמה)"
 
   invalid_membership_code: "הקוד שהוכנס לא נמצא. אנא נסה שנית. אנא בדוק שאתה מכניס את האימייל והפלאפון שהשתמשת בעת קניית הכרטיס. אם אתה לא מצליח להרשם, פנה ללשכת החלומות - midburnerot.art@gmail.com"
@@ -192,12 +243,16 @@ he:
   cant_send_less_then_one: "לא ניתן לשלוח פחות ממטבע אחד"
   dream_need_to_have_max_budget: "החלום צריך תחילה להגדיר מקסימום תקציב. אנא פנה לבעל החלום ואו למדריכים החלומות"
   security_more_grants: "שגיאת מציאות. לא ניתן לתת יותר גרנטים ממש שיש לך כרגע. ניסית לתת %{granted} ויש לך %{current_user_grants}. נסיון יפה."
+  security_cant_delete_dreams_you_dont_own: "שגיאה - אתה לא יכול למחוק חלום שלא שייך לך - האקר הצטרף אלינו"
+  security_cant_edit_dreams_you_dont_own: "שגיאה - אתה לא יכול לערוך חלום שלא שייך לך - האקר הצטרף אלינו"
 
   # Add me to dream
   join_dream: "מתיקות! שלחנו את האימייל שלך ליוצרת החלום"
   join_errors_login: "את צריכה להיות מחוברת כדי להוסיף את עצמך ליוצרת החלום."
   join_already_sent: "מתיקות! כבר שלחנו את האימייל שלך ליוצרת החלום."
 
+  # Errors
+  new_dream_is_disabled: "יצירת חלומות חדשים מנוטרלת כרגע. אם אתה חושב שזאת שגיאה אנא צור קשר עם לשכת החלומות"
   helpers:
     label:
       user:
@@ -278,6 +333,23 @@ he:
         fullyfunded: "מימון מקסימלי הושג"
         minbudget_realcurrency: "מימון מינימלי בשקלים"
         maxbudget_realcurrency: "מימון מקסימלי בשקלים"
+        safetybag_crewsize: "גודל הצוות"
+        safetybag_plan: "תכנית עבודה"
+        safetybag_builder: "אחראי בנייה"
+        safetybag_safetyer: "אחראי בטיחות"
+        safetybag_mooper: "אחראי חשלש"
+        safetybag_materials: "חומרים"
+        safetybag_work_in_height: "עבודה בגובה"
+        safetybag_tools: "כלים"
+        safetybag_grounding: "קיבוע לקרקע"
+        safetybag_safety: "בטיחות"
+        safetybag_electricity: "בטיחות בחשמל"
+        safetybag_daily_routine: "נוהל בקרה יומי"
+        safetybag_other_comments: "תיק בטיחות הערות"
+        safetybag_firstMemberName: "שם חבר צוות נוסף"
+        safetybag_firstMemberEmail: "אימייל חבר צוות נוסף"
+        safetybag_secondMemberName: "שם חבר צוות נוסף 2"
+        safetybag_secondMemberEmail: "אימייל חבר צוות נוסף 2"
 
     errors:
       models:

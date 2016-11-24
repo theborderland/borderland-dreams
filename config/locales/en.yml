@@ -42,6 +42,7 @@ en:
   welcome_guest_text_html: "Congratulations! You've stumbled upon something special! <b>Midburnerot</b> is some awesome fucking shit. We dream together and breathe life into our mad and wonderous creations. Dreams need matter to come to life, and this is where we share resources to make that happen. All midburners get 10 grants to give out as they see fit. Think of these as superpowers, with which you can make dreams into matter! To activate granting for your dream, talk to your friendly local Dream Guide. Pretty neat, huh?"
   welcome_user_title: "Welcome to your Dreams!"
   welcome_user_text_html: "Midburnerot Dreams is a directory of our collective imagination. We dream together and breathe life into our mad and wonderous creations. Dreams need matter to come to life, and this is where we share resources to make that happen. All midburners get 10 grants to give out as they see fit. Think of these as superpowers, with which you can make dreams into matter! To activate granting for your dream, talk to your friendly local Dream Guide. Pretty neat, huh? Have a look around or create a dream of your own!"
+  header_faq_link: "Did you already read our FAQ page?"
   footer_left_html: "The Midburnerot is a participatory community where we co-create events and gatherings as prototypes for our dreams. It is an empty container, open to your initiative. It is an invitation to play, to reflect, and to engage. If you have any question please ask in our <a href='facebook.com/groups/theborderland/'>Facebook Group</a>."
   footer_right_html: "In Dec 2016, The Midburnerot community will gather in Yeroham Park, Israel. It is a festival, where all the organization and all creative content is created by the participants. The event is for co-creators only, and not open to spectators."
   
@@ -73,7 +74,7 @@ en:
 
   form_description_label: "Full description of concept"
   form_description_guidetext_html: "Give a full physical and conceptual description, including interactivity how it will fit into the Midburnerot community. You've got 4096 characters. Make them count."
-  form_electricity_label: "Do you need electricity from the grid?"
+  form_electricity_label: "Do you need electricity from the grid? How much in Watt?"
   form_electricity_guidetext_html: "If yes, how much approximately are we talking in Watt?"
   form_light_label: "Will there be light?"
   form_light_guidetext_html: "Will The Thing be illuminated during the night (yes please!)? How?"
@@ -93,6 +94,47 @@ en:
   form_cocreation_guidetext_html: "How can someone be a part of this project?"
   form_neighbors_label: "Who would your perfect neighbors be?"
   form_neighbors_guidetext_html: "What kind of midburners would you like as neighbors? Quiet, Deep playa, Near camps, Near sounds camps, Far away from sounds camps"
+
+  form_basics_safety_bag: "Fields which are marked in ultra pink are required for the safety file. Most of them are not shown in the public dream page"
+  form_safetybag_headline: "Safety file info"
+  form_safetybag_show_hide: "Show / Hide Safety file info"
+  form_safetybag_needs_to_fill: "Please notice the button above me. click it! You should fill safety bag info till the 22/11"
+  form_safetybag_crewsize_label: "Crew size"
+  form_safetybag_crewsize_guidetext_html: "How many people are you?"
+  form_safetybag_plan_label: "Details work plan for safety file - what are you building and in what order"
+  form_safetybag_plan_guidetext_html: "Setup plan Break plan"
+  form_safetybag_builder_label: "Construction Manager"
+  form_safetybag_builder_guidetext_html: "What is the name of your main builder"
+  form_safetybag_safetyer_label: "Safety Manager"
+  form_safetybag_safetyer_guidetext_html: "What is the name of your main safety manager"
+  form_safetybag_mooper_label: "Moop Manager"
+  form_safetybag_mooper_guidetext_html: "What is the name of the moop manager"
+  form_safetybag_materials_label: "Materials"
+  form_safetybag_materials_guidetext_html: "In which materials are you going to use?"
+  form_safetybag_work_in_height_label: "Work in height - Yes / No, and which?"
+  form_safetybag_work_in_height_guidetext_html: "Will you work in height? if so how?"
+  form_extra_team_member_head: "Extra Team Members"
+  form_extra_team_member_headline: "Write here your team members private names"
+  form_extra_team_member_info: "Write here your team members that still hasn't registered for the event. Note - right now there is up to 2 members per project."
+  form_extra_extra_team_members_info: "If there are any extra team members, write them in the Extra comments under the safety file. If there will be more places in the event, we will register them."
+  form_safetybag_first_member_name_label: "Team member name"
+  form_safetybag_first_member_email_label: "Team member email"
+  form_safetybag_second_member_name_label: "Extra team member 2 name"
+  form_safetybag_second_member_email_label: "Extra team member 2 email"
+  form_safetybag_tools_label: "Tools"
+  form_safetybag_tools_guidetext_html: "What tools are you going to use?"
+  form_safetybag_grounding_label: "Mounting to ground"
+  form_safetybag_grounding_guidetext_html: "How is your project would be mounted to the ground?"
+  form_safetybag_safety_label: "Securing / Marking / Preventing injuries"
+  form_safetybag_safety_guidetext_html: "How will you secure your project, mark it and prevent injuries?"
+  form_safetybag_electricity_label: "Electricity safety"
+  form_safetybag_electricity_guidetext_html: "How will you make sure that any electricity use is safe"
+  form_safetybag_daily_routine_label: "Daily routine"
+  form_safetybag_daily_routine_guidetext_html: "Who will check daily the project and what does it include?"
+  form_safetybag_other_comments_label: "Other commnets for safety file"
+  form_safetybag_other_comments_guidetext_html: "Do you have anything else to say?"
+  form_safetybag_the_form_label: "Does all your crew members filled the Insurance Art registration form. Click here"
+  form_safetybag_remember_sketch: "Please make sure you've uploaded a Sketch along with an image. Without a sketch your safety file won't be approved"
 
   form_artgrants_headline: "Art grant information"
   form_artgrants_text_html: "<p>If you're not looking for an art coins, leave these fields blank.</p><p>Art coins are given by the Midburnerot community. Each Midburner who purchased a ticket has 10 art-coins to hand out. One can give all of the coins to one project or spread them around. Once a coin has been gifted to a dream, it can't be taken back. Please enter the amount in NIS and once the budgeting will be clear we will translate it to the amount in coins</p>"
@@ -114,7 +156,7 @@ en:
   manage_images: "Manage Images"
 
   give_grants: 'Give Grants'
-  i_gift_thee_grants: 'I gift thee grants'
+  i_gift_thee_grants: 'Donate to dream'
   no_granting_yet: 'No granting for this dream yet!'
 
   created_new_dream: "Yeah! You've created a dream. Now add some images to your dream"
@@ -126,7 +168,11 @@ en:
   creation_info_headline: "Details"
   next_random_dream: "Next random dream"
   contact_name: "Contact Name"
+  contact_alternative_name: "Contact Name"
   contact_email: "Contact Email"
+
+  # Guide safetybag
+  creation_safetybaginfo_headline: "Safetyfile info (Shown only to you,dreamer)"
 
   # Granting adming
   turn_off_granting: "Turn off granting"
@@ -149,7 +195,9 @@ en:
   grants_recieved: "Grants Recieved"
   granting_not_enabled: "Granting disabled"
   not_funded_yet: "Not funded yet"
-  funded: "funded"
+  funded: "Funded"
+  min_funded: "Minimum"
+  max_funded: "Target"
   minimum_funding_reached: "Minimum funding reached"
   minimum_grants_needed: "Minimum grants needed"
   needed_to_fully_fund: "Needed to fully fund"
@@ -183,7 +231,7 @@ en:
   new_password: "New password"
   confirm_new_password: "Confirm new password"
 
-  registration_text: "Use your phone number to register."
+  registration_text: "Registration right now is open only for dreamers. General openning is in a WEEK or less. Meanwhile you can travel the fields of dreams."
   registration_code: "Phone number (Membership Code)"
 
   invalid_membership_code: "Cant find a user with that email / code. make sure you use the same email and phone you bought your ticket with"
@@ -200,11 +248,16 @@ en:
   cant_send_less_then_one: "One cannot send less then 1 grants"
   dream_need_to_have_max_budget: "Dream needs to have maximum budget. please contact dreamer or dream guides"
   security_more_grants: "Security error cannot grant more then available grants. you tried gifting %{granted} grants. you have %{current_user_grants}. nice try."
+  security_cant_delete_dreams_you_dont_own: "One cannot delete dreams he dont own - hacker come join us"
+  security_cant_edit_dreams_you_dont_own: "One cannot delete dreams he dont own - hacker come join us"
 
   # Add me to dream
   join_dream: "Sweet! You just sent your email adress to the creator."
   join_errors_login: "You need to be logged in to add your email to the list."
   join_already_sent: "Nice! You've already sent your email to the creator."
+
+  # Errors
+  new_dream_is_disabled: "Creating new dreams is disabled at the moment. If you think this is a mistake please contact bureau of dreams"
 
   errors_str: "Errors"
 

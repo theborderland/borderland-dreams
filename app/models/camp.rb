@@ -11,7 +11,8 @@ class Camp < ActiveRecord::Base
 
 	has_many :memberships
 	has_many :users, through: :memberships
-    has_many :images #, :dependent => :destroy
+  has_many :images #, :dependent => :destroy
+  has_many :grants
 
 	validates :creator, presence: true
 	validates :name, presence: true
@@ -124,4 +125,12 @@ class Camp < ActiveRecord::Base
 		self.save
 	end
 
+	def grants_received
+		return self.grants.sum(:amount)
+	end
+
+	# This value is just for the record
+	def grants_received=(grants)
+		super(grants)
+	end
 end

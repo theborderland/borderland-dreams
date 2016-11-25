@@ -78,8 +78,7 @@ class CampsController < ApplicationController
       current_user.grants -= granted
 
       # Increase camp grants.
-      @camp.grants.new({:user_id => current_user.id, :amount => granted})        
-      @camp.grants_received += granted
+      @camp.grants.new({:user_id => current_user.id, :amount => granted})      
 
       if @camp.grants_received >= @camp.minbudget
         @camp.minfunded = true

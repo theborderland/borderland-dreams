@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161124224602) do
+ActiveRecord::Schema.define(version: 20161125000857) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -67,7 +67,6 @@ ActiveRecord::Schema.define(version: 20161124224602) do
     t.integer  "maxbudget",                                default: 0
     t.boolean  "seeking_members"
     t.integer  "user_id"
-    t.integer  "grants_received",                          default: 0
     t.boolean  "grantingtoggle",                           default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -127,10 +127,5 @@ class Camp < ActiveRecord::Base
 
 	def grants_received
 		return self.grants.sum(:amount)
-	end
-
-	# This value is just for the record
-	def grants_received=(grants)
-		super(grants)
-	end
+	end	
 end

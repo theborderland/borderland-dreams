@@ -65,28 +65,28 @@ class CampsController < ApplicationController
       redirect_to camp_path(@camp) and return
     end
 
-    ActiveRecord::Base.transaction do
-      if @camp.grants_received + granted > @camp.maxbudget
+    if @camp.grants_received + granted > @camp.maxbudget
         granted = @camp.maxbudget - @camp.grants_received
-      end
+    end
 
-      if current_user.grants < granted
-        flash[:alert] = "#{t:security_more_grants, granted: granted, current_user_grants: current_user.grants}"
-        redirect_to camp_path(@camp) and return
-      end
+    if current_user.grants < granted
+      flash[:alert] = "#{t:security_more_grants, granted: granted, current_user_grants: current_user.grants}"
+      redirect_to camp_path(@camp) and return
+    end
 
+    ActiveRecord::Base.transaction do
       current_user.grants -= granted
 
       # Increase camp grants.
       @camp.grants.new({:user_id => current_user.id, :amount => granted})      
 
-      if @camp.grants_received >= @camp.minbudget
+      if @camp.grants_received + granted >= @camp.minbudget
         @camp.minfunded = true
       else
         @camp.minfunded = false
       end
       
-      if @camp.grants_received >= @camp.maxbudget
+      if @camp.grants_received + granted >= @camp.maxbudget
         @camp.fullyfunded = true
       else
         @camp.fullyfunded = false

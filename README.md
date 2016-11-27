@@ -42,9 +42,16 @@ locally for easier testing.
 
 ## Ticket ID Import
 
-Ticket ids are imported from a single column csv file of IDs, which is located in db/borderland_codes.csv
+Ticket ids are imported from a two column csv file of IDs, which is located in db/borderland_codes.csv
 Rake task is in lib/tasks/import.rake and is run with "bundle exec rake import"
 
+## Ticket verifier through TixWise
+
+We added verification through tixwise - you need to aquire an API from them and then set `TICKETS_EVENT_URL` ENV variable to a url such as:
+```
+https://www.tixwise.co.il/he/api.xml?USER=useremail@gmail.com&PASS=userpass&TOKEN=api_token&VERSION=1.0&ACTION=event_listPurchases&id=event_id
+```
+make sure you change the username, password, token and event id
 
 ## Active Admin
 Users and creations can be administrated with Active Admin. 

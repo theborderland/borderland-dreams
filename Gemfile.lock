@@ -306,6 +306,7 @@ DEPENDENCIES
   jquery-ui-rails
   kaminari
   kaminari-bootstrap
+  nokogiri
   omniauth-facebook
   paperclip
   pg

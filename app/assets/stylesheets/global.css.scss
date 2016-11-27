@@ -11,6 +11,8 @@ $c-brownish-darker: #473C40;
 $c-orange: #fba230;
 $c-orange_dark: #f27a22;
 
+$c-donate-color: #364fd1;
+
 $c-red: #a94442;
 
 $c-blue_light: #cfe3e4;
@@ -247,6 +249,37 @@ address {
 
 @media (max-width: 992px) {
 .row {
-    margin-right: 10px;
+    margin-right: 15px;
+    margin-left: 15px;
   }
+}
+
+// Centering the modal window
+.modal-dialog {
+  margin-top: 0;
+  margin-bottom: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  button.close {
+    width: 12px;
+  }
+}
+
+.modal-body {
+  padding: 21px;
+}
+
+.modal-title {
+  font-weight: bold;
+}
+
+.modal.fade .modal-dialog {
+  transform: translate(0, -100%);
+}
+
+.modal.in .modal-dialog {
+  transform: translate(0, 0);
 }

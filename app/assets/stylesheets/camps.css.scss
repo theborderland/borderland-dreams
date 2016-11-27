@@ -150,28 +150,61 @@ $main-image-height: 550px;
     }
 
     .donate-button {
-      background: #364fd1;
+      background: $c-donate-color;
       color: white;
 
       padding: 13px 20px;
       width: auto;
 
       margin: 0 10px;
+      margin-bottom: 15px;
       font-size: large;
       font-weight: bold;
 
       &:active {
-        background: darken(#364fd1, 15%) !important;
+        background: darken($c-donate-color, 15%) !important;
       }
 
       &:hover {
-        background: darken(#364fd1, 10%) !important;
+        background: darken($c-donate-color, 10%) !important;
       }
 
       &:focus {
-        background: darken(#364fd1, 10%) !important;
+        background: darken($c-donate-color, 10%) !important;
       }
     }
+  }
+}
+
+#donateModal {
+  .modal-dialog {
+    max-width: 460px;
+  }
+  .donate-value {
+    display: inline-block;
+    width: 70px;
+    margin: 0 .5em;
+  }
+
+  .coins-left  {
+    line-height: 2em;
+  }
+
+  .donate-now-button {
+    background: $c-donate-color;
+    width:100%;
+
+    &:active {
+        background: darken($c-donate-color, 15%) !important;
+      }
+
+      &:hover {
+        background: darken($c-donate-color, 10%) !important;
+      }
+
+      &:focus {
+        background: darken($c-donate-color, 10%) !important;
+      }
   }
 }
 

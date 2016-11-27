@@ -22,6 +22,7 @@
 en:
   # Front page
   html_direction: "ltr"
+  reverse_direction: "right"
 
   browser_title_tag: "Midburnerot Dreams"
   # For facebook main page sharing
@@ -158,6 +159,11 @@ en:
   give_grants: 'Give Grants'
   i_gift_thee_grants: 'Donate to dream'
   no_granting_yet: 'No granting for this dream yet!'
+  donate_title: "Oh Wow! this thing you are about to do..."
+  donate_content: "Helping the dream can come in many forms, yet from here you can transfer some of the donation (which you've already paid for) and ask to donate it to this dream."
+  donate_text: "Donate"
+  coins_text: "Coins"
+  coins_left: "Coins available:"
 
   created_new_dream: "Yeah! You've created a dream. Now add some images to your dream"
 

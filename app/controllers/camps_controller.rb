@@ -66,7 +66,7 @@ class CampsController < ApplicationController
     end
 
     if @camp.grants_received + granted > @camp.maxbudget
-      granted = @camp.maxbudget - @camp.grants_received
+        granted = @camp.maxbudget - @camp.grants_received
     end
 
     if current_user.grants < granted
@@ -74,31 +74,33 @@ class CampsController < ApplicationController
       redirect_to camp_path(@camp) and return
     end
 
-    current_user.grants -= granted
+    ActiveRecord::Base.transaction do
+      current_user.grants -= granted
 
-    # Increase camp grants.
-    @camp.grants_received += granted
+      # Increase camp grants.
+      @camp.grants.new({:user_id => current_user.id, :amount => granted})      
 
-    if @camp.grants_received >= @camp.minbudget
-      @camp.minfunded = true
-    else
-      @camp.minfunded = false
-    end
-
-    if @camp.grants_received >= @camp.maxbudget
-      @camp.fullyfunded = true
-    else
-      @camp.fullyfunded = false
-    end
-
-    unless current_user.save
-      flash[:notice] = "#{t:errors_str}: #{current_user.errors.full_messages.join(', ')}"
-      redirect_to camp_path(@camp) and return
-    end
-
-    unless @camp.save
-      flash[:notice] = "#{t:errors_str}: #{@camp.errors.full_messages.join(', ')}"
-      redirect_to camp_path(@camp) and return
+      if @camp.grants_received + granted >= @camp.minbudget
+        @camp.minfunded = true
+      else
+        @camp.minfunded = false
+      end
+      
+      if @camp.grants_received + granted >= @camp.maxbudget
+        @camp.fullyfunded = true
+      else
+        @camp.fullyfunded = false
+      end
+        
+      unless current_user.save
+        flash[:notice] = "#{t:errors_str}: #{current_user.errors.full_messages.join(', ')}"
+        redirect_to camp_path(@camp) and return
+      end
+      
+      unless @camp.save
+        flash[:notice] = "#{t:errors_str}: #{@camp.errors.full_messages.join(', ')}"
+        redirect_to camp_path(@camp) and return
+      end
     end
 
     redirect_to camp_path(@camp)

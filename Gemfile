@@ -63,6 +63,8 @@ gem 'paperclip'
 gem 'aws-sdk', '< 2'
 gem 'rmagick'
 
+gem 'nokogiri'
+
 group :production do
   # needed by herokus
   gem 'rails_12factor'

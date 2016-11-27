@@ -83,25 +83,8 @@
                                 <% end %>
                             </div>
                         </li>
-
-                        <!-- Show user grants left -->
-                        <% if current_user and @camp.minbudget %>
-                            <!-- <% if current_user.grants > 0 %>
-                                <h3><span class="label label-success granting-label">
-                                    <b><%=t :your_available_grants %> </b>
-                                    <span class="badge"><%= current_user.grants %></span>
-                                </span></h3>
-                            <% else %>
-                                <h3><span class="label label-warning granting-label">
-                                    <b><%=t :youre_out_of_grants %> </b>
-                                </span></h3>
-                            <% end %>
-                             -->
-                        <% end %>
                     <% end %>
                     <!-- End of granting block -->
-
-
                 </div>
             </div>    
             </div> <!-- /div Closing the upper if !-->
@@ -404,6 +387,7 @@
 
 <!-- Modal -->
 <div class="modal fade" id="donateModal" tabindex="-1" role="dialog" aria-labelledby="donateModalLabel" dir=<%=t :html_direction %>>
+<% if Rails.configuration.x.firestarter_settings["granting_active"] and current_user and @camp.minbudget %>
     <%= form_tag({controller: "camps", action: "update_grants"}, method: "patch", id:"donateForm") do %>
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -418,6 +402,7 @@
                     <b> <%=t :donate_text %>
                     <%= number_field_tag 'grants', nil, in: 0..current_user.grants, step: 1, value:1, class:'donate-value form-control' %> 
                     <%=t :coins_text %>
+
                     </b>
                 </span>
                 <span class='coins-left' style='float: <%=t :reverse_direction %>'><%=t :coins_left %> <%= current_user.grants %></span>
@@ -427,5 +412,6 @@
           </div>
         </div>
       </div>
+    <% end %>
     <% end %>
 </div>

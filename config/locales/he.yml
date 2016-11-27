@@ -288,6 +288,9 @@ he:
       ticket:
         one: "כרטיס"
         other: "כרטיסים"
+      grant:
+        one: "מטבע"
+        other: "מטבעות"
     attributes:
       user:
         email: "אימייל"
@@ -350,6 +353,10 @@ he:
         safetybag_firstMemberEmail: "אימייל חבר צוות נוסף"
         safetybag_secondMemberName: "שם חבר צוות נוסף 2"
         safetybag_secondMemberEmail: "אימייל חבר צוות נוסף 2"
+      grant:
+        amount: "כמות"
+        created_at: "נוצר"
+        updated_at: "עודכן"
 
     errors:
       models:

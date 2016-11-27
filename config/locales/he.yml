@@ -22,6 +22,7 @@
 he:
   # Front page
   html_direction: "rtl"
+  reverse_direction: "left"
 
   browser_title_tag: "חלומות מידברנרות"
   # For facebook main page sharing
@@ -161,6 +162,12 @@ he:
   give_grants: "כמה מטבעות?"
   i_gift_thee_grants: "תרמו לחלום"
   no_granting_yet: "טרם נפתח המענק לחלום זה!"
+  donate_title: "הו, וואו! הדבר שאתם עומדים לעשות..."
+  donate_content: "תרומה לחלום יכולה לבוא בכל מיני צורות, אבל מכאן תוכלו להעביר חלק מעלות התרומה (שכבר שילמתם), ולבקש לתרום אותה לחלום הזה."
+  donate_text: "תרמו"
+  coins_text: "מטבעות"
+  coins_left: "מטבעות נותרים:"
+
 
   created_new_dream: "יש! יצרת חלום. השלב הבא הוא להוסיף תמונה, שרטוט טכני או הדמייה של החלום"
 

@@ -68,11 +68,10 @@
 
                                 <% if @camp.grantingtoggle %>
                                     <% if current_user && current_user.grants > 0 && !@camp.fullyfunded %>
-                                        <%= form_tag({controller: "camps", action: "update_grants"}, method: "patch") do %>
-                                            <!--<%= label_tag t(:give_grants) %>  -->
-                                            <%= hidden_field_tag 'grants', nil, in: 0..current_user.grants, step: 1, value:1 %> 
-                                            <%= submit_tag t(:i_gift_thee_grants), :class => "btn btn-success donate-button" %>
-                                        <% end %>
+
+                                        <button type="button" class="btn btn-success donate-button" data-toggle="modal" data-target="#donateModal">
+                                          <%= t(:i_gift_thee_grants) %>
+                                        </button>
                                     <% end %>
                                 <% end %>
 
@@ -402,3 +401,31 @@
     </div> <!-- col-md-3 -->
 
 </div> <!-- row -->
+
+<!-- Modal -->
+<div class="modal fade" id="donateModal" tabindex="-1" role="dialog" aria-labelledby="donateModalLabel" dir=<%=t :html_direction %>>
+    <%= form_tag({controller: "camps", action: "update_grants"}, method: "patch") do %>
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" style='float: <%=t :reverse_direction %>' data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="donateModalLabel"><%=t :donate_title %></h4>
+          </div>
+          <div class="modal-body">
+          <p><%=t :donate_content %></p>
+            <div>
+                <span>
+                    <b> <%=t :donate_text %>
+                    <%= number_field_tag 'grants', nil, in: 0..current_user.grants, step: 1, value:1, class:'donate-value form-control' %> 
+                    <%=t :coins_text %>
+                    </b>
+                </span>
+                <span class='coins-left' style='float: <%=t :reverse_direction %>'><%=t :coins_left %> <%= current_user.grants %></span>
+                </p>
+            </div>
+            <%= submit_tag t(:i_gift_thee_grants), :class => "btn btn-success donate-now-button" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+</div>

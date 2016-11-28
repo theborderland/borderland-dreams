@@ -23,6 +23,7 @@ class User < ActiveRecord::Base
   validate :invite_code_valid, :on => :create
 
   def invite_code_valid
+    self.email = self.email.downcase
     invite_code_local_tickets_valid()
     if invite_code_remote_tickets_valid()
       # Found the user in database - clear old errors local database not found
@@ -76,7 +77,7 @@ class User < ActiveRecord::Base
         # Iterate over the array removing the last number
         for i in 0..emailPhoneNumber.length-1
           next if i.odd?
-          email = emailPhoneNumber[i].text
+          email = emailPhoneNumber[i].text.downcase
           phonenumber = emailPhoneNumber[i+1].text.tr('-', '')
           emailPhoneHash[email] = phonenumber
         end

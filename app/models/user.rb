@@ -65,7 +65,9 @@ class User < ActiveRecord::Base
           return false #Errors was set in the earlier local function
         end
         # Create a ticket in our system to prevent duplicate sign ups
-        Ticket.create(:id_code => self.ticket_id, :email => self.email)
+        unless Ticket.exists?(email: self.email) and Ticket.exists?(id_code: self.ticket_id)
+          Ticket.create(:id_code => self.ticket_id, :email => self.email)
+        end
         return true
       end
       return false

@@ -46,6 +46,10 @@ class User < ActiveRecord::Base
         self.errors.add(:ticket_id, I18n.t(:membership_code_registered))
         return
       end
+      if User.exists?(email: self.email)
+        self.errors.add(:ticket_id, I18n.t(:membership_code_registered))
+        return
+      end
     end
   end
 
@@ -53,6 +57,13 @@ class User < ActiveRecord::Base
     if Rails.configuration.x.firestarter_settings["user_authentication_vs_tixwise"] and ENV['TICKETS_EVENT_URL'].present?
       emailPhoneNumber = parseTixWiseAsHash() 
       if emailPhoneNumber[self.email] == self.ticket_id
+        # Check that user not already created manually
+        if User.exists?(ticket_id: self.ticket_id)
+          return false #Errors was set in the earlier local function
+        end
+        if User.exists?(email: self.email)
+          return false #Errors was set in the earlier local function
+        end
         # Create a ticket in our system to prevent duplicate sign ups
         Ticket.create(:id_code => self.ticket_id, :email => self.email)
         return true

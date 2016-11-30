@@ -244,14 +244,14 @@
       = form.text_area :budgetplan, :maxlength => 4096
       = t("form_budgetplan_guidetext_html")
 
-  .combo#minbudget_realcurrency
-    - if Rails.configuration.x.firestarter_settings["granting"]
+  - if Rails.configuration.x.firestarter_settings["granting"] and !Rails.application.config.x.firestarter_settings['disable_edit_budget']
+    .combo#minbudget_realcurrency
       = form.label t("form_minigrants_realcurrency_label")
       = form.number_field :minbudget_realcurrency, :maxlength => 6 ,class:'form-control'
       = t("form_minigrants_realcurrency_guidetext_html")
 
-  .combo#maxbudget_realcurrency
-    - if Rails.configuration.x.firestarter_settings["granting"]
+  - if Rails.configuration.x.firestarter_settings["granting"] and !Rails.application.config.x.firestarter_settings['disable_edit_budget']
+    .combo#maxbudget_realcurrency
       = form.label t("form_maxigrants_realcurrency_label")
       = form.number_field :maxbudget_realcurrency, :maxlength => 6 ,class:'form-control'
       = t("form_maxigrants_realcurrency_guidetext_html")

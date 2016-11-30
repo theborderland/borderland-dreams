@@ -25,6 +25,7 @@ defaults: &defaults
   safetybag: true
   disable_open_new_dream: <%= ENV['disable_open_new_dream'] or false %>
   disable_edit_safetybag: <%= ENV['disable_edit_safetybag'] or false %>
+  disable_edit_budget: <%= ENV['disable_edit_budget'] or false %>
 
 development:
   <<: *defaults

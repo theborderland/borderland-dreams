@@ -3,7 +3,7 @@
   <title><%= browser_title %></title>
 <% end %>
 
-<% if current_user && @camp.creator == current_user %>
+<% if current_user && (@camp.creator == current_user or current_user.admin)%>
 	<%= render 'form' %>
 <% else %>
     <p class="alert">Only the original creator can edit this page.</p>

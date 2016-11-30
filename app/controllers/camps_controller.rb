@@ -109,7 +109,7 @@ class CampsController < ApplicationController
 
   def update
     @camp = Camp.find(params[:id])
-    if @camp.creator != current_user
+    if (@camp.creator != current_user) and (!current_user.admin)
       flash[:alert] = "#{t:security_cant_edit_dreams_you_dont_own}"
       redirect_to camp_path(@camp) and return
     end
@@ -124,7 +124,7 @@ class CampsController < ApplicationController
 
   def destroy
     @camp = Camp.find(params[:id])
-    if @camp.creator != current_user
+    if (@camp.creator != current_user) and (!current_user.admin)
       flash[:alert] = "#{t:security_cant_delete_dreams_you_dont_own}"
       redirect_to camp_path(@camp) and return
     end

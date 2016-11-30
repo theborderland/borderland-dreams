@@ -297,6 +297,8 @@ en:
               blank: "Please enter email"
               too_short: "Too short - Minimum %{count} characters"
               taken: "This email is already being used. Please LOGIN instead."
+            reset_password_token:
+              invalid: "This link has expired - Please press on forgot password again to receive a new link"
 
       messages:
         record_invalid: 'Auth failed : %{errors}'

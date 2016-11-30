@@ -394,6 +394,8 @@ he:
               blank: "אנא הכנס אימייל"
               too_short: "קצרה מדיי - מינימום %{count} תווים"
               taken: "האימייל כבר נמצא בשימוש. אנא התחברי."
+            reset_password_token:
+              invalid: "הלינק הזה פג תוקף - אנא לחצי שוב על שכחת סיסמא בכדי לקבל לינק חדש"
 
       messages:
         record_invalid: 'האימות נכשל: %{errors}'

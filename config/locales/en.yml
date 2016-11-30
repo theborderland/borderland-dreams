@@ -165,6 +165,8 @@ en:
   coins_text: "Coins"
   coins_left: "Coins available:"
 
+  currency: "NIS"
+
   created_new_dream: "Yeah! You've created a dream. Now add some images to your dream"
 
   # Creation view

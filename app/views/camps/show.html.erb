@@ -137,7 +137,17 @@
         <% if Rails.configuration.x.firestarter_settings["budgetplan"] and @camp.budgetplan.present? %>
             <div class="camp-description">
                 <b><%=t :form_budgetplan_label %></b>
-                <p><%= simple_format(@camp.budgetplan) %></p>
+                <p><%= simple_format(@camp.budgetplan) %>
+
+                <% if Rails.configuration.x.firestarter_settings["granting"] and @camp.minbudget_realcurrency.present? %>
+                    <%=t :min_funded %> <%= @camp.minbudget_realcurrency %> <%=t :currency %>.
+                <% end %>
+
+                <% if Rails.configuration.x.firestarter_settings["granting"] and @camp.maxbudget_realcurrency.present? %>
+                    <%=t :max_funded %> <%= @camp.maxbudget_realcurrency %> <%=t :currency %>.
+                <% end %>
+
+                </p>
             </div>
         <% end %>
 
@@ -231,21 +241,6 @@
                 <% if Rails.configuration.x.firestarter_settings["nature"] and  @camp.nature.present? %>
                     <li><span>
                         <b><%=t :form_nature_label %></b> <%= @camp.nature %>
-                    </span></li>
-
-
-                    <br>
-                <% end %>
-
-                <% if Rails.configuration.x.firestarter_settings["grants"] and  @camp.minbudget.present? %>
-                    <li><span>
-                        <b><%=t :form_minigrants_label %></b> <%= @camp.minbudget %>
-                    </span></li>
-                <% end %>
-
-                <% if Rails.configuration.x.firestarter_settings["grants"] and  @camp.maxbudget.present? %>
-                    <li><span>
-                        <b><%=t :form_maxigrants_label %></b> <%= @camp.maxbudget %>
                     </span></li>
 
 

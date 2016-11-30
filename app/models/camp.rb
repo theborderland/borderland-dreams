@@ -11,8 +11,8 @@ class Camp < ActiveRecord::Base
 
 	has_many :memberships
 	has_many :users, through: :memberships
-  has_many :images #, :dependent => :destroy
-  has_many :grants
+	has_many :images #, :dependent => :destroy
+	has_many :grants
 
 	validates :creator, presence: true
 	validates :name, presence: true
@@ -99,25 +99,8 @@ class Camp < ActiveRecord::Base
 		where(grantingtoggle: true)
 	}
 
-	# Translating the real currency to budget - 1 = 10 coins
-	# This called on create and on update
-	# Rounding up 0.1 = 1, 1.2 = 2
 	before_save do
-		if self.minbudget_realcurrency.nil?
-			self.minbudget = nil
-		elsif self.minbudget_realcurrency > 0
-			self.minbudget = (self.minbudget_realcurrency / 10.0).ceil
-		else
-			self.minbudget = 0
-		end
-
-		if self.maxbudget_realcurrency.nil?
-			self.maxbudget = nil
-		elsif self.maxbudget_realcurrency > 0
-			self.maxbudget = (self.maxbudget_realcurrency / 10.0).ceil
-		else
-			self.maxbudget = 0
-		end
+		align_budget
 	end
 
 	before_destroy do
@@ -128,4 +111,25 @@ class Camp < ActiveRecord::Base
 	def grants_received
 		return self.grants.sum(:amount)
 	end	
+
+	# Translating the real currency to budget
+	# This called on create and on update
+	# Rounding up 0.1 = 1, 1.2 = 2
+	def align_budget
+		if self.minbudget_realcurrency.nil?
+			self.minbudget = nil
+		elsif self.minbudget_realcurrency > 0
+			self.minbudget = (self.minbudget_realcurrency / Rails.application.config.coin_rate).ceil
+		else
+			self.minbudget = 0
+		end
+
+		if self.maxbudget_realcurrency.nil?
+			self.maxbudget = nil
+		elsif self.maxbudget_realcurrency > 0
+			self.maxbudget = (self.maxbudget_realcurrency / Rails.application.config.coin_rate).ceil
+		else
+			self.maxbudget = 0
+		end
+	end
 end

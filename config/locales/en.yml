@@ -138,7 +138,7 @@ en:
   form_safetybag_remember_sketch: "Please make sure you've uploaded a Sketch along with an image. Without a sketch your safety file won't be approved"
 
   form_artgrants_headline: "Art grant information"
-  form_artgrants_text_html: "<p>If you're not looking for an art coins, leave these fields blank.</p><p>Art coins are given by the Midburnerot community. Each Midburner who donated has 10 art-coins to hand out. One can give all of the coins to one project or spread them around. Once a coin has been gifted to a dream, it can't be taken back. Please enter the amount in NIS and once the budgeting will be clear we will translate it to the amount in coins</p>"
+  form_artgrants_text_html: "<p>If you're not looking for an art coins, leave these fields blank.</p><p>Art coins are given by the Midburnerot community. Each Midburner who donated has 10 art-coins to hand out. One can give all of the coins to one project or spread them around. Once a coin has been gifted to a dream, it can't be taken back. Please enter the amount in NIS and we will translate it to the amount in coins - Each coin worth approximatly ~3 NIS. Each participent has ~30 Nis to grant</p>"
 
   form_minigrants_realcurrency_label: "Minimum sum of money in NIS needed"
   form_minigrants_realcurrency_guidetext_html: "Minium funding needed to lift the project, below which you won't get funded."

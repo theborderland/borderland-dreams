@@ -138,15 +138,6 @@
             <div class="camp-description">
                 <b><%=t :form_budgetplan_label %></b>
                 <p><%= simple_format(@camp.budgetplan) %>
-
-                <% if Rails.configuration.x.firestarter_settings["granting"] and @camp.minbudget_realcurrency.present? %>
-                    <%=t :min_funded %> <%= @camp.minbudget_realcurrency %> <%=t :currency %>.
-                <% end %>
-
-                <% if Rails.configuration.x.firestarter_settings["granting"] and @camp.maxbudget_realcurrency.present? %>
-                    <%=t :max_funded %> <%= @camp.maxbudget_realcurrency %> <%=t :currency %>.
-                <% end %>
-
                 </p>
             </div>
         <% end %>

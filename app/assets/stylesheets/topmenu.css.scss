@@ -30,12 +30,13 @@
   a {
     color: white;
     text-decoration: none;
-    background: $c-pinky;
+    background: rgba(235, 20, 120, 0.62);
     padding: 3px 8px;
 
     &:hover {
         color: $c-pinky !important;
         background: rgba(0, 0, 0, 0.7) !important;
+        border-radius: 4px;
       }
   }
 
@@ -64,6 +65,7 @@
   justify-content: space-around;
 
   a {
+    border-radius: 4px;
     font-size: 24px;
     font-weight: 500;
   }

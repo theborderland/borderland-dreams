@@ -67,6 +67,8 @@ $main-image-height: 550px;
   background-size: cover !important;
   width: 100%;
   height: $main-image-height;
+
+  background-color: $c-pinky;
 }
 
 .join-dream-button {
@@ -82,7 +84,6 @@ $main-image-height: 550px;
   padding: 20px;
   resize: both;
   overflow: hidden;
-
 
   div.center-dream {
     width: 60%;

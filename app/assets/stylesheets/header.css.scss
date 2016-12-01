@@ -29,6 +29,12 @@
 @media (max-width: 992px) {
 	.dream-site-header {
 
+		.top_menu {
+			padding: 0;
+			.row {
+				margin: 0
+			}
+		}
 		.header-top-menu {
 			font-size: 36px;
 		}

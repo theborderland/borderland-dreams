@@ -8,6 +8,17 @@
   max-width: none;
 }
 
+.logophoto {
+  @extend %holder;
+  padding: 10px;
+  margin: 10px 0px;
+  color: rgb(0, 213, 255);
+  width: 336px;
+  height: 101px;
+  max-width: none;
+  background-repeat: no-repeat;
+}
+
 .header-top-menu {
   display: inline-block;
   font-size: 52px;
@@ -24,7 +35,7 @@
   padding-top: 0px;
     
   .row {
-      margin: 0
+      margin: 0;
   }
 
   a {

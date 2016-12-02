@@ -25,7 +25,15 @@
 	.header-nav {
 		padding: 10px 0;
 	}
+
+	.logophoto {
+		background-repeat: no-repeat;
+		background-size: 200px 60px;
+		width: 200px;
+		height: 60px;
+	}
 }
+
 @media (max-width: 992px) {
 	.dream-site-header {
 

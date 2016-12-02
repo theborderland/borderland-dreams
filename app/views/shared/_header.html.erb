@@ -1,4 +1,5 @@
 <% image_path = image_path("coverphoto.png") %>
+<% logo_path = image_path("logo_" + I18n.locale.to_s + ".png") %>
 
 <header>
 <div class="container coverphoto <%= yield(:cover_head) %>" style="background-image:url('<%= image_path %>');background-position: center; ">
@@ -6,7 +7,7 @@
   <div class="main_content top_menu">
       <div class="row">
         <div class="col-md-5">
-          <h1><a class="header-top-menu" href="/"><%=t :top_headline_html %></a></h1>
+          <h1><a class="header-top-menu" href="/"> <div class='logophoto' style="background-image:url('<%= logo_path %>');"></div> </a></h1>
         </div>
         <div class="col-md-7">
           <div class="header-nav">

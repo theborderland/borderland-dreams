@@ -128,6 +128,8 @@
 					var minValueText = self.options.min.toString();
 					if (self.options.min < 10) {
 						minValueText = "   " + minValueText; //so the margin would be right for 5 as it for 50
+					}else if (self.options.min < 100) {
+						minValueText = "  " + minValueText; //so the margin would be right for 50 as it for 500
 					}
 					if (!minValueText || minValueText.length == 0) {
 						minValueText = "   "; //fill with &nbsp so margin would look good

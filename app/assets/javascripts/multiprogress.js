@@ -127,14 +127,14 @@
 					var minValue = (self.options.min / self.options.max * 100);
 					var minValueText = self.options.min.toString();
 					if (self.options.min < 10) {
-						minValueText = " " + minValueText; //so the margin would be right for 5 as it for 50
+						minValueText = "   " + minValueText; //so the margin would be right for 5 as it for 50
 					}
 					if (!minValueText || minValueText.length == 0) {
-						minValueText = " "; //fill with &nbsp so margin would look good
+						minValueText = "   "; //fill with &nbsp so margin would look good
 					}
 					$('<div></div>').addClass("minCrossedHoverBar").css('margin-right', 'calc(' + minValue + '% + 2px)').appendTo(self.progressBottomText);
 					//$('<div></div>').addClass("minCrossedBarText").css('margin-right', 'calc(' + minValue + '% - 0.5em)').text(minValueText).appendTo(self.progressBottomText);
-					$('<div></div>').addClass("minCrossedBarText").css('margin-right', 'calc(' + minValue + '% - 0.5em)').text(minValueText).appendTo(self.progressBottomText);
+					$('<div></div>').addClass("minCrossedBarText").css('margin-right', 'calc(' + minValue + '% - 1em)').text(minValueText).appendTo(self.progressBottomText);
 				}
 				else {
 					// Hide part if the progress is <= 0 or if we exceeded 100% already 

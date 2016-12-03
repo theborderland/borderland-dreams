@@ -264,7 +264,7 @@
                     </a>
                 <% end %>
 
-                <% if current_user && (@camp.creator == current_user || current_user.admin) %>
+                <% if current_user && current_user.admin %>
                     <br>
                     <%= form_for @camp, method: :delete do |f| %>
                         <%= f.submit t(:delete_this_creation), class: "btn btn-danger" , data: { confirm: t(:are_you_sure) } %>

@@ -65,6 +65,8 @@ gem 'rmagick'
 
 gem 'nokogiri'
 
+gem 'newrelic_rpm'
+
 group :production do
   # needed by herokus
   gem 'rails_12factor'

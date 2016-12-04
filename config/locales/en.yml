@@ -46,6 +46,7 @@ en:
   header_faq_link: "Did you already read our FAQ page?"
   footer_left_html: "The Midburnerot is a participatory community where we co-create events and gatherings as prototypes for our dreams. It is an empty container, open to your initiative. It is an invitation to play, to reflect, and to engage. If you have any question please ask in our <a href='facebook.com/groups/theborderland/'>Facebook Group</a>."
   footer_right_html: "In Dec 2016, The Midburnerot community will gather in Yeroham Park, Israel. It is a festival, where all the organization and all creative content is created by the participants. The event is for co-creators only, and not open to spectators."
+  footer_html: "This platform was originally written by <a href='https://github.com/aerugo/firestarter'>Borderland</a>  <a href='https://github.com/aerugo/firestarter'>(Source code)</a> and was adopted by <a href='https://github.com/rootux/firestarter/'>Midburnerot Dreams Bureau</a>. For FAQ. please visit <a href='http://dreams.midburnerot.com/pages/faq'>Me me me</a>"
   
   errors: "Errors"
 

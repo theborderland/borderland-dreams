@@ -35,8 +35,14 @@ body {
 }
 
 .footer {
-  padding-top: 20px;
+  padding: 20px 0;
   text-align: justify;
+  color: #818181;
+  font-size: 12px;
+
+  a {
+    text-decoration: underline;
+  }
 }
 
 .footer_image_col {

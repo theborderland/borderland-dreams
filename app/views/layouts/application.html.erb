@@ -46,37 +46,17 @@
 
 
   <div class="container">
-    <footer>
+    <footer dir=<%=t :html_direction %>>
 
     <div class="row">
 
-      <div class="col-xs-1 col-sm-4 col-md-1">
-      </div>
-
       <% if Rails.configuration.x.firestarter_settings["footer_text"] %>
-        <div class="hidden-xs hidden-sm col-md-4 footer">
+        <div class="hidden-xs hidden-sm col-xs-11 footer">
           <b><p>
-  			<%=t :footer_left_html %>
+  			   <%=t :footer_html %>
           </p></b>
         </div>
       <% end %>
-
-      <% if Rails.configuration.x.firestarter_settings["footer_logo"] %>
-        <div class="col-xs-10 col-sm-6 col-md-2 footer_image_col">
-          <%= image_tag "logo.png" %>
-        </div>
-      <% end %>
-
-      <% if Rails.configuration.x.firestarter_settings["footer_text"] %>
-        <div class="hidden-xs hidden-sm col-md-4 footer">
-          <b><p>
-  			<%=t :footer_right_html %>
-          </p></b>
-        </div>
-      <% end %>
-
-      <div class="col-xs-1 col-sm-4 col-md-1">
-      </div>
 
     </div>
 

@@ -7,7 +7,7 @@ a:hover {
   padding: 20px 2px;
   color: rgb(0,0,0);
   width: 100%;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 body {
@@ -32,6 +32,11 @@ body {
   padding: 10px;
   border: 1px solid rgb(239, 211, 215);
   border-radius: 5px;
+}
+
+.footer-text {
+  color: #818181;
+  font-size: 12px;
 }
 
 .footer {

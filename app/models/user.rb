@@ -25,6 +25,12 @@ class User < ActiveRecord::Base
   def invite_code_valid
     self.email = self.email.downcase
     invite_code_local_tickets_valid()
+    # Check if ticket exists in the local database to prevent going to remote server
+    ticket = Ticket.find_by(id_code: self.ticket_id, email: self.email)
+    if ticket.present?
+      return
+    end
+
     if invite_code_remote_tickets_valid()
       # Found the user in database - clear old errors local database not found
       self.errors.clear
@@ -55,7 +61,7 @@ class User < ActiveRecord::Base
 
   def invite_code_remote_tickets_valid
     if Rails.configuration.x.firestarter_settings["user_authentication_vs_tixwise"] and ENV['TICKETS_EVENT_URL'].present?
-      emailPhoneNumber = parseTixWiseAsHash() 
+      emailPhoneNumber = parseTixWiseAsHash()
       if emailPhoneNumber[self.email] == self.ticket_id
         # Check that user not already created manually
         if User.exists?(ticket_id: self.ticket_id)

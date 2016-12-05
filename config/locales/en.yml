@@ -38,7 +38,10 @@ en:
   register_creation_menu: "Create Dream"
   login_menu: "Log in"
   register_menu: "Register"
+  private_area: "Private area >"
+  my_area: "Me"
   logout_menu: "Log out"
+
   welcome_guest_title: "Welcome to our Dreams"
   welcome_guest_text_html: "Congratulations! You've stumbled upon something special! <b>Midburnerot</b> is some awesome fucking shit. We dream together and breathe life into our mad and wonderous creations. Dreams need matter to come to life, and this is where we share resources to make that happen. All midburners get 10 grants to give out as they see fit. Think of these as superpowers, with which you can make dreams into matter! To activate granting for your dream, talk to your friendly local Dream Guide. Pretty neat, huh?"
   welcome_user_title: "Welcome to your Dreams!"
@@ -223,6 +226,13 @@ en:
   add_my_name: "Add my name"
   delete_this_creation: "Delete this creation"
   are_you_sure: "Are you sure?"
+
+  # Me page
+  your_space: "Your personal space"
+  your_dream: "Your dream"
+  youve_donated: "You've donated"
+  coins_name: "Coins"
+  dreams_you_help_make: "Dreams you made happen"
 
   # Login page
   log_in: "Log in"

@@ -35,7 +35,13 @@
             <%= link_to t("register_menu"), new_user_registration_path %>
             <% end %>
             <% if user_signed_in? %>
-            <%= link_to t("logout_menu"), destroy_user_session_path, method: :delete %>
+            <div class="dropdown">
+              <a class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> <%=t :private_area %></a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <li><a href="/me"><%=t :my_area %></a></li>
+                <li><%= link_to t("logout_menu"), destroy_user_session_path, method: :delete %></li>
+              </ul>
+            </div>
             <% end %>
           </div>
         </div>

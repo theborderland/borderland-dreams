@@ -1,0 +1,44 @@
+<% content_for(:head) do %>
+  <% browser_title = t(:browser_title_tag) %>
+  <title><%= browser_title %></title>
+  <%= javascript_include_tag 'blueimp_script' %> 
+<% end %>
+
+
+
+
+<div class="top_message" dir=<%=t :html_direction %>>
+  <div class="panel panel-default">
+  <% if user_signed_in? %>
+    <div class="panel-heading">
+      <%=t :your_space %>
+    </div>
+    <div class="panel-body">
+      <p><b><%=t :contact_email %></b>: <%= current_user.email %></p>
+      <% if @my_dream.present? %>
+       <p><b><%=t :your_dream %></b>: <a href="<%= url_for(@my_dream) %>"><%= @my_dream.name %></a></p>
+      <% end %>
+
+      <% if Rails.configuration.x.firestarter_settings["granting"] %>
+        <b><%=t :your_available_grants %></b>: <%= current_user.grants %>
+        <% if current_user.grants and current_user.grants > 0 %>
+          <% coin_image_path = image_path("coin.png") %>
+          <% (1..current_user.grants).each do |i| %>
+            <img src='<%= coin_image_path %>' />
+          <% end %>
+          <br><br>
+        <% end %>
+        <b><%=t :dreams_you_help_make %></b>:
+        <% @grants.each do |grant| %>
+          <p>
+            <a href="<%= url_for(grant.camp) %>"><%= grant.camp.name %></a><br>
+            <span class="glyphicons glyphicons-coins"></span>
+            <%= grant.created_at.strftime("%d/%m/%Y - %H:%M") %> <%=t :youve_donated %> <%= grant.amount %> <%=t :coins_name %>
+          </p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <% end %>
+</div>
+<div class='footer-text'>Coin icons made by <a href="http://www.flaticon.com/authors/madebyoliver" title="Madebyoliver">Madebyoliver</a></div>

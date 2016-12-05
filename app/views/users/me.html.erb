@@ -6,39 +6,53 @@
 
 
 
+<% if user_signed_in? %>
+  <div class="me col-lg-5" dir=<%=t :html_direction %>>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <% personal_zone_image = image_path("personalzone_" + I18n.locale.to_s + ".png") %>
+        <img src= '<%= personal_zone_image %>'>
+      </div>
+      <div class="panel-body">
+        <p><b><%=t :contact_email %></b>: <%= current_user.email %></p>
+        
+        <% if @my_dream.present? %>
+          <p><b><%=t :your_dream %></b>: <a href="<%= url_for(@my_dream) %>"><%= @my_dream.name %></a></p>
 
-<div class="top_message" dir=<%=t :html_direction %>>
-  <div class="panel panel-default">
-  <% if user_signed_in? %>
-    <div class="panel-heading">
-      <%=t :your_space %>
-    </div>
-    <div class="panel-body">
-      <p><b><%=t :contact_email %></b>: <%= current_user.email %></p>
-      <% if @my_dream.present? %>
-       <p><b><%=t :your_dream %></b>: <a href="<%= url_for(@my_dream) %>"><%= @my_dream.name %></a></p>
-      <% end %>
-
-      <% if Rails.configuration.x.firestarter_settings["granting"] %>
-        <b><%=t :your_available_grants %></b>: <%= current_user.grants %>
-        <% if current_user.grants and current_user.grants > 0 %>
-          <% coin_image_path = image_path("coin.png") %>
-          <% (1..current_user.grants).each do |i| %>
-            <img src='<%= coin_image_path %>' />
+          <p><b><%=t :cocreators_list_guidetext %></b></p>
+          <% if @my_dream.memberships.present? %>
+            <% @my_dream.memberships.each do |member| %>
+              <span><%= member.user.email %></span><br>
+            <% end %>
           <% end %>
-          <br><br>
+          <br>
         <% end %>
-        <b><%=t :dreams_you_help_make %></b>:
-        <% @grants.each do |grant| %>
-          <p>
-            <a href="<%= url_for(grant.camp) %>"><%= grant.camp.name %></a><br>
-            <span class="glyphicons glyphicons-coins"></span>
-            <%= grant.created_at.strftime("%d/%m/%Y - %H:%M") %> <%=t :youve_donated %> <%= grant.amount %> <%=t :coins_name %>
-          </p>
+
+        <% if Rails.configuration.x.firestarter_settings["granting"] %>
+          <b><%=t :your_available_grants %></b>:
+          <% if current_user.grants and current_user.grants > 0 %>
+            <% coin_image_path = image_path("coin.png") %>
+            <% (1..current_user.grants).each do |i| %>
+              <img src='<%= coin_image_path %>' class='coin-image'/>
+            <% end %>
+            <br><br>
+          <% else %>
+            0
+          <% end %>
+
+          <b><%=t :dreams_you_help_make %></b>:
+          <% @grants.each do |grant| %>
+            <p>
+              <a href="<%= url_for(grant.camp) %>"><%= grant.camp.name %></a><br>
+              <span class="glyphicons glyphicons-coins"></span>
+              <%= grant.created_at.strftime("%d/%m/%Y") %>
+              <% (1..grant.amount).each do |i| %>
+                <img src='<%= coin_image_path %>' class='coin-image-sm'/>
+              <% end %>
+            </p>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
     </div>
   </div>
-  <% end %>
-</div>
-<div class='footer-text'>Coin icons made by <a href="http://www.flaticon.com/authors/madebyoliver" title="Madebyoliver">Madebyoliver</a></div>
+<% end %>

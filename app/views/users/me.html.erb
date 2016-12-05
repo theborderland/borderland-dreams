@@ -35,10 +35,10 @@
             <% (1..current_user.grants).each do |i| %>
               <img src='<%= coin_image_path %>' class='coin-image'/>
             <% end %>
-            <br><br>
           <% else %>
             0
           <% end %>
+          <br><br>
 
           <b><%=t :dreams_you_help_make %></b>:
           <% @grants.each do |grant| %>

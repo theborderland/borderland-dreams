@@ -1,13 +1,13 @@
-# Firestarter
+# Midburn Dreams
 
-This is a platform to plan co-created events. It was originally created for Urban Burn Stockholm in 2016 and was then used for The Borderland in 2016. It's being continuously and sporadically developed by a rag-tag team and will probably always be in beta. This version was the adoption of the midburnerot - Israeli regional community. You can see it in action here: 
+This is a platform to plan co-created events. It was originally created for Urban Burn Stockholm in 2016 and was then used for The Borderland in 2016 and For Midburnerot 2016. It's being continuously and sporadically developed by a rag-tag team and will probably always be in beta. This version was the adoption of the Midburn - Israeli regional community. You can see it in action here: 
 http://dreams.midburnerot.com
 and the original system here:
 http://dreams.theborderland.se/
 
 ## To get started
 
-* Install ruby 2.3.0 (or any ruby will probably work).
+* Install ruby 2.3.1 (or any ruby will probably work).
 * Install postgres - `brew install postgresql`
 * Install imagemagick - `brew install imagemagick`
 ```
@@ -21,7 +21,7 @@ To get all the deps and the database set up properly. To start the server:
 
 Now rails will listen at `localhost:3000` for your requests.
 
-Go to `camps/new` to create a new camp and to `camps` to see a list of camps.
+Go to `dreams/new` to create a new dream and to `/dreams` to see a list of camps.
 
 ## There are tests
 
@@ -64,16 +64,13 @@ Then naviagte to
 http://localhost:3000/admin
 and use `admin@example.com` and `password`
 
-## TODO
-Before final version, change "camps" to creations or dreams.
-
 ## Production
 
 #### Email
 To get the mailing system working on Heroku -
 * Add Sendgrid as a Resource (this will automatically set SENDGRID_USERNAME & SENDGRID_PASSWORD)
 * Update the email from using:
-`heroku config:set EMAIL_FROM=postmaster@urbanburn.se`
+`heroku config:set EMAIL_FROM=galbra@gmail.com`
 
 #### Image upload
 To set up the image upload make sure to create the S3 user and set the following heroku env variables
@@ -82,3 +79,4 @@ To set up the image upload make sure to create the S3 user and set the following
 * `AWS_SECRET_ACCESS_KEY`
 
 From our experience, if the s3 bucket didn't exist - it was automatically created on first time upload in case your user have write access to s3.
+

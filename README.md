@@ -31,27 +31,14 @@ Run them with:
 
 ## Database
 
-Currently sqlite is used as database. We will stick to this in development but set up
-postgres in production. Install sqlite with your favourite package manager and you should
+Currently sqlite is used as the local database. We will stick to this in development but set up
+Postgres in production. Install sqlite with your favourite package manager and you should
 be up and running right away.
 
 ## Mail
 
 In development mode [mailcatcher](http://mailcatcher.me/) is configured to catch emails
 locally for easier testing.
-
-## Ticket ID Import
-
-Ticket ids are imported from a two column csv file of IDs, which is located in db/borderland_codes.csv
-Rake task is in lib/tasks/import.rake and is run with "bundle exec rake import"
-
-## Ticket verifier through TixWise
-
-We added verification through tixwise - you need to aquire an API from them and then set `TICKETS_EVENT_URL` ENV variable to a url such as:
-```
-https://www.tixwise.co.il/he/api.xml?USER=useremail@gmail.com&PASS=userpass&TOKEN=api_token&VERSION=1.0&ACTION=event_listPurchases&id=event_id
-```
-make sure you change the username, password, token and event id
 
 ## Active Admin
 Users and creations can be administrated with Active Admin. 
@@ -60,9 +47,26 @@ After install, run:
 bundle exec rake db:migrate
 bundle exec rake db:seed
 ```
-Then naviagte to
-http://localhost:3000/admin
+Then naviagte to `http://localhost:3000/admin`
 and use `admin@example.com` and `password`
+
+## Creating your first user
+* Navigate to [http://localhost:3000/admin/tickets/new](http://localhost:3000/admin/tickets/new)
+* Enter your phone number and email
+* Then create your user with the same phone number and email here: [http://localhost:3000/users/sign_up](http://localhost:3000/users/sign_up)
+
+## Ticket ID Import
+
+Ticket ids are imported from a two column csv file of IDs which can be set to any url using `IMPORT_CSV_URL` env variable
+Rake task is in lib/tasks/import.rake and is run with "bundle exec rake import"
+
+## Ticket verifier through TixWise
+
+We've added an optional verification through tixwise - you need to aquire an API from them and then set `TICKETS_EVENT_URL` ENV variable to a url such as:
+```
+https://www.tixwise.co.il/he/api.xml?USER=useremail@gmail.com&PASS=userpass&TOKEN=api_token&VERSION=1.0&ACTION=event_listPurchases&id=event_id
+```
+Make sure you change the username, password, token and event id
 
 ## Production
 

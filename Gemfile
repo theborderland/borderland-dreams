@@ -72,6 +72,8 @@ group :production do
   gem 'rails_12factor'
   # postgres
   gem 'pg'
+  # needed by aws
+  gem 'puma'
 end
 
 group :development, :test do

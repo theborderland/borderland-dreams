@@ -43,12 +43,12 @@ en:
   logout_menu: "Log out"
 
   welcome_guest_title: "Welcome to our Dreams"
-  welcome_guest_text_html: "Congratulations! You've stumbled upon something special! <b>Midburnerot</b> is some awesome fucking shit. We dream together and breathe life into our mad and wonderous creations. Dreams need matter to come to life, and this is where we share resources to make that happen. All midburners get 10 grants to give out as they see fit. Think of these as superpowers, with which you can make dreams into matter! To activate granting for your dream, talk to your friendly local Dream Guide. Pretty neat, huh?"
+  welcome_guest_text_html: "Congratulations! You've stumbled upon something special! <b>Midburn</b> is some awesome fucking shit. We dream together and breathe life into our mad and wonderous creations. Dreams need matter to come to life, and this is where we share resources to make that happen. All midburners get 10 grants to give out as they see fit. Think of these as superpowers, with which you can make dreams into matter! To activate granting for your dream, talk to your friendly local Dream Guide. Pretty neat, huh?"
   welcome_user_title: "Welcome to your Dreams!"
-  welcome_user_text_html: "Midburnerot Dreams is a directory of our collective imagination. We dream together and breathe life into our mad and wonderous creations. Dreams need matter to come to life, and this is where we share resources to make that happen. All midburners get 10 grants to give out as they see fit. Think of these as superpowers, with which you can make dreams into matter! To activate granting for your dream, talk to your friendly local Dream Guide. Pretty neat, huh? Have a look around or create a dream of your own!"
+  welcome_user_text_html: "Midburn Dreams is a directory of our collective imagination. We dream together and breathe life into our mad and wonderous creations. Dreams need matter to come to life, and this is where we share resources to make that happen. All midburners get 10 grants to give out as they see fit. Think of these as superpowers, with which you can make dreams into matter! To activate granting for your dream, talk to your friendly local Dream Guide. Pretty neat, huh? Have a look around or create a dream of your own!"
   header_faq_link: "Did you already read our FAQ page?"
-  footer_left_html: "The Midburnerot is a participatory community where we co-create events and gatherings as prototypes for our dreams. It is an empty container, open to your initiative. It is an invitation to play, to reflect, and to engage. If you have any question please ask in our <a href='facebook.com/groups/theborderland/'>Facebook Group</a>."
-  footer_right_html: "In Dec 2016, The Midburnerot community will gather in Yeroham Park, Israel. It is a festival, where all the organization and all creative content is created by the participants. The event is for co-creators only, and not open to spectators."
+  footer_left_html: "The Midburn is a participatory community where we co-create events and gatherings as prototypes for our dreams. It is an empty container, open to your initiative. It is an invitation to play, to reflect, and to engage. If you have any question please ask in our <a href='facebook.com/groups/theborderland/'>Facebook Group</a>."
+  footer_right_html: "In Dec 2016, The Midburn community will gather in Yeroham Park, Israel. It is a festival, where all the organization and all creative content is created by the participants. The event is for co-creators only, and not open to spectators."
   footer_html: "This platform was originally written by <a href='https://github.com/aerugo/firestarter'>Borderland</a>  <a href='https://github.com/aerugo/firestarter'>(Source code)</a> and was adopted by <a href='https://github.com/rootux/firestarter/'>Midburnerot Dreams Bureau</a>. For FAQ. please visit <a href='http://dreams.midburnerot.com/pages/faq'>Me me me</a>"
   
   errors: "Errors"
@@ -78,7 +78,7 @@ en:
   form_additional_info_text_html: "Can be filled in later, or not at all if it doesn't apply"
 
   form_description_label: "Full description of concept"
-  form_description_guidetext_html: "Give a full physical and conceptual description, including interactivity how it will fit into the Midburnerot community. You've got 4096 characters. Make them count."
+  form_description_guidetext_html: "Give a full physical and conceptual description, including interactivity how it will fit into the Midburn community. You've got 4096 characters. Make them count."
   form_electricity_label: "Do you need electricity from the grid? How much in Watt?"
   form_electricity_guidetext_html: "If yes, how much approximately are we talking in Watt?"
   form_light_label: "Will there be light?"
@@ -142,7 +142,7 @@ en:
   form_safetybag_remember_sketch: "Please make sure you've uploaded a Sketch along with an image. Without a sketch your safety file won't be approved"
 
   form_artgrants_headline: "Art grant information"
-  form_artgrants_text_html: "<p>If you're not looking for an art coins, leave these fields blank.</p><p>Art coins are given by the Midburnerot community. Each Midburner who donated has 10 art-coins to hand out. One can give all of the coins to one project or spread them around. Once a coin has been gifted to a dream, it can't be taken back. Please enter the amount in NIS and we will translate it to the amount in coins - Each coin worth approximatly ~3 NIS. Each participent has ~30 Nis to grant</p>"
+  form_artgrants_text_html: "<p>If you're not looking for an art coins, leave these fields blank.</p><p>Art coins are given by the Midburn community. Each Midburner who donated has 10 art-coins to hand out. One can give all of the coins to one project or spread them around. Once a coin has been gifted to a dream, it can't be taken back. Please enter the amount in NIS and we will translate it to the amount in coins - Each coin worth approximatly ~3 NIS. Each participent has ~30 Nis to grant</p>"
 
   form_minigrants_realcurrency_label: "Minimum sum of money in NIS needed"
   form_minigrants_realcurrency_guidetext_html: "Minium funding needed to lift the project, below which you won't get funded."
@@ -175,7 +175,7 @@ en:
 
   # Creation view
   what_is_this_title: "What is this?"
-  what_is_this_text_html: "Congratulations! You've stumbled upon something special. The Midburnerot is a participatory festival that takes place in Jerucham lake in Israel on Dec 29-31. It's a fully participatory event where everything is created by the participants themselves, with out any spectators."
+  what_is_this_text_html: "Congratulations! You've stumbled upon something special. The Midburn is a participatory festival that takes place in Jerucham lake in Israel on Dec 29-31. It's a fully participatory event where everything is created by the participants themselves, with out any spectators."
 
   creation_info_headline: "Details"
   next_random_dream: "Next random dream"

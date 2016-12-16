@@ -1,9 +1,4 @@
-- if Rails.configuration.x.firestarter_settings["disable_edit_safetybag"]
-  :javascript
-    $(function() { $(".hide_show_safetyfile").click(function(){ 
-      alert( "עריכת שדות תיק הבטיחות סגור כעת\r\nSafety file is currrently disabled" );
-    })});
-- else
+- if !Rails.configuration.x.firestarter_settings["disable_edit_safetybag"] or (current_user && (current_user.guide || current_user.admin))
   :javascript
     $(function() { $(".hide_show_safetyfile").click(function(){ 
     if($('.safetybar-info').css('display') === "none") {
@@ -11,6 +6,11 @@
       }else {
       $('.safetybar-info').fadeOut();
       }
+    })});
+- else
+  :javascript
+    $(function() { $(".hide_show_safetyfile").click(function(){ 
+      alert( "עריכת שדות תיק הבטיחות סגור כעת\r\nSafety file is currrently disabled" );
     })});
 
 = form_for @camp, :html => {:dir => I18n.t(:html_direction) } do |form|
@@ -244,13 +244,13 @@
       = form.text_area :budgetplan, :maxlength => 4096
       = t("form_budgetplan_guidetext_html")
 
-  - if Rails.configuration.x.firestarter_settings["granting"] and !Rails.application.config.x.firestarter_settings['disable_edit_budget']
+  - if ( (Rails.configuration.x.firestarter_settings["granting"] and !Rails.application.config.x.firestarter_settings['disable_edit_budget']) or (current_user && current_user.guide || current_user.admin))
     .combo#minbudget_realcurrency
       = form.label t("form_minigrants_realcurrency_label")
       = form.number_field :minbudget_realcurrency, :maxlength => 6 ,class:'form-control'
       = t("form_minigrants_realcurrency_guidetext_html")
 
-  - if Rails.configuration.x.firestarter_settings["granting"] and !Rails.application.config.x.firestarter_settings['disable_edit_budget']
+  - if ( (Rails.configuration.x.firestarter_settings["granting"] and !Rails.application.config.x.firestarter_settings['disable_edit_budget']) or (current_user && current_user.guide || current_user.admin))
     .combo#maxbudget_realcurrency
       = form.label t("form_maxigrants_realcurrency_label")
       = form.number_field :maxbudget_realcurrency, :maxlength => 6 ,class:'form-control'

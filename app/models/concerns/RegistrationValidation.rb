@@ -2,11 +2,12 @@ module RegistrationValidation
  extend ActiveSupport::Concern
 
   included do
-    validate :invite_code_valid, :on => :create
+    if Rails.configuration.x.firestarter_settings["user_authentication_codes"]
+      validate :invite_code_valid, :on => :create
+    end
   end
 
   def invite_code_valid
-    puts "testing"
     self.email = self.email.downcase
     invite_code_local_tickets_valid()
     # Check if ticket exists in the local database to prevent going to remote server

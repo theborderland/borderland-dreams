@@ -13,7 +13,7 @@
       alert( "עריכת שדות תיק הבטיחות סגור כעת\r\nSafety file is currrently disabled" );
     })});
 
-= form_for @camp, :html => {:dir => I18n.t(:html_direction) } do |form|
+= form_for @camp, :html => {:dir => I18n.t(:html_direction), :id => 'camp-form' } do |form|
 
   .header-heading
     = t("form_basics_headline")
@@ -263,9 +263,3 @@
     %div
       %a{ :href => "../pages/faq", :target => "blank"}
         = t("header_faq_link")
-
-  .submit
-    -if @camp.name
-      = form.submit t(:update_dream), class: 'btn btn-success'
-    -else
-      = form.submit t(:create_dream), class: 'btn btn-success'

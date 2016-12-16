@@ -33,7 +33,7 @@ class CampsController < ApplicationController
 
     if @camp.save
       flash[:notice] = t('created_new_dream')
-      redirect_to camp_path(@camp)
+      redirect_to edit_camp_path(id: @camp.id)
     else
       flash.now[:notice] = "#{t:errors_str}: #{@camp.errors.full_messages.join(', ')}"
       render :new
@@ -118,7 +118,11 @@ class CampsController < ApplicationController
     end
 
     if @camp.update_attributes camp_params
-      redirect_to camp_path(@camp)
+      if params[:done] == '1'
+        redirect_to camp_path(@camp)
+      else
+        redirect_to edit_camp_path(id: @camp.id)
+      end
     else
       flash.now[:notice] = "#{t:errors_str}: #{@camp.errors.full_messages.join(', ')}"
       render :edit

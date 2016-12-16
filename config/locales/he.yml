@@ -158,7 +158,7 @@ he:
   form_maxigrants_guidetext_html: "כמה מטבעות אתה צריך כדי לממן את הפרוייקט במלואו"
   form_budgetplan_label: "סקירת התקציב בש\"ח"
   form_budgetplan_guidetext_html: "איך תשתמשו בתקציב שלכם? תתארו את העלויות שלכם לפי נושאים כללים של הצרכים שלכם בשקלים. לדוג׳ - הובלה, ציוד לקנייה וכדומה."
-  create_dream: "צור חלום!"
+  create_dream: "לשלב הבא >>"
   update_dream: "עדכן חלום!"
   edit_dream: "ערוך חלום"
   manage_images: "ערוך תמונות"
@@ -185,6 +185,8 @@ he:
   contact_name: "שם החולם"
   contact_alternative_name: "שם החולם"
   contact_email: "אימייל"
+  save_camp: "שמור והמשך"
+  done_camp: "סיימתי"
 
   # Guide safetybag
   creation_safetybaginfo_headline: "פרטי תיק בטיחות (מוצג רק לך, בעל החלום)"

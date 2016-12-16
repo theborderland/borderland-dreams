@@ -1,4 +1,29 @@
-= render 'form'
+= form_for @camp, :html => {:dir => I18n.t(:html_direction) } do |form|
+
+  .header-heading
+    = t("form_basics_headline")
+
+  .combo#name
+    = form.label t("form_dream_name_label")
+    = form.text_field :name, :maxlength => 64
+
+  .combo#subtitle
+    = form.label t("form_subtitle_label")
+    = form.text_area :subtitle, :maxlength => 255
+    = t("form_subtitle_guidetext_html")
+
+  .combo#contact_name
+    = form.label t("form_creator_name_label")
+    = form.text_field :contact_name, :maxlength => 64
+    = t("form_creator_name_guidetext_html")
+
+  .combo#contact_email
+    = form.label t("form_creator_email_label")
+    = form.text_field :contact_email, :maxlength => 64
+    = t("form_creator_email_guidetext_html")
+
+  .submit
+    = form.submit t(:create_dream), class: 'btn btn-success'
 
 = content_for :head do
   %title

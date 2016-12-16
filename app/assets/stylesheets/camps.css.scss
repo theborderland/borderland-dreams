@@ -356,3 +356,16 @@ body {
     }
   }
 }
+
+
+#footer-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: left;
+  padding: 14px 13px;
+  z-index: 1;
+  background: #f3f3f3;
+  border-top: 1px solid black;
+}

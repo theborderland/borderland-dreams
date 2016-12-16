@@ -55,6 +55,14 @@ and use `admin@example.com` and `password`
 * Enter your phone number and email
 * Then create your user with the same phone number and email here: [http://localhost:3000/users/sign_up](http://localhost:3000/users/sign_up)
 
+## User types in the system
+The system user types are: anonymous users, normal registered users, guides, admins
+
+You can set yourself as a guide and admin in the /admin panel
+
+Guide and admins see buttons on the dream page and info that normal and guests users dont have access to.
+Guide and admins can close/open granting and edit dreams
+
 ## Ticket ID Import
 
 Ticket ids are imported from a two column csv file of IDs which can be set to any url using `IMPORT_CSV_URL` env variable

@@ -47,52 +47,66 @@ ActiveRecord::Schema.define(version: 20161216151529) do
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
 
   create_table "camps", force: :cascade do |t|
-    t.string   "name",                        limit: 64,                   null: false
-    t.string   "subtitle",                    limit: 255,                  null: false
-    t.string   "contact_email",               limit: 64,                   null: false
-    t.string   "contact_name",                limit: 64,                   null: false
-    t.string   "contact_phone",               limit: 64
-    t.text     "description",                 limit: 4096
-    t.text     "electricity",                 limit: 255
-    t.text     "light",                       limit: 512
-    t.text     "fire",                        limit: 512
-    t.text     "noise",                       limit: 255
-    t.text     "nature",                      limit: 255
-    t.text     "moop",                        limit: 512
-    t.text     "plan",                        limit: 1024
-    t.text     "cocreation",                  limit: 1024
-    t.text     "neighbors",                   limit: 512
-    t.text     "budgetplan",                  limit: 1024
-    t.integer  "minbudget",                                default: 0
-    t.integer  "maxbudget",                                default: 0
+    t.string   "name",                                                   limit: 64,                   null: false
+    t.string   "subtitle",                                               limit: 255,                  null: false
+    t.string   "contact_email",                                          limit: 64,                   null: false
+    t.string   "contact_name",                                           limit: 64,                   null: false
+    t.string   "contact_phone",                                          limit: 64
+    t.text     "description",                                            limit: 4096
+    t.text     "electricity",                                            limit: 255
+    t.text     "light",                                                  limit: 512
+    t.text     "fire",                                                   limit: 512
+    t.text     "noise",                                                  limit: 255
+    t.text     "nature",                                                 limit: 255
+    t.text     "moop",                                                   limit: 512
+    t.text     "plan",                                                   limit: 1024
+    t.text     "cocreation",                                             limit: 1024
+    t.text     "neighbors",                                              limit: 512
+    t.text     "budgetplan",                                             limit: 1024
+    t.integer  "minbudget",                                                           default: 0
+    t.integer  "maxbudget",                                                           default: 0
     t.boolean  "seeking_members"
     t.integer  "user_id"
-    t.boolean  "grantingtoggle",                           default: false, null: false
+    t.boolean  "grantingtoggle",                                                      default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "minfunded",                                default: false
-    t.boolean  "fullyfunded",                              default: false
-    t.text     "recycling",                   limit: 512
+    t.boolean  "minfunded",                                                           default: false
+    t.boolean  "fullyfunded",                                                         default: false
+    t.text     "recycling",                                              limit: 512
     t.integer  "minbudget_realcurrency"
     t.integer  "maxbudget_realcurrency"
     t.integer  "safetybag_crewsize"
-    t.string   "safetybag_plan",              limit: 4096
-    t.string   "safetybag_builder",           limit: 64
-    t.string   "safetybag_safetyer",          limit: 64
-    t.string   "safetybag_mooper",            limit: 64
-    t.string   "safetybag_materials",         limit: 4096
-    t.string   "safetybag_work_in_height",    limit: 4096
-    t.string   "safetybag_tools",             limit: 4096
-    t.string   "safetybag_grounding",         limit: 4096
-    t.string   "safetybag_safety",            limit: 4096
-    t.string   "safetybag_electricity",       limit: 4096
-    t.string   "safetybag_daily_routine",     limit: 4096
-    t.string   "safetybag_other_comments",    limit: 4096
-    t.string   "safetybag_firstMemberName",   limit: 64
-    t.string   "safetybag_firstMemberEmail",  limit: 64
-    t.string   "safetybag_secondMemberName",  limit: 64
-    t.string   "safetybag_secondMemberEmail", limit: 64
-    t.boolean  "active",                                   default: true
+    t.string   "safetybag_plan",                                         limit: 4096
+    t.string   "safetybag_builder",                                      limit: 64
+    t.string   "safetybag_safetyer",                                     limit: 64
+    t.string   "safetybag_mooper",                                       limit: 64
+    t.string   "safetybag_materials",                                    limit: 4096
+    t.string   "safetybag_work_in_height",                               limit: 4096
+    t.string   "safetybag_tools",                                        limit: 4096
+    t.string   "safetybag_grounding",                                    limit: 4096
+    t.string   "safetybag_safety",                                       limit: 4096
+    t.string   "safetybag_electricity",                                  limit: 4096
+    t.string   "safetybag_daily_routine",                                limit: 4096
+    t.string   "safetybag_other_comments",                               limit: 4096
+    t.string   "safetybag_firstMemberName",                              limit: 64
+    t.string   "safetybag_firstMemberEmail",                             limit: 64
+    t.string   "safetybag_secondMemberName",                             limit: 64
+    t.string   "safetybag_secondMemberEmail",                            limit: 64
+    t.string   "dreamprop_philosophy"
+    t.string   "dreamprop_inspiration"
+    t.string   "dreamprop_interactivity_audience_participation"
+    t.boolean  "dreamprop_interactivity_is_fire_present"
+    t.string   "dreamprop_interactivity_fire_present_desc"
+    t.string   "dreamprop_interactivity_sound"
+    t.boolean  "dreamprop_interactivity_is_fire_event"
+    t.string   "dreamprop_interactivity_fire_event_desc"
+    t.boolean  "dreamprop_community_is_installation_present_for_event"
+    t.boolean  "dreamprop_community_is_installation_present_for_public"
+    t.boolean  "dreamprop_community_is_context"
+    t.string   "dreamprop_community_conext_desc"
+    t.boolean  "dreamprop_community_is_interested_in_publicity"
+    t.boolean  "dreamprop_theme_is_annual"
+    t.boolean  "active",                                                              default: true
   end
 
   add_index "camps", ["user_id"], name: "index_camps_on_user_id"

@@ -1,3 +1,18 @@
+//TODO: generalize this
+:javascript
+  $(document).ready(function() {
+    if($("#camp_dreamprop_interactivity_is_fire_present").is(':checked')) {
+        $("#fire_present").show();
+    } else {
+        $("#fire_present").hide();
+    }
+    if($("#camp_dreamprop_interactivity_is_fire_event").is(':checked')) {
+        $("#fire_event").show();
+    } else {
+        $("#fire_event").hide();
+    }
+  });
+
 - if !Rails.configuration.x.firestarter_settings["disable_edit_safetybag"] or (current_user && (current_user.guide || current_user.admin))
   :javascript
     $(function() { $(".hide_show_safetyfile").click(function(){ 
@@ -113,6 +128,95 @@
       = form.label t("form_neighbors_label")
       = form.text_area :neighbors, :maxlength => 4096
       = t("form_neighbors_guidetext_html")
+
+    %br
+    %br
+    .header-heading
+      = t("form_dream_prop_head")
+
+    .combo
+      = form.label t("form_dream_prop_philosophy")
+      = form.text_field :dreamprop_philosophy, :max_length => 4096
+
+    .combo
+      = form.label t("form_dream_prop_inspiration")
+      = form.text_field :dreamprop_inspiration, :max_length => 4096
+      = t("form_dream_prop_inspiration_guidetext_html")
+
+    .h3
+      = form.label t("form_dream_prop_interactivity")
+
+    .combo
+      = form.label t("form_dream_prop_interactivity_audience_participation")
+      = form.text_field :dreamprop_interactivity_audience_participation, :max_length => 4096
+      = t("form_dream_prop_interactivity_audience_participation_guidetext_html")
+
+    .combo
+      = form.label t("form_dream_prop_interactivity_is_fire_present")
+      = form.check_box :dreamprop_interactivity_is_fire_present
+
+    #fire_present
+      .combo
+        = form.label t("form_dream_prop_interactivity_fire_present_desc")
+        = form.text_field :dreamprop_interactivity_fire_present_desc, :max_length => 4096
+        = t("form_dream_prop_interactivity_fire_present_desc_guidetext_html")
+
+    //TODO: generalize this
+    :javascript
+      $('#camp_dreamprop_interactivity_is_fire_present').change(function() {
+        $('#fire_present').toggle();
+      });
+
+    .combo
+      = form.label t("form_dream_prop_interactivity_sound")
+      = form.text_field :dreamprop_interactivity_sound, :max_length => 4096
+
+    .combo
+      = form.label t("form_dream_prop_interactivity_is_fire_event")
+      = form.check_box :dreamprop_interactivity_is_fire_event
+
+    #fire_event
+      .combo
+        = form.label t("form_dream_prop_interactivity_fire_event_desc")
+        = form.text_field :dreamprop_interactivity_fire_event_desc, :max_length => 4096 
+        = t("form_dream_prop_interactivity_fire_event_desc_guidetext_html")
+
+    //TODO: generalize this
+    :javascript
+      $('#camp_dreamprop_interactivity_is_fire_event').change(function() {
+        $('#fire_event').toggle();
+      });
+
+    .h3
+      = form.label t("form_dream_prop_community")
+
+    .combo
+      = form.label t("form_dream_prop_community_is_installation_present_for_event")
+      = form.check_box :dreamprop_community_is_installation_present_for_event
+
+    .combo
+      = form.label t("form_dream_prop_community_is_installation_present_for_public")
+      = form.check_box :dreamprop_community_is_installation_present_for_public
+
+    .combo
+      = form.label t("form_dream_prop_community_is_context")
+      = form.check_box :dreamprop_community_is_context
+
+    .combo
+      = form.label t("form_dream_prop_community_conext_desc")
+      = form.text_field :dreamprop_community_conext_desc, :max_length => 4096 #3.4.3.1 TODO: only if previous flag
+
+    .combo
+      = form.label t("form_dream_prop_community_is_interested_in_publicity")
+      = form.check_box :dreamprop_community_is_interested_in_publicity
+
+    .h3
+      = form.label t("form_dream_prop_theme")
+
+    .combo
+      = form.label t("form_dream_prop_theme_is_annual")
+      = form.check_box :dreamprop_theme_is_annual
+
 
   - if Rails.configuration.x.firestarter_settings["safetybag"]
     .header-heading
@@ -244,13 +348,13 @@
       = form.text_area :budgetplan, :maxlength => 4096
       = t("form_budgetplan_guidetext_html")
 
-  - if ( (Rails.configuration.x.firestarter_settings["granting"] and !Rails.application.config.x.firestarter_settings['disable_edit_budget']) or (current_user && current_user.guide || current_user.admin))
+  - if Rails.configuration.x.firestarter_settings["granting"] and !Rails.application.config.x.firestarter_settings['disable_edit_budget']
     .combo#minbudget_realcurrency
       = form.label t("form_minigrants_realcurrency_label")
       = form.number_field :minbudget_realcurrency, :maxlength => 6 ,class:'form-control'
       = t("form_minigrants_realcurrency_guidetext_html")
 
-  - if ( (Rails.configuration.x.firestarter_settings["granting"] and !Rails.application.config.x.firestarter_settings['disable_edit_budget']) or (current_user && current_user.guide || current_user.admin))
+  - if Rails.configuration.x.firestarter_settings["granting"] and !Rails.application.config.x.firestarter_settings['disable_edit_budget']
     .combo#maxbudget_realcurrency
       = form.label t("form_maxigrants_realcurrency_label")
       = form.number_field :maxbudget_realcurrency, :maxlength => 6 ,class:'form-control'

@@ -16,7 +16,7 @@ defaults: &defaults
   seeking_members: true
   granting: true
   # Only people with "Ticket records of phone and email can register"
-  user_authentication_codes: true
+  user_authentication_codes: false
   user_authentication_vs_tixwise: true
   add_to_list: true
   granting_active: true

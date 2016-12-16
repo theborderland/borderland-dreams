@@ -349,6 +349,7 @@ he:
         maxbudget: "תקציב מקסימלי"
         grants_received: "מטבעות שהוענקו"
         grantingtoggle: "מענקים מופעלים"
+        active: "פעיל"
         created_at: "נוצר"
         updated_at: "עודכן"
         minfunded: "מימון מינימלי הושג"

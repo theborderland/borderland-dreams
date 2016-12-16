@@ -32,7 +32,8 @@ class Camp < ActiveRecord::Base
 	  :search_query,
 	  :not_fully_funded,
 	  :not_min_funded,
-	  :not_seeking_funding
+	  :not_seeking_funding,
+		:only_active
 	]
 	)
 	# Scope definitions. We implement all Filterrific filters through ActiveRecord
@@ -97,6 +98,10 @@ class Camp < ActiveRecord::Base
 	scope :not_seeking_funding, lambda { |flag|
 		return nil  if '0' == flag # checkbox unchecked
 		where(grantingtoggle: true)
+	}
+
+	scope :only_active, lambda { |flag|
+		where(active: true)
 	}
 
 	# before_save do

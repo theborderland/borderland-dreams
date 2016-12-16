@@ -15,6 +15,7 @@ defaults: &defaults
   budgetplan: true
   seeking_members: true
   granting: true
+  # Only people with "Ticket records of phone and email can register"
   user_authentication_codes: true
   user_authentication_vs_tixwise: true
   add_to_list: true

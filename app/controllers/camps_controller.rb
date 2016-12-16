@@ -2,6 +2,9 @@ class CampsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
 
   def index
+    filter = params[:filterrific] || {}
+    filter[:only_active] = true
+
     @filterrific = initialize_filterrific(
       Camp,
       params[:filterrific]

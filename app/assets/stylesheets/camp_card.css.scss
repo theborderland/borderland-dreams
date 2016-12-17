@@ -32,6 +32,20 @@ p {
 }
 
 .creation-info {
+  .dream-website {
+    a {
+      color: $c-pinky;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .glyphicon-globe {
+      color: $c-pinky;
+      vertical-align: middle;
+    }
+  }
 }
 
 .camp_card-img {

@@ -113,6 +113,13 @@
             </div>
         <% end %>
 
+        <% if @camp.about_the_artist.present? %>
+            <div class="camp-description">
+                <b><%=t :form_about_the_artist_label %></b>
+                <p><%= simple_format(@camp.about_the_artist) %></p>
+            </div>
+        <% end %>
+
         <% if Rails.configuration.x.firestarter_settings["plan"] and @camp.plan.present? %>
             <div class="camp-description">
                 <b><%=t :form_plan_label %></b>
@@ -191,6 +198,15 @@
                     <% button_text = t(:turn_off_granting) %>
                 <% else %>
                     <% button_text = t(:enable_granting) %>
+                <% end %>
+
+                <% if @camp.website.present? %>
+                    <li>
+                    <span class='dream-website'>
+                        <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>&nbsp<a href='<%= @camp.website %>'><%=t :form_dream_website_short %></a>
+                    </span>
+                    </li>
+                    <br>
                 <% end %>
 
                 <% if Rails.configuration.x.firestarter_settings["electricity"] and @camp.electricity.present? %>

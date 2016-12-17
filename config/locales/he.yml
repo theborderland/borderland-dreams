@@ -71,7 +71,7 @@ he:
   form_dream_name_guidetext_html: "איך קוראים לחלום שלך?"
   form_subtitle_label: "סיכום החלום במשפט (נדרש)"
   form_subtitle_guidetext_html: "סיכום קצר של החלום שאת מציעה. סיכום זה יופיע בעמוד הראשי של האתר. תעשי את זה קצר, עד 256 תווים."
-  form_creator_name_label: "שמך (נדרש לתיק בטיחות)"
+  form_creator_name_label: "שם הקבוצה/אמן"
   form_creator_name_guidetext_html: "איך קוראים לך, בעלת החלומות?"
   form_creator_email_label: "כתובת מייל (נדרש)"
   form_creator_email_guidetext_html: "שיכלו להשיג אותך..."
@@ -79,6 +79,7 @@ he:
   form_contact_phone_guidetext_html: "במידה ונצטרך להשיג אותך באופן דחוף."
   form_about_the_artist_label: "על האמן"
   form_dream_website_label: "אתר אינטרנט/עמוד פייסבוק של הפרויקט"
+  form_dream_website_short: "אתר החלום"
 
   form_additional_headline: "מידע נוסף"
   form_additional_info_text_html: "אפשר למלא את זה במועד מאוחר יותר או להשאיר ריק במידה ואין צורך."

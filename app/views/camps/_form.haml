@@ -19,7 +19,7 @@
     = t("form_basics_headline")
 
   .header-safetybag-description
-    - if Rails.configuration.x.firestarter_settings["neighbors"]
+    - if Rails.configuration.x.firestarter_settings["safetybag"]
       = t("form_basics_safety_bag")
 
   .combo#name
@@ -47,6 +47,14 @@
       = form.label t("form_contact_phone_label")
       = form.text_field :contact_phone, :maxlength => 64
       = t("form_contact_phone_guidetext_html")
+
+  .combo
+    = form.label t("form_about_the_artist_label")
+    = form.text_field :about_the_artist, :maxlength => 1024
+
+  .combo
+    = form.label t("form_dream_website_label")
+    = form.text_field :website, :maxlength => 512
 
   .combo#description
     - if Rails.configuration.x.firestarter_settings["description"]

@@ -192,6 +192,8 @@ he:
   save_camp: "שמור והמשך"
   done_camp: "סיימתי"
 
+  actions_headline: "פעולות"
+
   # Guide safetybag
   creation_safetybaginfo_headline: "פרטי תיק בטיחות (מוצג רק לך, בעל החלום)"
 

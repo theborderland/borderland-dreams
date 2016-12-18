@@ -183,6 +183,8 @@ en:
   contact_alternative_name: "Contact Name"
   contact_email: "Contact Email"
 
+  actions_headline: "Actions"
+
   # Guide safetybag
   creation_safetybaginfo_headline: "Safetyfile info (Shown only to you,dreamer)"
 

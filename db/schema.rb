@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161216151529) do
+ActiveRecord::Schema.define(version: 20161219211858) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -97,15 +97,17 @@ ActiveRecord::Schema.define(version: 20161216151529) do
     t.string   "dreamprop_interactivity_audience_participation"
     t.boolean  "dreamprop_interactivity_is_fire_present"
     t.string   "dreamprop_interactivity_fire_present_desc"
-    t.string   "dreamprop_interactivity_sound"
+    t.boolean  "dreamprop_interactivity_is_sound"
+    t.string   "dreamprop_interactivity_sound_desc"
     t.boolean  "dreamprop_interactivity_is_fire_event"
     t.string   "dreamprop_interactivity_fire_event_desc"
     t.boolean  "dreamprop_community_is_installation_present_for_event"
     t.boolean  "dreamprop_community_is_installation_present_for_public"
     t.boolean  "dreamprop_community_is_context"
-    t.string   "dreamprop_community_conext_desc"
+    t.string   "dreamprop_community_context_desc"
     t.boolean  "dreamprop_community_is_interested_in_publicity"
     t.boolean  "dreamprop_theme_is_annual"
+    t.string   "dreamprop_theme_annual_desc"
     t.boolean  "active",                                                              default: true
   end
 

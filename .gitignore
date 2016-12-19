@@ -1,8 +1,10 @@
+.byebug_history
 .ruby-version
 .DS_Store
+.env
+
 tmp/*
 log/
 .bundle/
-.env
 public/system/
-db/test.sqlite3
+db/*.sqlite3

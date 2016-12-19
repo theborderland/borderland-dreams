@@ -92,23 +92,26 @@ ActiveRecord::Schema.define(version: 20161219211858) do
     t.string   "safetybag_firstMemberEmail",                             limit: 64
     t.string   "safetybag_secondMemberName",                             limit: 64
     t.string   "safetybag_secondMemberEmail",                            limit: 64
-    t.string   "dreamprop_philosophy"
-    t.string   "dreamprop_inspiration"
-    t.string   "dreamprop_interactivity_audience_participation"
-    t.boolean  "dreamprop_interactivity_is_fire_present"
-    t.string   "dreamprop_interactivity_fire_present_desc"
-    t.boolean  "dreamprop_interactivity_is_sound"
-    t.string   "dreamprop_interactivity_sound_desc"
-    t.boolean  "dreamprop_interactivity_is_fire_event"
-    t.string   "dreamprop_interactivity_fire_event_desc"
-    t.boolean  "dreamprop_community_is_installation_present_for_event"
-    t.boolean  "dreamprop_community_is_installation_present_for_public"
-    t.boolean  "dreamprop_community_is_context"
-    t.string   "dreamprop_community_context_desc"
-    t.boolean  "dreamprop_community_is_interested_in_publicity"
-    t.boolean  "dreamprop_theme_is_annual"
-    t.string   "dreamprop_theme_annual_desc"
     t.boolean  "active",                                                              default: true
+    t.string   "dreamprop_philosophy",                                   limit: 4096
+    t.string   "dreamprop_inspiration",                                  limit: 4096
+    t.string   "dreamprop_interactivity_audience_participation",         limit: 4096
+    t.boolean  "dreamprop_interactivity_is_fire_present",                             default: false, null: false
+    t.string   "dreamprop_interactivity_fire_present_desc",              limit: 4096
+    t.boolean  "dreamprop_interactivity_is_sound",                                    default: false, null: false
+    t.string   "dreamprop_interactivity_sound_desc",                     limit: 4096
+    t.boolean  "dreamprop_interactivity_is_fire_event",                               default: false, null: false
+    t.string   "dreamprop_interactivity_fire_event_desc",                limit: 4096
+    t.boolean  "dreamprop_community_is_installation_present_for_event",               default: false, null: false
+    t.boolean  "dreamprop_community_is_installation_present_for_public",              default: false, null: false
+    t.boolean  "dreamprop_community_is_context",                                      default: false, null: false
+    t.string   "dreamprop_community_context_desc",                       limit: 4096
+    t.boolean  "dreamprop_community_is_interested_in_publicity",                      default: false, null: false
+    t.boolean  "dreamprop_theme_is_annual",                                           default: false, null: false
+    t.string   "dreamprop_theme_annual_desc",                            limit: 4096
+    t.string   "about_the_artist",                                       limit: 1024
+    t.string   "website",                                                limit: 512
+    t.boolean  "is_public",                                                           default: false, null: false
   end
 
   add_index "camps", ["user_id"], name: "index_camps_on_user_id"

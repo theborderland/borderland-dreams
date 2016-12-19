@@ -4,10 +4,16 @@ class CampsController < ApplicationController
   def index
     filter = params[:filterrific] || {}
     filter[:only_active] = true
+    filter[:not_hidden] = true
+
+    if (!current_user.nil? && (current_user.admin? || current_user.guide?))
+      filter[:hidden] = true
+      filter[:not_hidden] = false
+    end
 
     @filterrific = initialize_filterrific(
       Camp,
-      params[:filterrific]
+      filter
     ) or return
     @camps = @filterrific.find.page(params[:page])
 
@@ -19,12 +25,10 @@ class CampsController < ApplicationController
 
   def new
     @camp = Camp.new
-    @submit_text = 'Create'
   end
 
   def edit
     @camp = Camp.find params[:id]
-    @submit_text = 'Update'
   end
 
   def create
@@ -33,7 +37,7 @@ class CampsController < ApplicationController
 
     if @camp.save
       flash[:notice] = t('created_new_dream')
-      redirect_to camp_path(@camp)
+      redirect_to edit_camp_path(id: @camp.id)
     else
       flash.now[:notice] = "#{t:errors_str}: #{@camp.errors.full_messages.join(', ')}"
       render :new
@@ -118,7 +122,11 @@ class CampsController < ApplicationController
     end
 
     if @camp.update_attributes camp_params
-      redirect_to camp_path(@camp)
+      if params[:done] == '1'
+        redirect_to camp_path(@camp)
+      else
+        redirect_to edit_camp_path(id: @camp.id)
+      end
     else
       flash.now[:notice] = "#{t:errors_str}: #{@camp.errors.full_messages.join(', ')}"
       render :edit

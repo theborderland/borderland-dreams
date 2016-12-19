@@ -1,0 +1,32 @@
+<%= form_for @camp, :html => {:dir => I18n.t(:html_direction) } do |form| %>
+  <div class="header-heading">
+    <%= t("form_basics_headline") %>
+  </div>
+  <div class="combo" id="name">
+    <%= form.label t("form_dream_name_label") %>
+    <%= form.text_field :name, :maxlength => 64 %>
+  </div>
+  <div class="combo" id="subtitle">
+    <%= form.label t("form_subtitle_label") %>
+    <%= form.text_area :subtitle, :maxlength => 255 %>
+    <%= t("form_subtitle_guidetext_html") %>
+  </div>
+  <div class="combo" id="contact_name">
+    <%= form.label t("form_creator_name_label") %>
+    <%= form.text_field :contact_name, :maxlength => 64 %>
+    <%= t("form_creator_name_guidetext_html") %>
+  </div>
+  <div class="combo" id="contact_email">
+    <%= form.label t("form_creator_email_label") %>
+    <%= form.text_field :contact_email, :maxlength => 64 %>
+    <%= t("form_creator_email_guidetext_html") %>
+  </div>
+  <div class="submit">
+    <%= form.submit t(:create_dream), class: 'btn btn-success' %>
+  </div>
+<% end %>
+<%= content_for :head do %>
+  <title>
+    <%= t('browser_title_tag') %>
+  </title>
+<% end %>

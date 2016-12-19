@@ -65,17 +65,28 @@ he:
   form_creator_alternative_name_label: "אופציונלי - שם בעל החלום"
   form_creator_alternative_name_guidetext_html: "כאן ניתן לרשום את השם שנולדת איתו. או לחילופין כינוי/אלטר אגו במידה ותרצה לשמור על אנונימיות"
 
-  form_summary: "החלום בקצרה"
+  # Dream Description
+  form_summary: "תקציר החלום"
   form_dream_name_label: "שם החלום (חובה)"
   form_dream_name_guidetext_html: "איך קוראים לחלום שלך?"
   form_subtitle_label: "סיכום החלום במשפט (נדרש)"
   form_subtitle_guidetext_html: "סיכום קצר של החלום שאת מציעה. סיכום זה יופיע בעמוד הראשי של האתר. תעשי את זה קצר, עד 256 תווים."
-  form_creator_name_label: "שמך (נדרש לתיק בטיחות)"
+  form_creator_name_label: "שם הקבוצה/אמן"
   form_creator_name_guidetext_html: "איך קוראים לך, בעלת החלומות?"
+
+  form_dream_visability: "הפרוייקט פומבי?"
+  form_dream_visability_yes: "כן, הצג את החלום בפומבי"
+  form_dream_visability_no: "לא, הסתר את החלום לבינתיים"
+  form_dream_visability_guidetext_html: "פרוייקטים פומביאים יופיעו בעמוד הראשי. פרוייקט לא פומבי, יהיה זמין רק עם קישור ישיר."
+  form_dream_visability_not_public: "פרטי"
+
   form_creator_email_label: "כתובת מייל (נדרש)"
   form_creator_email_guidetext_html: "שיכלו להשיג אותך..."
   form_contact_phone_label: "מספר טלפון (לא יפורסם)"
   form_contact_phone_guidetext_html: "במידה ונצטרך להשיג אותך באופן דחוף."
+  form_about_the_artist_label: "על האמן"
+  form_dream_website_label: "אתר אינטרנט/עמוד פייסבוק של הפרויקט"
+  form_dream_website_short: "אתר החלום"
 
   form_additional_headline: "מידע נוסף"
   form_additional_info_text_html: "אפשר למלא את זה במועד מאוחר יותר או להשאיר ריק במידה ואין צורך."
@@ -186,7 +197,7 @@ he:
   form_maxigrants_guidetext_html: "כמה מטבעות אתה צריך כדי לממן את הפרוייקט במלואו"
   form_budgetplan_label: "סקירת התקציב בש\"ח"
   form_budgetplan_guidetext_html: "איך תשתמשו בתקציב שלכם? תתארו את העלויות שלכם לפי נושאים כללים של הצרכים שלכם בשקלים. לדוג׳ - הובלה, ציוד לקנייה וכדומה."
-  create_dream: "צור חלום!"
+  create_dream: "לשלב הבא >>"
   update_dream: "עדכן חלום!"
   edit_dream: "ערוך חלום"
   manage_images: "ערוך תמונות"
@@ -202,7 +213,7 @@ he:
 
   currency: "ש\"ח"
 
-  created_new_dream: "יש! יצרת חלום. השלב הבא הוא להוסיף תמונה, שרטוט טכני או הדמייה של החלום"
+  created_new_dream: "השלב הראשון הושלם! ניתן לעדכן את פרטי החלום כעת וגם ניתן לחזור ולהשלימם בעתיד"
 
   # Creation view
   what_is_this_title: "מה זה?"
@@ -210,9 +221,13 @@ he:
 
   creation_info_headline: "פרטים"
   next_random_dream: "חלום רנדומלי הבא"
-  contact_name: "שם החולם"
+  contact_name: "שם הקבוצה/אמן"
   contact_alternative_name: "שם החולם"
   contact_email: "אימייל"
+  save_camp: "שמור והמשך"
+  done_camp: "סיימתי"
+
+  actions_headline: "פעולות"
 
   # Guide safetybag
   creation_safetybaginfo_headline: "פרטי תיק בטיחות (מוצג רק לך, בעל החלום)"

@@ -113,6 +113,13 @@
             </div>
         <% end %>
 
+        <% if @camp.about_the_artist.present? %>
+            <div class="camp-description">
+                <b><%=t :form_about_the_artist_label %></b>
+                <p><%= simple_format(@camp.about_the_artist) %></p>
+            </div>
+        <% end %>
+
         <% if Rails.configuration.x.firestarter_settings["plan"] and @camp.plan.present? %>
             <div class="camp-description">
                 <b><%=t :form_plan_label %></b>
@@ -155,144 +162,9 @@
             <% end %>
         <% end %>
 
-    </div> <!-- col-md-8 -->
-
-    <div class="col-md-4">
-
-        <% if !user_signed_in? and Rails.configuration.x.firestarter_settings["creation_sidebar_welcome"] %>
-            <div class="panel panel-default">
-                <div class="panel-heading"><%=t :what_is_this_title %></div>
-                <div class="panel-body">
-                    <p><%=t :what_is_this_text_html %></p>
-                </div>
-            </div>
-        <% end %>
-
-        <div class="creation-info">
-            <ul>
-                <div class="panel panel-default">
-                    <div class="panel-heading"><h2 class="header-sub-heading"><%=t :creation_info_headline %></h2></div>
-                <div class="panel-body">
-                <% if current_user && @camp.creator == current_user %>
-                    <li><span>
-                        <a href="<%= edit_camp_path(@camp) %>" class="btn btn-primary camp-button" role="btn button"><%=t :edit_dream %></a>
-                    </li></span>
-                    <li><span>
-                        <a href="<%= camp_images_path(@camp) %>" class="btn btn-primary camp-button" role="btn button"><%=t :manage_images %></a>
-                    </li></span>
-                <% end %>
-                <% if current_user && current_user.guide %>
-                    <li><span><b><%=t :contact_email %>:</b> <%= @camp.contact_email %></span></li>
-                    <br>
-                <% end %>
-
-                <!-- Granting system -->
-                <% if @camp.grantingtoggle %>
-                    <% button_text = t(:turn_off_granting) %>
-                <% else %>
-                    <% button_text = t(:enable_granting) %>
-                <% end %>
-
-                <% if Rails.configuration.x.firestarter_settings["electricity"] and @camp.electricity.present? %>
-                    <li><span>
-                        <b><%=t :form_electricity_label %></b> <%= @camp.electricity %>
-                    </span></li>
-
-
-                    <br>
-                <% end %>
-
-                <% if Rails.configuration.x.firestarter_settings["light"] and  @camp.light.present? %>
-                    <li><span>
-                        <b><%=t :form_light_label %></b> <%= @camp.light %>
-                    </span></li>
-
-
-                    <br>
-                <% end %>
-
-                <% if Rails.configuration.x.firestarter_settings["fire"] and  @camp.fire.present? %>
-                    <li><span>
-                        <b><%=t :form_fire_label %></b> <%= @camp.fire %>
-                    </span></li>
-
-
-                    <br>
-                <% end %>
-
-                <% if Rails.configuration.x.firestarter_settings["noise"] and  @camp.noise.present? %>
-                    <li><span>
-                        <b><%=t :form_noise_label %></b> <%= @camp.noise %>
-                    </span></li>
-
-
-                    <br>
-                <% end %>
-
-                <% if Rails.configuration.x.firestarter_settings["nature"] and  @camp.nature.present? %>
-                    <li><span>
-                        <b><%=t :form_nature_label %></b> <%= @camp.nature %>
-                    </span></li>
-
-
-                    <br>
-                <% end %>
-
-                <% if current_user && (current_user.guide || current_user.admin) %>
-                    <%= form_tag({controller: "camps", action: "toggle_granting"}, method: "patch") do %>
-                        <%= submit_tag button_text, :class => "btn btn-danger" %>
-                    <% end %>
-                <% end %>
-
-                <% if Rails.configuration.x.firestarter_settings["add_to_list"] %>
-                    <br>
-
-                    <% if current_user && (@camp.creator == current_user || current_user.guide) %>
-                        <br>
-                        <li><span><b><%=t :cocreators_list_guidetext %></b>
-                            <% @users.each do |user| %>
-                                <%= user.email %><br>
-                            <% end %>
-                        </span></li>
-                    <% end %>
-                <% end %>
-
-                <% if !current_user || @camp.creator != current_user %>
-                    <% random = Camp.order("RANDOM()").first %>
-                    <a href="<%= url_for(random) %>" class="btn btn-primary camp-button" role="button">
-                        <%=t :next_random_dream %> <span class="glyphicon glyphicon-random" aria-hidden="true"></span>
-                    </a>
-                <% end %>
-
-                <% if current_user && current_user.admin %>
-                    <br>
-                    <%= form_for @camp, method: :delete do |f| %>
-                        <%= f.submit t(:delete_this_creation), class: "btn btn-danger" , data: { confirm: t(:are_you_sure) } %>
-                    <% end %>
-                    <br>
-                <% end %>
-              </div>
-            </ul>
-
-        </div> <!-- creation-info -->
-
-        <% if Rails.configuration.x.firestarter_settings["safetybag"] && (current_user && current_user.guide || (@camp.creator == current_user))%>
-            <div class="panel panel-default">
-                <div class="panel-heading"><b><%=t :form_extra_team_member_head %></b></div>
-                <div class="panel-body">
-                <ul>
-                <li><span><b><%=t :form_safetybag_first_member_name_label %>:</b> <%= @camp.safetybag_firstMemberName %></span></li>
-                <li><span><b><%=t :form_safetybag_first_member_email_label %>:</b> <%= @camp.safetybag_secondMemberName %></span></li>
-                <li><span><b><%=t :form_safetybag_second_member_name_label %>:</b> <%= @camp.safetybag_firstMemberEmail %></span></li>
-                <li><span><b><%=t :form_safetybag_second_member_email_label %>:</b> <%= @camp.safetybag_secondMemberEmail %></span></li>
-                </ul>
-                </div>
-            </div>
-            </li>
-            <br>
-        <% end %>
-
-        <% if Rails.configuration.x.firestarter_settings["safetybag"] && (current_user && current_user.guide || (@camp.creator == current_user)) %>
+        <!-- Private user data  -->
+        <% if Rails.configuration.x.firestarter_settings["safetybag"] && 
+            (current_user && current_user.guide || (@camp.creator == current_user)) %>
             <div class="panel panel-default">
                 
                 <div class="panel-heading"><b><%=t :creation_safetybaginfo_headline %></b></div>
@@ -365,6 +237,150 @@
                 </ul>
                 </div>
             </div>
+        <% end %>
+
+    </div> <!-- col-md-8 -->
+
+    <div class="col-md-4">
+
+        <% if !user_signed_in? and Rails.configuration.x.firestarter_settings["creation_sidebar_welcome"] %>
+            <div class="panel panel-default">
+                <div class="panel-heading"><%=t :what_is_this_title %></div>
+                <div class="panel-body">
+                    <p><%=t :what_is_this_text_html %></p>
+                </div>
+            </div>
+        <% end %>
+
+        <% if current_user && 
+            ((@camp.creator == current_user) || (current_user.guide || current_user.admin)) %>
+            <div class="panel panel-default">
+                <div class="panel-heading"><h2 class="header-sub-heading"><%=t :actions_headline %></h2></div>
+                <div class="panel-body">
+                    <li><span>
+                        <a href="<%= edit_camp_path(@camp) %>" class="btn btn-primary camp-button" role="btn button"><%=t :edit_dream %></a>
+                    </li></span>
+                    <li><span>
+                        <a href="<%= camp_images_path(@camp) %>" class="btn btn-primary camp-button" role="btn button"><%=t :manage_images %></a>
+                    </li></span>
+
+                    <!-- Granting system -->
+                    <% if current_user && (current_user.guide || current_user.admin) %>
+                        <% if @camp.grantingtoggle %>
+                            <% granting_button_text = t(:turn_off_granting) %>
+                        <% else %>
+                            <% granting_button_text = t(:enable_granting) %>
+                        <% end %>
+                        <%= form_tag({controller: "camps", action: "toggle_granting"}, method: "patch") do %>
+                            <%= submit_tag granting_button_text, :class => "btn btn-danger" %>
+                        <% end %>
+                    <% end %>
+
+                    <% if Rails.configuration.x.firestarter_settings["add_to_list"] %>
+                        <br>
+
+                        <% if current_user && (@camp.creator == current_user || current_user.guide) %>
+                            <br>
+                            <li><span><b><%=t :cocreators_list_guidetext %></b>
+                                <% @users.each do |user| %>
+                                    <%= user.email %><br>
+                                <% end %>
+                            </span></li>
+                        <% end %>
+                    <% end %>
+                </div>
+            </div>
+        <% end %>
+
+        <div class="creation-info">
+            <ul>
+                <div class="panel panel-default">
+                    <div class="panel-heading"><h2 class="header-sub-heading"><%=t :creation_info_headline %></h2></div>
+                <div class="panel-body">
+                <% if current_user && current_user.guide %>
+                    <li><span><b><%=t :contact_email %>:</b> <%= @camp.contact_email %></span></li>
+                    <br>
+                <% end %>
+
+                <% if @camp.website.present? %>
+                    <li>
+                    <span class='dream-website'>
+                        <a href='<%= @camp.website %>'><span class="glyphicon glyphicon-globe" aria-hidden="true"></span>&nbsp<%=t :form_dream_website_short %></a>
+                    </span>
+                    </li>
+                    <br>
+                <% end %>
+
+                <% if Rails.configuration.x.firestarter_settings["electricity"] and @camp.electricity.present? %>
+                    <li><span>
+                        <b><%=t :form_electricity_label %></b> <%= @camp.electricity %>
+                    </span></li>
+
+
+                    <br>
+                <% end %>
+
+                <% if Rails.configuration.x.firestarter_settings["light"] and  @camp.light.present? %>
+                    <li><span>
+                        <b><%=t :form_light_label %></b> <%= @camp.light %>
+                    </span></li>
+
+
+                    <br>
+                <% end %>
+
+                <% if Rails.configuration.x.firestarter_settings["fire"] and  @camp.fire.present? %>
+                    <li><span>
+                        <b><%=t :form_fire_label %></b> <%= @camp.fire %>
+                    </span></li>
+
+
+                    <br>
+                <% end %>
+
+                <% if Rails.configuration.x.firestarter_settings["noise"] and  @camp.noise.present? %>
+                    <li><span>
+                        <b><%=t :form_noise_label %></b> <%= @camp.noise %>
+                    </span></li>
+
+
+                    <br>
+                <% end %>
+
+                <% if Rails.configuration.x.firestarter_settings["nature"] and  @camp.nature.present? %>
+                    <li><span>
+                        <b><%=t :form_nature_label %></b> <%= @camp.nature %>
+                    </span></li>
+
+
+                    <br>
+                <% end %>
+
+                <% if !current_user || @camp.creator != current_user %>
+                    <% random = Camp.order("RANDOM()").first %>
+                    <a href="<%= url_for(random) %>" class="btn btn-primary camp-button" role="button">
+                        <%=t :next_random_dream %> <span class="glyphicon glyphicon-random" aria-hidden="true"></span>
+                    </a>
+                <% end %>
+              </div>
+            </ul>
+
+        </div> <!-- creation-info -->
+
+        <% if Rails.configuration.x.firestarter_settings["safetybag"] && (current_user && current_user.guide || (@camp.creator == current_user))%>
+            <div class="panel panel-default">
+                <div class="panel-heading"><b><%=t :form_extra_team_member_head %></b></div>
+                <div class="panel-body">
+                <ul>
+                <li><span><b><%=t :form_safetybag_first_member_name_label %>:</b> <%= @camp.safetybag_firstMemberName %></span></li>
+                <li><span><b><%=t :form_safetybag_first_member_email_label %>:</b> <%= @camp.safetybag_secondMemberName %></span></li>
+                <li><span><b><%=t :form_safetybag_second_member_name_label %>:</b> <%= @camp.safetybag_firstMemberEmail %></span></li>
+                <li><span><b><%=t :form_safetybag_second_member_email_label %>:</b> <%= @camp.safetybag_secondMemberEmail %></span></li>
+                </ul>
+                </div>
+            </div>
+            </li>
+            <br>
         <% end %>
 
     </div> <!-- col-md-3 -->

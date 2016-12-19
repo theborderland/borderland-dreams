@@ -43,13 +43,13 @@
       alert( "עריכת שדות תיק הבטיחות סגור כעת\r\nSafety file is currrently disabled" );
     })});
 
-= form_for @camp, :html => {:dir => I18n.t(:html_direction) } do |form|
+= form_for @camp, :html => {:dir => I18n.t(:html_direction), :id => 'camp-form' } do |form|
 
   .header-heading
     = t("form_basics_headline")
 
   .header-safetybag-description
-    - if Rails.configuration.x.firestarter_settings["neighbors"]
+    - if Rails.configuration.x.firestarter_settings["safetybag"]
       = t("form_basics_safety_bag")
 
   .combo#name
@@ -72,11 +72,28 @@
     = form.text_field :contact_email, :maxlength => 64
     = t("form_creator_email_guidetext_html")
 
+  .combo#visability
+    = form.label t("form_dream_visability")
+    = form.radio_button :is_public, true
+    = form.label t("form_dream_visability_yes")
+    = form.radio_button :is_public, false
+    = form.label t("form_dream_visability_no")
+    %br
+    = t("form_dream_visability_guidetext_html")
+
   .combo#contact_phone
     - if Rails.configuration.x.firestarter_settings["contact_phone"]
       = form.label t("form_contact_phone_label")
       = form.text_field :contact_phone, :maxlength => 64
       = t("form_contact_phone_guidetext_html")
+
+  .combo
+    = form.label t("form_about_the_artist_label")
+    = form.text_field :about_the_artist, :maxlength => 1024
+
+  .combo
+    = form.label t("form_dream_website_label")
+    = form.text_field :website, :maxlength => 512
 
   .combo#description
     - if Rails.configuration.x.firestarter_settings["description"]
@@ -414,9 +431,3 @@
     %div
       %a{ :href => "../pages/faq", :target => "blank"}
         = t("header_faq_link")
-
-  .submit
-    -if @camp.name
-      = form.submit t(:update_dream), class: 'btn btn-success'
-    -else
-      = form.submit t(:create_dream), class: 'btn btn-success'

@@ -69,7 +69,15 @@ en:
   form_subtitle_guidetext_html: "Brief summary of the dream prototype you are applying for that will go on the front page of the dreams site. Keep it short, under 256 characters."
   form_creator_name_label: "Your name (required)"
   form_creator_name_guidetext_html: "What's your name, dreamer?"
+
+  form_dream_visability: "Is it public?"
+  form_dream_visability_yes: "Yes, Show it to the world"
+  form_dream_visability_no: "No, Hide it for now"
+  form_dream_visability_guidetext_html: "Public dreams will be shown on the main page. Private dreams will be shown only with a direct link"
+  form_dream_visability_not_public: "Privae"
+
   form_creator_email_label: "Your email (required)"
+  form_dream_visability: "Public for everyone to see?"
   form_creator_email_guidetext_html: "To let people get in touch..."
   form_contact_phone_label: "Your phonenumber (won't be published)"
   form_contact_phone_guidetext_html: "For urgent contact if needed."
@@ -171,7 +179,7 @@ en:
 
   currency: "NIS"
 
-  created_new_dream: "Yeah! You've created a dream. Now add some images to your dream"
+  created_new_dream: "Yeah! You've created a dream. You can add info to your dream now or save and continue adding info in the future"
 
   # Creation view
   what_is_this_title: "What is this?"
@@ -182,6 +190,8 @@ en:
   contact_name: "Contact Name"
   contact_alternative_name: "Contact Name"
   contact_email: "Contact Email"
+
+  actions_headline: "Actions"
 
   # Guide safetybag
   creation_safetybaginfo_headline: "Safetyfile info (Shown only to you,dreamer)"

@@ -92,9 +92,9 @@ ActiveRecord::Schema.define(version: 20161219070103) do
     t.string   "safetybag_firstMemberEmail",  limit: 64
     t.string   "safetybag_secondMemberName",  limit: 64
     t.string   "safetybag_secondMemberEmail", limit: 64
-    t.boolean  "active",                                   default: true
     t.string   "about_the_artist",            limit: 1024
     t.string   "website",                     limit: 512
+    t.boolean  "active",                                   default: true
     t.boolean  "is_public",                                default: false, null: false
   end
 

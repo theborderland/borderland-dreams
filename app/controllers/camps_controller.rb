@@ -6,7 +6,7 @@ class CampsController < ApplicationController
     filter[:only_active] = true
     filter[:not_hidden] = true
 
-    if (!current_user.nil? && current_user.admin?)
+    if (!current_user.nil? && (current_user.admin? || current_user.guide?))
       filter[:hidden] = true
       filter[:not_hidden] = false
     end

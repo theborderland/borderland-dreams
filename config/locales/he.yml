@@ -73,6 +73,13 @@ he:
   form_subtitle_guidetext_html: "סיכום קצר של החלום שאת מציעה. סיכום זה יופיע בעמוד הראשי של האתר. תעשי את זה קצר, עד 256 תווים."
   form_creator_name_label: "שם הקבוצה/אמן"
   form_creator_name_guidetext_html: "איך קוראים לך, בעלת החלומות?"
+
+  form_dream_visability: "הפרוייקט פומבי?"
+  form_dream_visability_yes: "כן, הצג את החלום בפומבי"
+  form_dream_visability_no: "לא, הסתר את החלום לבינתיים"
+  form_dream_visability_guidetext_html: "פרוייקטים פומביאים יופיעו בעמוד הראשי. פרוייקט לא פומבי, יהיה זמין רק עם קישור ישיר."
+  form_dream_visability_not_public: "פרטי"
+
   form_creator_email_label: "כתובת מייל (נדרש)"
   form_creator_email_guidetext_html: "שיכלו להשיג אותך..."
   form_contact_phone_label: "מספר טלפון (לא יפורסם)"

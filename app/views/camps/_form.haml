@@ -42,6 +42,15 @@
     = form.text_field :contact_email, :maxlength => 64
     = t("form_creator_email_guidetext_html")
 
+  .combo#visability
+    = form.label t("form_dream_visability")
+    = form.radio_button :is_public, true
+    = form.label t("form_dream_visability_yes")
+    = form.radio_button :is_public, false
+    = form.label t("form_dream_visability_no")
+
+    = t("form_dream_visability_guidetext_html")
+
   .combo#contact_phone
     - if Rails.configuration.x.firestarter_settings["contact_phone"]
       = form.label t("form_contact_phone_label")

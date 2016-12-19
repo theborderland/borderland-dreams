@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
+  
   root 'camps#index'
+  
   devise_for :users,
     :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  
   resources :camps, :path => "dreams" do
     resources :images
   end
@@ -13,6 +16,6 @@ Rails.application.routes.draw do
   patch 'camps/:id/toggle_granting' => 'camps#toggle_granting'
   get '/pages/:page' => 'pages#show'
   get '/me' => 'users#me'
+  
   get '*unmatched_route' => 'application#not_found'
-
 end

@@ -40,6 +40,10 @@
 
                             <% end %>
                         </div>
+
+                        <% if !camp.is_public? %>
+                            <h4 style="color: red; position: absolute; top:0; right:0;">לא פומבי</h4>
+                        <% end %>
                     </div>
                 </div>
             </a>

@@ -70,6 +70,7 @@ en:
   form_creator_name_label: "Your name (required)"
   form_creator_name_guidetext_html: "What's your name, dreamer?"
   form_creator_email_label: "Your email (required)"
+  form_dream_visability: "Public for everyone to see?"
   form_creator_email_guidetext_html: "To let people get in touch..."
   form_contact_phone_label: "Your phonenumber (won't be published)"
   form_contact_phone_guidetext_html: "For urgent contact if needed."

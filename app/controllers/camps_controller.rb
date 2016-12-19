@@ -4,10 +4,16 @@ class CampsController < ApplicationController
   def index
     filter = params[:filterrific] || {}
     filter[:only_active] = true
+    filter[:not_hidden] = true
+
+    if (!current_user.nil? && (current_user.admin? || current_user.guide?))
+      filter[:hidden] = true
+      filter[:not_hidden] = false
+    end
 
     @filterrific = initialize_filterrific(
       Camp,
-      params[:filterrific]
+      filter
     ) or return
     @camps = @filterrific.find.page(params[:page])
 
@@ -19,12 +25,10 @@ class CampsController < ApplicationController
 
   def new
     @camp = Camp.new
-    @submit_text = 'Create'
   end
 
   def edit
     @camp = Camp.find params[:id]
-    @submit_text = 'Update'
   end
 
   def create

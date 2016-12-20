@@ -1,3 +1,33 @@
+//TODO: generalize this
+:javascript
+  $(document).ready(function() {
+    if($("#camp_dreamprop_interactivity_is_fire_present").is(':checked')) {
+        $("#fire_present").show();
+    } else {
+        $("#fire_present").hide();
+    }
+    if($("#camp_dreamprop_interactivity_is_fire_event").is(':checked')) {
+        $("#fire_event").show();
+    } else {
+        $("#fire_event").hide();
+    }
+    if($("#camp_dreamprop_interactivity_is_sound").is(':checked')) {
+        $("#sound_present").show();
+    } else {
+        $("#sound_present").hide();
+    }
+    if($("#camp_dreamprop_community_is_context").is(':checked')) {
+        $("#community_context").show();
+    } else {
+        $("#community_context").hide();
+    }
+    if($("#camp_dreamprop_theme_annual").is(':checked')) {
+        $("#theme_annual").show();
+    } else {
+        $("#theme_annual").hide();
+    }
+  });
+
 - if !Rails.configuration.x.firestarter_settings["disable_edit_safetybag"] or (current_user && (current_user.guide || current_user.admin))
   :javascript
     $(function() { $(".hide_show_safetyfile").click(function(){ 
@@ -130,6 +160,127 @@
       = form.label t("form_neighbors_label")
       = form.text_area :neighbors, :maxlength => 4096
       = t("form_neighbors_guidetext_html")
+
+    %br
+    %br
+    .header-heading
+      = t("form_dream_prop_head")
+
+    .combo
+      = form.label t("form_dream_prop_philosophy")
+      = form.text_field :dreamprop_philosophy, :max_length => 4096
+
+    .combo
+      = form.label t("form_dream_prop_inspiration")
+      = form.text_field :dreamprop_inspiration, :max_length => 4096
+      = t("form_dream_prop_inspiration_guidetext_html")
+
+    .h3
+      = form.label t("form_dream_prop_interactivity")
+
+    .combo
+      = form.label t("form_dream_prop_interactivity_audience_participation")
+      = form.text_field :dreamprop_interactivity_audience_participation, :max_length => 4096
+      = t("form_dream_prop_interactivity_audience_participation_guidetext_html")
+
+    .combo
+      = form.label t("form_dream_prop_interactivity_is_fire_present")
+      = form.check_box :dreamprop_interactivity_is_fire_present
+
+    #fire_present
+      .combo
+        = form.label t("form_dream_prop_interactivity_fire_present_desc")
+        = form.text_field :dreamprop_interactivity_fire_present_desc, :max_length => 4096
+        = t("form_dream_prop_interactivity_fire_present_desc_guidetext_html")
+
+    //TODO: generalize this
+    :javascript
+      $('#camp_dreamprop_interactivity_is_fire_present').change(function() {
+        $('#fire_present').toggle();
+      });
+
+    .combo
+      = form.label t("form_dream_prop_interactivity_is_sound")
+      = form.check_box :dreamprop_interactivity_is_sound
+
+    #sound_present
+      .combo
+        = form.label t("form_dream_prop_interactivity_sound_desc")
+        = form.text_field :dreamprop_interactivity_sound_desc, :max_length => 4096
+        = t("form_dream_prop_interactivity_sound_desc_guidetext_html")
+
+    //TODO: generalize this
+    :javascript
+      $('#camp_dreamprop_interactivity_is_sound').change(function() {
+        $('#sound_present').toggle();
+      });
+
+    .combo
+      = form.label t("form_dream_prop_interactivity_is_fire_event")
+      = form.check_box :dreamprop_interactivity_is_fire_event
+
+    #fire_event
+      .combo
+        = form.label t("form_dream_prop_interactivity_fire_event_desc")
+        = form.text_field :dreamprop_interactivity_fire_event_desc, :max_length => 4096 
+        = t("form_dream_prop_interactivity_fire_event_desc_guidetext_html")
+
+    //TODO: generalize this
+    :javascript
+      $('#camp_dreamprop_interactivity_is_fire_event').change(function() {
+        $('#fire_event').toggle();
+      });
+
+    .h3
+      = form.label t("form_dream_prop_community")
+
+    .combo
+      = form.label t("form_dream_prop_community_is_installation_present_for_event")
+      = form.check_box :dreamprop_community_is_installation_present_for_event
+
+    .combo
+      = form.label t("form_dream_prop_community_is_installation_present_for_public")
+      = form.check_box :dreamprop_community_is_installation_present_for_public
+
+    .combo
+      = form.label t("form_dream_prop_community_is_context")
+      = form.check_box :dreamprop_community_is_context
+
+    #community_context
+      .combo
+        = form.label t("form_dream_prop_community_context_desc")
+        = form.text_field :dreamprop_community_context_desc, :max_length => 4096
+        = t("form_dream_prop_community_context_desc_guidetext_html")
+
+    //TODO: generalize this
+    :javascript
+      $('#camp_dreamprop_community_is_context').change(function() {
+        $('#community_context').toggle();
+      });
+
+    .combo
+      = form.label t("form_dream_prop_community_is_interested_in_publicity")
+      = form.check_box :dreamprop_community_is_interested_in_publicity
+
+    .h3
+      = form.label t("form_dream_prop_theme")
+
+    .combo
+      = form.label t("form_dream_prop_theme_is_annual")
+      = form.check_box :dreamprop_theme_is_annual
+
+    #theme_annual
+      .combo
+        = form.label t("form_dream_prop_theme_annual_desc")
+        = form.text_field :dreamprop_theme_annual_desc, :max_length => 4096
+        = t("form_dream_prop_theme_annual_desc_guidetext_html")
+
+    //TODO: generalize this
+    :javascript
+      $('#camp_dreamprop_theme_is_annual').change(function() {
+        $('#theme_annual').toggle();
+      });
+
 
   - if Rails.configuration.x.firestarter_settings["safetybag"]
     .header-heading

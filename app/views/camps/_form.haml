@@ -1,3 +1,21 @@
+:javascript
+  //Iterate checkboxes with data-show attributes and show/hide their target divs
+  $(document).ready(function() {
+    $("[data-show]").change((e) => {
+      let target = e.target.attributes['data-show'].value;
+      $(target).toggle();
+    });
+
+    $("[data-show]").each((i,e) => {
+      let target = e.attributes['data-show'].value;
+      if ($(e).is(':checked')) {
+        $(target).show();
+      }else {
+        $(target).hide();
+      }
+    });
+  });
+
 - if !Rails.configuration.x.firestarter_settings["disable_edit_safetybag"] or (current_user && (current_user.guide || current_user.admin))
   :javascript
     $(function() { $(".hide_show_safetyfile").click(function(){ 
@@ -159,10 +177,7 @@
 
   .combo.col-xs-12
     = form.label t("form_spec_is_electricity_label")
-    = form.radio_button :spec_is_electricity, true
-    = form.label t("yes_text")
-    = form.radio_button :spec_is_electricity, false
-    = form.label t("no_text")
+    = form.check_box :spec_is_electricity
 
   .combo
     = form.label t("form_spec_electricity_info")
@@ -176,14 +191,101 @@
 
   .combo
     = form.label t("form_spec_electricity_is_daytime_label")
-    = form.radio_button :spec_electricity_is_daytime, true
-    = form.label t("yes_text")
-    = form.radio_button :spec_electricity_is_daytime, false
-    = form.label t("no_text")
+    = form.check_box :spec_electricity_is_daytime
 
   .combo
     = form.label t("form_spec_electricity_watt_label")
     = form.text_area :spec_electricity_watt, :maxlength => 4096, :class => "form-control"
+
+    %br
+    %br
+    .header-heading
+      = t("form_dream_prop_head")
+
+    .combo
+      = form.label t("form_dream_prop_philosophy")
+      = form.text_field :dreamprop_philosophy, :max_length => 4096
+
+    .combo
+      = form.label t("form_dream_prop_inspiration")
+      = form.text_field :dreamprop_inspiration, :max_length => 4096
+      = t("form_dream_prop_inspiration_guidetext_html")
+
+    .h3
+      = form.label t("form_dream_prop_interactivity")
+
+    .combo
+      = form.label t("form_dream_prop_interactivity_audience_participation")
+      = form.text_field :dreamprop_interactivity_audience_participation, :max_length => 4096
+      = t("form_dream_prop_interactivity_audience_participation_guidetext_html")
+
+    .combo
+      = form.label t("form_dream_prop_interactivity_is_fire_present")
+      = form.check_box :dreamprop_interactivity_is_fire_present, data: {show:'#fire_present'}
+
+    #fire_present
+      .combo
+        = form.label t("form_dream_prop_interactivity_fire_present_desc")
+        = form.text_field :dreamprop_interactivity_fire_present_desc, :max_length => 4096
+        = t("form_dream_prop_interactivity_fire_present_desc_guidetext_html")
+
+    .combo
+      = form.label t("form_dream_prop_interactivity_is_sound")
+      = form.check_box :dreamprop_interactivity_is_sound, data: {show:'#sound_present'}
+
+    #sound_present
+      .combo
+        = form.label t("form_dream_prop_interactivity_sound_desc")
+        = form.text_field :dreamprop_interactivity_sound_desc, :max_length => 4096
+        = t("form_dream_prop_interactivity_sound_desc_guidetext_html")
+
+    .combo
+      = form.label t("form_dream_prop_interactivity_is_fire_event")
+      = form.check_box :dreamprop_interactivity_is_fire_event
+
+    #fire_event
+      .combo
+        = form.label t("form_dream_prop_interactivity_fire_event_desc")
+        = form.text_field :dreamprop_interactivity_fire_event_desc, :max_length => 4096 
+        = t("form_dream_prop_interactivity_fire_event_desc_guidetext_html")
+
+    .h3
+      = form.label t("form_dream_prop_community")
+
+    .combo
+      = form.label t("form_dream_prop_community_is_installation_present_for_event")
+      = form.check_box :dreamprop_community_is_installation_present_for_event
+
+    .combo
+      = form.label t("form_dream_prop_community_is_installation_present_for_public")
+      = form.check_box :dreamprop_community_is_installation_present_for_public
+
+    .combo
+      = form.label t("form_dream_prop_community_is_context")
+      = form.check_box :dreamprop_community_is_context, data: {show:'#community_context'}
+
+    #community_context
+      .combo
+        = form.label t("form_dream_prop_community_context_desc")
+        = form.text_field :dreamprop_community_context_desc, :max_length => 4096
+        = t("form_dream_prop_community_context_desc_guidetext_html")
+
+    .combo
+      = form.label t("form_dream_prop_community_is_interested_in_publicity")
+      = form.check_box :dreamprop_community_is_interested_in_publicity
+
+    .h3
+      = form.label t("form_dream_prop_theme")
+
+    .combo
+      = form.label t("form_dream_prop_theme_is_annual")
+      = form.check_box :dreamprop_theme_is_annual, data: {show:'#theme_annual'}
+
+    #theme_annual
+      .combo
+        = form.label t("form_dream_prop_theme_annual_desc")
+        = form.text_field :dreamprop_theme_annual_desc, :max_length => 4096
+        = t("form_dream_prop_theme_annual_desc_guidetext_html")
 
   - if Rails.configuration.x.firestarter_settings["safetybag"]
     .header-heading

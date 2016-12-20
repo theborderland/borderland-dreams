@@ -392,6 +392,7 @@ he:
         email: "אימייל"
       camp:
         name: "שם"
+        creator: "בעל החלום"
         subtitle: "תקציר"
         contact_email: "אימייל"
         contact_name: "שם"
@@ -412,7 +413,8 @@ he:
         maxbudget: "תקציב מקסימלי"
         grants_received: "מטבעות שהוענקו"
         grantingtoggle: "מענקים מופעלים"
-        active: "פעיל"
+        active: "האם פעיל"
+        is_public: "האם ציבורי"
         created_at: "נוצר"
         updated_at: "עודכן"
         minfunded: "מימון מינימלי הושג"
@@ -452,6 +454,18 @@ he:
         dreamprop_community_is_interested_in_publicity: "מעוניין להציג במרחב ציבורי"
         dreamprop_theme_is_annual: "תמה שנתית"
         dreamprop_theme_annual_desc: "פירוט תמה שנתית"
+        about_the_artist: "אודות האמן"
+        website: "אתר"
+        spec_physical_description: "תיאור פיזי"
+        spec_length: "אורך"
+        spec_width: "רוחב"
+        spec_height: "גובה"
+        spec_visual_night_day: "נראות יום ולילה"
+        spec_is_electricity: "האם חשמל"
+        spec_electricity_details: "פרטי החשמל"
+        spec_electricity_how: "כיצד חשמל"
+        spec_electricity_is_daytime: "האם חשמל יום"
+        spec_electricity_watt: "הספק חשמל בוואט"
         
         
       grant:

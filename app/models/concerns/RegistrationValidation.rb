@@ -6,7 +6,7 @@ module RegistrationValidation
       validate :invite_code_valid, :on => :create
     end
   end
-  
+
   def invite_code_valid
     self.email = self.email.downcase
     invite_code_local_tickets_valid()

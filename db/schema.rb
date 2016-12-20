@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161219070103) do
+ActiveRecord::Schema.define(version: 20161219182018) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -92,10 +92,6 @@ ActiveRecord::Schema.define(version: 20161219070103) do
     t.string   "safetybag_firstMemberEmail",                             limit: 64
     t.string   "safetybag_secondMemberName",                             limit: 64
     t.string   "safetybag_secondMemberEmail",                            limit: 64
-    t.string   "about_the_artist",                                       limit: 1024
-    t.string   "website",                                                limit: 512
-    t.boolean  "active",                                                              default: true
-    t.boolean  "is_public",                                                           default: false, null: false
     t.string   "dreamprop_philosophy",                                   limit: 4096
     t.string   "dreamprop_inspiration",                                  limit: 4096
     t.string   "dreamprop_interactivity_audience_participation",         limit: 4096
@@ -112,6 +108,20 @@ ActiveRecord::Schema.define(version: 20161219070103) do
     t.boolean  "dreamprop_community_is_interested_in_publicity",                      default: false, null: false
     t.boolean  "dreamprop_theme_is_annual",                                           default: false, null: false
     t.string   "dreamprop_theme_annual_desc",                            limit: 4096
+    t.boolean  "active",                                                              default: true
+    t.string   "about_the_artist",                                       limit: 1024
+    t.string   "website",                                                limit: 512
+    t.boolean  "is_public",                                                           default: false, null: false
+    t.string   "spec_physical_description",                              limit: 4096
+    t.string   "spec_length",                                            limit: 128
+    t.string   "spec_width",                                             limit: 128
+    t.string   "spec_height",                                            limit: 128
+    t.string   "spec_visual_night_day",                                  limit: 4096
+    t.boolean  "spec_is_electricity",                                                 default: false, null: false
+    t.string   "spec_electricity_details",                               limit: 4096
+    t.string   "spec_electricity_how",                                   limit: 4096
+    t.boolean  "spec_electricity_is_daytime",                                         default: false, null: false
+    t.string   "spec_electricity_watt",                                  limit: 512
   end
 
   add_index "camps", ["user_id"], name: "index_camps_on_user_id"

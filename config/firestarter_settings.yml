@@ -23,7 +23,7 @@ defaults: &defaults
   footer_text: true
   footer_logo: false
   creation_sidebar_welcome: true
-  safetybag: true
+  safetybag: false
   disable_open_new_dream: <%= ENV['disable_open_new_dream'] or false %>
   disable_edit_safetybag: <%= ENV['disable_edit_safetybag'] or false %>
   disable_edit_budget: <%= ENV['disable_edit_budget'] or false %>

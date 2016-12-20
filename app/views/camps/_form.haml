@@ -139,26 +139,25 @@
     = form.text_area :spec_physical_description, :maxlength => 4096, :class => "form-control"
     = t("form_spec_physical_description_guidetext_html")
 
-  .combo
-    .combo
-      = form.label t("form_spec_sizes")
+  .combo.col-xs-12
+    = form.label t("form_spec_sizes")
 
-    .col-xs-4
-      = form.label t("form_spec_length_label")
-      = form.text_field :spec_length, :maxlength => 128, :class => "form-control"
-    .col-xs-4
-      = form.label t("form_spec_width_label")
-      = form.text_field :spec_width, :maxlength => 128, :class => "form-control"
-    .col-xs-4
-      = form.label t("form_spec_height_label")
-      = form.text_field :spec_height, :maxlength => 128, :class => "form-control"
+  .col-xs-4
+    = form.label t("form_spec_length_label")
+    = form.text_field :spec_length, :maxlength => 128, :class => "form-control"
+  .col-xs-4
+    = form.label t("form_spec_width_label")
+    = form.text_field :spec_width, :maxlength => 128, :class => "form-control"
+  .col-xs-4
+    = form.label t("form_spec_height_label")
+    = form.text_field :spec_height, :maxlength => 128, :class => "form-control"
 
-  .combo
+  .combo.col-xs-12
     = form.label t("form_spec_visual_night_day_label")
     = form.text_area :spec_visual_night_day, :maxlength => 4096, :class => "form-control"
     = t("form_spec_visual_night_day_guidetext_html")
 
-  .combo
+  .combo.col-xs-12
     = form.label t("form_spec_is_electricity_label")
     = form.radio_button :spec_is_electricity, true
     = form.label t("yes_text")

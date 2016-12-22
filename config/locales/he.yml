@@ -91,6 +91,9 @@ he:
   form_additional_headline: "מידע נוסף"
   form_additional_info_text_html: "אפשר למלא את זה במועד מאוחר יותר או להשאיר ריק במידה ואין צורך."
 
+  form_project_management: "אפיון וניהול הפרויקט"
+  form_project_manager_name: "שם מנהל הפרויקט"
+
   form_description_label: "תיאור מלא של הרעיון"
   form_description_guidetext_html: "תני תיאור פיזי ורעיוני מלא, שכולל את האינטראקציה עם החלום ואיך הוא משתלב עם קהילת המידברן. יש לך 4096 תווים , תנצלי אותם! "
   form_electricity_label: "האם את זקוקה לחשמל? פרטי בוואטים"

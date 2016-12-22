@@ -16,6 +16,7 @@
 //= require_tree .
 //= require blueimp-gallery-all
 //= require filterrific/filterrific-jquery
+//= require cocoon
 
 $(function() {
 	//Fix the hidden element issue on some chrome browsers

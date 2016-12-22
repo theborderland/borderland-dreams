@@ -67,6 +67,9 @@ gem 'nokogiri'
 
 gem 'newrelic_rpm'
 
+gem 'cocoon'
+gem 'simple_form'
+
 group :production do
   # needed by herokus
   gem 'rails_12factor'

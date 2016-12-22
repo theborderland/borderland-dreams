@@ -31,7 +31,7 @@
       alert( "עריכת שדות תיק הבטיחות סגור כעת\r\nSafety file is currrently disabled" );
     })});
 
-= form_for @camp, :html => {:dir => I18n.t(:html_direction), :id => 'camp-form' } do |form|
+= simple_form_for @camp, :html => {:dir => I18n.t(:html_direction), :id => 'camp-form' } do |form|
 
   .header-heading
     = t("form_basics_headline")
@@ -290,31 +290,19 @@
       = form.text_field :dreamprop_theme_annual_desc, :max_length => 4096
       = t("form_dream_prop_theme_annual_desc_guidetext_html")
 
-  - if Rails.configuration.x.firestarter_settings["safetybag"]
-    .header-heading
-      = t("form_extra_team_member_head")
+  .header-heading
+    / = t("form_project_management")
+    / = @camp.project_manager.id
     
-    .combo
-      = t("form_extra_team_member_info")
-
-    .combo
-      = form.label t("form_safetybag_first_member_name_label")
-      = form.text_field :safetybag_firstMemberName, :maxlength => 64, :class => "form-control"
-
-    .combo
-      = form.label t("form_safetybag_first_member_email_label")
-      = form.text_field :safetybag_firstMemberEmail, :maxlength => 64, :type => 'email', :class => "form-control"
-
-    .combo
-      = form.label t("form_safetybag_second_member_name_label")
-      = form.text_field :safetybag_secondMemberName, :maxlength => 64, :class => "form-control"
-
-    .combo
-      = form.label t("form_safetybag_second_member_email_label")
-      = form.text_field :safetybag_secondMemberEmail, :maxlength => 64, :type => 'email', :class => "form-control"
-
-    .combo
-      = t("form_extra_extra_team_members_info")
+    #responsibles
+      = form.fields_for :responsibles do |responsible|
+        = render 'camp_responsible_fields', :f => responsible
+      = link_to_add_association 'add responsibles', form, :responsibles
+    / = form.fields_for :project_manager do |builder|
+    /   .combo
+    /     = builder.label t("form_project_manager_name")
+    /     = builder.text_field :name, :maxlength => 64
+    
 
   - if Rails.configuration.x.firestarter_settings["safetybag"]
     

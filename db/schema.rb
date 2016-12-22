@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161219182018) do
+ActiveRecord::Schema.define(version: 20161222171419) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -63,8 +63,8 @@ ActiveRecord::Schema.define(version: 20161219182018) do
     t.text     "cocreation",                                             limit: 1024
     t.text     "neighbors",                                              limit: 512
     t.text     "budgetplan",                                             limit: 1024
-    t.integer  "minbudget",                                                           default: 0
-    t.integer  "maxbudget",                                                           default: 0
+    t.integer  "minbudget"
+    t.integer  "maxbudget"
     t.boolean  "seeking_members"
     t.integer  "user_id"
     t.boolean  "grantingtoggle",                                                      default: false, null: false
@@ -154,6 +154,26 @@ ActiveRecord::Schema.define(version: 20161219182018) do
 
   add_index "memberships", ["camp_id"], name: "index_memberships_on_camp_id"
   add_index "memberships", ["user_id"], name: "index_memberships_on_user_id"
+
+  create_table "people", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "phone_number"
+    t.string   "background"
+    t.string   "responsibility_type"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  create_table "responsibles", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "person_id"
+    t.integer  "camp_id"
+  end
+
+  add_index "responsibles", ["camp_id"], name: "index_responsibles_on_camp_id"
+  add_index "responsibles", ["person_id"], name: "index_responsibles_on_person_id"
 
   create_table "tickets", force: :cascade do |t|
     t.text   "id_code"

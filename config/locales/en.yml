@@ -84,7 +84,9 @@ en:
 
   form_additional_headline: "Additional information"
   form_additional_info_text_html: "Can be filled in later, or not at all if it doesn't apply"
-
+  
+  form_project_management: "Project management" 
+  
   form_description_label: "Full description of concept"
   form_description_guidetext_html: "Give a full physical and conceptual description, including interactivity how it will fit into the Midburn community. You've got 4096 characters. Make them count."
   form_electricity_label: "Do you need electricity from the grid? How much in Watt?"

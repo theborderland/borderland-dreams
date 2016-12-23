@@ -374,6 +374,13 @@
     = form.text_area :safety_signs, :max_length => 4096, :class => "form-control"
     = t("form_safety_signs_desc")
 
+  .header-heading
+    = t("form_location_header")
+
+  .combo
+    = form.label t("form_location_info")
+    = form.text_area :location_info, :max_length => 1024, :class => "form-control"
+    = t("form_location_info_desc")
 
   - if Rails.configuration.x.firestarter_settings["safetybag"]
     

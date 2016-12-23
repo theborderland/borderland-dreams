@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161223113752) do
+ActiveRecord::Schema.define(version: 20161223172246) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -111,7 +111,7 @@ ActiveRecord::Schema.define(version: 20161223113752) do
     t.boolean  "active",                                                              default: true
     t.string   "about_the_artist",                                       limit: 1024
     t.string   "website",                                                limit: 512
-    t.boolean  "is_public",                                                           default: false, null: false
+    t.boolean  "is_public",                                                           default: true,  null: false
     t.string   "spec_physical_description",                              limit: 4096
     t.string   "spec_length",                                            limit: 128
     t.string   "spec_width",                                             limit: 128
@@ -130,6 +130,7 @@ ActiveRecord::Schema.define(version: 20161223113752) do
     t.string   "safety_securing",                                        limit: 4096
     t.string   "safety_securing_parts",                                  limit: 4096
     t.string   "safety_signs",                                           limit: 4096
+    t.string   "location_info",                                          limit: 1024
   end
 
   add_index "camps", ["user_id"], name: "index_camps_on_user_id"

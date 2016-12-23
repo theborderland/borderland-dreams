@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161219182018) do
+ActiveRecord::Schema.define(version: 20161223113752) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -63,8 +63,8 @@ ActiveRecord::Schema.define(version: 20161219182018) do
     t.text     "cocreation",                                             limit: 1024
     t.text     "neighbors",                                              limit: 512
     t.text     "budgetplan",                                             limit: 1024
-    t.integer  "minbudget",                                                           default: 0
-    t.integer  "maxbudget",                                                           default: 0
+    t.integer  "minbudget"
+    t.integer  "maxbudget"
     t.boolean  "seeking_members"
     t.integer  "user_id"
     t.boolean  "grantingtoggle",                                                      default: false, null: false
@@ -122,6 +122,14 @@ ActiveRecord::Schema.define(version: 20161219182018) do
     t.string   "spec_electricity_how",                                   limit: 4096
     t.boolean  "spec_electricity_is_daytime",                                         default: false, null: false
     t.string   "spec_electricity_watt",                                  limit: 512
+    t.boolean  "safety_is_heavy_equipment",                                           default: false, null: false
+    t.string   "safety_equipment",                                       limit: 4096
+    t.string   "safety_how_to_build_safety",                             limit: 4096
+    t.string   "safety_how",                                             limit: 4096
+    t.string   "safety_grounding",                                       limit: 4096
+    t.string   "safety_securing",                                        limit: 4096
+    t.string   "safety_securing_parts",                                  limit: 4096
+    t.string   "safety_signs",                                           limit: 4096
   end
 
   add_index "camps", ["user_id"], name: "index_camps_on_user_id"

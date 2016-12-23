@@ -316,6 +316,65 @@
     .combo
       = t("form_extra_extra_team_members_info")
 
+  %br
+  %br
+  .header-heading
+    = t("form_safety_head")
+
+  .h3
+    = t("form_safety_plan")
+
+  .combo
+    = t("form_safety_plan_guidetext_html")
+
+  .h3
+    = form.label t("form_heavy_equip")
+
+  .combo
+    = form.label t("form_is_heavey_equip_needed")
+    = form.check_box :safety_is_heavy_equipment
+    %br
+    = t("form_heavy_equip_desc")
+
+  .h3
+    = form.label t("form_safety_prince")
+
+  .combo
+    = form.label t("form_safety_equipment_desc")
+    = form.text_field :safety_equipment, :max_length => 4096
+    = t("form_safety_equipment_guidetext_html")
+
+  .combo
+    = form.label t("form_safety_how_to_build_safety")
+    = form.text_field :safety_how_to_build_safety, :max_length => 4096
+    = t("form_safety_how_to_build_safety_desc")
+
+  .combo
+    = form.label t("form_safety_how")
+    = form.text_field :safety_how, :max_length => 4096
+    = t("form_safety_how_desc")
+
+  .combo
+    = form.label t("form_safety_grounding")
+    = form.text_field :safety_grounding, :max_length => 4096
+    = t("form_safety_grounding_desc")
+
+  .combo
+    = form.label t("form_safety_securing")
+    = form.text_field :safety_securing, :max_length => 4096
+    = t("form_safety_securing_desc")
+
+  .combo
+    = form.label t("form_safety_securing_parts")
+    = form.text_field :safety_securing_parts, :max_length => 4096
+    = t("form_safety_securing_parts_desc")
+
+  .combo
+    = form.label t("form_safety_signs")
+    = form.text_field :safety_signs, :max_length => 4096
+    = t("form_safety_signs_desc")
+
+
   - if Rails.configuration.x.firestarter_settings["safetybag"]
     
     .header-heading.safetybag-header

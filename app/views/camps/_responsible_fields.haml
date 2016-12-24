@@ -1,6 +1,8 @@
 .nested-fields
-  / = f.text_field :name
-  / = f.text_field :email
-  / = f.text_field :phone_number
-  / = f.text_field :background
-  / = f.text_field :responsibility_type
+  .responsibility
+    = f.label :responsibility_type
+    = f.text_field :responsibility_type
+    .people_from_list
+      = f.association :person, collection: Person.where(camp_id: camp_id), prompt: 'choose person'
+      = link_to_add_association 'or add a new person', f, :person, html_options: {}
+    = link_to_remove_association "remove responsibility", f

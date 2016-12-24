@@ -16,6 +16,22 @@
     });
   });
 
+  $(document).bind('cocoon:before-remove',
+      function(e, i) {
+        p = $(i[0].parentElement);
+        if (p.hasClass('people_from_list')) {
+          p.find('.add_fields').show();
+          p.find('select').show();
+        }
+      }).bind('cocoon:after-insert',
+      function(e, i) {
+        p = $(i[0].parentElement);
+        if (p.hasClass('people_from_list')) {
+          p.find('.add_fields').hide();
+          p.find('select').hide();
+        }
+      });
+
 - if !Rails.configuration.x.firestarter_settings["disable_edit_safetybag"] or (current_user && (current_user.guide || current_user.admin))
   :javascript
     $(function() { $(".hide_show_safetyfile").click(function(){ 
@@ -291,18 +307,12 @@
       = t("form_dream_prop_theme_annual_desc_guidetext_html")
 
   .header-heading
-    / = t("form_project_management")
-    / = @camp.project_manager.id
-    
     #responsibles
-      = form.fields_for :responsibles do |responsible|
-        = render 'camp_responsible_fields', :f => responsible
-      = link_to_add_association 'add responsibles', form, :responsibles
-    / = form.fields_for :project_manager do |builder|
-    /   .combo
-    /     = builder.label t("form_project_manager_name")
-    /     = builder.text_field :name, :maxlength => 64
-    
+      = form.fields_for :responsibles do |resp|
+        = render 'responsible_fields', :f => resp, :camp_id => @camp.id
+      .links
+        = link_to_add_association 'add responsibles', form, :responsibles, render_options: { locals: { camp_id: @camp.id } }
+
 
   - if Rails.configuration.x.firestarter_settings["safetybag"]
     

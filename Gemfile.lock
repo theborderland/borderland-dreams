@@ -58,6 +58,7 @@ GEM
     arbre (1.0.3)
       activesupport (>= 3.0.0)
     arel (6.0.3)
+    awesome_print (1.7.0)
     aws-sdk (1.66.0)
       aws-sdk-v1 (= 1.66.0)
     aws-sdk-v1 (1.66.0)
@@ -295,6 +296,7 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin!
+  awesome_print
   aws-sdk (< 2)
   blueimp-gallery
   byebug

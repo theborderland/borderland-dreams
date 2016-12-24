@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161222171419) do
+ActiveRecord::Schema.define(version: 20161224094949) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -122,6 +122,14 @@ ActiveRecord::Schema.define(version: 20161222171419) do
     t.string   "spec_electricity_how",                                   limit: 4096
     t.boolean  "spec_electricity_is_daytime",                                         default: false, null: false
     t.string   "spec_electricity_watt",                                  limit: 512
+    t.boolean  "safety_is_heavy_equipment",                                           default: false, null: false
+    t.string   "safety_equipment",                                       limit: 4096
+    t.string   "safety_how_to_build_safety",                             limit: 4096
+    t.string   "safety_how",                                             limit: 4096
+    t.string   "safety_grounding",                                       limit: 4096
+    t.string   "safety_securing",                                        limit: 4096
+    t.string   "safety_securing_parts",                                  limit: 4096
+    t.string   "safety_signs",                                           limit: 4096
   end
 
   add_index "camps", ["user_id"], name: "index_camps_on_user_id"
@@ -160,16 +168,19 @@ ActiveRecord::Schema.define(version: 20161222171419) do
     t.string   "email"
     t.string   "phone_number"
     t.string   "background"
-    t.string   "responsibility_type"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "camp_id",      null: false
   end
 
+  add_index "people", ["camp_id"], name: "index_people_on_camp_id"
+
   create_table "responsibles", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.integer  "person_id"
     t.integer  "camp_id"
+    t.string   "responsibility_type", null: false
   end
 
   add_index "responsibles", ["camp_id"], name: "index_responsibles_on_camp_id"

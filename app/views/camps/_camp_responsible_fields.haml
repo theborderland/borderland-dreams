@@ -1,6 +1,0 @@
-.nested-fields.responsible-fields
-  .responsible_from_list
-    = f.association :person, :collection => Person.all, :prompt => 'choose person'
-  = link_to_add_association 'or create a new person', f, :person
-  = link_to_remove_association "Remove person", f, data: {:confirm => 'do you really want to do this?'}, class: 'btn btn-default btn-xs .glyphicon.glyphicon-remove'
-      

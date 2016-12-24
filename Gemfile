@@ -100,4 +100,7 @@ group :development do
 
   # Use faker to get random test data
   gem 'faker'
+
+  # Awesome print helps us print!
+  gem 'awesome_print'
 end

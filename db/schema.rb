@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161223113752) do
+ActiveRecord::Schema.define(version: 20161224171243) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -130,6 +130,13 @@ ActiveRecord::Schema.define(version: 20161223113752) do
     t.string   "safety_securing",                                        limit: 4096
     t.string   "safety_securing_parts",                                  limit: 4096
     t.string   "safety_signs",                                           limit: 4096
+    t.string   "program_dream_name_he",                                  limit: 256
+    t.string   "program_dream_name_en",                                  limit: 256
+    t.string   "program_dreamer_name_he",                                limit: 256
+    t.string   "program_dreamer_name_en",                                limit: 256
+    t.string   "program_dream_about_he",                                 limit: 4096
+    t.string   "program_dream_about_en",                                 limit: 4096
+    t.string   "program_special_activity",                               limit: 4096
   end
 
   add_index "camps", ["user_id"], name: "index_camps_on_user_id"

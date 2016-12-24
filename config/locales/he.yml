@@ -184,6 +184,17 @@ he:
   form_safety_securing_parts_desc: "מפרקים, גלגלי שיניים, חלקים מסתובבים וכד - יש לתאר את טווח הבטיחות מהחלקים הנעים ואת דרככם למזער פגיעה"
   form_safety_signs: "שילוט אזהרה/הדרכה נדרש"
   form_safety_signs_desc: "המתייחס לכל האספקטים שנמנו מעלה, ואופן הצבתו במיצב"
+
+  form_program_head: "מידע לתוכניה"
+  form_program_name: "שם המיצב"
+  form_program_hebrew: "עברית"
+  form_program_english: "English"
+  form_program_dreamer: "שם האמן/קבוצת אמנים"
+  form_program_description: "יש לך עד 100 מילים לתאר את המיצב שלך באופן שיוצג בתכניה האירוע לציבור הרחב!"
+  form_program_activity: "פעילות מיוחדת, מופע, טקס או כל דבר שאתם מתכננים סביב/בהקשר למיצב בזמן האירוע ותרצו להזמין אליו את תושבי העיר"
+  form_program_activity_desc: "יש לציין יום, שעה, שם הפעילות, האם מדובר בפעילות חד פעמית או חוזרת"
+
+  form_congratulations_html: "מברוק. הגעת הכי נמוך שאפשר.<br>מכאן רק אפשר לעוף."
   
   form_basics_safety_bag: "שדות שמסומנים בורוד זוהר הינם שדות חובה לטובת תיק הבטיחות. רובם לא מוצגים בספריית החלומות הציבורית ומיועדים לאישור המיצב"
   form_safetybag_headline: "מידע לתיק בטיחות"

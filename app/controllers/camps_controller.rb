@@ -25,45 +25,10 @@ class CampsController < ApplicationController
 
   def new
     @camp = Camp.new
-    build_peoples_for(@camp)
   end
 
   def edit
     @camp = Camp.find params[:id]
-    # build_peoples_for(@camp)
-  end
-
-  def build_peoples_for(camp)
-    add_responsible('projectManager')
-    # camp.build_vice_project_manager
-    # camp.build_daily_inspection_responsible
-    # camp.build_disassembly_responsible
-    # camp.build_lnt_respomsible
-    # camp.build_funding_
-  end
-
-  # Add responsible
-  def add_responsible(responsibility_type)
-    # @camp = Camp.find(params[:id])
-    # params[:user] ? @user = User.find(params[:user]) : @user = nil
-
-    # CHECK IF all positions exists
-    @person = Person.create(name: "David", email: "test@gmail.com", phone_number:'00000',responsibility_type: 'Project Manager')
-    @camp.people << @person
-    #
-    # Only add a user to the list of associated members if the user isn't
-    # in the list. We should add a uniqueness validation to this.
-    #
-
-    # if !@user
-    #   flash[:notice] = "#{t:join_dream}"
-    # elsif @camp.users.include?(@user)
-    #   flash[:notice] = "#{t:join_already_sent}"
-    # else
-    #   flash[:notice] = "#{t:join_dream}"
-    #   @camp.users << @user
-    # end
-    # redirect_to @camp
   end
 
   def create

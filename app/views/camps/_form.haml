@@ -374,6 +374,8 @@
     = form.text_area :safety_signs, :max_length => 4096, :class => "form-control"
     = t("form_safety_signs_desc")
 
+  %br
+  %br
   .header-heading
     = t("form_location_header")
 
@@ -381,6 +383,49 @@
     = form.label t("form_location_info")
     = form.text_area :location_info, :max_length => 1024, :class => "form-control"
     = t("form_location_info_desc")
+
+  %br
+  %br
+  .header-heading
+    = t("form_program_head")
+
+  .combo
+    = form.label t("form_program_name")
+  .input-group
+    %span.input-group-addon
+      = t("form_program_hebrew")  
+    = form.text_field :program_dream_name_he, :max_length => 256, :class => "form-control"
+  .input-group
+    %span.input-group-addon
+      = t("form_program_english")  
+    = form.text_field :program_dream_name_en, :max_length => 256, :class => "form-control"
+
+  .combo
+    = form.label t("form_program_dreamer")
+  .input-group
+    %span.input-group-addon
+      = t("form_program_hebrew")  
+    = form.text_field :program_dreamer_name_he, :max_length => 256, :class => "form-control"
+  .input-group
+    %span.input-group-addon
+      = t("form_program_english")  
+    = form.text_field :program_dreamer_name_en, :max_length => 256, :class => "form-control"
+
+  .combo
+    = form.label t("form_program_description")
+  .input-group
+    %span.input-group-addon
+      = t("form_program_hebrew")  
+    = form.text_field :program_dream_about_he, :max_length => 4096, :class => "form-control"
+  .input-group
+    %span.input-group-addon
+      = t("form_program_english")  
+    = form.text_field :program_dream_about_en, :max_length => 4096, :class => "form-control"
+
+  .combo
+    = form.label t("form_program_activity")
+    = form.text_area :program_special_activity, :max_length => 4096, :class => "form-control"
+    = t("form_program_activity_desc")
 
   - if Rails.configuration.x.firestarter_settings["safetybag"]
     

@@ -4,21 +4,21 @@
   </div>
   <div class="combo" id="name">
     <%= form.label t("form_dream_name_label") %>
-    <%= form.text_field :name, :maxlength => 64 %>
+    <%= form.text_field :name, :maxlength => 64, :class => "form-control" %>
   </div>
   <div class="combo" id="subtitle">
     <%= form.label t("form_subtitle_label") %>
-    <%= form.text_area :subtitle, :maxlength => 255 %>
+    <%= form.text_area :subtitle, :maxlength => 255, :class => "form-control" %>
     <%= t("form_subtitle_guidetext_html") %>
   </div>
   <div class="combo" id="contact_name">
     <%= form.label t("form_creator_name_label") %>
-    <%= form.text_field :contact_name, :maxlength => 64 %>
+    <%= form.text_field :contact_name, :maxlength => 64, :class => "form-control" %>
     <%= t("form_creator_name_guidetext_html") %>
   </div>
   <div class="combo" id="contact_email">
     <%= form.label t("form_creator_email_label") %>
-    <%= form.text_field :contact_email, :maxlength => 64 %>
+    <%= form.text_field :contact_email, :maxlength => 64, :class => "form-control" %>
     <%= t("form_creator_email_guidetext_html") %>
   </div>
   <div class="submit">

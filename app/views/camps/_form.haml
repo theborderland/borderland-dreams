@@ -307,11 +307,17 @@
       = t("form_dream_prop_theme_annual_desc_guidetext_html")
 
   .header-heading
-    #responsibles
-      = form.fields_for :responsibles do |resp|
-        = render 'responsible_fields', :f => resp, :camp_id => @camp.id
-      .links
-        = link_to_add_association 'add responsibles', form, :responsibles, render_options: { locals: { camp_id: @camp.id } }
+    = form.label t("form_project_management")
+  .h3
+    = t("form_project_management_crew")
+  .combo
+    = t("form_project_management_crew_desc")
+
+  #responsibles.col-xs-12
+    = form.fields_for :responsibles do |resp|
+      = render 'responsible_fields', :f => resp, :camp_id => @camp.id
+    .links
+      = link_to_add_association t('add_responsibles'), form, :responsibles, render_options: { locals: { camp_id: @camp.id } }, class: 'btn btn-default'
 
 
   - if Rails.configuration.x.firestarter_settings["safetybag"]

@@ -91,8 +91,21 @@ he:
   form_additional_headline: "מידע נוסף"
   form_additional_info_text_html: "אפשר למלא את זה במועד מאוחר יותר או להשאיר ריק במידה ואין צורך."
 
-  form_project_management: "אפיון וניהול הפרויקט"
+  form_project_management: "ניהול הפרויקט"
+  form_project_management_crew: "חברי הצוות ובעלי תפקידים"
+  form_project_management_crew_desc: "רקע רלוונטי ישמש עבור קרן האמנות להערכת פוטנציאל הביצוע. אם לא מאויש להותיר ריק"
+  form_project_management_responsibility_type: "סוג האחראי"
+  choose_person: "בחר אדם"
+  add_a_new_person: "הוסף אדם חדש"
+  remove_responsibility: "הסר אחראי"
+  remove_person: "הסר אדם"
+  add_responsibles: "הוסף סוג אחראי חדש"
   form_project_manager_name: "שם מנהל הפרויקט"
+
+  form_person_name: "שם"
+  form_person_email: "אימייל"
+  form_person_phone: "טלפון"
+  form_person_background: "רקע רלוונטי"
 
   form_description_label: "תיאור מלא של הרעיון"
   form_description_guidetext_html: "תני תיאור פיזי ורעיוני מלא, שכולל את האינטראקציה עם החלום ואיך הוא משתלב עם קהילת המידברן. יש לך 4096 תווים , תנצלי אותם! "
@@ -507,6 +520,11 @@ he:
               taken: "האימייל כבר נמצא בשימוש. אנא התחברי."
             reset_password_token:
               invalid: "הלינק הזה פג תוקף - אנא לחצי שוב על שכחת סיסמא בכדי לקבל לינק חדש"
+
+        responsible:
+          attributes:
+            responsibility_type:
+              blank: "אנא הכנס תחום אחראיות תחת חברי צוות"
 
       messages:
         record_invalid: 'האימות נכשל: %{errors}'

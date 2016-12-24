@@ -1,8 +1,11 @@
-.nested-fields
-  .responsibility
-    = f.label :responsibility_type
-    = f.text_field :responsibility_type
-    .people_from_list
-      = f.association :person, collection: Person.where(camp_id: camp_id), prompt: 'choose person'
-      = link_to_add_association 'or add a new person', f, :person, html_options: {}
-    = link_to_remove_association "remove responsibility", f
+.col-md-12
+  .nested-fields.col-md-5
+    .responsibility.panel.panel-default
+      .panel-heading
+        = f.label t("form_project_management_responsibility_type")
+        = f.text_field :responsibility_type
+      .pane-body
+        .people_from_list
+          = f.association :person, collection: Person.where(camp_id: camp_id), prompt: t("choose_person")
+          = link_to_add_association t("add_a_new_person"), f, :person, html_options: {class: 'btn btn-default'}
+        = link_to_remove_association t("remove_responsibility"), f

@@ -377,6 +377,16 @@
   %br
   %br
   .header-heading
+    = t("form_location_header")
+
+  .combo
+    = form.label t("form_location_info")
+    = form.text_area :location_info, :max_length => 1024, :class => "form-control"
+    = t("form_location_info_desc")
+
+  %br
+  %br
+  .header-heading
     = t("form_program_head")
 
   .combo
@@ -416,14 +426,6 @@
     = form.label t("form_program_activity")
     = form.text_area :program_special_activity, :max_length => 4096, :class => "form-control"
     = t("form_program_activity_desc")
-
-
-  
-  
-  / form_program_activity: "פעילות מיוחדת, מופע, טקס או כל דבר שאתם מתכננים סביב/בהקשר למיצב בזמן האירוע ותרצו להזמין אליו את תושבי העיר"
-  / form_program_activity_desc: "יש לציין יום, שעה, שם הפעילות, האם מדובר בפעילות חד פעמית או חוזרת"
-
-  / form_congratulations_html: "מברוק. הגעת הכי נמוך שאפשר.<br>מכאן רק אפשר לעוף."
 
   - if Rails.configuration.x.firestarter_settings["safetybag"]
     

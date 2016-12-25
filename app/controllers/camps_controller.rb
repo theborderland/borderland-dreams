@@ -187,5 +187,4 @@ class CampsController < ApplicationController
   def camp_params
     params.require(:camp).permit!
   end
-
 end

@@ -14,6 +14,19 @@
         $(target).hide();
       }
     });
+
+    $('#responsibles').delegate('.edit-person', 'click', function() {
+      list = $(this.parentNode).find('select');
+      if (list.is(":visible") && list[0].value != '') {
+        this.href = '/dreams/#{@camp.id}/people/' + list[0].value;
+      }
+    }).delegate('select', 'blur change', function() {
+      if (this.value == '') {
+        $(this.parentNode.parentNode).find('.edit-person').hide();
+      } else {
+        $(this.parentNode.parentNode).find('.edit-person').show();
+      }
+    });
   });
 
   $(document).bind('cocoon:before-remove',
@@ -21,6 +34,7 @@
         p = $(i[0].parentElement);
         if (p.hasClass('people_from_list')) {
           p.find('.add_fields').show();
+          p.find('.edit-person').show();
           p.find('select').show();
         }
       }).bind('cocoon:after-insert',
@@ -28,7 +42,10 @@
         p = $(i[0].parentElement);
         if (p.hasClass('people_from_list')) {
           p.find('.add_fields').hide();
+          p.find('.edit-person').hide();
           p.find('select').hide();
+        } else {
+          p.find('.edit-person').hide();
         }
       });
 
@@ -46,6 +63,8 @@
     $(function() { $(".hide_show_safetyfile").click(function(){ 
       alert( "עריכת שדות תיק הבטיחות סגור כעת\r\nSafety file is currrently disabled" );
     })});
+%div{id:'edit-person-modal', class:"modal hide fade"}
+  = render 'edit_person'
 
 = simple_form_for @camp, :html => {:dir => I18n.t(:html_direction), :id => 'camp-form' } do |form|
 

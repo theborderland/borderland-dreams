@@ -8,5 +8,5 @@
       .pane-body
         .people_from_list
           = f.association :person, collection: Person.where(camp_id: camp_id), prompt: t("choose_person"), label: false
-          = link_to t('edit_person'), '#', class: 'fa fa-pencil edit-person', data: { toggle: "modal", target: "#modal" }
+          = link_to t('edit_person'), '#', class: 'fa fa-pencil edit-person', data: { toggle: "modal", target: "#modal" }, remote: true
           = link_to_add_association t("add_a_new_person"), f, :person, class: 'fa fa-plus-square'

@@ -97,7 +97,8 @@ he:
   form_project_management_responsibility_type: "סוג האחראי"
   choose_person: "בחר אדם"
   add_a_new_person: "הוסף אדם חדש"
-  remove_responsibility: "הסר אחראי"
+  edit_person: 'ערוך פרטים'
+  remove_responsibility: "הסר אחראיות"
   remove_person: "הסר אדם"
   add_responsibles: "הוסף סוג אחראי חדש"
   form_project_manager_name: "שם מנהל הפרויקט"

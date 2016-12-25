@@ -69,6 +69,7 @@ gem 'newrelic_rpm'
 
 gem 'cocoon'
 gem 'simple_form'
+gem 'font-awesome-sass'
 
 group :production do
   # needed by herokus

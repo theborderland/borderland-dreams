@@ -14,7 +14,7 @@ class Camp < ActiveRecord::Base
   has_many :images #, :dependent => :destroy
   has_many :grants
   has_many :responsibles
-  has_many :people, through: :responsibles, :class_name => 'Person'
+  has_many :people, class_name: 'Person'
   
   accepts_nested_attributes_for :responsibles, allow_destroy: true
   accepts_nested_attributes_for :people

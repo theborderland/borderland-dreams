@@ -202,6 +202,24 @@
 
   %br
   %br
+  .gaunt
+    .header-heading
+      = t("form_keren_gaunt")
+    .combo
+      %a{ :href => @camp.google_drive_gaunt_file_path, :target => "blank"}
+        = t("form_keren_gaunt_desc")
+
+  %br
+  %br
+  .budget
+    .header-heading
+      = t("form_keren_budget")
+    .combo
+      %a{ :href => @camp.google_drive_budget_file_path, :target => "blank"}
+        = t("form_keren_budget_desc")
+
+  %br
+  %br
   .header-heading
     = t("form_dream_prop_head")
 

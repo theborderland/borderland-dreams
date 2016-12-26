@@ -11,7 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161224171243) do
+ActiveRecord::Schema.define(version: 20161226140653) do
+
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
     t.text     "body"
@@ -137,6 +138,9 @@ ActiveRecord::Schema.define(version: 20161224171243) do
     t.string   "program_dream_about_en",                                 limit: 4096
     t.string   "program_special_activity",                               limit: 4096
     t.string   "location_info",                                          limit: 1024
+    t.string   "google_drive_folder_path",                               limit: 512
+    t.string   "google_drive_gaunt_file_path",                           limit: 512
+    t.string   "google_drive_budget_file_path",                          limit: 512
   end
 
   add_index "camps", ["user_id"], name: "index_camps_on_user_id"

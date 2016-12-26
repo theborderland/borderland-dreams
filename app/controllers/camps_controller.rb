@@ -36,6 +36,17 @@ class CampsController < ApplicationController
     @camp.creator = current_user
 
     if @camp.save
+      if Rails.application.config.x.firestarter_settings['google_drive_integration']
+        response = NewDreamAppsScript::createNewDreamFolder(@camp.creator.email, @camp.id, @camp.name)
+        @camp.google_drive_folder_path = response['id']
+        @camp.google_drive_gaunt_file_path = response['gaunt']
+        @camp.google_drive_budget_file_path = response['budget']
+        unless @camp.save
+          flash.now[:notice] = "#{t:errors_str}: #{@camp.errors.full_messages.join(', ')}"
+          render :new
+        end
+      end
+
       flash[:notice] = t('created_new_dream')
       redirect_to edit_camp_path(id: @camp.id)
     else

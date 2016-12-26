@@ -185,6 +185,11 @@ he:
   form_safety_signs: "שילוט אזהרה/הדרכה נדרש"
   form_safety_signs_desc: "המתייחס לכל האספקטים שנמנו מעלה, ואופן הצבתו במיצב"
 
+  form_keren_gaunt: "גאנט"
+  form_keren_gaunt_desc: "אנא מלאו בקובץ הבא את תכנית העבודה שלכם. שימו לב זה קובץ אישי שלכם והוא נוצר כשיצרתם את חלום."
+  form_keren_budget: "תקציב"
+  form_keren_budget_desc: "אנא מלאו בקובץ הבא את התקציב שלכם. שימו לב זה קובץ אישי שלכם והוא נוצר כשיצרתם את חלום."
+
   form_program_head: "מידע לתוכניה"
   form_program_name: "שם המיצב"
   form_program_hebrew: "עברית"
@@ -326,7 +331,7 @@ he:
 
   add_my_name: "הצטרפו לחלום"
   delete_this_creation: "למחוק את החלום הזה"
-  are_you_sure: "האם את בטוחה?"
+  are_you_sure: "האם את בטוחה? ייתכן שאתה מחפש דרך להפוך את החלום ללא פעיל. אם זה המצב אז לא מפה. האם אתה בטוח?"
 
   # My page
   your_space: "האזור האישי שלך"

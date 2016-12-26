@@ -92,3 +92,10 @@ To set up the image upload make sure to create the S3 user and set the following
 
 From our experience, if the s3 bucket didn't exist - it was automatically created on first time upload in case your user have write access to s3.
 
+## Drive integration
+
+#### Google apps script
+We've added the ability to integrate to google drive.
+on every new dream that is being created - a google apps script create a folder with the dream id, dream name, and give access to the dream owner. it also coppies some needed files to that folder and save the folder info and specific file ids to allow the user to edit them directly on google drive.
+
+It require an google apps script published as API execution

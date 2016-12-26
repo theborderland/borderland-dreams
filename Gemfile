@@ -67,6 +67,8 @@ gem 'nokogiri'
 
 gem 'newrelic_rpm'
 
+gem 'google-api-client'
+
 group :production do
   # needed by herokus
   gem 'rails_12factor'

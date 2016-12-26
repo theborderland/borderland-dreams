@@ -1,6 +1,6 @@
 require 'google/apis/script_v1'
 require 'googleauth'
-require 'googleauth/stores/file_token_store'
+require 'env_token_store'
 
 require 'json'
 require 'fileutils'
@@ -25,10 +25,8 @@ class NewDreamAppsScript
   #
   # @return [Google::Auth::UserRefreshCredentials] OAuth2 credentials
   def self.authorize
-    FileUtils.mkdir_p(File.dirname(CREDENTIALS_PATH))
-
     client_id = Google::Auth::ClientId.from_hash(JSON.parse(ENV['GOOGLE_CLIENT_SECRETS']))
-    token_store = Google::Auth::Stores::FileTokenStore.new(file: CREDENTIALS_PATH)
+    token_store = EnvTokenStore.new('GOOGLE_APPS_SCRIPT_TOKEN')
     authorizer = Google::Auth::UserAuthorizer.new(
       client_id, SCOPE, token_store)
     user_id = 'default'

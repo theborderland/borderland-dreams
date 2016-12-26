@@ -1,4 +1,4 @@
-<%= form_for @camp, :html => {:dir => I18n.t(:html_direction) } do |form| %>
+<%= form_for @camp, :html => {:dir => I18n.t(:html_direction), id:"createDreamForm" } do |form| %>
   <div class="header-heading">
     <%= t("form_basics_headline") %>
   </div>
@@ -22,7 +22,7 @@
     <%= t("form_creator_email_guidetext_html") %>
   </div>
   <div class="submit">
-    <%= form.submit t(:create_dream), class: 'btn btn-success' %>
+    <%= form.submit t(:create_dream), class: 'btn btn-success create-new-dream' %>
   </div>
 <% end %>
 <%= content_for :head do %>

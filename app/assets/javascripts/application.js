@@ -30,4 +30,10 @@ $(function() {
 		$('#donateModal').css('cursor', 'wait');
 		$('#donateForm').submit();
 	});
+
+	$('.create-new-dream').click(function(){
+		$('.create-new-dream').prop('disabled', true);
+		$('.create-new-dream').css('cursor', 'wait');
+		$('#createDreamForm').submit();
+	});
 });

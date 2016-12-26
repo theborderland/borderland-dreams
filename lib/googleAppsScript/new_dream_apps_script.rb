@@ -2,6 +2,7 @@ require 'google/apis/script_v1'
 require 'googleauth'
 require 'googleauth/stores/file_token_store'
 
+require 'json'
 require 'fileutils'
 
   ##
@@ -26,7 +27,7 @@ class NewDreamAppsScript
   def self.authorize
     FileUtils.mkdir_p(File.dirname(CREDENTIALS_PATH))
 
-    client_id = Google::Auth::ClientId.from_file(CLIENT_SECRETS_PATH)
+    client_id = Google::Auth::ClientId.from_hash(JSON.parse(ENV['GOOGLE_CLIENT_SECRETS']))
     token_store = Google::Auth::Stores::FileTokenStore.new(file: CREDENTIALS_PATH)
     authorizer = Google::Auth::UserAuthorizer.new(
       client_id, SCOPE, token_store)

@@ -99,3 +99,9 @@ We've added the ability to integrate to google drive.
 on every new dream that is being created - a google apps script create a folder with the dream id, dream name, and give access to the dream owner. it also coppies some needed files to that folder and save the folder info and specific file ids to allow the user to edit them directly on google drive.
 
 It require an google apps script published as API execution
+and also the following env vars:
+* `GOOGLE_APPS_SCRIPT`
+* `GOOGLE_APPS_NAME`
+* `GOOGLE_DRIVE_INTEGRATION=true`
+* `GOOGLE_APPS_SCRIPT_FUNCTION='function-name'`
+* `GOOGLE_CLIENT_SECRETS=content_of_client_secret.json`

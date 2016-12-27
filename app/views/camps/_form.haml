@@ -295,94 +295,94 @@
   .header-heading
     = t("form_dream_scholarship_head")
 
-  .combo
-    = t("form_dream_scholarship_head_desc")
-    %a{ :href => "http://midburn.org/he-art-scholarship/", :target => "blank"}
-      = t("form_dream_scholarship_head_desc_link")
-
-  .combo
-    = form.label t("form_dream_scholarship_fund_is_from_art_fund")
-    = form.check_box :dreamscholarship_fund_is_from_art_fund
-
-  .combo
-    = form.label t("form_dream_scholarship_fund_is_open_for_public")
-    = form.check_box :dreamscholarship_fund_is_open_for_public
-
-  //TODO: All form_dream_scholarship fields should drop-open if at least one of the terms above is true
-  .combo
-    %a{ :href => "http://midburn.org/he-art-scholarship/#tab-1454019338-2-59", :target => "blank"}
-      = t("form_dream_scholarship_pre_fill_notes_criterions")
-    %br
-    %a{ :href => "http://midburn.org/he-art-scholarship/#tab-1454880861375-3-1", :target => "blank"}
-      = t("form_dream_scholarship_pre_fill_notes_questions")
-
-  .h3
-    = t("form_dream_scholarship_budget")
-
-  .combo
-    = t("form_dream_scholarship_budget_desc")
-
-  .combo
-    = form.label t("form_dream_scholarship_budget_min_original")
-    = form.number_field :dreamscholarship_budget_min_original, :maxlength => 6 ,class:'form-control'
-
-  .combo
-    = form.label t("form_dream_scholarship_budget_max_original")
-    = form.number_field :dreamscholarship_budget_max_original, :maxlength => 6 ,class:'form-control'
-    = form.label t("form_dream_scholarship_budget_max_original_desc")
-    = form.text_field :dreamscholarship_budget_max_original_desc, :max_length => 4096, :class => "form-control"
-
-  %br
-  .budget
+  #dream_scholarship
     .combo
-      %a{ :href => @camp.google_drive_budget_file_path, :target => "blank"}
-        = t("form_dream_scholarship_budget_form_desc")
+      = t("form_dream_scholarship_head_desc")
+      %a{ :href => "http://midburn.org/he-art-scholarship/", :target => "_blank"}
+        = t("form_dream_scholarship_head_desc_link")
 
-  %br
-  .combo
-    = form.label t("form_dream_scholarship_bank_account_info")
-    = form.text_field :dreamscholarship_bank_account_info, :max_length => 128, :class => "form-control"
-    = t("form_dream_scholarship_bank_account_info_guidetext_html")
+    .combo
+      = form.label t("form_dream_scholarship_fund_is_from_art_fund")
+      = form.check_box :dreamscholarship_fund_is_from_art_fund
 
-  .h3
-    = t("form_dream_scholarship_financial_conduct")
+    .combo
+      = form.label t("form_dream_scholarship_fund_is_open_for_public")
+      = form.check_box :dreamscholarship_fund_is_open_for_public
 
-  .combo
-    = form.label t("form_dream_scholarship_financial_conduct_is_intial_budget")
-    = form.check_box :dreamscholarship_financial_conduct_is_intial_budget
-    %br
-    = t("form_dream_scholarship_financial_conduct_intial_budget_desc")
-    = form.text_field :dreamscholarship_financial_conduct_intial_budget_desc, :max_length => 4096, :class => "form-control"
+    //TODO: All form_dream_scholarship fields should drop-open if at least one of the terms above is true
+    .combo
+      %a{ :href => "http://midburn.org/he-art-scholarship/#tab-1454019338-2-59", :target => "_blank"}
+        = t("form_dream_scholarship_pre_fill_notes_criterions")
+      %br
+      %a{ :href => "http://midburn.org/he-art-scholarship/#tab-1454880861375-3-1", :target => "_blank"}
+        = t("form_dream_scholarship_pre_fill_notes_questions")
 
-  .combo
-    = form.label t("form_dream_scholarship_financial_conduct_money_raise_desc")
-    = form.text_field :dreamscholarship_financial_conduct_money_raise_desc, :max_length => 4096, :class => "form-control"
-    = t("form_dream_scholarship_financial_conduct_money_raise_desc_guidetext_html")
-
-  .h3
-    = t("form_dream_scholarship_execution_potential")
-
-  .combo
-    = form.label t("form_dream_scholarship_execution_potential_previous_experience")
-    = form.text_field :dreamscholarship_execution_potential_previous_experience, :max_length => 4096, :class => "form-control"
-    = t("form_dream_scholarship_execution_potential_previous_experience_guidetext_html")
-
-  .combo
-    = form.label t("form_dream_scholarship_execution_potential_work_plan")
-    = form.text_field :dreamscholarship_execution_potential_work_plan, :max_length => 4096, :class => "form-control"
-    = t("form_dream_scholarship_execution_potential_work_plan_guidetext_html")
-
-  .gaunt
     .h3
-      = t("form_dream_scholarship_gaunt")
-    .combo
-      %a{ :href => @camp.google_drive_gaunt_file_path, :target => "blank"}
-        = t("form_dream_scholarship_gaunt_desc")
+      = t("form_dream_scholarship_budget")
 
-  %br
-  //TODO: for some reason <br> is not working as expected, it's just printing br as text
-  //.combo
-  //  = t("form_dream_scholarship_criterions")
+    .combo
+      = t("form_dream_scholarship_budget_desc")
+
+    .combo
+      = form.label t("form_dream_scholarship_budget_min_original")
+      = form.number_field :dreamscholarship_budget_min_original, :maxlength => 6 ,class:'form-control'
+
+    .combo
+      = form.label t("form_dream_scholarship_budget_max_original")
+      = form.number_field :dreamscholarship_budget_max_original, :maxlength => 6 ,class:'form-control'
+      = form.label t("form_dream_scholarship_budget_max_original_desc")
+      = form.text_field :dreamscholarship_budget_max_original_desc, :max_length => 4096, :class => "form-control"
+
+    %br
+    .budget
+      .combo
+        %a{ :href => @camp.google_drive_budget_file_path, :target => "_blank"}
+          = t("form_dream_scholarship_budget_form_desc")
+
+    %br
+    .combo
+      = form.label t("form_dream_scholarship_bank_account_info")
+      = form.text_field :dreamscholarship_bank_account_info, :max_length => 128, :class => "form-control"
+      = t("form_dream_scholarship_bank_account_info_guidetext_html")
+
+    .h3
+      = t("form_dream_scholarship_financial_conduct")
+
+    .combo
+      = form.label t("form_dream_scholarship_financial_conduct_is_intial_budget")
+      = form.check_box :dreamscholarship_financial_conduct_is_intial_budget
+      %br
+      = t("form_dream_scholarship_financial_conduct_intial_budget_desc")
+      = form.text_field :dreamscholarship_financial_conduct_intial_budget_desc, :max_length => 4096, :class => "form-control"
+
+    .combo
+      = form.label t("form_dream_scholarship_financial_conduct_money_raise_desc")
+      = form.text_field :dreamscholarship_financial_conduct_money_raise_desc, :max_length => 4096, :class => "form-control"
+      = t("form_dream_scholarship_financial_conduct_money_raise_desc_guidetext_html")
+
+    .h3
+      = t("form_dream_scholarship_execution_potential")
+
+    .combo
+      = form.label t("form_dream_scholarship_execution_potential_previous_experience")
+      = form.text_field :dreamscholarship_execution_potential_previous_experience, :max_length => 4096, :class => "form-control"
+      = t("form_dream_scholarship_execution_potential_previous_experience_guidetext_html")
+
+    .combo
+      = form.label t("form_dream_scholarship_execution_potential_work_plan")
+      = form.text_field :dreamscholarship_execution_potential_work_plan, :max_length => 4096, :class => "form-control"
+      = t("form_dream_scholarship_execution_potential_work_plan_guidetext_html")
+
+    .gaunt
+      .h3
+        = t("form_dream_scholarship_gaunt")
+      .combo
+        %a{ :href => @camp.google_drive_gaunt_file_path, :target => "_blank"}
+          = t("form_dream_scholarship_gaunt_desc")
+
+    %br
+    .combo
+      = t("form_dream_scholarship_criterions_html")
     
   - if Rails.configuration.x.firestarter_settings["safetybag"]
     .header-heading
@@ -600,7 +600,7 @@
 
       %br
       %div
-        %a{ :href => "https://goo.gl/forms/nZM1aSRzxRQ2RMEr2", :target => "blank"}
+        %a{ :href => "https://goo.gl/forms/nZM1aSRzxRQ2RMEr2", :target => "_blank"}
           = t("form_safetybag_the_form_label")
 
       %br
@@ -640,8 +640,8 @@
 
   %br
     %div
-      %a{ :href => "https://goo.gl/forms/nZM1aSRzxRQ2RMEr2", :target => "blank"}
+      %a{ :href => "https://goo.gl/forms/nZM1aSRzxRQ2RMEr2", :target => "_blank"}
         = t("form_safetybag_the_form_label")
     %div
-      %a{ :href => "../pages/faq", :target => "blank"}
+      %a{ :href => "../pages/faq", :target => "_blank"}
         = t("header_faq_link")

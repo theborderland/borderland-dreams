@@ -74,6 +74,9 @@ he:
   form_creator_name_label: "שם הקבוצה/אמן"
   form_creator_name_guidetext_html: "איך קוראים לך, בעלת החלומות?"
 
+  create_dream_loading_text: "מכינים במיוחד עבורך מקום בענן הקסום שלנו..."
+  create_dream_loading_text2: "מכינים במיוחד עבורך מקום בענן הקסום שלנו..."
+
   form_dream_visability: "הפרוייקט פומבי?"
   form_dream_visability_yes: "כן, הצג את החלום בפומבי"
   form_dream_visability_no: "לא, הסתר את החלום לבינתיים"

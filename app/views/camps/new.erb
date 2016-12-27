@@ -22,7 +22,10 @@
     <%= t("form_creator_email_guidetext_html") %>
   </div>
   <div class="submit">
-    <%= form.submit t(:create_dream), class: 'btn btn-success create-new-dream' %>
+    <%= form.submit t(:create_dream), class: 'btn btn-success create-new-dream', data:{toggle: 'tooltip'}, title:'Some tooltip text!' %>
+    <span class='loading-new-dream hideme'>
+      <%= t("create_dream_loading_text") %>
+    </span>
   </div>
 <% end %>
 <%= content_for :head do %>

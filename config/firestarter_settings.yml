@@ -2,15 +2,15 @@ defaults: &defaults
   additional_info: true
   contact_phone: true
   description: true
-  electricity: true
-  light: true
-  fire: true
-  noise: true
-  nature: true
-  moop: true
+  electricity: false
+  light: false
+  fire: false
+  noise: false
+  nature: false
+  moop: false
   plan: true
   cocreation: true
-  neighbors: true
+  neighbors: false
   recycling: true
   budgetplan: true
   seeking_members: true

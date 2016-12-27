@@ -63,8 +63,10 @@
     $(function() { $(".hide_show_safetyfile").click(function(){ 
       alert( "עריכת שדות תיק הבטיחות סגור כעת\r\nSafety file is currrently disabled" );
     })});
-%div{id:'edit-person-modal', class:"modal hide fade"}
-  = render 'edit_person'
+
+
+/ %div{id:'edit-person-modal', class:"modal hide fade"}
+/   = render 'edit_person'
 
 = simple_form_for @camp, :html => {:dir => I18n.t(:html_direction), :id => 'camp-form' } do |form|
 
@@ -242,11 +244,11 @@
 
   .combo
     = form.label t("form_dream_prop_philosophy")
-    = form.text_field :dreamprop_philosophy, :max_length => 4096
+    = form.text_field :dreamprop_philosophy, :max_length => 4096, :class => "form-control"
 
   .combo
     = form.label t("form_dream_prop_inspiration")
-    = form.text_field :dreamprop_inspiration, :max_length => 4096
+    = form.text_field :dreamprop_inspiration, :max_length => 4096, :class => "form-control"
     = t("form_dream_prop_inspiration_guidetext_html")
 
   .h3
@@ -254,7 +256,7 @@
 
   .combo
     = form.label t("form_dream_prop_interactivity_audience_participation")
-    = form.text_field :dreamprop_interactivity_audience_participation, :max_length => 4096
+    = form.text_field :dreamprop_interactivity_audience_participation, :max_length => 4096, :class => "form-control"
     = t("form_dream_prop_interactivity_audience_participation_guidetext_html")
 
   .combo
@@ -264,7 +266,7 @@
   #fire_present
     .combo
       = form.label t("form_dream_prop_interactivity_fire_present_desc")
-      = form.text_field :dreamprop_interactivity_fire_present_desc, :max_length => 4096
+      = form.text_field :dreamprop_interactivity_fire_present_desc, :max_length => 4096, :class => "form-control"
       = t("form_dream_prop_interactivity_fire_present_desc_guidetext_html")
 
   .combo
@@ -274,7 +276,7 @@
   #sound_present
     .combo
       = form.label t("form_dream_prop_interactivity_sound_desc")
-      = form.text_field :dreamprop_interactivity_sound_desc, :max_length => 4096
+      = form.text_field :dreamprop_interactivity_sound_desc, :max_length => 4096, :class => "form-control"
       = t("form_dream_prop_interactivity_sound_desc_guidetext_html")
 
   .combo
@@ -284,7 +286,7 @@
   #fire_event
     .combo
       = form.label t("form_dream_prop_interactivity_fire_event_desc")
-      = form.text_field :dreamprop_interactivity_fire_event_desc, :max_length => 4096 
+      = form.text_field :dreamprop_interactivity_fire_event_desc, :max_length => 4096 , :class => "form-control"
       = t("form_dream_prop_interactivity_fire_event_desc_guidetext_html")
 
   .h3
@@ -305,7 +307,7 @@
   #community_context
     .combo
       = form.label t("form_dream_prop_community_context_desc")
-      = form.text_field :dreamprop_community_context_desc, :max_length => 4096
+      = form.text_field :dreamprop_community_context_desc, :max_length => 4096, :class => "form-control"
       = t("form_dream_prop_community_context_desc_guidetext_html")
 
   .combo
@@ -322,7 +324,7 @@
   #theme_annual
     .combo
       = form.label t("form_dream_prop_theme_annual_desc")
-      = form.text_field :dreamprop_theme_annual_desc, :max_length => 4096
+      = form.text_field :dreamprop_theme_annual_desc, :max_length => 4096, :class => "form-control"
       = t("form_dream_prop_theme_annual_desc_guidetext_html")
 
   .header-heading
@@ -338,6 +340,72 @@
     .links
       = link_to_add_association t('add_responsibles'), form, :responsibles, render_options: { locals: { camp_id: @camp.id } }, class: 'btn btn-default'
 
+
+  %br
+  %br
+  .header-heading
+    = t("form_safety_head")
+
+  .h3
+    = t("form_safety_plan")
+
+  .combo
+    = t("form_safety_plan_guidetext_html")
+
+  .h3
+    = form.label t("form_heavy_equip")
+
+  .combo
+    = form.label t("form_is_heavey_equip_needed")
+    = form.check_box :safety_is_heavy_equipment
+    %br
+    = t("form_heavy_equip_desc")
+
+  .h3
+    = form.label t("form_safety_prince")
+
+  .combo
+    = form.label t("form_safety_equipment_desc")
+    = form.text_area :safety_equipment, :max_length => 4096, :class => "form-control"
+    = t("form_safety_equipment_guidetext_html")
+
+  .combo
+    = form.label t("form_safety_how_to_build_safety")
+    = form.text_area :safety_how_to_build_safety, :max_length => 4096, :class => "form-control"
+    = t("form_safety_how_to_build_safety_desc")
+
+  .combo
+    = form.label t("form_safety_how")
+    = form.text_area :safety_how, :max_length => 4096, :class => "form-control"
+    = t("form_safety_how_desc")
+
+  .combo
+    = form.label t("form_safety_grounding")
+    = form.text_area :safety_grounding, :max_length => 4096, :class => "form-control"
+    = t("form_safety_grounding_desc")
+
+  .combo
+    = form.label t("form_safety_securing")
+    = form.text_area :safety_securing, :max_length => 4096, :class => "form-control"
+    = t("form_safety_securing_desc")
+
+  .combo
+    = form.label t("form_safety_securing_parts")
+    = form.text_area :safety_securing_parts, :max_length => 4096, :class => "form-control"
+    = t("form_safety_securing_parts_desc")
+
+  .combo
+    = form.label t("form_safety_signs")
+    = form.text_area :safety_signs, :max_length => 4096, :class => "form-control"
+    = t("form_safety_signs_desc")
+
+  .header-heading
+    = t("form_location_header")
+
+  .combo
+    = form.label t("form_location_info")
+    = form.text_area :location_info, :max_length => 1024, :class => "form-control"
+    = t("form_location_info_desc")
 
   - if Rails.configuration.x.firestarter_settings["safetybag"]
     
@@ -463,3 +531,15 @@
     %div
       %a{ :href => "../pages/faq", :target => "blank"}
         = t("header_faq_link")
+
+.modal.fade#edit-person-modal{"role" => "dialog"}
+  .modal-dialog{"role" => "document"}
+    .modal-content
+      .modal-header
+        %button.close{"data-dismiss" => "modal"}
+          %span
+            &times;
+        %h4.modal-title
+          TITLE I AM
+      .modal-body
+        BODY I AM

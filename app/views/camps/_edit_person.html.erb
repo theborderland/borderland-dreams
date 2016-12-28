@@ -1,0 +1,35 @@
+<div class="modal-dialog">
+  <form class="edit-person">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only"><%= t 'general.buttons.cancel' %></span></button>
+        <h4 id="add-user-dialog-header" class="modal-title"><%= t('edit_person') %></h4>
+      </div>
+      <div class="modal-body">
+        <table class="form-layout form-input">
+          <tr>
+            <td><%= t 'form_person_name' %></td>
+            <td><input id="edit-person-name" class="form-control" type="text"/></td>
+          </tr>
+          <tr>
+            <td><%= t 'form_person_email' %></td>
+            <td><input id="edit-person-email" class="form-control" type="email"/></td>
+          </tr>
+          <tr>
+            <td><%= t 'form_person_phone' %></td>
+            <td><input id="edit-person-phone" class="form-control required"/></td>
+          </tr>
+          <tr>
+            <td><%= t 'form_person_background' %></td>
+            <td><input id="edit-person-background" class="form-control required"/></td>
+          </tr>
+        </table>
+        <span class="notification"></span>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" id="add-user-cancel-btn" data-dismiss="modal"><%= t 'general.buttons.cancel' %></button>
+        <button type="submit" class="btn btn-primary" id="save-person"><%= t 'general.buttons.save' %></button>
+      </div>
+    </div>
+  </form>
+</div>

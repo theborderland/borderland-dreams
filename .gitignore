@@ -8,3 +8,5 @@ log/
 .bundle/
 public/system/
 db/*.sqlite3
+
+.idea/

@@ -18,7 +18,36 @@
     $('#responsibles').delegate('.edit-person', 'click', function() {
       list = $(this.parentNode).find('select');
       if (list.is(":visible") && list[0].value != '') {
-        this.href = '/dreams/#{@camp.id}/people/' + list[0].value;
+        var url = '/dreams/#{@camp.id}/people/' + list[0].value;
+        $.getJSON(url, null, function(json) {
+          var modal = $('#edit-person-modal');
+          modal.find('#edit-person-name').val(json['name']);
+          modal.find('#edit-person-email').val(json['email']);
+          modal.find('#edit-person-phone').val(json['phone_number']);
+          modal.find('#edit-person-background').val(json['background']);
+
+          modal.find('form').on('submit', function() {
+            $.ajax({
+              url: url,
+              type: 'PUT',
+              data: {
+                'person': {
+                  'name': modal.find('#edit-person-name').val(),
+                  'email': modal.find('#edit-person-email').val(),
+                  'phone_number': modal.find('#edit-person-phone').val(),
+                  'background': modal.find('#edit-person-background').val()
+                }
+              },
+              success: function() {
+                $('#edit-person-modal').fadeOut();
+              }
+            });
+            return false;
+          });
+
+          $('#edit-person-modal').fadeIn().show();
+        });
+        return false;
       }
     }).delegate('select', 'blur change', function() {
       if (this.value == '') {
@@ -26,6 +55,10 @@
       } else {
         $(this.parentNode.parentNode).find('.edit-person').show();
       }
+    });
+
+    $('button[data-dismiss=modal]').on('click', function() {
+      $('#edit-person-modal').fadeOut();
     });
   });
 
@@ -64,9 +97,8 @@
       alert( "עריכת שדות תיק הבטיחות סגור כעת\r\nSafety file is currrently disabled" );
     })});
 
-
-/ %div{id:'edit-person-modal', class:"modal hide fade"}
-/   = render 'edit_person'
+%div{id:'edit-person-modal', class:'modal', 'data-keyboard' => 'true', 'tabindex' =>"-1"}
+  = render 'edit_person'
 
 = simple_form_for @camp, :html => {:dir => I18n.t(:html_direction), :id => 'camp-form' } do |form|
 
@@ -532,14 +564,3 @@
       %a{ :href => "../pages/faq", :target => "blank"}
         = t("header_faq_link")
 
-.modal.fade#edit-person-modal{"role" => "dialog"}
-  .modal-dialog{"role" => "document"}
-    .modal-content
-      .modal-header
-        %button.close{"data-dismiss" => "modal"}
-          %span
-            &times;
-        %h4.modal-title
-          TITLE I AM
-      .modal-body
-        BODY I AM

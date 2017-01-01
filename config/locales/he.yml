@@ -77,7 +77,7 @@ he:
   form_subtitle_label: "סיכום החלום במשפט (נדרש)"
   form_subtitle_guidetext_html: "סיכום קצר של החלום שאת מציעה. סיכום זה יופיע בעמוד הראשי של האתר. תעשי את זה קצר, עד 256 תווים."
   form_creator_name_label: "שם הקבוצה/אמן"
-  form_creator_name_guidetext_html: "איך קוראים לך, בעלת החלומות?"
+  form_creator_name_guidetext_html: ""
 
   create_dream_loading_text: "מכינים במיוחד עבורך מקום בענן הקסום שלנו..."
   create_dream_loading_text2: "מכינים במיוחד עבורך מקום בענן הקסום שלנו..."
@@ -324,7 +324,7 @@ he:
 
   currency: "ש\"ח"
 
-  created_new_dream: "השלב הראשון הושלם! ניתן לעדכן את פרטי החלום כעת וגם ניתן לחזור ולהשלימם בעתיד"
+  created_new_dream: "השלב הראשון הושלם! ניתן לעדכן את פרטי החלום כעת וגם ניתן לחזור ולהשלימם עד ה11/2"
 
   # Creation view
   what_is_this_title: "מה זה?"

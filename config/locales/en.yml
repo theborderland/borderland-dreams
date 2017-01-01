@@ -68,7 +68,7 @@ en:
   form_subtitle_label: "Summarize your dream (required)"
   form_subtitle_guidetext_html: "Brief summary of the dream prototype you are applying for that will go on the front page of the dreams site. Keep it short, under 256 characters."
   form_creator_name_label: "Your name (required)"
-  form_creator_name_guidetext_html: "What's your name, dreamer?"
+  form_creator_name_guidetext_html: ""
   form_loading_text: "Making room for your dream in our magical cloud..."
   form_loadin_text2: "This usually takes ~8 seconds. Take a mindful breath as we integrate with the drive for you..."
 

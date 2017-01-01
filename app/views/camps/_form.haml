@@ -292,11 +292,11 @@
 
   .combo
     = form.label t("form_dream_prop_philosophy")
-    = form.text_field :dreamprop_philosophy, :max_length => 4096, :class => "form-control"
+    = form.text_area :dreamprop_philosophy, :max_length => 4096, :class => "form-control"
 
   .combo
     = form.label t("form_dream_prop_inspiration")
-    = form.text_field :dreamprop_inspiration, :max_length => 4096, :class => "form-control"
+    = form.text_area :dreamprop_inspiration, :max_length => 4096, :class => "form-control"
     = t("form_dream_prop_inspiration_guidetext_html")
 
   .h3
@@ -304,7 +304,7 @@
 
   .combo
     = form.label t("form_dream_prop_interactivity_audience_participation")
-    = form.text_field :dreamprop_interactivity_audience_participation, :max_length => 4096, :class => "form-control"
+    = form.text_area :dreamprop_interactivity_audience_participation, :max_length => 4096, :class => "form-control"
     = t("form_dream_prop_interactivity_audience_participation_guidetext_html")
 
   .combo
@@ -314,7 +314,7 @@
   #fire_present
     .combo
       = form.label t("form_dream_prop_interactivity_fire_present_desc")
-      = form.text_field :dreamprop_interactivity_fire_present_desc, :max_length => 4096, :class => "form-control"
+      = form.text_area :dreamprop_interactivity_fire_present_desc, :max_length => 4096, :class => "form-control"
       = t("form_dream_prop_interactivity_fire_present_desc_guidetext_html")
 
   .combo
@@ -324,7 +324,7 @@
   #sound_present
     .combo
       = form.label t("form_dream_prop_interactivity_sound_desc")
-      = form.text_field :dreamprop_interactivity_sound_desc, :max_length => 4096, :class => "form-control"
+      = form.text_area :dreamprop_interactivity_sound_desc, :max_length => 4096, :class => "form-control"
       = t("form_dream_prop_interactivity_sound_desc_guidetext_html")
 
   .combo
@@ -334,7 +334,7 @@
   #fire_event
     .combo
       = form.label t("form_dream_prop_interactivity_fire_event_desc")
-      = form.text_field :dreamprop_interactivity_fire_event_desc, :max_length => 4096 , :class => "form-control"
+      = form.text_area :dreamprop_interactivity_fire_event_desc, :max_length => 4096 , :class => "form-control"
       = t("form_dream_prop_interactivity_fire_event_desc_guidetext_html")
 
   .h3
@@ -355,7 +355,7 @@
   #community_context
     .combo
       = form.label t("form_dream_prop_community_context_desc")
-      = form.text_field :dreamprop_community_context_desc, :max_length => 4096, :class => "form-control"
+      = form.text_area :dreamprop_community_context_desc, :max_length => 4096, :class => "form-control"
       = t("form_dream_prop_community_context_desc_guidetext_html")
 
   .combo
@@ -372,7 +372,7 @@
   #theme_annual
     .combo
       = form.label t("form_dream_prop_theme_annual_desc")
-      = form.text_field :dreamprop_theme_annual_desc, :max_length => 4096, :class => "form-control"
+      = form.text_area :dreamprop_theme_annual_desc, :max_length => 4096, :class => "form-control"
       = t("form_dream_prop_theme_annual_desc_guidetext_html")
 
   .header-heading
@@ -604,11 +604,11 @@
   .input-group
     %span.input-group-addon
       = t("form_program_hebrew")  
-    = form.text_field :program_dream_about_he, :max_length => 4096, :class => "form-control"
+    = form.text_area :program_dream_about_he, :max_length => 4096, :class => "form-control"
   .input-group
     %span.input-group-addon
       = t("form_program_english")  
-    = form.text_field :program_dream_about_en, :max_length => 4096, :class => "form-control"
+    = form.text_area :program_dream_about_en, :max_length => 4096, :class => "form-control"
 
   .combo
     = form.label t("form_program_activity")

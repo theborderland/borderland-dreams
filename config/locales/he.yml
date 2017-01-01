@@ -20,6 +20,11 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 he:
+
+  general:
+    buttons:
+      save: "שמור"
+      cancel: "ביטול"
   # Front page
   html_direction: "rtl"
   reverse_direction: "left"

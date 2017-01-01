@@ -47,6 +47,8 @@ he:
   my_area: "אני"
   logout_menu: "התנתקי"
 
+  public: "פומבי"
+
   welcome_guest_title: "ברוכים הבאות לחלומות שלנו!"
   welcome_guest_text_html: "מזל טוב! נתקלתם במשהו מיוחד! חלומות מידברן היא ספריה של הדימיון הקולקטיבי שלנו. אנחנו חולמים ביחד ומפיחים רוח חיים ליצירות המופרכות והאדירות שלנו. זוהי גם המערכת שאוספת את כל החומרים שצריך בשביל מחלקת האמנות ולמי שרוצה, גם לבקשה למלגה לקרן האמנות. כן, כן הכל במקום אחד! מגניב, נכון? תתרשם מהסביבה כדי ליצור חלום משלך. "
   welcome_user_title: "ברוכים הבאות לחלומותייך!"
@@ -85,14 +87,13 @@ he:
   form_dream_visability: "הפרוייקט פומבי?"
   form_dream_visability_yes: "כן, הצג את החלום בפומבי"
   form_dream_visability_no: "לא, הסתר את החלום לבינתיים"
-  form_dream_visability_guidetext_html: "פרוייקטים פומביאים יופיעו בעמוד הראשי. פרוייקט לא פומבי, יהיה זמין רק עם קישור ישיר."
+  form_dream_visability_guidetext_html: "פרוייקטים פומביים יופיעו בעמוד הראשי ויאפשרו לקהילה להחשף לחלום לפני הארוע.<br>בצורה זו תוכלו לבקש מהקהילה עזרה ולייצר שיח סביב היצירה לפני הארוע.<br>פרוייקט לא פומבי, יהיה זמין רק עם קישור ישיר.<br>השדות המופיעים עם התגית <span class='label label-success'>פומבי</span> יוצגו לקהל הרחב כולל תמונות הפרויקט."
   form_dream_visability_not_public: "פרטי"
 
   form_creator_email_label: "כתובת מייל (נדרש)"
-  form_creator_email_guidetext_html: "שיכלו להשיג אותך..."
   form_contact_phone_label: "מספר טלפון (לא יפורסם)"
   form_contact_phone_guidetext_html: "במידה ונצטרך להשיג אותך באופן דחוף."
-  form_about_the_artist_label: "על האמן"
+  form_about_the_artist_label: "על הקבוצה/אמן"
   form_dream_website_label: "אתר אינטרנט/עמוד פייסבוק של הפרויקט"
   form_dream_website_short: "אתר החלום"
 
@@ -140,6 +141,7 @@ he:
   form_neighbors_guidetext_html: "מה היה מיקום טוב עבורכם? מבחינת מיקומיישן?"
 
   form_spec_headline: "פירוט טכני ונראות"
+  form_spec_guidelines: "יש לשם לב שעל מנת להשלים את הליך ההרשמה יש להעלות דימויים, שרטוטים וקבצים נוספים דרך העלאת תמונות באזור האישי. בקשות ללא דימויים לא ייבחנו."
   form_spec_physical_description_label: "מהו התיאור פיזי של המיצב/יצירה שלכם"
   form_spec_physical_description_guidetext_html: "כשמישהו/י ניצב מולו/בתוכו או מסתובב סביבו - מה הוא/היא רואה. ספרו בהרחבה כיצד נראה המיצב, מהי שיטת הבנייה, באילו חומרים תעשו שימוש, איזה גימור יהיה למיצב"
   form_spec_sizes: "מידות המיצב (במטרים)"

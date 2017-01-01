@@ -111,16 +111,22 @@
 
   .combo#name
     = form.label t("form_dream_name_label")
+    %span.label.label-success
+      =t("public")
     = form.text_field :name, :maxlength => 64, :class => "form-control"
     = t("form_dream_name_guidetext_html")
 
   .combo#subtitle
     = form.label t("form_subtitle_label")
+    %span.label.label-success
+      =t("public")
     = form.text_area :subtitle, :maxlength => 255, :class => "form-control"
     = t("form_subtitle_guidetext_html")
 
   .combo#contact_name
     = form.label t("form_creator_name_label")
+    %span.label.label-success
+      =t("public")
     = form.text_field :contact_name, :maxlength => 64, :class => "form-control"
     = t("form_creator_name_guidetext_html")
 
@@ -146,15 +152,21 @@
 
   .combo
     = form.label t("form_about_the_artist_label")
-    = form.text_field :about_the_artist, :maxlength => 1024, :class => "form-control"
+    %span.label.label-success
+      =t("public")
+    = form.text_area :about_the_artist, :maxlength => 1024, :class => "form-control"
 
   .combo
     = form.label t("form_dream_website_label")
+    %span.label.label-success
+      =t("public")
     = form.text_field :website, :maxlength => 512, :class => "form-control"
 
   .combo#description
     - if Rails.configuration.x.firestarter_settings["description"]
       = form.label t("form_description_label")
+      %span.label.label-success
+        =t("public")
       = form.text_area :description, :maxlength => 4096, :class => "form-control"
       = t("form_description_guidetext_html")
 
@@ -209,6 +221,8 @@
   .combo#cocreation
     - if Rails.configuration.x.firestarter_settings["cocreation"]
       = form.label t("form_cocreation_label")
+      %span.label.label-success
+        =t("public")
       = form.text_area :cocreation, :maxlength => 4096, :class => "form-control"
       = t("form_cocreation_guidetext_html")
 
@@ -222,6 +236,9 @@
   %br
   .header-heading
     = t("form_spec_headline")
+
+  .combo
+    = t("form_spec_guidelines")
 
   .combo
     = form.label t("form_spec_physical_description_label")
@@ -413,7 +430,7 @@
       = form.label t("form_dream_scholarship_budget_max_original")
       = form.number_field :dreamscholarship_budget_max_original, :maxlength => 6 ,class:'form-control'
       = form.label t("form_dream_scholarship_budget_max_original_desc")
-      = form.text_field :dreamscholarship_budget_max_original_desc, :max_length => 4096, :class => "form-control"
+      = form.text_area :dreamscholarship_budget_max_original_desc, :max_length => 4096, :class => "form-control"
 
     %br
     .budget
@@ -424,7 +441,7 @@
     %br
     .combo
       = form.label t("form_dream_scholarship_bank_account_info")
-      = form.text_field :dreamscholarship_bank_account_info, :max_length => 128, :class => "form-control"
+      = form.text_area :dreamscholarship_bank_account_info, :max_length => 128, :class => "form-control"
       = t("form_dream_scholarship_bank_account_info_guidetext_html")
 
     .h3
@@ -435,11 +452,11 @@
       = form.check_box :dreamscholarship_financial_conduct_is_intial_budget
       %br
       = t("form_dream_scholarship_financial_conduct_intial_budget_desc")
-      = form.text_field :dreamscholarship_financial_conduct_intial_budget_desc, :max_length => 4096, :class => "form-control"
+      = form.text_area :dreamscholarship_financial_conduct_intial_budget_desc, :max_length => 4096, :class => "form-control"
 
     .combo
       = form.label t("form_dream_scholarship_financial_conduct_money_raise_desc")
-      = form.text_field :dreamscholarship_financial_conduct_money_raise_desc, :max_length => 4096, :class => "form-control"
+      = form.text_area :dreamscholarship_financial_conduct_money_raise_desc, :max_length => 4096, :class => "form-control"
       = t("form_dream_scholarship_financial_conduct_money_raise_desc_guidetext_html")
 
     .h3
@@ -447,12 +464,12 @@
 
     .combo
       = form.label t("form_dream_scholarship_execution_potential_previous_experience")
-      = form.text_field :dreamscholarship_execution_potential_previous_experience, :max_length => 4096, :class => "form-control"
+      = form.text_area :dreamscholarship_execution_potential_previous_experience, :max_length => 4096, :class => "form-control"
       = t("form_dream_scholarship_execution_potential_previous_experience_guidetext_html")
 
     .combo
       = form.label t("form_dream_scholarship_execution_potential_work_plan")
-      = form.text_field :dreamscholarship_execution_potential_work_plan, :max_length => 4096, :class => "form-control"
+      = form.text_area :dreamscholarship_execution_potential_work_plan, :max_length => 4096, :class => "form-control"
       = t("form_dream_scholarship_execution_potential_work_plan_guidetext_html")
 
     .gaunt
@@ -490,6 +507,8 @@
   %br
   .header-heading
     = t("form_safety_head")
+  .combo
+    = t("form_safety_head_description")
 
   .h3
     = t("form_safety_plan")
@@ -674,10 +693,6 @@
         = form.text_area :safetybag_other_comments, :maxlength => 4096, :class => "form-control"
         = t("form_safetybag_other_comments_guidetext_html")
 
-      %br
-      %div
-        %a{ :href => "https://goo.gl/forms/nZM1aSRzxRQ2RMEr2", :target => "_blank"}
-          = t("form_safetybag_the_form_label")
 
       %br
       %div.safetytext
@@ -714,10 +729,3 @@
       = form.number_field :maxbudget_realcurrency, :maxlength => 6 ,class:'form-control'
       = t("form_maxigrants_realcurrency_guidetext_html")
 
-  %br
-    %div
-      %a{ :href => "https://goo.gl/forms/nZM1aSRzxRQ2RMEr2", :target => "_blank"}
-        = t("form_safetybag_the_form_label")
-    %div
-      %a{ :href => "../pages/faq", :target => "_blank"}
-        = t("header_faq_link")

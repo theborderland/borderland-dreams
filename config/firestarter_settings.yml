@@ -8,10 +8,10 @@ defaults: &defaults
   noise: false
   nature: false
   moop: false
-  plan: true
+  plan: false
   cocreation: true
   neighbors: false
-  recycling: true
+  recycling: false
   budgetplan: true
   seeking_members: true
   granting: true

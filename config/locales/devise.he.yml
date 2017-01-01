@@ -18,18 +18,18 @@ he:
       unconfirmed: "אנא היכנסי לאימייל שלך ואשרי אותי לפני שתמשיכי"
     mailer:
       confirmation_instructions:
-        subject: "מידברנרות חלומות - הוראות אימות"
+        subject: "חלומות מידברן - הוראות אימות"
       reset_password_instructions:
-        subject: "מידברנרות חלומות - הוראות לאיפוס סיסמא"
+        subject: "חלומות מידברן - הוראות לאיפוס סיסמא"
       unlock_instructions:
-        subject: "מידברנרות חלומות - הוראות ביטול נעילה"
+        subject: "חלומות מידברן - הוראות ביטול נעילה"
       password_change:
-        subject: "מידברנרות חלומות - הסיסמא השתנתה"
+        subject: "חלומות מידברן - הסיסמא השתנתה"
     omniauth_callbacks:
       failure: "לא ניתן לאשר אותך ב %{kind} בגלל \"%{reason}\"."
       success: "אושרת בהצלחת דרך חשבון %{kind}."
     passwords:
-      no_token: "You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided."
+      no_token: "אתה צריך להגיע לכאן דרך אימייל איפוס הסיסמא."
       send_instructions: "בקרוב תקבלי אימייל עם הוראות על איך לאפס את הסיסמא שלך."
       send_paranoid_instructions: "If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes."
       updated: "הסיסמא שלך שונתה בהצלחה. את כעת מחוברת."

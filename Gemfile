@@ -67,6 +67,10 @@ gem 'nokogiri'
 
 gem 'newrelic_rpm'
 
+gem 'cocoon'
+gem 'simple_form'
+gem 'font-awesome-sass'
+gem 'bootstrap-modal-rails'
 gem 'google-api-client'
 
 group :production do
@@ -99,4 +103,7 @@ group :development do
 
   # Use faker to get random test data
   gem 'faker'
+
+  # Awesome print helps us print!
+  gem 'awesome_print'
 end

@@ -44,8 +44,7 @@ locally for easier testing.
 Users and creations can be administrated with Active Admin. 
 After install, run:
 ```
-bundle exec rake db:migrate
-bundle exec rake db:seed
+bundle exec rake db:migrate db:seed
 ```
 Then naviagte to `http://localhost:3000/admin`
 and use `admin@example.com` and `password`

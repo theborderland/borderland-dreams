@@ -132,6 +132,10 @@ class CampsController < ApplicationController
       redirect_to camp_path(@camp) and return
     end
 
+    # I'm not sure this is the right way to do this, but...
+    camp_params['responsibles_attributes'].each { |_, v|
+      v['person_attributes']['camp_id'] = @camp.id if v['person_attributes'].is_a?(Hash)
+    }
     if @camp.update_attributes camp_params
       if params[:done] == '1'
         redirect_to camp_path(@camp)
@@ -194,5 +198,4 @@ class CampsController < ApplicationController
   def camp_params
     params.require(:camp).permit!
   end
-
 end

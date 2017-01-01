@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   
   resources :camps, :path => "dreams" do
     resources :images
+    resources :people, only: [:show, :update]
   end
 
   post 'camps/:id/join' => 'camps#join'

@@ -14,7 +14,73 @@
         $(target).hide();
       }
     });
+
+    $('#responsibles').delegate('.edit-person', 'click', function() {
+      list = $(this.parentNode).find('select');
+      if (list.is(":visible") && list[0].value != '') {
+        var url = '/dreams/#{@camp.id}/people/' + list[0].value;
+        $.getJSON(url, null, function(json) {
+          var modal = $('#edit-person-modal');
+          modal.find('#edit-person-name').val(json['name']);
+          modal.find('#edit-person-email').val(json['email']);
+          modal.find('#edit-person-phone').val(json['phone_number']);
+          modal.find('#edit-person-background').val(json['background']);
+
+          modal.find('form').on('submit', function() {
+            $.ajax({
+              url: url,
+              type: 'PUT',
+              data: {
+                'person': {
+                  'name': modal.find('#edit-person-name').val(),
+                  'email': modal.find('#edit-person-email').val(),
+                  'phone_number': modal.find('#edit-person-phone').val(),
+                  'background': modal.find('#edit-person-background').val()
+                }
+              },
+              success: function() {
+                $('#edit-person-modal').fadeOut();
+              }
+            });
+            return false;
+          });
+
+          $('#edit-person-modal').fadeIn().show();
+        });
+        return false;
+      }
+    }).delegate('select', 'blur change', function() {
+      if (this.value == '') {
+        $(this.parentNode.parentNode).find('.edit-person').hide();
+      } else {
+        $(this.parentNode.parentNode).find('.edit-person').show();
+      }
+    });
+
+    $('button[data-dismiss=modal]').on('click', function() {
+      $('#edit-person-modal').fadeOut();
+    });
   });
+
+  $(document).bind('cocoon:before-remove',
+      function(e, i) {
+        p = $(i[0].parentElement);
+        if (p.hasClass('people_from_list')) {
+          p.find('.add_fields').show();
+          p.find('.edit-person').show();
+          p.find('select').show();
+        }
+      }).bind('cocoon:after-insert',
+      function(e, i) {
+        p = $(i[0].parentElement);
+        if (p.hasClass('people_from_list')) {
+          p.find('.add_fields').hide();
+          p.find('.edit-person').hide();
+          p.find('select').hide();
+        } else {
+          p.find('.edit-person').hide();
+        }
+      });
 
 - if !Rails.configuration.x.firestarter_settings["disable_edit_safetybag"] or (current_user && (current_user.guide || current_user.admin))
   :javascript
@@ -31,7 +97,10 @@
       alert( "עריכת שדות תיק הבטיחות סגור כעת\r\nSafety file is currrently disabled" );
     })});
 
-= form_for @camp, :html => {:dir => I18n.t(:html_direction), :id => 'camp-form' } do |form|
+%div{id:'edit-person-modal', class:'modal', 'data-keyboard' => 'true', 'tabindex' =>"-1"}
+  = render 'edit_person'
+
+= simple_form_for @camp, :html => {:dir => I18n.t(:html_direction), :id => 'camp-form' } do |form|
 
   .header-heading
     = t("form_basics_headline")
@@ -290,6 +359,19 @@
       = form.text_field :dreamprop_theme_annual_desc, :max_length => 4096, :class => "form-control"
       = t("form_dream_prop_theme_annual_desc_guidetext_html")
 
+  .header-heading
+    = form.label t("form_project_management")
+  .h3
+    = t("form_project_management_crew")
+  .combo
+    = t("form_project_management_crew_desc")
+
+  #responsibles.col-xs-12
+    = form.fields_for :responsibles do |resp|
+      = render 'responsible_fields', :f => resp, :camp_id => @camp.id
+    .links
+      = link_to_add_association t('add_responsibles'), form, :responsibles, render_options: { locals: { camp_id: @camp.id } }, class: 'btn btn-default'
+
   %br
   %br
   .header-heading
@@ -403,12 +485,6 @@
       = form.label t("form_safetybag_second_member_name_label")
       = form.text_field :safetybag_secondMemberName, :maxlength => 64, :class => "form-control"
 
-    .combo
-      = form.label t("form_safetybag_second_member_email_label")
-      = form.text_field :safetybag_secondMemberEmail, :maxlength => 64, :type => 'email', :class => "form-control"
-
-    .combo
-      = t("form_extra_extra_team_members_info")
 
   %br
   %br

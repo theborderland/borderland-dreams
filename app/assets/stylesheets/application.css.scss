@@ -26,3 +26,12 @@
 @import 'topmenu';
 @import 'me';
 @import 'multiprogress';
+
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+
+/*
+*= require_tree .
+*= require bootstrap-modal-bs3patch
+*= require bootstrap-modal
+*/

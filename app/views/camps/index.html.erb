@@ -20,7 +20,6 @@
       <div class="col-md-8">
         <% if user_signed_in? %>
           <%=t :welcome_user_text_html %>
-          <br /><b><%= link_to t(:header_faq_link), 'pages/faq'%></b>
         <% else %>
           <%=t :welcome_guest_text_html %>
         <% end %>

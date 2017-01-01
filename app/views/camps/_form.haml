@@ -507,6 +507,8 @@
   %br
   .header-heading
     = t("form_safety_head")
+  .combo
+    = t("form_safety_head_description")
 
   .h3
     = t("form_safety_plan")
@@ -691,10 +693,6 @@
         = form.text_area :safetybag_other_comments, :maxlength => 4096, :class => "form-control"
         = t("form_safetybag_other_comments_guidetext_html")
 
-      %br
-      %div
-        %a{ :href => "https://goo.gl/forms/nZM1aSRzxRQ2RMEr2", :target => "_blank"}
-          = t("form_safetybag_the_form_label")
 
       %br
       %div.safetytext
@@ -731,7 +729,3 @@
       = form.number_field :maxbudget_realcurrency, :maxlength => 6 ,class:'form-control'
       = t("form_maxigrants_realcurrency_guidetext_html")
 
-  %br
-    %div
-      %a{ :href => "https://goo.gl/forms/nZM1aSRzxRQ2RMEr2", :target => "_blank"}
-        = t("form_safetybag_the_form_label")

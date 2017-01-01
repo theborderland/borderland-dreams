@@ -32,10 +32,13 @@ class CampsController < ApplicationController
   end
 
   def create
-    @camp = Camp.new(camp_params)
+    # Create camp without people then add them
+    @camp = Camp.new(camp_params.except('responsibles_attributes'))
     @camp.creator = current_user
 
     if @camp.save
+      inject_camp_id
+      @camp.update! camp_params
       if Rails.application.config.x.firestarter_settings['google_drive_integration']
         response = NewDreamAppsScript::createNewDreamFolder(@camp.creator.email, @camp.id, @camp.name)
         @camp.google_drive_folder_path = response['id']
@@ -133,9 +136,7 @@ class CampsController < ApplicationController
     end
 
     # I'm not sure this is the right way to do this, but...
-    camp_params['responsibles_attributes'].each { |_, v|
-      v['person_attributes']['camp_id'] = @camp.id if v['person_attributes'].is_a?(Hash)
-    }
+    inject_camp_id
     if @camp.update_attributes camp_params
       if params[:done] == '1'
         redirect_to camp_path(@camp)
@@ -197,5 +198,11 @@ class CampsController < ApplicationController
 
   def camp_params
     params.require(:camp).permit!
+  end
+
+  def inject_camp_id
+    camp_params['responsibles_attributes'].each { |_, v|
+      v['person_attributes']['camp_id'] = @camp.id if v['person_attributes'].is_a?(Hash)
+    }
   end
 end

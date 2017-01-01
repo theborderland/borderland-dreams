@@ -110,6 +110,7 @@ he:
   remove_person: "הסר אדם"
   add_responsibles: "הוסף סוג אחראי חדש"
   form_project_manager_name: "שם מנהל הפרויקט"
+  form_project_manager: "מנהל הפרויקט"
 
   form_person_name: "שם"
   form_person_email: "אימייל"

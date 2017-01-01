@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161224094949) do
+ActiveRecord::Schema.define(version: 20161226201331) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -47,90 +47,111 @@ ActiveRecord::Schema.define(version: 20161224094949) do
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
 
   create_table "camps", force: :cascade do |t|
-    t.string   "name",                                                   limit: 64,                   null: false
-    t.string   "subtitle",                                               limit: 255,                  null: false
-    t.string   "contact_email",                                          limit: 64,                   null: false
-    t.string   "contact_name",                                           limit: 64,                   null: false
-    t.string   "contact_phone",                                          limit: 64
-    t.text     "description",                                            limit: 4096
-    t.text     "electricity",                                            limit: 255
-    t.text     "light",                                                  limit: 512
-    t.text     "fire",                                                   limit: 512
-    t.text     "noise",                                                  limit: 255
-    t.text     "nature",                                                 limit: 255
-    t.text     "moop",                                                   limit: 512
-    t.text     "plan",                                                   limit: 1024
-    t.text     "cocreation",                                             limit: 1024
-    t.text     "neighbors",                                              limit: 512
-    t.text     "budgetplan",                                             limit: 1024
+    t.string   "name",                                                     limit: 64,                   null: false
+    t.string   "subtitle",                                                 limit: 255,                  null: false
+    t.string   "contact_email",                                            limit: 64,                   null: false
+    t.string   "contact_name",                                             limit: 64,                   null: false
+    t.string   "contact_phone",                                            limit: 64
+    t.text     "description",                                              limit: 4096
+    t.text     "electricity",                                              limit: 255
+    t.text     "light",                                                    limit: 512
+    t.text     "fire",                                                     limit: 512
+    t.text     "noise",                                                    limit: 255
+    t.text     "nature",                                                   limit: 255
+    t.text     "moop",                                                     limit: 512
+    t.text     "plan",                                                     limit: 1024
+    t.text     "cocreation",                                               limit: 1024
+    t.text     "neighbors",                                                limit: 512
+    t.text     "budgetplan",                                               limit: 1024
     t.integer  "minbudget"
     t.integer  "maxbudget"
     t.boolean  "seeking_members"
     t.integer  "user_id"
-    t.boolean  "grantingtoggle",                                                      default: false, null: false
+    t.boolean  "grantingtoggle",                                                        default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "minfunded",                                                           default: false
-    t.boolean  "fullyfunded",                                                         default: false
-    t.text     "recycling",                                              limit: 512
+    t.boolean  "minfunded",                                                             default: false
+    t.boolean  "fullyfunded",                                                           default: false
+    t.text     "recycling",                                                limit: 512
     t.integer  "minbudget_realcurrency"
     t.integer  "maxbudget_realcurrency"
     t.integer  "safetybag_crewsize"
-    t.string   "safetybag_plan",                                         limit: 4096
-    t.string   "safetybag_builder",                                      limit: 64
-    t.string   "safetybag_safetyer",                                     limit: 64
-    t.string   "safetybag_mooper",                                       limit: 64
-    t.string   "safetybag_materials",                                    limit: 4096
-    t.string   "safetybag_work_in_height",                               limit: 4096
-    t.string   "safetybag_tools",                                        limit: 4096
-    t.string   "safetybag_grounding",                                    limit: 4096
-    t.string   "safetybag_safety",                                       limit: 4096
-    t.string   "safetybag_electricity",                                  limit: 4096
-    t.string   "safetybag_daily_routine",                                limit: 4096
-    t.string   "safetybag_other_comments",                               limit: 4096
-    t.string   "safetybag_firstMemberName",                              limit: 64
-    t.string   "safetybag_firstMemberEmail",                             limit: 64
-    t.string   "safetybag_secondMemberName",                             limit: 64
-    t.string   "safetybag_secondMemberEmail",                            limit: 64
-    t.string   "dreamprop_philosophy",                                   limit: 4096
-    t.string   "dreamprop_inspiration",                                  limit: 4096
-    t.string   "dreamprop_interactivity_audience_participation",         limit: 4096
-    t.boolean  "dreamprop_interactivity_is_fire_present",                             default: false, null: false
-    t.string   "dreamprop_interactivity_fire_present_desc",              limit: 4096
-    t.boolean  "dreamprop_interactivity_is_sound",                                    default: false, null: false
-    t.string   "dreamprop_interactivity_sound_desc",                     limit: 4096
-    t.boolean  "dreamprop_interactivity_is_fire_event",                               default: false, null: false
-    t.string   "dreamprop_interactivity_fire_event_desc",                limit: 4096
-    t.boolean  "dreamprop_community_is_installation_present_for_event",               default: false, null: false
-    t.boolean  "dreamprop_community_is_installation_present_for_public",              default: false, null: false
-    t.boolean  "dreamprop_community_is_context",                                      default: false, null: false
-    t.string   "dreamprop_community_context_desc",                       limit: 4096
-    t.boolean  "dreamprop_community_is_interested_in_publicity",                      default: false, null: false
-    t.boolean  "dreamprop_theme_is_annual",                                           default: false, null: false
-    t.string   "dreamprop_theme_annual_desc",                            limit: 4096
-    t.boolean  "active",                                                              default: true
-    t.string   "about_the_artist",                                       limit: 1024
-    t.string   "website",                                                limit: 512
-    t.boolean  "is_public",                                                           default: true,  null: false
-    t.string   "spec_physical_description",                              limit: 4096
-    t.string   "spec_length",                                            limit: 128
-    t.string   "spec_width",                                             limit: 128
-    t.string   "spec_height",                                            limit: 128
-    t.string   "spec_visual_night_day",                                  limit: 4096
-    t.boolean  "spec_is_electricity",                                                 default: false, null: false
-    t.string   "spec_electricity_details",                               limit: 4096
-    t.string   "spec_electricity_how",                                   limit: 4096
-    t.boolean  "spec_electricity_is_daytime",                                         default: false, null: false
-    t.string   "spec_electricity_watt",                                  limit: 512
-    t.boolean  "safety_is_heavy_equipment",                                           default: false, null: false
-    t.string   "safety_equipment",                                       limit: 4096
-    t.string   "safety_how_to_build_safety",                             limit: 4096
-    t.string   "safety_how",                                             limit: 4096
-    t.string   "safety_grounding",                                       limit: 4096
-    t.string   "safety_securing",                                        limit: 4096
-    t.string   "safety_securing_parts",                                  limit: 4096
-    t.string   "safety_signs",                                           limit: 4096
-    t.string   "location_info",                                          limit: 1024
+    t.string   "safetybag_plan",                                           limit: 4096
+    t.string   "safetybag_builder",                                        limit: 64
+    t.string   "safetybag_safetyer",                                       limit: 64
+    t.string   "safetybag_mooper",                                         limit: 64
+    t.string   "safetybag_materials",                                      limit: 4096
+    t.string   "safetybag_work_in_height",                                 limit: 4096
+    t.string   "safetybag_tools",                                          limit: 4096
+    t.string   "safetybag_grounding",                                      limit: 4096
+    t.string   "safetybag_safety",                                         limit: 4096
+    t.string   "safetybag_electricity",                                    limit: 4096
+    t.string   "safetybag_daily_routine",                                  limit: 4096
+    t.string   "safetybag_other_comments",                                 limit: 4096
+    t.string   "safetybag_firstMemberName",                                limit: 64
+    t.string   "safetybag_firstMemberEmail",                               limit: 64
+    t.string   "safetybag_secondMemberName",                               limit: 64
+    t.string   "safetybag_secondMemberEmail",                              limit: 64
+    t.string   "dreamprop_philosophy",                                     limit: 4096
+    t.string   "dreamprop_inspiration",                                    limit: 4096
+    t.string   "dreamprop_interactivity_audience_participation",           limit: 4096
+    t.boolean  "dreamprop_interactivity_is_fire_present",                               default: false, null: false
+    t.string   "dreamprop_interactivity_fire_present_desc",                limit: 4096
+    t.boolean  "dreamprop_interactivity_is_sound",                                      default: false, null: false
+    t.string   "dreamprop_interactivity_sound_desc",                       limit: 4096
+    t.boolean  "dreamprop_interactivity_is_fire_event",                                 default: false, null: false
+    t.string   "dreamprop_interactivity_fire_event_desc",                  limit: 4096
+    t.boolean  "dreamprop_community_is_installation_present_for_event",                 default: false, null: false
+    t.boolean  "dreamprop_community_is_installation_present_for_public",                default: false, null: false
+    t.boolean  "dreamprop_community_is_context",                                        default: false, null: false
+    t.string   "dreamprop_community_context_desc",                         limit: 4096
+    t.boolean  "dreamprop_community_is_interested_in_publicity",                        default: false, null: false
+    t.boolean  "dreamprop_theme_is_annual",                                             default: false, null: false
+    t.string   "dreamprop_theme_annual_desc",                              limit: 4096
+    t.boolean  "active",                                                                default: true
+    t.string   "about_the_artist",                                         limit: 1024
+    t.string   "website",                                                  limit: 512
+    t.boolean  "is_public",                                                             default: true,  null: false
+    t.string   "spec_physical_description",                                limit: 4096
+    t.string   "spec_length",                                              limit: 128
+    t.string   "spec_width",                                               limit: 128
+    t.string   "spec_height",                                              limit: 128
+    t.string   "spec_visual_night_day",                                    limit: 4096
+    t.boolean  "spec_is_electricity",                                                   default: false, null: false
+    t.string   "spec_electricity_details",                                 limit: 4096
+    t.string   "spec_electricity_how",                                     limit: 4096
+    t.boolean  "spec_electricity_is_daytime",                                           default: false, null: false
+    t.string   "spec_electricity_watt",                                    limit: 512
+    t.boolean  "safety_is_heavy_equipment",                                             default: false, null: false
+    t.string   "safety_equipment",                                         limit: 4096
+    t.string   "safety_how_to_build_safety",                               limit: 4096
+    t.string   "safety_how",                                               limit: 4096
+    t.string   "safety_grounding",                                         limit: 4096
+    t.string   "safety_securing",                                          limit: 4096
+    t.string   "safety_securing_parts",                                    limit: 4096
+    t.string   "safety_signs",                                             limit: 4096
+    t.string   "program_dream_name_he",                                    limit: 256
+    t.string   "program_dream_name_en",                                    limit: 256
+    t.string   "program_dreamer_name_he",                                  limit: 256
+    t.string   "program_dreamer_name_en",                                  limit: 256
+    t.string   "program_dream_about_he",                                   limit: 4096
+    t.string   "program_dream_about_en",                                   limit: 4096
+    t.string   "program_special_activity",                                 limit: 4096
+    t.string   "location_info",                                            limit: 1024
+    t.string   "google_drive_folder_path",                                 limit: 512
+    t.string   "google_drive_gaunt_file_path",                             limit: 512
+    t.string   "google_drive_budget_file_path",                            limit: 512
+    t.boolean  "dreamscholarship_fund_is_from_art_fund",                                default: false, null: false
+    t.boolean  "dreamscholarship_fund_is_open_for_public",                              default: false, null: false
+    t.integer  "dreamscholarship_budget_min_original",                                  default: 0
+    t.integer  "dreamscholarship_budget_max_original",                                  default: 0
+    t.string   "dreamscholarship_budget_max_original_desc",                limit: 4096
+    t.string   "dreamscholarship_bank_account_info",                       limit: 128
+    t.boolean  "dreamscholarship_financial_conduct_is_intial_budget",                   default: false, null: false
+    t.string   "dreamscholarship_financial_conduct_intial_budget_desc",    limit: 4096
+    t.string   "dreamscholarship_financial_conduct_money_raise_desc",      limit: 4096
+    t.string   "dreamscholarship_execution_potential_previous_experience", limit: 4096
+    t.string   "dreamscholarship_execution_potential_work_plan",           limit: 4096
   end
 
   add_index "camps", ["user_id"], name: "index_camps_on_user_id"

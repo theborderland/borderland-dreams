@@ -284,7 +284,7 @@
     = t("form_dream_prop_inspiration_guidetext_html")
 
   .h3
-    = form.label t("form_dream_prop_interactivity")
+    = t("form_dream_prop_interactivity")
 
   .combo
     = form.label t("form_dream_prop_interactivity_audience_participation")
@@ -313,7 +313,7 @@
 
   .combo
     = form.label t("form_dream_prop_interactivity_is_fire_event")
-    = form.check_box :dreamprop_interactivity_is_fire_event
+    = form.check_box :dreamprop_interactivity_is_fire_event, data: {show:'#fire_event'}
 
   #fire_event
     .combo
@@ -322,7 +322,7 @@
       = t("form_dream_prop_interactivity_fire_event_desc_guidetext_html")
 
   .h3
-    = form.label t("form_dream_prop_community")
+    = t("form_dream_prop_community")
 
   .combo
     = form.label t("form_dream_prop_community_is_installation_present_for_event")
@@ -347,7 +347,7 @@
     = form.check_box :dreamprop_community_is_interested_in_publicity
 
   .h3
-    = form.label t("form_dream_prop_theme")
+    = t("form_dream_prop_theme")
 
   .combo
     = form.label t("form_dream_prop_theme_is_annual")
@@ -371,6 +371,119 @@
       = render 'responsible_fields', :f => resp, :camp_id => @camp.id
     .links
       = link_to_add_association t('add_responsibles'), form, :responsibles, render_options: { locals: { camp_id: @camp.id } }, class: 'btn btn-default'
+
+  %br
+  %br
+  .header-heading
+    = t("form_dream_scholarship_head")
+
+  #dream_scholarship
+    .combo
+      = t("form_dream_scholarship_head_desc")
+      %a{ :href => "http://midburn.org/he-art-scholarship/", :target => "_blank"}
+        = t("form_dream_scholarship_head_desc_link")
+
+    .combo
+      = form.label t("form_dream_scholarship_fund_is_from_art_fund")
+      = form.check_box :dreamscholarship_fund_is_from_art_fund
+
+    .combo
+      = form.label t("form_dream_scholarship_fund_is_open_for_public")
+      = form.check_box :dreamscholarship_fund_is_open_for_public
+
+    //TODO: All form_dream_scholarship fields should drop-open if at least one of the terms above is true
+    .combo
+      %a{ :href => "http://midburn.org/he-art-scholarship/#tab-1454019338-2-59", :target => "_blank"}
+        = t("form_dream_scholarship_pre_fill_notes_criterions")
+      %br
+      %a{ :href => "http://midburn.org/he-art-scholarship/#tab-1454880861375-3-1", :target => "_blank"}
+        = t("form_dream_scholarship_pre_fill_notes_questions")
+
+    .h3
+      = t("form_dream_scholarship_budget")
+
+    .combo
+      = t("form_dream_scholarship_budget_desc")
+
+    .combo
+      = form.label t("form_dream_scholarship_budget_min_original")
+      = form.number_field :dreamscholarship_budget_min_original, :maxlength => 6 ,class:'form-control'
+
+    .combo
+      = form.label t("form_dream_scholarship_budget_max_original")
+      = form.number_field :dreamscholarship_budget_max_original, :maxlength => 6 ,class:'form-control'
+      = form.label t("form_dream_scholarship_budget_max_original_desc")
+      = form.text_field :dreamscholarship_budget_max_original_desc, :max_length => 4096, :class => "form-control"
+
+    %br
+    .budget
+      .combo
+        %a{ :href => @camp.google_drive_budget_file_path, :target => "_blank"}
+          = t("form_dream_scholarship_budget_form_desc")
+
+    %br
+    .combo
+      = form.label t("form_dream_scholarship_bank_account_info")
+      = form.text_field :dreamscholarship_bank_account_info, :max_length => 128, :class => "form-control"
+      = t("form_dream_scholarship_bank_account_info_guidetext_html")
+
+    .h3
+      = t("form_dream_scholarship_financial_conduct")
+
+    .combo
+      = form.label t("form_dream_scholarship_financial_conduct_is_intial_budget")
+      = form.check_box :dreamscholarship_financial_conduct_is_intial_budget
+      %br
+      = t("form_dream_scholarship_financial_conduct_intial_budget_desc")
+      = form.text_field :dreamscholarship_financial_conduct_intial_budget_desc, :max_length => 4096, :class => "form-control"
+
+    .combo
+      = form.label t("form_dream_scholarship_financial_conduct_money_raise_desc")
+      = form.text_field :dreamscholarship_financial_conduct_money_raise_desc, :max_length => 4096, :class => "form-control"
+      = t("form_dream_scholarship_financial_conduct_money_raise_desc_guidetext_html")
+
+    .h3
+      = t("form_dream_scholarship_execution_potential")
+
+    .combo
+      = form.label t("form_dream_scholarship_execution_potential_previous_experience")
+      = form.text_field :dreamscholarship_execution_potential_previous_experience, :max_length => 4096, :class => "form-control"
+      = t("form_dream_scholarship_execution_potential_previous_experience_guidetext_html")
+
+    .combo
+      = form.label t("form_dream_scholarship_execution_potential_work_plan")
+      = form.text_field :dreamscholarship_execution_potential_work_plan, :max_length => 4096, :class => "form-control"
+      = t("form_dream_scholarship_execution_potential_work_plan_guidetext_html")
+
+    .gaunt
+      .h3
+        = t("form_dream_scholarship_gaunt")
+      .combo
+        %a{ :href => @camp.google_drive_gaunt_file_path, :target => "_blank"}
+          = t("form_dream_scholarship_gaunt_desc")
+
+    %br
+    .combo
+      = t("form_dream_scholarship_criterions_html")
+    
+  - if Rails.configuration.x.firestarter_settings["safetybag"]
+    .header-heading
+      = t("form_extra_team_member_head")
+    
+    .combo
+      = t("form_extra_team_member_info")
+
+    .combo
+      = form.label t("form_safetybag_first_member_name_label")
+      = form.text_field :safetybag_firstMemberName, :maxlength => 64, :class => "form-control"
+
+    .combo
+      = form.label t("form_safetybag_first_member_email_label")
+      = form.text_field :safetybag_firstMemberEmail, :maxlength => 64, :type => 'email', :class => "form-control"
+
+    .combo
+      = form.label t("form_safetybag_second_member_name_label")
+      = form.text_field :safetybag_secondMemberName, :maxlength => 64, :class => "form-control"
 
 
   %br
@@ -431,6 +544,8 @@
     = form.text_area :safety_signs, :max_length => 4096, :class => "form-control"
     = t("form_safety_signs_desc")
 
+  %br
+  %br
   .header-heading
     = t("form_location_header")
 
@@ -438,6 +553,49 @@
     = form.label t("form_location_info")
     = form.text_area :location_info, :max_length => 1024, :class => "form-control"
     = t("form_location_info_desc")
+
+  %br
+  %br
+  .header-heading
+    = t("form_program_head")
+
+  .combo
+    = form.label t("form_program_name")
+  .input-group
+    %span.input-group-addon
+      = t("form_program_hebrew")  
+    = form.text_field :program_dream_name_he, :max_length => 256, :class => "form-control"
+  .input-group
+    %span.input-group-addon
+      = t("form_program_english")  
+    = form.text_field :program_dream_name_en, :max_length => 256, :class => "form-control"
+
+  .combo
+    = form.label t("form_program_dreamer")
+  .input-group
+    %span.input-group-addon
+      = t("form_program_hebrew")  
+    = form.text_field :program_dreamer_name_he, :max_length => 256, :class => "form-control"
+  .input-group
+    %span.input-group-addon
+      = t("form_program_english")  
+    = form.text_field :program_dreamer_name_en, :max_length => 256, :class => "form-control"
+
+  .combo
+    = form.label t("form_program_description")
+  .input-group
+    %span.input-group-addon
+      = t("form_program_hebrew")  
+    = form.text_field :program_dream_about_he, :max_length => 4096, :class => "form-control"
+  .input-group
+    %span.input-group-addon
+      = t("form_program_english")  
+    = form.text_field :program_dream_about_en, :max_length => 4096, :class => "form-control"
+
+  .combo
+    = form.label t("form_program_activity")
+    = form.text_area :program_special_activity, :max_length => 4096, :class => "form-control"
+    = t("form_program_activity_desc")
 
   - if Rails.configuration.x.firestarter_settings["safetybag"]
     
@@ -518,7 +676,7 @@
 
       %br
       %div
-        %a{ :href => "https://goo.gl/forms/nZM1aSRzxRQ2RMEr2", :target => "blank"}
+        %a{ :href => "https://goo.gl/forms/nZM1aSRzxRQ2RMEr2", :target => "_blank"}
           = t("form_safetybag_the_form_label")
 
       %br
@@ -558,9 +716,8 @@
 
   %br
     %div
-      %a{ :href => "https://goo.gl/forms/nZM1aSRzxRQ2RMEr2", :target => "blank"}
+      %a{ :href => "https://goo.gl/forms/nZM1aSRzxRQ2RMEr2", :target => "_blank"}
         = t("form_safetybag_the_form_label")
     %div
-      %a{ :href => "../pages/faq", :target => "blank"}
+      %a{ :href => "../pages/faq", :target => "_blank"}
         = t("header_faq_link")
-

@@ -24,5 +24,7 @@ module Firestarter
     config.active_record.raise_in_transactional_callbacks = true
     Rails.application.config.x.firestarter_settings = config_for(:firestarter_settings)
     Rails.application.config.coin_rate = 3.0 #Coin conversion from NIS
+
+    config.autoload_paths += Dir["#{config.root}/lib/googleAppsScript/**/"]
   end
 end

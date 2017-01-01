@@ -71,6 +71,7 @@ gem 'cocoon'
 gem 'simple_form'
 gem 'font-awesome-sass'
 gem 'bootstrap-modal-rails'
+gem 'google-api-client'
 
 group :production do
   # needed by herokus

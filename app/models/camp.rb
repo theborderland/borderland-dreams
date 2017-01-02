@@ -121,6 +121,7 @@ class Camp < ActiveRecord::Base
 
   before_destroy do
     self.memberships.delete_all
+    self.responsibles.delete_all
     self.save
   end
 

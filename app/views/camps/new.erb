@@ -18,26 +18,19 @@
   </div>
   <div>
 
-  <div class="row">
-    <div id="project_manager">
-      <%= form.simple_fields_for :responsibles, @camp.responsibles.new do |r| %>
+  <div id="project_manager">
+    <%= form.simple_fields_for :responsibles, @camp.responsibles.new do |r| %>
 
-
-        <div class="col-xs-4">
-          <%= form.label t("form_project_manager") %>
-          <%= r.hidden_field :responsibility_type, value: t("form_project_manager") %>
-          <%= r.simple_fields_for :person, @camp.people.new do |p| %>
-              <%= render 'person_fields', f: p %>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
+      <div>
+        <%= form.label t("form_project_manager") %>
+        <%= r.hidden_field :responsibility_type, value: t("form_project_manager") %>
+        <%= r.simple_fields_for :person, @camp.people.new do |p| %>
+            <%= render 'person_fields', f: p %>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 
-  <div class="combo" id="contact_email">
-    <%= form.label t("form_creator_email_label") %>
-    <%= form.text_field :contact_email, :maxlength => 64, :class => "form-control" %>
-  </div>
   <div class="submit">
     <%= form.submit t(:create_dream), class: 'btn btn-success create-new-dream', data:{toggle: 'tooltip'}, title:'Some tooltip text!' %>
     <span class='loading-new-dream hideme'>

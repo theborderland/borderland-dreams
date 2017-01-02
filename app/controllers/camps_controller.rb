@@ -39,7 +39,7 @@ class CampsController < ApplicationController
     if @camp.save
       inject_camp_id
       @camp.update! camp_params
-      if Rails.application.config.x.firestarter_settings['google_drive_integration']
+      if Rails.application.config.x.firestarter_settings['google_drive_integration'] and ENV['GOOGLE_APPS_SCRIPT'].present?
         response = NewDreamAppsScript::createNewDreamFolder(@camp.creator.email, @camp.id, @camp.name)
         @camp.google_drive_folder_path = response['id']
         @camp.google_drive_gaunt_file_path = response['gaunt']

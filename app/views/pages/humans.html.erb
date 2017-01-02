@@ -23,20 +23,22 @@
   </script>
 <% end %>
 
-<div> <%=t :humans_credit %></div>
+<div dir=<%=t :html_direction %>><%=t :humans_credit_html %></div>
 <br>
 
 <div class="humans">
   <% images = [
     "gal_bracha.jpg","sivan_katza.jpg", "hugi_asgeirsson.jpg",
-    "kasperhelweg.jpg","anika_har.png", "basel_shbita.jpg",
+    "kasperhelweg.jpg","anika_har.jpg", "basel_shbita.jpg",
     "elisha_eshed.jpg", "elad_gariany.jpg", "eyal_rosen.jpg",
-    "halo_lor.jpg", "nir_benita.jpg", "rotem_bonder.jpg"] %>
+    "halo_lor.jpg", "nir_benita.jpg", "rotem_bonder.jpg",
+    "fredrik_rubensson.png", "jesse_bastide.png"] %>
   <% names = [
     "Gal Bracha", "Sivan Katzenellenbogen", "Hugi Asgeirsson",
     "Kasper Helweg", "Anika Har", "Basel Shbita",
     "Elisha Eshed", "Elad Gariany", "Eyal Rosen",
-    "Halo Lor", "Nir Benita", "Rotem Bonder"] %>
+    "Halo Lor", "Nir Benita", "Rotem Bonder",
+    "Fredrik Rubensson", "Jesse Bastide"] %>
   <% random_ppl = (0...images.length).sort_by{rand}[0..images.length] %>
 
   <% random_ppl.each do |i| %>

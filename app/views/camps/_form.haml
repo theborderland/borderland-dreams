@@ -697,30 +697,7 @@
     .combo
       = t("form_safetybag_needs_to_fill")
 
-  - if Rails.configuration.x.firestarter_settings["granting"]
-    %br
-    .header-heading
-      = t("form_artgrants_headline")
-
-  .combo#artgrants
-    - if Rails.configuration.x.firestarter_settings["granting"]
-      = t("form_artgrants_text_html")
-
-  .combo#budgetplan
-    - if Rails.configuration.x.firestarter_settings["budgetplan"]
-      = form.label t("form_budgetplan_label")
-      = form.text_area :budgetplan, :maxlength => 4096, :class => "form-control"
-      = t("form_budgetplan_guidetext_html")
-
-  - if ( (Rails.configuration.x.firestarter_settings["granting"] and !Rails.application.config.x.firestarter_settings['disable_edit_budget']) or (current_user && current_user.guide || current_user.admin))
-    .combo#minbudget_realcurrency
-      = form.label t("form_minigrants_realcurrency_label")
-      = form.number_field :minbudget_realcurrency, :maxlength => 6 ,class:'form-control'
-      = t("form_minigrants_realcurrency_guidetext_html")
-
-  - if ( (Rails.configuration.x.firestarter_settings["granting"] and !Rails.application.config.x.firestarter_settings['disable_edit_budget']) or (current_user && current_user.guide || current_user.admin))
-    .combo#maxbudget_realcurrency
-      = form.label t("form_maxigrants_realcurrency_label")
-      = form.number_field :maxbudget_realcurrency, :maxlength => 6 ,class:'form-control'
-      = t("form_maxigrants_realcurrency_guidetext_html")
+  %br
+  .combo
+    = t("form_congratulations_html")
 

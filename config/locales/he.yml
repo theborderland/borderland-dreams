@@ -566,8 +566,34 @@ he:
         spec_electricity_how: "כיצד חשמל"
         spec_electricity_is_daytime: "האם חשמל יום"
         spec_electricity_watt: "הספק חשמל בוואט"
-        
-        
+        safety_is_heavy_equipment: :form_is_heavey_equip_needed
+        safety_equipment: :form_safety_equipment_desc
+        safety_how_to_build_safety: :form_safety_how_to_build_safety
+        safety_how: :form_safety_how
+        safety_grounding: :form_safety_grounding
+        safety_securing: :form_safety_securing
+        safety_securing_parts: :form_safety_securing_parts
+        safety_signs: :form_safety_signs
+        location_info: :form_location_info
+        program_dream_name_he: "שם המיצב עברית תוכניה"
+        program_dream_name_en: "שם המיצב אנגלית תוכניה"
+        program_dreamer_name_he: "שם האמן קבוצת אמנים עברית תוכניה"
+        program_dreamer_name_en: "שם האמן קבוצת אמנים אנגלית תוכניה"
+        program_dream_about_he: "תיאור המיצב לתוכניה עברית תוכניה"
+        program_dream_about_en: "תיאור המיצב לתוכניה אנגלית תוכניה"
+        program_special_activity: "פעילות מיוחדת לתוכניה"
+        dreamscholarship_fund_is_from_art_fund: :form_dream_scholarship_fund_is_from_art_fund
+        dreamscholarship_fund_is_open_for_public: :form_dream_scholarship_fund_is_open_for_public
+        dreamscholarship_budget_min_original: :form_dream_scholarship_budget_min_original
+        dreamscholarship_budget_max_original: :form_dream_scholarship_budget_max_original
+        dreamscholarship_budget_max_original_desc: :form_dream_scholarship_budget_max_original_desc
+        dreamscholarship_bank_account_info: :form_dream_scholarship_bank_account_info
+        dreamscholarship_financial_conduct_is_intial_budget: :form_dream_scholarship_financial_conduct_is_intial_budget
+        dreamscholarship_financial_conduct_intial_budget_desc: "כיצד תממנו את בניית המיצב"
+        dreamscholarship_financial_conduct_money_raise_desc: :form_dream_scholarship_financial_conduct_money_raise_desc
+        dreamscholarship_execution_potential_previous_experience: :form_dream_scholarship_execution_potential_previous_experience
+        dreamscholarship_execution_potential_work_plan: :form_dream_scholarship_execution_potential_work_plan
+
       grant:
         amount: "כמות"
         created_at: "נוצר"

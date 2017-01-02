@@ -9,12 +9,14 @@ end
 class Camp < ActiveRecord::Base
   belongs_to :creator, class_name: 'User', foreign_key: 'user_id'
 
-  has_many :memberships
+  has_many :memberships, dependent: :destroy
   has_many :users, through: :memberships
   has_many :images #, :dependent => :destroy
   has_many :grants
-  has_many :responsibles
+  has_many :responsibles, dependent: :destroy
   has_many :people, class_name: 'Person'
+
+  has_paper_trail
   
   accepts_nested_attributes_for :responsibles, allow_destroy: true
   accepts_nested_attributes_for :people
@@ -118,12 +120,6 @@ class Camp < ActiveRecord::Base
     # keep it here so we know that when we begin a new system we want this to happen
     # align_budget
   #end
-
-  before_destroy do
-    self.memberships.delete_all
-    self.responsibles.delete_all
-    self.save
-  end
 
   def grants_received
     return self.grants.sum(:amount)

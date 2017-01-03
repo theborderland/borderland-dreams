@@ -39,7 +39,7 @@ class Camp < ActiveRecord::Base
       :not_fully_funded,
       :not_min_funded,
       :not_seeking_funding,
-      :only_active,
+      :active,
       :not_hidden,
     ]
   )
@@ -107,7 +107,7 @@ class Camp < ActiveRecord::Base
     where(grantingtoggle: true)
   }
 
-  scope :only_active, lambda { |flag|
+  scope :active, lambda { |flag|
     where(active: true)
   }
 

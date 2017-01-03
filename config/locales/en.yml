@@ -241,6 +241,8 @@ en:
 
   add_my_name: "Add my name"
   delete_this_creation: "Delete this creation"
+  archive_this_creation: "Archive this creation"
+  delete_are_you_sure: "Are you sure?"
   are_you_sure: "Are you sure?"
 
   # Me page

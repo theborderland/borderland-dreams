@@ -157,8 +157,8 @@
         <% end %>
 
         <% if Rails.configuration.x.firestarter_settings["add_to_list"] %>
-            <% if @camp.creator != current_user %>
-                <%= button_to t(:add_my_name), {action: "join", user: current_user }, {class: 'btn btn-success button join-dream-button'} %>
+            <% if @camp.creator != current_user and (not @camp.users.where(id: current_user.id).exists?) %>
+                <%= button_to t(:add_my_name), :join_camp, {class: 'btn btn-success button join-dream-button'} %>
             <% end %>
         <% end %>
 
@@ -259,27 +259,25 @@
                 <div class="panel-body">
                     <li><span>
                         <a href="<%= edit_camp_path(@camp) %>" class="btn btn-primary camp-button" role="btn button"><%=t :edit_dream %></a>
-                    </li></span>
+                    </span></li>
                     <li><span>
                         <a href="<%= camp_images_path(@camp) %>" class="btn btn-primary camp-button" role="btn button"><%=t :manage_images %></a>
-                    </li></span>
+                    </span></li>
 
                     <!-- Granting system -->
                     <% if current_user && (current_user.guide || current_user.admin) %>
-                        <% if @camp.grantingtoggle %>
-                            <% granting_button_text = t(:turn_off_granting) %>
-                        <% else %>
-                            <% granting_button_text = t(:enable_granting) %>
-                        <% end %>
-                        <%= form_tag({controller: "camps", action: "toggle_granting"}, method: "patch") do %>
-                            <%= submit_tag granting_button_text, :class => "btn btn-danger" %>
-                        <% end %>
+                        <%= button_to t(@camp.grantingtoggle? ? :turn_off_granting : :enable_granting),
+                                      :toggle_granting_camp, { method: :patch, class: "btn btn-danger" } %>
                     <% end %>
 
-                    <% if current_user && current_user.admin %>
-                        <%= form_for @camp, method: :delete do |f| %>
-                            <%= f.submit t(:delete_this_creation), class: "btn btn-danger" , data: { confirm: t(:are_you_sure) } %>
-                        <% end %>
+                    <% if current_user&.admin %>
+                      <% if @camp.active? %>
+                        <%= button_to t(:archive_this_creation), :archive_camp,
+                                      { method: :post, class: "btn btn-danger", data: { confirm: t(:are_you_sure) } } %>
+                      <% end %>
+
+                      <%= button_to t(:delete_this_creation), { action: 'destroy' },
+                                    { method: :delete, class: "btn btn-danger", data: { confirm: t(:delete_are_you_sure) } } %>
                     <% end %>
 
                     <% if Rails.configuration.x.firestarter_settings["add_to_list"] %>
@@ -389,7 +387,7 @@
 
         </div> <!-- creation-info -->
 
-        <% if Rails.configuration.x.firestarter_settings["safetybag"] && (current_user && current_user.guide || (@camp.creator == current_user))%>
+        <% if Rails.configuration.x.firestarter_settings["safetybag"] && (current_user&.guide || (@camp.creator == current_user))%>
             <div class="panel panel-default">
                 <div class="panel-heading"><b><%=t :form_extra_team_member_head %></b></div>
                 <div class="panel-body">

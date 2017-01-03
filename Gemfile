@@ -73,6 +73,8 @@ gem 'font-awesome-sass'
 gem 'bootstrap-modal-rails'
 gem 'google-api-client'
 
+gem 'paper_trail'
+
 group :production do
   # needed by herokus
   gem 'rails_12factor'

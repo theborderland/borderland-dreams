@@ -432,6 +432,11 @@ he:
 
   yes_text: "כן"
   no_text: "לא"
+  
+  activeadmin:
+    recent_updated: "תוכן שעודכן לאחרונה"
+    item: "חלום"
+    modified_at: "שונה"
 
   # Errors
   new_dream_is_disabled: "יצירת חלומות חדשים מנוטרלת כרגע. אם אתה חושב שזאת שגיאה אנא צור קשר עם לשכת החלומות"

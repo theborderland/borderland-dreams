@@ -209,4 +209,5 @@ class CampsController < ApplicationController
       v['person_attributes']['camp_id'] = @camp.id if v['person_attributes'].is_a?(Hash)
     }
   end
+
 end

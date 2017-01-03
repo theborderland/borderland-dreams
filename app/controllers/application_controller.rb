@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale
+  before_action :set_paper_trail_whodunnit
 
   def not_found
     render file: "public/404.html", status: :not_found

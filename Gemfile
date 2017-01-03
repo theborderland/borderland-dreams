@@ -72,6 +72,7 @@ gem 'simple_form'
 gem 'font-awesome-sass'
 gem 'bootstrap-modal-rails'
 gem 'google-api-client'
+gem 'rack-timeout'
 
 gem 'paper_trail'
 

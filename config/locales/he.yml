@@ -115,11 +115,6 @@ he:
   form_project_manager_name: "שם מנהל הפרויקט"
   form_project_manager: "מנהל הפרויקט"
 
-  form_person_name: "שם"
-  form_person_email: "אימייל"
-  form_person_phone: "טלפון"
-  form_person_background: "רקע רלוונטי"
-
   form_description_label: "תיאור מלא של הרעיון"
   form_description_guidetext_html: "תני תיאור חוויתי מלא, שכולל את האינטראקציה עם החלום ואיך הוא משתלב עם קהילת מידברן. יש לך 4096 תווים , תנצלי אותם! "
   form_electricity_label: "האם את זקוקה לחשמל? פרטי בוואטים"
@@ -481,6 +476,9 @@ he:
       grant:
         one: "מטבע"
         other: "מטבעות"
+      responsibles:
+        one: "אחראי"
+        other: "אחראים"
     attributes:
       user:
         email: "אימייל"
@@ -601,6 +599,15 @@ he:
         dreamscholarship_financial_conduct_money_raise_desc: :form_dream_scholarship_financial_conduct_money_raise_desc
         dreamscholarship_execution_potential_previous_experience: :form_dream_scholarship_execution_potential_previous_experience
         dreamscholarship_execution_potential_work_plan: :form_dream_scholarship_execution_potential_work_plan
+      responsible:
+        responsibility_type: תחום אחריות
+      person: &person
+        name: 'שם'
+        email: "אימייל"
+        phone: "טלפון"
+        background: "רקע"
+      responsibles/person:
+        <<: *person
 
       grant:
         amount: "כמות"
@@ -643,6 +650,11 @@ he:
           attributes:
             responsibility_type:
               blank: "אנא הכנס תחום אחראיות תחת חברי צוות"
+
+        person:
+          attributes:
+            name:
+              blank: "אנא הכנס את שם האחראי"
 
       messages:
         record_invalid: 'האימות נכשל: %{errors}'

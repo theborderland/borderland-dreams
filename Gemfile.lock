@@ -152,6 +152,8 @@ GEM
     httpclient (2.8.2.4)
     hurley (0.2)
     i18n (0.7.0)
+    i18n-debug (1.1.0)
+      i18n (< 1)
     inherited_resources (1.6.0)
       actionpack (>= 3.2, < 5)
       has_scope (~> 0.6.0.rc)
@@ -356,6 +358,7 @@ DEPENDENCIES
   font-awesome-sass
   google-api-client
   haml
+  i18n-debug
   jbuilder (~> 2.0)
   jquery-rails
   jquery-ui-rails

@@ -1,9 +1,12 @@
 class CampsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
+  before_action :load_camp!, except: [:index, :new]
+  before_action :enforce_delete_permission!, only: [:destroy, :archive]
+
 
   def index
     filter = params[:filterrific] || {}
-    filter[:only_active] = true
+    filter[:active] = true
     filter[:not_hidden] = true
 
     if (!current_user.nil? && (current_user.admin? || current_user.guide?))
@@ -63,15 +66,12 @@ class CampsController < ApplicationController
   # Toggle granting
 
   def toggle_granting
-    @camp = Camp.find(params[:id])
     @camp.toggle!(:grantingtoggle)
     redirect_to camp_path(@camp)
   end
 
   # Handle the grant updates in their own controller action
   def update_grants
-    @camp = Camp.find(params[:id])
-
     # Reduce the number of grants assigned to the current user by the number
     # of grants given away. Increase the number of grants assigned to the
     # camp by the same number of grants.
@@ -131,7 +131,6 @@ class CampsController < ApplicationController
   end
 
   def update
-    @camp = Camp.find(params[:id])
     if (@camp.creator != current_user) and (!current_user.admin)
       flash[:alert] = "#{t:security_cant_edit_dreams_you_dont_own}"
       redirect_to camp_path(@camp) and return
@@ -154,12 +153,6 @@ class CampsController < ApplicationController
   end
 
   def destroy
-    @camp = Camp.find(params[:id])
-    if (@camp.creator != current_user) and (!current_user.admin)
-      flash[:alert] = "#{t:security_cant_delete_dreams_you_dont_own}"
-      redirect_to camp_path(@camp) and return
-    end
-
     @camp.destroy!
 
     redirect_to camps_path
@@ -167,8 +160,7 @@ class CampsController < ApplicationController
 
   # Display a camp and its users
   def show
-    @camp = Camp.find(params[:id])
-    @users = @camp.users
+    @users = @camp.users.select(:email)
 
     # Added this to move some code out of the view.
     if current_user
@@ -178,9 +170,7 @@ class CampsController < ApplicationController
 
   # Allow a user to join a particular camp.
   def join
-    @camp = Camp.find(params[:id])
-
-    params[:user] ? @user = User.find(params[:user]) : @user = nil
+    @user = current_user
 
     #
     # Only add a user to the list of associated members if the user isn't
@@ -189,13 +179,18 @@ class CampsController < ApplicationController
 
     if !@user
       flash[:notice] = "#{t:join_dream}"
-    elsif @camp.users.include?(@user)
+    elsif @camp.users.where(id: @user.id).exists?
       flash[:notice] = "#{t:join_already_sent}"
     else
       flash[:notice] = "#{t:join_dream}"
       @camp.users << @user
     end
     redirect_to @camp
+  end
+
+  def archive
+    @camp.update!(active: false)
+    redirect_to camps_path
   end
 
   private
@@ -210,4 +205,18 @@ class CampsController < ApplicationController
     }
   end
 
+  def load_camp!
+    @camp = Camp.find_by(id: params[:id])
+    if @camp.nil?
+      flash[:alert] = t('dream_not_found')
+      redirect_to camps_path
+    end
+  end
+
+  def enforce_delete_permission!
+    if (@camp.creator != current_user) and (!current_user.admin)
+      flash[:alert] = "#{t:security_cant_delete_dreams_you_dont_own}"
+      redirect_to camp_path(@camp)
+    end
+  end
 end

@@ -7,14 +7,15 @@ Rails.application.routes.draw do
   devise_for :users,
     :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   
-  resources :camps, :path => "dreams" do
+  resources :camps, :path => 'dreams' do
     resources :images
     resources :people, only: [:show, :update]
+    post 'join', on: :member
+    post 'archive', on: :member
+    patch 'toggle_granting', on: :member
+    patch 'update_grants', on: :member
   end
 
-  post 'camps/:id/join' => 'camps#join'
-  patch 'camps/:id/update_grants' => 'camps#update_grants'
-  patch 'camps/:id/toggle_granting' => 'camps#toggle_granting'
   get '/pages/:page' => 'pages#show'
   get '/me' => 'users#me'
   

@@ -39,22 +39,7 @@ class CampsController < ApplicationController
     @camp = Camp.new(camp_params.except('responsibles_attributes'))
     @camp.creator = current_user
 
-    if @camp.save
-      if camp_params['responsibles_attributes'].present?
-        inject_camp_id
-      end
-      @camp.update! camp_params
-      if Rails.application.config.x.firestarter_settings['google_drive_integration'] and ENV['GOOGLE_APPS_SCRIPT'].present?
-        response = NewDreamAppsScript::createNewDreamFolder(@camp.creator.email, @camp.id, @camp.name)
-        @camp.google_drive_folder_path = response['id']
-        @camp.google_drive_gaunt_file_path = response['gaunt']
-        @camp.google_drive_budget_file_path = response['budget']
-        unless @camp.save
-          flash.now[:notice] = "#{t:errors_str}: #{@camp.errors.full_messages.join(', ')}"
-          render :new
-        end
-      end
-
+    if create_camp
       flash[:notice] = t('created_new_dream')
       redirect_to edit_camp_path(id: @camp.id)
     else
@@ -218,5 +203,24 @@ class CampsController < ApplicationController
       flash[:alert] = "#{t:security_cant_delete_dreams_you_dont_own}"
       redirect_to camp_path(@camp)
     end
+  end
+
+  def create_camp
+    Camp.transaction do
+      @camp.save!
+      inject_camp_id if camp_params['responsibles_attributes'].present?
+      @camp.update!(camp_params)
+
+      if Rails.application.config.x.firestarter_settings['google_drive_integration'] and ENV['GOOGLE_APPS_SCRIPT'].present?
+        response = NewDreamAppsScript::createNewDreamFolder(@camp.creator.email, @camp.id, @camp.name)
+        @camp.google_drive_folder_path = response['id']
+        @camp.google_drive_gaunt_file_path = response['gaunt']
+        @camp.google_drive_budget_file_path = response['budget']
+        @camp.save!
+      end
+    end
+    true
+  rescue ActiveRecord::RecordInvalid
+    false
   end
 end

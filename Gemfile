@@ -109,4 +109,7 @@ group :development do
 
   # Awesome print helps us print!
   gem 'awesome_print'
+
+  # Print a log when i18n lookup fails
+  gem 'i18n-debug'
 end

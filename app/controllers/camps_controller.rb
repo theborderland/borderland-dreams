@@ -1,6 +1,6 @@
 class CampsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
-  before_action :load_camp!, except: [:index, :new]
+  before_action :load_camp!, except: [:index, :new, :create]
   before_action :enforce_delete_permission!, only: [:destroy, :archive]
 
 

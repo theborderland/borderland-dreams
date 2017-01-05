@@ -20,7 +20,11 @@ ActiveAdmin.register_page "Dashboard" do
     panel I18n.t("activeadmin.recent_updated") do
       table_for PaperTrail::Version.order('id desc').limit(20) do # Use PaperTrail::Version if this throws an error
         #column ("Item") { |v| v.item }
-        column (I18n.t("activeadmin.item")) { |v| link_to v.item.name, [:admin, v.item] } # Uncomment to display as link
+        column (I18n.t("activeadmin.item")) do |v|
+          if(v.item.present? and v.item.name.present?)
+            link_to v.item.name, [:admin, v.item] 
+          end
+        end
         column (I18n.t("activeadmin.modified_at")) { |v| v.created_at.to_s :long }
         column (I18n.t("activerecord.models.user.one")) do |v|
             if(v.whodunnit)

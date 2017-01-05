@@ -36,7 +36,7 @@ class CampsController < ApplicationController
 
   def create
     # Create camp without people then add them
-    @camp = Camp.new(camp_params.except('responsibles_attributes'))
+    @camp = Camp.new
     @camp.creator = current_user
 
     if create_camp
@@ -208,9 +208,6 @@ class CampsController < ApplicationController
   def create_camp
     Camp.transaction do
       @camp.save!
-      # inject_camp_id if camp_params['responsibles_attributes'].present?
-      # @camp.update!(camp_params)
-
       if Rails.application.config.x.firestarter_settings['google_drive_integration'] and ENV['GOOGLE_APPS_SCRIPT'].present?
         response = NewDreamAppsScript::createNewDreamFolder(@camp.creator.email, @camp.id, @camp.name)
         @camp.google_drive_folder_path = response['id']

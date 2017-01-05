@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170104163549) do
+ActiveRecord::Schema.define(version: 20170105214715) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -193,10 +193,17 @@ ActiveRecord::Schema.define(version: 20170104163549) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "camp_id",      null: false
-    t.string   "roles"
   end
 
   add_index "people", ["camp_id"], name: "index_people_on_camp_id"
+
+  create_table "people_roles", force: :cascade do |t|
+    t.integer "person_id"
+    t.integer "role_id"
+  end
+
+  add_index "people_roles", ["person_id"], name: "index_people_roles_on_person_id"
+  add_index "people_roles", ["role_id"], name: "index_people_roles_on_role_id"
 
   create_table "responsibles", force: :cascade do |t|
     t.datetime "created_at",          null: false
@@ -208,6 +215,10 @@ ActiveRecord::Schema.define(version: 20170104163549) do
 
   add_index "responsibles", ["camp_id"], name: "index_responsibles_on_camp_id"
   add_index "responsibles", ["person_id"], name: "index_responsibles_on_person_id"
+
+  create_table "roles", force: :cascade do |t|
+    t.string "identifier"
+  end
 
   create_table "tickets", force: :cascade do |t|
     t.text   "id_code"

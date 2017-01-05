@@ -114,6 +114,16 @@ he:
   add_responsibles: "הוסף סוג אחראי חדש"
   form_project_manager_name: "שם מנהל הפרויקט"
   form_project_manager: "מנהל הפרויקט"
+  project_roles:
+    manager: "מנהל הפרויקט"
+    vp: "סגן מנהל הפרויקט"
+    qa: "אחראי בדיקה יומית"
+    liquidation: "אחראית פירוק"
+    cfo: "אחראי גיוס כספים"
+    construction: "אחראי בניה"
+    foreman: "מנהלת עבודה"
+    pyromaniac: "אחראי שריפה"
+    designer: "מעצב/ת"
 
   form_description_label: "תיאור מלא של הרעיון"
   form_description_guidetext_html: "תני תיאור חוויתי מלא, שכולל את האינטראקציה עם החלום ואיך הוא משתלב עם קהילת מידברן. יש לך 4096 תווים , תנצלי אותם! "
@@ -606,6 +616,7 @@ he:
         email: "אימייל"
         phone: "טלפון"
         background: "רקע"
+        roles: "תפקידים"
       responsibles/person:
         <<: *person
 

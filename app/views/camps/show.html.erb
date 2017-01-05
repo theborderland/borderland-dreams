@@ -270,14 +270,19 @@
                                       :toggle_granting_camp, { method: :patch, class: "btn btn-danger" } %>
                     <% end %>
 
-                    <% if current_user&.admin %>
+                    <% if current_user&.guide || current_user&.admin %>
                       <% if @camp.active? %>
                         <%= button_to t(:archive_this_creation), :archive_camp,
                                       { method: :post, class: "btn btn-danger", data: { confirm: t(:are_you_sure) } } %>
                       <% end %>
 
-                      <%= button_to t(:delete_this_creation), { action: 'destroy' },
-                                    { method: :delete, class: "btn btn-danger", data: { confirm: t(:delete_are_you_sure) } } %>
+                      <% if current_user&.admin %>
+                        <%= button_to t(:delete_this_creation), { action: 'destroy' },
+                                      { method: :delete, class: "btn btn-danger", data: { confirm: t(:delete_are_you_sure) } } %>
+                      <% end %>
+
+                      <br>
+                      <%= t("activerecord.models.user.one") %> <%= @camp.creator.email %>
                     <% end %>
 
                     <% if Rails.configuration.x.firestarter_settings["add_to_list"] %>

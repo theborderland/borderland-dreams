@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170102215346) do
+ActiveRecord::Schema.define(version: 20170104163549) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -130,6 +130,7 @@ ActiveRecord::Schema.define(version: 20170102215346) do
     t.string   "safety_securing",                                          limit: 4096
     t.string   "safety_securing_parts",                                    limit: 4096
     t.string   "safety_signs",                                             limit: 4096
+    t.string   "location_info",                                            limit: 1024
     t.string   "program_dream_name_he",                                    limit: 256
     t.string   "program_dream_name_en",                                    limit: 256
     t.string   "program_dreamer_name_he",                                  limit: 256
@@ -137,7 +138,6 @@ ActiveRecord::Schema.define(version: 20170102215346) do
     t.string   "program_dream_about_he",                                   limit: 4096
     t.string   "program_dream_about_en",                                   limit: 4096
     t.string   "program_special_activity",                                 limit: 4096
-    t.string   "location_info",                                            limit: 1024
     t.string   "google_drive_folder_path",                                 limit: 512
     t.string   "google_drive_gaunt_file_path",                             limit: 512
     t.string   "google_drive_budget_file_path",                            limit: 512
@@ -193,6 +193,7 @@ ActiveRecord::Schema.define(version: 20170102215346) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "camp_id",      null: false
+    t.string   "roles"
   end
 
   add_index "people", ["camp_id"], name: "index_people_on_camp_id"

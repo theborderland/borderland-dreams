@@ -208,8 +208,8 @@ class CampsController < ApplicationController
   def create_camp
     Camp.transaction do
       @camp.save!
-      inject_camp_id if camp_params['responsibles_attributes'].present?
-      @camp.update!(camp_params)
+      # inject_camp_id if camp_params['responsibles_attributes'].present?
+      # @camp.update!(camp_params)
 
       if Rails.application.config.x.firestarter_settings['google_drive_integration'] and ENV['GOOGLE_APPS_SCRIPT'].present?
         response = NewDreamAppsScript::createNewDreamFolder(@camp.creator.email, @camp.id, @camp.name)

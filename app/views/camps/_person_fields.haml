@@ -7,4 +7,8 @@
   = f.text_field :phone_number, class: 'form-control'
   = t("activerecord.attributes.person.background")
   = f.text_field :background, class: 'form-control'
+  = t("activerecord.attributes.person.roles")
+  -#- Rails.application.config_for(:roles)['available_roles'].each do |role|
+  -#  = t.checkbox :roles, multiple: true, value: role
+  = collection_check_boxes(:person, :active_roles, Person.wrap_roles(Rails.application.config_for(:roles)['available_roles']), :id, :t)
   = link_to_remove_association t("remove_person"), f, class: 'remove_person'

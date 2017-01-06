@@ -13,13 +13,11 @@ class Camp < ActiveRecord::Base
   has_many :users, through: :memberships
   has_many :images #, :dependent => :destroy
   has_many :grants
-  has_many :responsibles, dependent: :destroy
   has_many :people, class_name: 'Person'
   has_many :roles, through: :people
 
   has_paper_trail
   
-  accepts_nested_attributes_for :responsibles, allow_destroy: true
   accepts_nested_attributes_for :people, :roles
 
   validates :creator, presence: true

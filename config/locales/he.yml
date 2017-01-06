@@ -105,13 +105,11 @@ he:
   form_project_management: "ניהול הפרויקט"
   form_project_management_crew: "חברי הצוות ובעלי תפקידים"
   form_project_management_crew_desc: "רקע רלוונטי ישמש עבור קרן האמנות להערכת פוטנציאל הביצוע. אם לא מאויש להותיר ריק"
-  form_project_management_responsibility_type: "סוג האחראי"
   choose_person: "בחר אדם"
   add_a_new_person: "הוסף אדם חדש"
   edit_person: 'ערוך פרטים'
   remove_responsibility: "הסר אחראיות"
   remove_person: "הסר אדם"
-  add_responsibles: "הוסף סוג אחראי חדש"
   form_project_manager_name: "שם מנהל הפרויקט"
   form_project_manager: "מנהל הפרויקט"
   project_roles:
@@ -477,9 +475,6 @@ he:
       grant:
         one: "לב"
         other: "לבבות"
-      responsibles:
-        one: "אחראי"
-        other: "אחראים"
     attributes:
       user:
         email: "אימייל"
@@ -600,8 +595,6 @@ he:
         dreamscholarship_financial_conduct_money_raise_desc: :form_dream_scholarship_financial_conduct_money_raise_desc
         dreamscholarship_execution_potential_previous_experience: :form_dream_scholarship_execution_potential_previous_experience
         dreamscholarship_execution_potential_work_plan: :form_dream_scholarship_execution_potential_work_plan
-      responsible:
-        responsibility_type: תחום אחריות
       person: &person
         name: 'שם'
         email: "אימייל"
@@ -647,11 +640,6 @@ he:
               taken: "האימייל כבר נמצא בשימוש. אנא התחברי."
             reset_password_token:
               invalid: "הלינק הזה פג תוקף - אנא לחצי שוב על שכחת סיסמא בכדי לקבל לינק חדש"
-
-        responsible:
-          attributes:
-            responsibility_type:
-              blank: "אנא הכנס תחום אחראיות תחת חברי צוות"
 
         person:
           attributes:

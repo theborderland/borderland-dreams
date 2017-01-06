@@ -1,3 +1,11 @@
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#camp_people_attributes_0_role_ids_1').prop('checked', true).on('click', function () {
+            return false;
+        });
+    });
+</script>
+
 <%= simple_form_for @camp, :html => {:dir => I18n.t(:html_direction), id: 'createDreamForm'} do |form| %>
   <div class="header-heading">
     <%= t("form_basics_headline") %>

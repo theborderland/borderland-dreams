@@ -36,7 +36,7 @@ class CampsController < ApplicationController
 
   def create
     # Create camp without people then add them
-    @camp = Camp.new
+    @camp = Camp.new(camp_params)
     @camp.creator = current_user
 
     if create_camp

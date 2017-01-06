@@ -22,7 +22,6 @@
     <div>
       <%= form.label t("form_project_manager") %>
       <%= form.simple_fields_for :people, @camp.people.new do |p| %>
-          <%= p.hidden_field :'roles', multiple: true, value: :manager %>
           <%= render 'person_fields', f: p %>
       <% end %>
     </div>

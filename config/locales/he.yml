@@ -158,12 +158,10 @@ he:
   form_spec_height_label: "גובה"
   form_spec_visual_night_day_label: "כיצד המיצב נראה, איזו נראות יש לו ביום ואיזו בלילה?"
   form_spec_visual_night_day_guidetext_html: "חשוב לציין שיש לתת מחשבה על החוויות השונות של חושך ואור: כיצד המיצב נראה בלילה, איזה מקום ממלאת התאורה ואיזה תוכן היא מוסיפה, האם שימוש באור הוא חלק מהותי מהמיצב? כיצד היצירה נראית במהלך היום, איך היא מוסיפה ומתחברת לנוף הפלאייה?"
-  form_spec_is_electricity_label: "האם המיצב דורש חיבור לחשמל?"
   form_spec_electricity_info: "למידע שתמלאו כאן יכולות להיות השלכות על תכנון הפרויקט, תקציב הפרויקט ופריסת המיצבים בשטח. אנא השתדלו למלא אותו בתשומת לב יתרה. אם אין בידכם את המידע או הידע הדרוש, התייעצו עם איש מקצוע. שימו לב:  בזמן האירוע חיבור לחשמל יבוצע במהלך שעות הלילה בלבד. כל צורך בהרחבה של שעות ההפעלה ו/או הגדלת ההספק שניתן ע\"י ההפקה יתואם פרטנית מול צוות מחלקת אמנות ויהיה כרוך בעלויות נוספות."
   form_spec_electricity_details_label: "פירוט צרכני החשמל"
   form_spec_electricity_details_guidetext_html: "מהם צרכני החשמל במיצב? מערכות אלקטרוניות, מחשוב, תאורה, סאונד, טוסטר משולשים וכד'"
   form_spec_electricity_how_label: "כיצד יעברו כבלי החשמל ואיך יחוברו למקור המתח?"
-  form_spec_electricity_is_daytime_label: "האם יש צורך בחיבור לחשמל בשעות היום?"
   form_spec_electricity_watt_label: "מה ההספק שהמיצב צורך (יש לציין ערך ב-וואט) (חובה)"
 
   form_dream_prop_head: "אופי היצירה"
@@ -173,24 +171,16 @@ he:
   form_dream_prop_interactivity: "אינטראקטיביות"
   form_dream_prop_interactivity_audience_participation: "כיצד המיצב מערב את הקהל ומזמין השתתפות?"
   form_dream_prop_interactivity_audience_participation_guidetext_html: "האמנות במידברן מעודדת פריצת גבולות בין יצירת אמנות לצופה בה. תנו דעתכם ליכולת של הפרט להשפיע על היצירה - לטפס, לגעת, להפעיל, לשחק וכדומה. ניתן ורצוי להתייחס לתזוזה, פרפורמנס,  אירועים / מפגשים / התרחשות סביב המיצב."
-  form_dream_prop_interactivity_is_fire_present: "האם המיצב מערב הפעלת אש כחלק אינטגרלי ומהותי?"
   form_dream_prop_interactivity_fire_present_desc: "פירוט"
   form_dream_prop_interactivity_fire_present_desc_guidetext_html: "שימו לב מיצבים המערבים שימוש באש ידרשו תיאום פרטני מול צוות מחלקת אמנות."
-  form_dream_prop_interactivity_is_sound: "האם המיצב 'יוצר' סאונד / רעש כלשהו?"
   form_dream_prop_interactivity_sound_desc: "פירוט"
   form_dream_prop_interactivity_sound_desc_guidetext_html: "איזה סאונד, איזו עוצמה, על ידי מי ובאילו שעות? (זאת כדי שנוכל למקם אתכם בצורה אופטימלית)"
-  form_dream_prop_interactivity_is_fire_event: "האם תרצו לתאם אירוע שריפה למיצב?"
   form_dream_prop_interactivity_fire_event_desc: "פירוט"
   form_dream_prop_interactivity_fire_event_desc_guidetext_html: "פרטו את המניעים והערך האמנותי בשריפת המיצב ואת האופן בו זה יבוצע (שריפת מיצבים תתואם מול מחלקת אש ומותנית באילוצים רבים. אין בהצהרה זו אישור או התחייבות לשריפתו של המיצב)"
   form_dream_prop_community: "קהילה"
-  form_dream_prop_community_is_installation_present_for_event: "האם המיצב מוקם במיוחד עבור האירוע?"
-  form_dream_prop_community_is_installation_present_for_public: "האם המיצב מתוכנן להיות מוצב במרחב ציבורי כלשהו לאחר האירוע?"
-  form_dream_prop_community_is_context: "האם ישנו או מתכונן קשר לקהילה מחוץ למידברן לפני או אחרי האירוע?"
   form_dream_prop_community_context_desc: "פירוט"
   form_dream_prop_community_context_desc_guidetext_html: "שיתוף פעולה בזמן הבנייה, אירועים משותפים עם קהילות אחרות וכן הלאה..."
-  form_dream_prop_community_is_interested_in_publicity: "באם תהיה אפשרות להציג את המיצב במרחב ציבורי/פסטיבלים/אירועי מידברן, האם תהיו מעוניינות?"
   form_dream_prop_theme: "תמה"
-  form_dream_prop_theme_is_annual: "האם הפרויקט תומך בתמה השנתית של אירוע מידברן?"
   form_dream_prop_theme_annual_desc: "פירוט"
   form_dream_prop_theme_annual_desc_guidetext_html: "מהי הפילוסופיה של המיצב? האם המיצב שואב השראה או תומך בתמה השנתית - 'חלום צלול' ו/או עשרת העקרונות?"
 
@@ -210,7 +200,6 @@ he:
   form_dream_scholarship_bank_account_info: "פרטי חשבון בנק אליו תועבר המלגה:"
   form_dream_scholarship_bank_account_info_guidetext_html: "שם בעל החשבון/מס בנק/סניף/חשבון"
   form_dream_scholarship_financial_conduct: "התנהלות פיננסית"
-  form_dream_scholarship_financial_conduct_is_intial_budget: "האם קיים התקציב הראשוני לקיום הפרויקט?"
   form_dream_scholarship_financial_conduct_intial_budget_desc: "אם הבקשה תתקבל, מלגה מוענקת רק לאחר ביצוע המיצב ועמידה בתנאי המלגה (כחודש וחצי לאחר מידברן). כיצד אתם מתכוונים לממן את בניית המיצב?"
   form_dream_scholarship_financial_conduct_money_raise_desc: "כיצד תגויס יתרת הכסף ומתי?"
   form_dream_scholarship_financial_conduct_money_raise_desc_guidetext_html: "אנא הציגו תוכנית לגיוס יתרת המשאבים, מי האנשים שהולכים להוביל את זה ואיזה ניסיון רלוונטי קודם יש להם? כידוע הקרן אינה מכסה את העלות הכוללת של הפרויקט אלא לכל היותר 50% ממנו עבור מי שיקבל את גובה המלגה המקסימלי - בשנה שעברה הקרן לא העניקה יותר מ-30% מגובה התקציב."
@@ -671,6 +660,24 @@ he:
 
       messages:
         record_invalid: 'האימות נכשל: %{errors}'
+  simple_form:
+    labels:
+      camp:
+        edit:
+          dreamprop_interactivity_is_sound: "האם המיצב 'יוצר' סאונד / רעש כלשהו?"
+          dreamprop_interactivity_is_fire_present: "האם המיצב מערב הפעלת אש כחלק אינטגרלי ומהותי?"
+          dreamprop_interactivity_is_fire_event: "האם תרצו לתאם אירוע שריפה למיצב?"
+          dreamprop_community_is_installation_present_for_event: "האם המיצב מוקם במיוחד עבור האירוע?"
+          dreamprop_community_is_installation_present_for_public: "האם המיצב מתוכנן להיות מוצב במרחב ציבורי כלשהו לאחר האירוע?"
+          dreamprop_community_is_context: "האם ישנו או מתכונן קשר לקהילה מחוץ למידברן לפני או אחרי האירוע?"
+          dreamprop_community_is_interested_in_publicity: "באם תהיה אפשרות להציג את המיצב במרחב ציבורי/פסטיבלים/אירועי מידברן, האם תהיו מעוניינות?"
+          dreamprop_theme_is_annual: "האם הפרויקט תומך בתמה השנתית של אירוע מידברן?"
+          spec_is_electricity: "האם המיצב דורש חיבור לחשמל?"
+          spec_electricity_is_daytime: "האם יש צורך בחיבור לחשמל בשעות היום?"
+          dreamscholarship_financial_conduct_is_intial_budget: "האם קיים התקציב הראשוני לקיום הפרויקט?"
+
+
+
 
 errors:
   format: "%{attribute} %{message}"
@@ -696,3 +703,4 @@ errors:
     too_short: קצר מדי (פחות מ- %{count} תווים)
     wrong_length: לא באורך הנכון (חייב להיות %{count} תווים)
     not_saved: "לא נשמר"
+

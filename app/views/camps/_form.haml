@@ -1,5 +1,8 @@
 :javascript
-  //Iterate checkboxes with data-show attributes and show/hide their target divs
+  // Iterate checkboxes with data-show attributes and show/hide their target divs
+  function toggleScholarship() {
+    $("#dream_scholarship_extension").toggle($(".funding-toggle").is(':checked'));
+  }
   $(document).ready(function() {
     $("[data-show]").change((e) => {
       let target = e.target.attributes['data-show'].value;
@@ -14,6 +17,11 @@
         $(target).hide();
       }
     });
+
+    toggleScholarship();
+
+    // Toggle dream_scholarship_extension only in cases where 2nd checkbox is off
+    $(".funding-toggle").change(toggleScholarship);
 
     $('#responsibles').delegate('.edit-person', 'click', function() {
       list = $(this.parentNode).find('select');
@@ -259,7 +267,7 @@
     = t("form_spec_visual_night_day_guidetext_html")
 
   .combo.col-xs-12
-    = form.label t("form_spec_is_electricity_label")
+    = form.label :spec_is_electricity
     = form.check_box :spec_is_electricity, data: {show:'#electricity_needed'}
 
   #electricity_needed
@@ -274,7 +282,7 @@
       = form.text_area :spec_electricity_how, :maxlength => 4096, :class => "form-control"
 
     .combo
-      = form.label t("form_spec_electricity_is_daytime_label")
+      = form.label :spec_electricity_is_daytime
       = form.check_box :spec_electricity_is_daytime
 
     .combo
@@ -304,7 +312,7 @@
     = t("form_dream_prop_interactivity_audience_participation_guidetext_html")
 
   .combo
-    = form.label t("form_dream_prop_interactivity_is_fire_present")
+    = form.label :dreamprop_interactivity_is_fire_present
     = form.check_box :dreamprop_interactivity_is_fire_present, data: {show:'#fire_present'}
 
   #fire_present
@@ -314,7 +322,7 @@
       = t("form_dream_prop_interactivity_fire_present_desc_guidetext_html")
 
   .combo
-    = form.label t("form_dream_prop_interactivity_is_sound")
+    = form.label :dreamprop_interactivity_is_sound
     = form.check_box :dreamprop_interactivity_is_sound, data: {show:'#sound_present'}
 
   #sound_present
@@ -324,7 +332,7 @@
       = t("form_dream_prop_interactivity_sound_desc_guidetext_html")
 
   .combo
-    = form.label t("form_dream_prop_interactivity_is_fire_event")
+    = form.label :dreamprop_interactivity_is_fire_event
     = form.check_box :dreamprop_interactivity_is_fire_event, data: {show:'#fire_event'}
 
   #fire_event
@@ -337,15 +345,15 @@
     = t("form_dream_prop_community")
 
   .combo
-    = form.label t("form_dream_prop_community_is_installation_present_for_event")
+    = form.label :dreamprop_community_is_installation_present_for_event
     = form.check_box :dreamprop_community_is_installation_present_for_event
 
   .combo
-    = form.label t("form_dream_prop_community_is_installation_present_for_public")
+    = form.label :dreamprop_community_is_installation_present_for_public
     = form.check_box :dreamprop_community_is_installation_present_for_public
 
   .combo
-    = form.label t("form_dream_prop_community_is_context")
+    = form.label :dreamprop_community_is_context
     = form.check_box :dreamprop_community_is_context, data: {show:'#community_context'}
 
   #community_context
@@ -355,14 +363,14 @@
       = t("form_dream_prop_community_context_desc_guidetext_html")
 
   .combo
-    = form.label t("form_dream_prop_community_is_interested_in_publicity")
+    = form.label :dreamprop_community_is_interested_in_publicity
     = form.check_box :dreamprop_community_is_interested_in_publicity
 
   .h3
     = t("form_dream_prop_theme")
 
   .combo
-    = form.label t("form_dream_prop_theme_is_annual")
+    = form.label :dreamprop_theme_is_annual
     = form.check_box :dreamprop_theme_is_annual, data: {show:'#theme_annual'}
 
   #theme_annual
@@ -396,88 +404,93 @@
         = t("form_dream_scholarship_head_desc_link")
 
     .combo
-      = form.label t("form_dream_scholarship_fund_is_from_art_fund")
-      = form.check_box :dreamscholarship_fund_is_from_art_fund
+      = form.label :dreamscholarship_fund_is_from_art_fund
+      = form.check_box :dreamscholarship_fund_is_from_art_fund, class: 'funding-toggle'
 
     .combo
-      = form.label t("form_dream_scholarship_fund_is_open_for_public")
-      = form.check_box :dreamscholarship_fund_is_open_for_public
+      = form.label :dreamscholarship_fund_is_open_for_public
+      = form.check_box :dreamscholarship_fund_is_open_for_public, class: 'funding-toggle'
 
-    //TODO: All form_dream_scholarship fields should drop-open if at least one of the terms above is true
-    .combo
-      %a{ :href => "http://midburn.org/he-art-scholarship/#tab-1454019338-2-59", :target => "_blank"}
-        = t("form_dream_scholarship_pre_fill_notes_criterions")
-      %br
-      %a{ :href => "http://midburn.org/he-art-scholarship/#tab-1454880861375-3-1", :target => "_blank"}
-        = t("form_dream_scholarship_pre_fill_notes_questions")
-
-    .h3
-      = t("form_dream_scholarship_budget")
-
-    .combo
-      = t("form_dream_scholarship_budget_desc")
-
-    .combo
-      = form.label t("form_dream_scholarship_budget_min_original")
-      = form.number_field :dreamscholarship_budget_min_original, :maxlength => 6 ,class:'form-control'
-
-    .combo
-      = form.label t("form_dream_scholarship_budget_max_original")
-      = form.number_field :dreamscholarship_budget_max_original, :maxlength => 6 ,class:'form-control'
-      = form.label t("form_dream_scholarship_budget_max_original_desc")
-      = form.text_area :dreamscholarship_budget_max_original_desc, :max_length => 4096, :class => "form-control"
-
-    %br
-    .budget
+    #dream_scholarship_extension
       .combo
-        %a{ :href => @camp.google_drive_budget_file_path, :target => "_blank"}
-          = t("form_dream_scholarship_budget_form_desc")
+        %a{ :href => "http://midburn.org/he-art-scholarship/#tab-1454019338-2-59", :target => "_blank"}
+          = t("form_dream_scholarship_pre_fill_notes_criterions")
+        %br
+        %a{ :href => "http://midburn.org/he-art-scholarship/#tab-1454880861375-3-1", :target => "_blank"}
+          = t("form_dream_scholarship_pre_fill_notes_questions")
 
-    %br
-    .combo
-      = form.label t("form_dream_scholarship_bank_account_info")
-      = form.text_area :dreamscholarship_bank_account_info, :max_length => 128, :class => "form-control"
-      = t("form_dream_scholarship_bank_account_info_guidetext_html")
-
-    .h3
-      = t("form_dream_scholarship_financial_conduct")
-
-    .combo
-      = form.label t("form_dream_scholarship_financial_conduct_is_intial_budget")
-      = form.check_box :dreamscholarship_financial_conduct_is_intial_budget
-      %br
-      = t("form_dream_scholarship_financial_conduct_intial_budget_desc")
-      = form.text_area :dreamscholarship_financial_conduct_intial_budget_desc, :max_length => 4096, :class => "form-control"
-
-    .combo
-      = form.label t("form_dream_scholarship_financial_conduct_money_raise_desc")
-      = form.text_area :dreamscholarship_financial_conduct_money_raise_desc, :max_length => 4096, :class => "form-control"
-      = t("form_dream_scholarship_financial_conduct_money_raise_desc_guidetext_html")
-
-    .h3
-      = t("form_dream_scholarship_execution_potential")
-
-    .combo
-      = form.label t("form_dream_scholarship_execution_potential_previous_experience")
-      = form.text_area :dreamscholarship_execution_potential_previous_experience, :max_length => 4096, :class => "form-control"
-      = t("form_dream_scholarship_execution_potential_previous_experience_guidetext_html")
-
-    .combo
-      = form.label t("form_dream_scholarship_execution_potential_work_plan")
-      = form.text_area :dreamscholarship_execution_potential_work_plan, :max_length => 4096, :class => "form-control"
-      = t("form_dream_scholarship_execution_potential_work_plan_guidetext_html")
-
-    .gaunt
       .h3
-        = t("form_dream_scholarship_gaunt")
-      .combo
-        %a{ :href => @camp.google_drive_gaunt_file_path, :target => "_blank"}
-          = t("form_dream_scholarship_gaunt_desc")
+        = t("form_dream_scholarship_budget")
 
-    %br
-    .combo
-      = t("form_dream_scholarship_criterions_html")
-    
+      .combo
+        = t("form_dream_scholarship_budget_desc")
+
+      .combo
+        = form.label t("form_dream_scholarship_budget_min_original")
+        = form.number_field :dreamscholarship_budget_min_original, :maxlength => 6 ,class:'form-control'
+
+      .combo
+        = form.label t("form_dream_scholarship_budget_max_original")
+        = form.number_field :dreamscholarship_budget_max_original, :maxlength => 6 ,class:'form-control'
+        = form.label t("form_dream_scholarship_budget_max_original_desc")
+        = form.text_area :dreamscholarship_budget_max_original_desc, :max_length => 4096, :class => "form-control"
+
+      %br
+      .budget
+        .combo
+          %a{ :href => @camp.google_drive_budget_file_path, :target => "_blank"}
+            = t("form_dream_scholarship_budget_form_desc")
+
+      %br
+      .combo
+        = form.label t("form_dream_scholarship_bank_account_info")
+        = form.text_area :dreamscholarship_bank_account_info, :max_length => 128, :class => "form-control"
+        = t("form_dream_scholarship_bank_account_info_guidetext_html")
+
+      .h3
+        = t("form_dream_scholarship_financial_conduct")
+
+      .combo
+        = form.label :dreamscholarship_financial_conduct_is_intial_budget
+        = form.check_box :dreamscholarship_financial_conduct_is_intial_budget
+        %br
+        = t("form_dream_scholarship_financial_conduct_intial_budget_desc")
+        = form.text_area :dreamscholarship_financial_conduct_intial_budget_desc, :max_length => 4096, :class => "form-control"
+
+      .combo
+        = form.label t("form_dream_scholarship_financial_conduct_money_raise_desc")
+        = form.text_area :dreamscholarship_financial_conduct_money_raise_desc, :max_length => 4096, :class => "form-control"
+        = t("form_dream_scholarship_financial_conduct_money_raise_desc_guidetext_html")
+
+      .h3
+        = t("form_dream_scholarship_execution_potential")
+
+      .combo
+        = form.label t("form_dream_scholarship_execution_potential_previous_experience")
+        = form.text_area :dreamscholarship_execution_potential_previous_experience, :max_length => 4096, :class => "form-control"
+        = t("form_dream_scholarship_execution_potential_previous_experience_guidetext_html")
+
+      .combo
+        = form.label t("form_dream_scholarship_execution_potential_work_plan")
+        = form.text_area :dreamscholarship_execution_potential_work_plan, :max_length => 4096, :class => "form-control"
+        = t("form_dream_scholarship_execution_potential_work_plan_guidetext_html")
+
+      .gaunt
+        .h3
+          = t("form_dream_scholarship_gaunt")
+        .combo
+          %a{ :href => @camp.google_drive_gaunt_file_path, :target => "_blank"}
+            = t("form_dream_scholarship_gaunt_desc")
+      %br
+      .combo
+        = t("form_dream_scholarship_post_desc")
+        %br
+        %a{ :href => "http://midburn.org/he-art-scholarship/#tab-1454019338-2-59", :target => "_blank"}
+          = t("form_dream_scholarship_post_desc_criterions")
+        %br
+        %a{ :href => "http://midburn.org/he-art-scholarship/#tab-1454880861375-3-1", :target => "_blank"}
+          = t("form_dream_scholarship_post_desc_faq")
+
   - if Rails.configuration.x.firestarter_settings["safetybag"]
     .header-heading
       = t("form_extra_team_member_head")
@@ -515,7 +528,7 @@
     = form.label t("form_heavy_equip")
 
   .combo
-    = form.label t("form_is_heavey_equip_needed")
+    = form.label :safety_is_heavy_equipment
     = form.check_box :safety_is_heavy_equipment
     %br
     = t("form_heavy_equip_desc")

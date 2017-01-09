@@ -149,6 +149,9 @@ GEM
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
     hashie (3.4.3)
+    httparty (0.13.7)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     httpclient (2.8.2.4)
     hurley (0.2)
     i18n (0.7.0)
@@ -266,6 +269,10 @@ GEM
       activesupport (>= 3.0)
       i18n
       polyamorous (~> 1.2)
+    raygun4ruby (1.1.11)
+      httparty (~> 0.13.7)
+      json
+      rack
     rdoc (4.2.1)
       json (~> 1.4)
     representable (2.3.0)
@@ -375,6 +382,7 @@ DEPENDENCIES
   rack-timeout
   rails (= 4.2.5)
   rails_12factor
+  raygun4ruby
   rmagick
   rspec-rails
   sass-rails (~> 5.0)

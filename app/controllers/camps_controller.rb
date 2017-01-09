@@ -142,7 +142,6 @@ class CampsController < ApplicationController
   # Display a camp and its users
   def show
     @users = @camp.users.select(:email)
-    raise(ValueError, 'error reporting works!') if @camp.id == 5
 
     # Added this to move some code out of the view.
     if current_user

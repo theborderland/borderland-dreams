@@ -598,7 +598,7 @@ he:
       person: &person
         name: 'שם'
         email: "אימייל"
-        phone: "טלפון"
+        phone_number: "טלפון"
         background: "רקע"
         roles: "תפקידים"
       responsibles/person:

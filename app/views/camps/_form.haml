@@ -40,9 +40,6 @@
       alert( "עריכת שדות תיק הבטיחות סגור כעת\r\nSafety file is currrently disabled" );
     })});
 
-%div{id:'edit-person-modal', class:'modal', 'data-keyboard' => 'true', 'tabindex' =>"-1"}
-  = render 'edit_person'
-
 = simple_form_for @camp, :html => {:dir => I18n.t(:html_direction), :id => 'camp-form' } do |form|
 
   .header-heading

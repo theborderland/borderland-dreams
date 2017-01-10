@@ -384,12 +384,12 @@
                     <br>
                 <% end %>
 
-                <% if !current_user || @camp.creator != current_user %>
-                    <% random = Camp.order("RANDOM()").first %>
-                    <a href="<%= url_for(random) %>" class="btn btn-primary camp-button" role="button">
-                        <%=t :next_random_dream %> <span class="glyphicon glyphicon-random" aria-hidden="true"></span>
-                    </a>
-                <% end %>
+                
+                <% random = Camp.where(active:true, is_public:true).order("RANDOM()").first %>
+                <a href="<%= url_for(random) %>" class="btn btn-primary camp-button" role="button">
+                    <%=t :next_random_dream %> <span class="glyphicon glyphicon-random" aria-hidden="true"></span>
+                </a>
+
               </div>
             </ul>
 

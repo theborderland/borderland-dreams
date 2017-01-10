@@ -18,7 +18,7 @@ class Camp < ActiveRecord::Base
 
   has_paper_trail
   
-  accepts_nested_attributes_for :people, :roles
+  accepts_nested_attributes_for :people, :roles, allow_destroy: true
 
   validates :creator, presence: true
   validates :name, presence: true

@@ -1,14 +1,14 @@
 .nested-fields.panel.panel-default.col-md-7
   .panel-body
-    = t("activerecord.attributes.person.name")
+    = f.label :name
     = f.text_field :name, class: 'form-control'
-    = t("activerecord.attributes.person.email")
+    = f.label :email
     = f.text_field :email, class: 'form-control'
-    = t("activerecord.attributes.person.phone")
+    = f.label :phone_number
     = f.text_field :phone_number, class: 'form-control'
-    = t("activerecord.attributes.person.background")
+    = f.label :background
     = f.text_field :background, class: 'form-control'
-    = t("activerecord.attributes.person.roles")
+    = f.label :roles
     = f.collection_check_boxes(:role_ids, Role.all, :id, :identifier) do |b|
       = b.label { b.check_box + ' ' + t("project_roles." + b.text) }
     %br

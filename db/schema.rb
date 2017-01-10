@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170106075050) do
+ActiveRecord::Schema.define(version: 20170110161618) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -139,7 +139,6 @@ ActiveRecord::Schema.define(version: 20170106075050) do
     t.string   "program_dream_about_en",                                   limit: 4096
     t.string   "program_special_activity",                                 limit: 4096
     t.string   "google_drive_folder_path",                                 limit: 512
-    t.string   "google_drive_gaunt_file_path",                             limit: 512
     t.string   "google_drive_budget_file_path",                            limit: 512
     t.boolean  "dreamscholarship_fund_is_from_art_fund",                                default: false, null: false
     t.boolean  "dreamscholarship_fund_is_open_for_public",                              default: false, null: false

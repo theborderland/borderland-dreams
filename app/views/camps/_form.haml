@@ -321,11 +321,12 @@
   .combo
     = t("form_project_management_crew_desc")
 
-  #responsibles.col-xs-12
+  #responsibles
     = form.fields_for :people do |person|
       = render 'person_fields', :f => person, :camp_id => @camp.id
-    .links
-      = link_to_add_association t('add_a_new_person'), form, :people, render_options: { locals: { camp_id: @camp.id } }, class: 'btn btn-default'
+  
+  .links.col-xs-12
+    = link_to_add_association t('add_a_new_person'), form, :people, render_options: { locals: { camp_id: @camp.id } }, class: 'btn btn-default'
 
   %br
   %br

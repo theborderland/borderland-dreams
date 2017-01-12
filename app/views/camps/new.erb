@@ -7,36 +7,36 @@
 </script>
 
 <%= simple_form_for @camp, :html => {:dir => I18n.t(:html_direction), id: 'createDreamForm'} do |form| %>
-  <div class="header-heading">
+  <div class="header-heading col-md-12">
     <%= t("form_basics_headline") %>
   </div>
-  <div class="combo" id="name">
+  <div class="combo col-md-7" id="name">
     <%= form.label t("form_dream_name_label") %>
     <%= form.text_field :name, :maxlength => 64, :class => "form-control" %>
   </div>
-  <div class="combo" id="subtitle">
+  <div class="combo col-md-7" id="subtitle">
     <%= form.label t("form_subtitle_label") %>
-    <%= form.text_area :subtitle, :maxlength => 255, :class => "form-control" %>
+    <%= form.text_area :subtitle, :maxlength => 255, :class => "form-control", :rows => 4 %>
     <%= t("form_subtitle_guidetext_html") %>
   </div>
-  <div class="combo" id="contact_name">
+  <div class="combo col-md-7" id="contact_name">
     <%= form.label t("form_creator_name_label") %>
     <%= form.text_field :contact_name, :maxlength => 64, :class => "form-control" %>
     <%= t("form_creator_name_guidetext_html") %>
   </div>
   <div>
 
-  <div id="project_manager">
+  <div id="project_manager ">
     <div>
-      <%= form.label t("form_project_manager") %>
+      <%= form.label t("form_project_manager"), class: 'col-md-12'  %>
       <%= form.simple_fields_for :people, @camp.people.new do |p| %>
           <%= render 'person_fields', f: p %>
       <% end %>
     </div>
   </div>
 
-  <div class="submit">
-    <%= form.submit t(:create_dream), class: 'btn btn-success create-new-dream', data:{toggle: 'tooltip'}, title:'Some tooltip text!' %>
+  <div class="submit col-md-12">
+    <%= form.submit t(:create_dream), class: 'btn btn-success create-new-dream', data:{toggle: 'tooltip'}, title:'Creating your new dream' %>
     <span class='loading-new-dream hideme'>
       <%= t("create_dream_loading_text") %>
     </span>

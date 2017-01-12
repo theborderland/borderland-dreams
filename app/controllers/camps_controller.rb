@@ -5,7 +5,7 @@ class CampsController < ApplicationController
 
 
   def index
-    filter = params[:filterrific] || {}
+    filter = params[:filterrific] || { sorted_by: 'updated_at_desc' }
     filter[:active] = true
     filter[:not_hidden] = true
 

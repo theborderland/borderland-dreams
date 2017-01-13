@@ -19,8 +19,6 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
-# bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 0.4.0', group: :doc
 
 # User management
 gem 'devise'
@@ -38,9 +36,6 @@ gem 'haml'
 
 # Enable Facebook authentication.
 gem 'omniauth-facebook'
-
-# Manage app secrets
-gem 'figaro'
 
 # Admin backend
 gem 'activeadmin', github: 'activeadmin'
@@ -70,7 +65,6 @@ gem 'newrelic_rpm'
 gem 'cocoon'
 gem 'simple_form'
 gem 'font-awesome-sass'
-gem 'bootstrap-modal-rails'
 gem 'google-api-client'
 gem 'rack-timeout'
 
@@ -116,4 +110,9 @@ group :development do
 
   # Print a log when i18n lookup fails
   gem 'i18n-debug'
+
+  # bundle exec rake doc:rails generates the API under doc/api.
+  gem 'sdoc', '~> 0.4.0', group: :doc
+
+
 end

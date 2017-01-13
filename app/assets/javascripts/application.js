@@ -17,8 +17,6 @@
 //= require blueimp-gallery-all
 //= require filterrific/filterrific-jquery
 //= require cocoon
-//= require bootstrap-modal
-//= require bootstrap-modalmanager
 
 $(function() {
 	//Fix the hidden element issue on some chrome browsers

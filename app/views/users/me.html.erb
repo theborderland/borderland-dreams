@@ -17,13 +17,19 @@
       <div class="panel-body">
         <p><b><%=t :contact_email %></b>: <%= current_user.email %></p>
         
-        <% if @my_dream.present? %>
-          <p><b><%=t :your_dream %></b>: <a href="<%= url_for(@my_dream) %>"><%= @my_dream.name %></a></p>
+        <% if @my_dreams.exists? %>
+          <p><b><%=t(:your_dream, count: @my_dreams.count) %></b>: </p>
+          <ul>
+            <% @my_dreams.each do |my_dream| %>
+              <li><a href="<%= url_for(my_dream) %>"><%= my_dream.name %></a></li>
+            <% end %>
+          </ul>
 
-          <p><b><%=t :cocreators_list_guidetext %></b></p>
-          <% if @my_dream.memberships.present? %>
-            <% @my_dream.memberships.each do |member| %>
-              <span><%= member.user.email %></span><br>
+          <% if @memberships.exists? %>
+            <p><b><%=t :cocreators_list_guidetext %></b></p>
+
+            <% @memberships.each do |member| %>
+              <span><%= member.email %></span><br>
             <% end %>
           <% end %>
           <br>

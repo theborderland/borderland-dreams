@@ -385,7 +385,9 @@ he:
 
   # My page
   your_space: "האזור האישי שלך"
-  your_dream: "החלום שלך"
+  your_dream:
+    one: "החלום שלך"
+    other: "החלומות שלך"
   youve_donated: "תרמת"
   coins_name: "לבבות"
   dreams_you_help_make: "חלומות שעזרת להגשים"

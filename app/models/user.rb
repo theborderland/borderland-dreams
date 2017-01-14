@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   has_many :tickets
   has_many :memberships
   has_many :camps, through: :memberships
+  has_many :created_camps, class_name: :Camp
 
   # Again, from Rails Girls tutorial on Facebook auth.
   # Used for handling the facebook auth callback.

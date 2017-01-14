@@ -263,7 +263,9 @@ en:
 
   # Me page
   your_space: "Your personal space"
-  your_dream: "Your dream"
+  your_dream:
+    one: "Your dream"
+    other: "Your dreams"
   youve_donated: "You've donated"
   coins_name: "Hearts"
   dreams_you_help_make: "Dreams you made happen"

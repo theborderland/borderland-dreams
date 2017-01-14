@@ -105,6 +105,10 @@ he:
   form_project_management: "ניהול הפרויקט"
   form_project_management_crew: "חברי הצוות ובעלי תפקידים"
   form_project_management_crew_desc: "רקע רלוונטי ישמש עבור קרן האמנות להערכת פוטנציאל הביצוע. אם לא מאויש להותיר ריק"
+  form_project_management_is_theme_camp_dream: "האם זהו מיצב של מחנה נושא?"
+  form_project_management_is_dream_near_theme_camp: "האם המיצב מתוכנן להיות מוקם בתוך/בקרבת המחנה?"
+  form_project_management_dream_pre_construction_site: "אתר העבודה"
+  form_project_management_dream_pre_construction_site_guidetext_html: "היכן אתם בונים את המיצב לפני הירידה לשטח?"
   choose_person: "בחר אדם"
   add_a_new_person: "הוסף אדם חדש"
   edit_person: 'ערוך פרטים'
@@ -187,7 +191,7 @@ he:
   form_dream_scholarship_head_desc_link: "בלינק."
   form_dream_scholarship_fund_is_from_art_fund: "האם אתן מעוניינות להגיש את הפרויקט לקבלת מלגה מקרן האמנות?"
   form_dream_scholarship_fund_is_open_for_public: "האם אתן מעוניינות לפתוח את המיצב לקבלת לבבות מהקהילה?"
-  form_dream_scholarship_pre_fill_notes_criterions: "לפני המילוי ראוי להסתכל על קריטריונים לקבל מלגה"
+  form_dream_scholarship_pre_fill_notes_criterions: "לפני המילוי ראוי להסתכל על הקריטריונים לדירוג בקשות"
   form_dream_scholarship_pre_fill_notes_questions: "לשאלות בנושא ניתן לפנות אל שאלות נפוצות"
   form_dream_scholarship_budget: "תקציב"
   form_dream_scholarship_budget_desc: "אנא ספקו שתי רמות תקציב שונות המעוגנות בהצעות או הערכות מחיר של ספקים. תקציב פרויקט מינימלי ההכרחי לקיום הפרויקט, והשנייה - תקציב פרויקט. נא לשים לב שהמספרים הרשומים בטופס תואמים את המספרים שנקובים בקובץ התקציב."
@@ -198,6 +202,7 @@ he:
   form_dream_scholarship_bank_account_info: "פרטי חשבון בנק אליו תועבר המלגה:"
   form_dream_scholarship_bank_account_info_guidetext_html: "שם בעל החשבון/מס בנק/סניף/חשבון"
   form_dream_scholarship_financial_conduct: "התנהלות פיננסית"
+  form_dream_scholarship_financial_conduct_is_intial_budget: "האם קיים התקציב הראשוני לקיום הפרויקט?"
   form_dream_scholarship_financial_conduct_intial_budget_desc: "אם הבקשה תתקבל, מלגה מוענקת רק לאחר ביצוע המיצב ועמידה בתנאי המלגה (כחודש וחצי לאחר מידברן). כיצד אתם מתכוונים לממן את בניית המיצב?"
   form_dream_scholarship_financial_conduct_money_raise_desc: "כיצד תגויס יתרת הכסף ומתי?"
   form_dream_scholarship_financial_conduct_money_raise_desc_guidetext_html: "אנא הציגו תוכנית לגיוס יתרת המשאבים, מי האנשים שהולכים להוביל את זה ואיזה ניסיון רלוונטי קודם יש להם? כידוע הקרן אינה מכסה את העלות הכוללת של הפרויקט אלא לכל היותר 50% ממנו עבור מי שיקבל את גובה המלגה המקסימלי - בשנה שעברה הקרן לא העניקה יותר מ-30% מגובה התקציב."
@@ -595,6 +600,9 @@ he:
         dreamscholarship_financial_conduct_money_raise_desc: :form_dream_scholarship_financial_conduct_money_raise_desc
         dreamscholarship_execution_potential_previous_experience: :form_dream_scholarship_execution_potential_previous_experience
         dreamscholarship_execution_potential_work_plan: :form_dream_scholarship_execution_potential_work_plan
+        projectmgmt_is_theme_camp_dream: :form_project_management_is_theme_camp_dream
+        projectmgmt_is_dream_near_theme_camp: :form_project_management_is_dream_near_theme_camp
+        projectmgmt_dream_pre_construction_site: :form_project_management_dream_pre_construction_site
       person: &person
         name: 'שם'
         email: "אימייל"
@@ -662,7 +670,10 @@ he:
           dreamprop_theme_is_annual: "האם הפרויקט תומך בתמה השנתית של אירוע מידברן?"
           spec_is_electricity: "האם המיצב דורש חיבור לחשמל?"
           spec_electricity_is_daytime: "האם יש צורך בחיבור לחשמל בשעות היום?"
-          dreamscholarship_financial_conduct_is_intial_budget: "האם קיים התקציב הראשוני לקיום הפרויקט?"
+          projectmgmt_is_theme_camp_dream: :form_project_management_is_theme_camp_dream
+          projectmgmt_is_dream_near_theme_camp: :form_project_management_is_dream_near_theme_camp
+          projectmgmt_dream_pre_construction_site: :form_project_management_dream_pre_construction_site
+          dreamscholarship_financial_conduct_is_intial_budget: :form_dream_scholarship_financial_conduct_is_intial_budget
 
 
 

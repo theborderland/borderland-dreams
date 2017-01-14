@@ -311,19 +311,37 @@
       = form.text_area :dreamprop_theme_annual_desc, :max_length => 4096, :class => "form-control"
       = t("form_dream_prop_theme_annual_desc_guidetext_html")
 
+  %br
   .header-heading
-    = form.label t("form_project_management")
-  .h3
-    = t("form_project_management_crew")
+    = t("form_project_management")
   .combo
+    = form.label t("form_project_management_crew")
+    %br
     = t("form_project_management_crew_desc")
-
-  #responsibles
+  
+  #responsibles.col-md-12
     = form.fields_for :people do |person|
       = render 'person_fields', :f => person, :camp_id => @camp.id
-  
+ 
   .links.col-xs-12
     = link_to_add_association t('add_a_new_person'), form, :people, render_options: { locals: { camp_id: @camp.id } }, class: 'btn btn-default'
+    %br
+    %br
+
+  .combo
+    = form.label :projectmgmt_is_theme_camp_dream
+    = form.check_box :projectmgmt_is_theme_camp_dream, data: {show:'#theme_camp_related_desc'}
+
+  #theme_camp_related_desc
+    .combo
+      = form.label :projectmgmt_is_dream_near_theme_camp
+      = form.check_box :projectmgmt_is_dream_near_theme_camp
+
+  .combo
+    = form.label :projectmgmt_dream_pre_construction_site
+    %br
+    = t("form_project_management_dream_pre_construction_site_guidetext_html")
+    = form.text_area :projectmgmt_dream_pre_construction_site, :max_length => 4096
 
   %br
   %br

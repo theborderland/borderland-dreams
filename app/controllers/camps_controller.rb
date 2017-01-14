@@ -43,7 +43,7 @@ class CampsController < ApplicationController
       flash[:notice] = t('created_new_dream')
       redirect_to edit_camp_path(id: @camp.id)
     else
-      flash.now[:notice] = "#{t:errors_str}: #{@camp.errors.full_messages.join(', ')}"
+      flash.now[:notice] = "#{t:errors_str}: #{@camp.errors.full_messages.uniq.join(', ')}"
       render :new
     end
   end
@@ -101,12 +101,12 @@ class CampsController < ApplicationController
       end
         
       unless current_user.save
-        flash[:notice] = "#{t:errors_str}: #{current_user.errors.full_messages.join(', ')}"
+        flash[:notice] = "#{t:errors_str}: #{current_user.errors.full_messages.uniq.join(', ')}"
         redirect_to camp_path(@camp) and return
       end
       
       unless @camp.save
-        flash[:notice] = "#{t:errors_str}: #{@camp.errors.full_messages.join(', ')}"
+        flash[:notice] = "#{t:errors_str}: #{@camp.errors.full_messages.uniq.join(', ')}"
         redirect_to camp_path(@camp) and return
       end
     end
@@ -128,7 +128,7 @@ class CampsController < ApplicationController
         redirect_to edit_camp_path(id: @camp.id)
       end
     else
-      flash.now[:notice] = "#{t:errors_str}: #{@camp.errors.full_messages.join(', ')}"
+      flash.now[:notice] = "#{t:errors_str}: #{@camp.errors.full_messages.uniq.join(', ')}"
       render :edit
     end
   end

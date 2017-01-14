@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
   has_many :memberships
   has_many :camps, through: :memberships
 
+  schema_validations whitelist: [:id, :created_at, :updated_at, :encrypted_password]
+
   # Again, from Rails Girls tutorial on Facebook auth.
   # Used for handling the facebook auth callback.
 

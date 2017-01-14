@@ -442,18 +442,6 @@ he:
 
   # Errors
   new_dream_is_disabled: "יצירת חלומות חדשים מנוטרלת כרגע. אם אתה חושב שזאת שגיאה אנא צור קשר עם לשכת החלומות"
-  helpers:
-    label:
-      user:
-        email: "אימייל"
-        password: "סיסמא"
-        too_short: "קצרה מדיי - מינימום 8 תווים"
-        password_confirmation: "אימות סיסמא"
-        remember_me: "זכרי אותי"
-        blank: "לא יכולה להשאר ריקה"
-        invalid: "לא תקין"
-      ticket:
-        id_code: "מספר פלאפון - קוד הרשמה"
 
   time:
     am: am
@@ -484,6 +472,7 @@ he:
       user:
         email: "אימייל"
         password: "סיסמא"
+        password_confirmation: "אימות סיסמא"
         ticket_id: "מספר פלאפון"
         encrypted_password: "סיסמא מוצפנת"
         admin: "מנהלת"
@@ -491,6 +480,9 @@ he:
         grants: "לבבות"
         created_at: "נוצר"
         updated_at: "עודכן"
+        remember_me: "זכרי אותי"
+        blank: "לא יכולה להשאר ריקה"
+        invalid: "לא תקין"
       admin_user:
         email: "אימייל"
         created_at: "נוצר"
@@ -609,7 +601,7 @@ he:
         phone_number: "טלפון"
         background: "רקע"
         roles: "תפקידים"
-      responsibles/person:
+      people:
         <<: *person
 
       grant:
@@ -656,6 +648,8 @@ he:
 
       messages:
         record_invalid: 'האימות נכשל: %{errors}'
+        too_long: 'ארוך מדי'
+        missing: 'נדרש'
   simple_form:
     labels:
       camp:
@@ -670,12 +664,31 @@ he:
           dreamprop_theme_is_annual: "האם הפרויקט תומך בתמה השנתית של אירוע מידברן?"
           spec_is_electricity: "האם המיצב דורש חיבור לחשמל?"
           spec_electricity_is_daytime: "האם יש צורך בחיבור לחשמל בשעות היום?"
-          projectmgmt_is_theme_camp_dream: :form_project_management_is_theme_camp_dream
-          projectmgmt_is_dream_near_theme_camp: :form_project_management_is_dream_near_theme_camp
-          projectmgmt_dream_pre_construction_site: :form_project_management_dream_pre_construction_site
-          dreamscholarship_financial_conduct_is_intial_budget: :form_dream_scholarship_financial_conduct_is_intial_budget
-
-
+          dreamscholarship_financial_conduct_is_intial_budget: "האם קיים התקציב הראשוני לקיום הפרויקט?"
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      accepted: חייב באישור
+      blank: לא יכול להיות ריק
+      confirmation: לא תואם לאישורו
+      empty: לא יכול להיות ריק
+      equal_to: חייב להיות שווה ל- %{count}
+      even: חייב להיות זוגי
+      exclusion: לא זמין
+      greater_than: חייב להיות גדול מ- %{count}
+      greater_than_or_equal_to: חייב להיות גדול או שווה ל- %{count}
+      inclusion: לא נכלל ברשימה
+      invalid: לא תקין
+      less_than: חייב להיות קטן מ- %{count}
+      less_than_or_equal_to: חייב להיות קטן או שווה ל- %{count}
+      not_a_number: חייב להיות מספר
+      not_an_integer: חייב להיות מספר שלם
+      odd: חייב להיות אי זוגי
+      taken: כבר בשימוש
+      too_long: ארוך מדי (יותר מ- %{count} תווים)
+      too_short: קצר מדי (פחות מ- %{count} תווים)
+      wrong_length: לא באורך הנכון (חייב להיות %{count} תווים)
+      not_saved: "לא נשמר"
 
 
 errors:

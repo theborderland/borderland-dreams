@@ -214,6 +214,8 @@ en:
   contact_email: "Contact Email"
 
   actions_headline: "Actions"
+  save_camp: "Save & Continue"
+  done_camp: "Done"
 
   # Guide safetybag
   creation_safetybaginfo_headline: "Safetyfile info (Shown only to you,dreamer)"
@@ -306,11 +308,16 @@ en:
   security_more_grants: "Security error cannot grant more then available grants. you tried gifting %{granted} grants. you have %{current_user_grants}. nice try."
   security_cant_delete_dreams_you_dont_own: "One cannot delete dreams he dont own - hacker come join us"
   security_cant_edit_dreams_you_dont_own: "One cannot delete dreams he dont own - hacker come join us"
+  security_cant_change_images_you_dont_own: "One cannot change image he dont own - hacker come join us"
 
   # Add me to dream
   join_dream: "Sweet! You just sent your email adress to the creator."
   join_errors_login: "You need to be logged in to add your email to the list."
   join_already_sent: "Nice! You've already sent your email to the creator."
+
+  yes_text: "yes"
+  no_text: "no"
+  or_text: "or"
 
   activeadmin:
     recent_updated: "Recently Updated Content"

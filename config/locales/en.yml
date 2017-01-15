@@ -256,6 +256,7 @@ en:
   youre_out_of_grants: "You're out of grants"
 
   add_my_name: "Add my name"
+  added_my_name: "Your name was added"
   delete_this_creation: "Delete this creation"
   archive_this_creation: "Archive this creation"
   delete_are_you_sure: "Are you sure?"

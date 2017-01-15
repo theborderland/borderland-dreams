@@ -14,11 +14,24 @@
     <%= form.label t("form_dream_name_label") %>
     <%= form.text_field :name, :maxlength => 64, :class => "form-control" %>
   </div>
+  <% if Rails.configuration.x.firestarter_settings["multi_lang_support"] %>
+    <div class="combo col-md-7" id="en_name">
+      <%= form.label t("form_dream_name_en_label") %>
+      <%= form.text_field :en_name, :maxlength => 64, :class => "form-control" %>
+    </div>
+  <% end %>
   <div class="combo col-md-7" id="subtitle">
     <%= form.label t("form_subtitle_label") %>
     <%= form.text_area :subtitle, :maxlength => 255, :class => "form-control", :rows => 4 %>
     <%= t("form_subtitle_guidetext_html") %>
   </div>
+  <% if Rails.configuration.x.firestarter_settings["multi_lang_support"] %>
+    <div class="combo col-md-7" id="en_subtitle">
+      <%= form.label t("form_subtitle_en_label") %>
+      <%= form.text_area :en_subtitle, :maxlength => 255, :class => "form-control", :rows => 4 %>
+      <%= t("form_subtitle_guidetext_html") %>
+    </div>
+  <% end %>
   <div class="combo col-md-7" id="contact_name">
     <%= form.label t("form_creator_name_label") %>
     <%= form.text_field :contact_name, :maxlength => 64, :class => "form-control" %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170114112133) do
+ActiveRecord::Schema.define(version: 20170115182246) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     :index=>{:name=>"index_active_admin_comments_on_namespace"}
@@ -144,9 +144,11 @@ ActiveRecord::Schema.define(version: 20170114112133) do
     t.string   "dreamscholarship_financial_conduct_money_raise_desc",      :limit=>4096
     t.string   "dreamscholarship_execution_potential_previous_experience", :limit=>4096
     t.string   "dreamscholarship_execution_potential_work_plan",           :limit=>4096
-    t.boolean  "projectmgmt_is_theme_camp_dream",                                       default: false, null: false
-    t.boolean  "projectmgmt_is_dream_near_theme_camp",                                  default: false, null: false
-    t.string   "projectmgmt_dream_pre_construction_site",                  limit: 4096
+    t.boolean  "projectmgmt_is_theme_camp_dream",                          :default=>false, :null=>false
+    t.boolean  "projectmgmt_is_dream_near_theme_camp",                     :default=>false, :null=>false
+    t.string   "projectmgmt_dream_pre_construction_site",                  :limit=>4096
+    t.string   "en_name",                                                  :limit=>64
+    t.string   "en_subtitle",                                              :limit=>255
   end
 
   create_table "grants", force: :cascade do |t|

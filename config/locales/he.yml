@@ -438,6 +438,15 @@ he:
   yes_text: "כן"
   no_text: "לא"
   
+  versionate:
+    latest_version: "גרסה אחרונה"
+    created_at: "Created at"
+    modify_at: "Modified at"
+    current_version: "גרסה נוכחית"
+    previous_version: "גרסה קודמת"
+    go_to_current_version: "קפוץ לגרסה אחרונה"
+    no_older_version: "אין גרסאות ישנות"
+
   activeadmin:
     recent_updated: "תוכן שעודכן לאחרונה"
     item: "חלום"
@@ -471,6 +480,9 @@ he:
       grant:
         one: "לב"
         other: "לבבות"
+      comment:
+        one: "הערה"
+        other: "הערות"
     attributes:
       user:
         email: "אימייל"

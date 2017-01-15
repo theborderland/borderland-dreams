@@ -144,9 +144,9 @@ ActiveRecord::Schema.define(version: 20170114112133) do
     t.string   "dreamscholarship_financial_conduct_money_raise_desc",      :limit=>4096
     t.string   "dreamscholarship_execution_potential_previous_experience", :limit=>4096
     t.string   "dreamscholarship_execution_potential_work_plan",           :limit=>4096
-    t.boolean  "projectmgmt_is_theme_camp_dream",                                       default: false, null: false
-    t.boolean  "projectmgmt_is_dream_near_theme_camp",                                  default: false, null: false
-    t.string   "projectmgmt_dream_pre_construction_site",                  limit: 4096
+    t.boolean  "projectmgmt_is_theme_camp_dream",                          :default=>false, :null=>false
+    t.boolean  "projectmgmt_is_dream_near_theme_camp",                     :default=>false, :null=>false
+    t.string   "projectmgmt_dream_pre_construction_site",                  :limit=>4096
   end
 
   create_table "grants", force: :cascade do |t|

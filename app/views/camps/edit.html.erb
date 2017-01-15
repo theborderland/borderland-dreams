@@ -5,12 +5,12 @@
 
 <% if current_user && (@camp.creator == current_user or current_user.admin)%>
 	<%= render 'form' %>
+
+    <div id="footer-bar" dir=<%=t :html_direction %>>
+      <button class="btn btn-success" id="save-camp"><%= t('save_camp') %></button>
+      <%= t('or_text') %>
+      <button class="btn btn-success" id="done-camp"><%= t('done_camp') %></button>
+    </div>
 <% else %>
     <p class="alert">Only the original creator can edit this page.</p>
 <% end %>
-
-<div id="footer-bar">
-  <button class="btn btn-success" id="save-camp"><%= t('save_camp') %></button>
-  או
-  <button class="btn btn-success" id="done-camp"><%= t('done_camp') %></button>
-</div>

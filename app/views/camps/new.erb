@@ -7,19 +7,19 @@
 </script>
 
 <%= simple_form_for @camp, :html => {:dir => I18n.t(:html_direction), id: 'createDreamForm'} do |form| %>
-  <div class="header-heading col-md-12">
+  <div class="header-heading col-md-12" style='float: <%= I18n.t(:lang_direction) %>'>
     <%= t("form_basics_headline") %>
   </div>
-  <div class="combo col-md-7" id="name">
+  <div class="combo col-md-7" id="name" style='float: <%= I18n.t(:lang_direction) %>'>
     <%= form.label t("form_dream_name_label") %>
     <%= form.text_field :name, :maxlength => 64, :class => "form-control" %>
   </div>
-  <div class="combo col-md-7" id="subtitle">
+  <div class="combo col-md-7" id="subtitle" style='float: <%= I18n.t(:lang_direction) %>'>
     <%= form.label t("form_subtitle_label") %>
     <%= form.text_area :subtitle, :maxlength => 255, :class => "form-control", :rows => 4 %>
     <%= t("form_subtitle_guidetext_html") %>
   </div>
-  <div class="combo col-md-7" id="contact_name">
+  <div class="combo col-md-7" id="contact_name" style='float: <%= I18n.t(:lang_direction) %>'>
     <%= form.label t("form_creator_name_label") %>
     <%= form.text_field :contact_name, :maxlength => 64, :class => "form-control" %>
     <%= t("form_creator_name_guidetext_html") %>
@@ -28,7 +28,7 @@
 
   <div id="project_manager ">
     <div>
-      <%= form.label t("form_project_manager"), class: 'col-md-12'  %>
+      <%= form.label t("form_project_manager"), {class: 'col-md-12', style: 'float:left' }  %>
       <%= form.simple_fields_for :people, @camp.people.new do |p| %>
           <%= render 'person_fields', f: p %>
       <% end %>

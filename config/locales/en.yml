@@ -345,6 +345,15 @@ en:
       user:
         email: "Email"
         password: "Password"
+        password_confirmation: "Password Confirmation"
+      person: &person
+        name: 'Name'
+        email: "Email"
+        phone_number: "Phone"
+        background: "Background"
+        roles: "Roles"
+      people:
+        <<: *person
 
     errors:
       models:

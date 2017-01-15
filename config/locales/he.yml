@@ -76,10 +76,12 @@ he:
 
   # Dream Description
   form_summary: "תקציר החלום"
-  form_dream_name_label: "שם החלום (חובה)"
+  form_dream_name_label: "שם החלום (נדרש)"
   form_dream_name_guidetext_html: "איך קוראים לחלום שלך?"
+  form_dream_name_en_label: "שם החלום באנגלית (נדרש)"
   form_subtitle_label: "סיכום החלום במשפט (נדרש)"
   form_subtitle_guidetext_html: "סיכום קצר של החלום שאת מציעה. סיכום זה יופיע בעמוד הראשי של האתר. תעשי את זה קצר, עד 256 תווים."
+  form_subtitle_en_label: "סיכום החלום במשפט באנגלית (נדרש)"
   form_creator_name_label: "שם הקבוצה/אמן"
   form_creator_name_guidetext_html: ""
 

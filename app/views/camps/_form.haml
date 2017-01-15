@@ -56,12 +56,26 @@
     = form.text_field :name, :maxlength => 64, :class => "form-control"
     = t("form_dream_name_guidetext_html")
 
+  - if Rails.configuration.x.firestarter_settings["multi_lang_support"]
+    .combo
+      = form.label t("form_dream_name_en_label")
+      %span.label.label-success
+        =t("public")
+      = form.text_field :en_name, :maxlength => 64, :class => "form-control"
+
   .combo#subtitle
     = form.label t("form_subtitle_label")
     %span.label.label-success
       =t("public")
     = form.text_area :subtitle, :maxlength => 255, :class => "form-control"
     = t("form_subtitle_guidetext_html")
+
+  - if Rails.configuration.x.firestarter_settings["multi_lang_support"]
+    .combo
+      = form.label t("form_subtitle_en_label")
+      %span.label.label-success
+        =t("public")
+      = form.text_area :en_subtitle, :maxlength => 255, :class => "form-control"
 
   .combo#contact_name
     = form.label t("form_creator_name_label")

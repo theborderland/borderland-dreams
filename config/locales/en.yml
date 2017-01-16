@@ -67,6 +67,7 @@ en:
   form_basics_headline: "Dream registration"
 
   form_dream_name_label: "Dream name (required)"
+  form_dream_name: "Dream name"
   form_dream_name_en_label: "Dream name in English (required)"
   form_dream_name_guidetext_html: "What's your dream prototype called?"
   form_subtitle_en_label: "Summarize your dream in English (required)"

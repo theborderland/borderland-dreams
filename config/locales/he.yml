@@ -78,6 +78,7 @@ he:
   # Dream Description
   form_summary: "תקציר החלום"
   form_dream_name_label: "שם החלום (נדרש)"
+  form_dream_name: "שם החלום"
   form_dream_name_guidetext_html: "איך קוראים לחלום שלך?"
   form_dream_name_en_label: "שם החלום באנגלית (נדרש)"
   form_subtitle_label: "סיכום החלום במשפט (נדרש)"
@@ -477,6 +478,9 @@ he:
       grant:
         one: "לב"
         other: "לבבות"
+      person:
+        one: "אדם"
+        other: "אנשים"
     attributes:
       user:
         email: "אימייל"

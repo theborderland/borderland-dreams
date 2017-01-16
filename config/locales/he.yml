@@ -77,10 +77,12 @@ he:
 
   # Dream Description
   form_summary: "תקציר החלום"
-  form_dream_name_label: "שם החלום (חובה)"
+  form_dream_name_label: "שם החלום (נדרש)"
   form_dream_name_guidetext_html: "איך קוראים לחלום שלך?"
+  form_dream_name_en_label: "שם החלום באנגלית (נדרש)"
   form_subtitle_label: "סיכום החלום במשפט (נדרש)"
   form_subtitle_guidetext_html: "סיכום קצר של החלום שאת מציעה. סיכום זה יופיע בעמוד הראשי של האתר. תעשי את זה קצר, עד 256 תווים."
+  form_subtitle_en_label: "סיכום החלום במשפט באנגלית (נדרש)"
   form_creator_name_label: "שם הקבוצה/אמן"
   form_creator_name_guidetext_html: ""
 
@@ -430,7 +432,7 @@ he:
   security_more_grants: "שגיאת מציאות. לא ניתן לתת יותר לבבות ממה שיש לך כרגע. ניסית לתת %{granted} ויש לך %{current_user_grants}. נסיון יפה."
   security_cant_delete_dreams_you_dont_own: "שגיאה - אתה לא יכול למחוק חלום שלא שייך לך - האקר הצטרף אלינו"
   security_cant_edit_dreams_you_dont_own: "שגיאה - אתה לא יכול לערוך חלום שלא שייך לך - האקר הצטרף אלינו"
-  security_cant_delete_images_you_dont_own: "שגיאה - אתה לא יכול למחוק תמונה שלא שייכת לך - האקר הצטרף אלינו"
+  security_cant_change_images_you_dont_own: "שגיאה - אתה לא יכול לשנות תמונה שלא שייכת לך - האקר הצטרף אלינו"
   dream_not_found: 'החלום שחיפשת לא נמצא. האם תרצי ליצור חלום חדש?'
 
   # Add me to dream
@@ -440,6 +442,7 @@ he:
 
   yes_text: "כן"
   no_text: "לא"
+  or_text: "או"
   
   activeadmin:
     recent_updated: "תוכן שעודכן לאחרונה"

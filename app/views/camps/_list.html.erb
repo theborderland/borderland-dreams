@@ -18,10 +18,12 @@
                             <%= image_tag('bsb_placeholder_square.jpg' , :class => "grow") %>
                         <% end %>
 
-                        <h4 class="name"><%= truncate(camp.name, length: 50) %></h4>
+                        <% @name = (Rails.configuration.x.firestarter_settings['multi_lang_support'] and camp.en_name.present? and I18n.locale.to_s == 'en')? camp.en_name : camp.name %>
+                        <h4 class="name"><%= truncate(@name, length: 60) %></h4>
 
+                        <% @subtitle = (Rails.configuration.x.firestarter_settings['multi_lang_support'] and camp.en_subtitle.present? and I18n.locale.to_s == 'en')? camp.en_subtitle : camp.subtitle %>
                         <div class="description">
-                            <p><%= truncate(camp.subtitle, length: 256) %></p>
+                            <p><%= truncate(@subtitle, length: 256) %></p>
                         </div>
 
                         <div class="labels">

@@ -1,0 +1,98 @@
+<% content_for(:head) do %>
+  <% browser_title = t(:browser_title_tag) %>
+  <title><%= browser_title %></title>
+  <%= javascript_include_tag 'blueimp_script' %> 
+  <meta property="og:title" content="How can I help other burners" />
+  <meta property="og:description" content="Helping other burners" />
+  <meta property="og:image" content="http://dreams.midburnerot.com/assets/coverphoto.png" />
+<% end %>
+
+<div class="top_message" dir=<%=t :html_direction %>>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <%= t(:how_can_i_help_title) %>
+    </div>
+    <div class="panel-body">
+      <div class="col-md-12">
+        <%= t(:how_can_i_help_title_desc_html) %>
+        <br>
+        <b><%=t :search_title %></b>
+        <%= form_for_filterrific @filterrific do |f| %>
+
+        <div>
+          <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
+          <%= f.text_field(
+            :search_query,
+            class: 'filterrific-periodically-observed form-control'
+          ) %>
+        </div>
+
+        <%= render_filterrific_spinner %>
+
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="filterrific_results">
+
+  <%=t :sort_by%>:
+  <%= filterrific_sorting_link(@filterrific, :updated_at) %>
+
+  <div class="camps_list">
+
+      <% @camps.each do |camp| %>
+      <div class='col-md-4'>
+          <a href="<%= url_for(camp) %>">
+
+              <div class="panel panel-info">
+                  <div class="panel-body camp-index">
+                      <% if camp.images.any? %>
+                          <%= image_tag(camp.images.first.attachment.url(:square), :class => "grow") %>
+                      <% else %>
+                          <%= image_tag('bsb_placeholder_square.jpg' , :class => "grow") %>
+                      <% end %>
+
+                      <% @name = (Rails.configuration.x.firestarter_settings['multi_lang_support'] and camp.en_name.present? and I18n.locale.to_s == 'en')? camp.en_name : camp.name %>
+                      <h4 class="name"><%= truncate(@name, length: 60) %></h4>
+
+                      <div class="description">
+                      <% if Rails.configuration.x.firestarter_settings["cocreation"] and camp.cocreation.present? %>
+                          <p><%= camp.cocreation %></p>
+                      <% end %>
+                      </div>
+
+                      <div class="labels">
+                          <% if Rails.configuration.x.firestarter_settings["granting_active"] and camp.minbudget %>
+
+                              <h3 class='budget-info'><%= camp.grants_received %>/<%= camp.maxbudget %><br><%=t :funded %></h3>
+
+                              <!-- Only if never got grants and not opened for granting -->
+                              <% if !camp.grantingtoggle and camp.grants_received <= 0%>
+                                  <h3 class='budget-not-opened'>
+                                      <%=t :granting_not_enabled %>
+                                  </h3>
+                              <% else %>
+                                  <div class="budgetprogressbar" data-min="<%= camp.minbudget %>" data-max="<%= camp.maxbudget %>" data-value="<%= camp.grants_received %>"></div>
+                              <% end %>
+
+                          <% end %>
+                      </div>
+
+                      <% if !camp.is_public? %>
+                          <h4 style="color: #eb1478; position: absolute; top:4px; right:20px;"><span class="glyphicon glyphicon-lock" aria-hidden="true"></h4>
+                      <% end %>
+                  </div>
+              </div>
+          </a>
+      </div>
+      <% end %>
+
+  </div>
+
+  <div class="top_message" align="center" dir=<%=t :html_direction %>>
+      <div class="col-xm-12"><%= paginate @camps %></div>
+  </div>
+
+</div>

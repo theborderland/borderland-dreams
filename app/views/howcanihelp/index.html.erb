@@ -10,12 +10,11 @@
 <div class="top_message" dir=<%=t :html_direction %>>
   <div class="panel panel-default">
     <div class="panel-heading">
-      <%= t(:how_can_i_help_title) %>
+      <h3><%= t(:how_can_i_help_title) %></h3>
     </div>
     <div class="panel-body">
       <div class="col-md-12">
-        <%= t(:how_can_i_help_title_desc_html) %>
-        <br>
+      <%= t(:how_can_i_help_title_desc_html) %><span class='label label-success'><%= t(:add_my_name) %></span><br>
         <b><%=t :search_title %></b>
         <%= form_for_filterrific @filterrific do |f| %>
 

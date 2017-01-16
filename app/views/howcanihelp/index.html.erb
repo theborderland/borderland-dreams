@@ -58,7 +58,7 @@
 
                       <div class="description">
                       <% if Rails.configuration.x.firestarter_settings["cocreation"] and camp.cocreation.present? %>
-                          <p><%= camp.cocreation %></p>
+                          <p><%=simple_format(camp.cocreation) %></p>
                       <% end %>
                       </div>
 

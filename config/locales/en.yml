@@ -189,7 +189,7 @@ en:
   form_safetybag_remember_sketch: "Please make sure you've uploaded a Sketch along with an image. Without a sketch your safety file won't be approved"
 
   form_artgrants_headline: "Art grant information"
-  form_artgrants_text_html: "<p>If you're not looking for an art heart, leave these fields blank.</p><p>Art hearts are given by Midburn community. Each Midburner who donated has 10 art-hearts to hand out. One can give all of the hearts to one project or spread them around. Once a heart has been gifted to a dream, it can't be taken back. Please enter the amount in NIS and we will translate it to the amount in hearts.</p>"
+  form_artgrants_text_html: "<p>If you're not looking for an art heart, leave these fields blank.</p><p>Art hearts are given by Borderland community. Each Borderling who donated has 10 art-hearts to hand out. One can give all of the hearts to one project or spread them around. Once a heart has been gifted to a dream, it can't be taken back. Please enter the amount in NIS and we will translate it to the amount in hearts.</p>"
 
   form_minigrants_realcurrency_label: "Minimum sum of money in NIS needed"
   form_minigrants_realcurrency_guidetext_html: "Minium funding needed to lift the project, below which you won't get funded."
@@ -216,13 +216,13 @@ en:
   coins_text: "Heart"
   coins_left: "Heart available:"
 
-  currency: "NIS"
+  currency: "DKK"
 
   created_new_dream: "Yeah! You've created a dream. You can add info to your dream now or save and continue adding info in the future"
 
   # Creation view
   what_is_this_title: "What is this?"
-  what_is_this_text_html: "Congratulations! You've stumbled upon something special. Midburn is a participatory festival that takes place in Jerucham lake in Israel on Dec 29-31. It's a fully participatory event where everything is created by the participants themselves, with out any spectators."
+  what_is_this_text_html: "Congratulations! You've stumbled upon something special. Borderland is a participatory festival that takes place in Boesdal, Denmark. It's a fully participatory event where everything is created by the participants themselves, with out any spectators."
 
   creation_info_headline: "Details"
   next_random_dream: "Next random dream"

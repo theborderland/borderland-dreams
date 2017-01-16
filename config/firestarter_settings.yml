@@ -11,7 +11,7 @@ defaults: &defaults
   plan: true
   cocreation: true
   neighbors: true
-  recycling: true
+  recycling: false
   budgetplan: true
   seeking_members: true
   granting: true

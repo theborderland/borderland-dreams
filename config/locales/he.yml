@@ -28,6 +28,7 @@ he:
   # Front page
   html_direction: "rtl"
   reverse_direction: "left"
+  lang_direction: "right"
 
   browser_title_tag: "חלומות מידברן"
   # For facebook main page sharing
@@ -107,13 +108,9 @@ he:
   form_project_management: "ניהול הפרויקט"
   form_project_management_crew: "חברי הצוות ובעלי תפקידים"
   form_project_management_crew_desc: "רקע רלוונטי ישמש עבור קרן האמנות להערכת פוטנציאל הביצוע. אם לא מאויש להותיר ריק"
-  form_project_management_is_theme_camp_dream: "האם זהו מיצב של מחנה נושא?"
-  form_project_management_is_dream_near_theme_camp: "האם המיצב מתוכנן להיות מוקם בתוך/בקרבת המחנה?"
-  form_project_management_dream_pre_construction_site: "אתר העבודה"
-  form_project_management_dream_pre_construction_site_guidetext_html: "היכן אתם בונים את המיצב לפני הירידה לשטח?"
   choose_person: "בחר אדם"
   add_a_new_person: "הוסף אדם חדש"
-  edit_person: 'ערוך פרטים'
+  edit_person: "ערוך פרטים"
   remove_responsibility: "הסר אחראיות"
   remove_person: "הסר אדם"
   form_project_manager_name: "שם מנהל הפרויקט"
@@ -128,6 +125,11 @@ he:
     foreman: "מנהלת עבודה"
     pyromaniac: "אחראי שריפה"
     designer: "מעצב/ת"
+
+  form_project_management_is_theme_camp_dream: "האם זהו מיצב של מחנה נושא?"
+  form_project_management_is_dream_near_theme_camp: "האם המיצב מתוכנן להיות מוקם בתוך/בקרבת המחנה?"
+  form_project_management_dream_pre_construction_site: "אתר העבודה"
+  form_project_management_dream_pre_construction_site_guidetext_html: "היכן אתם בונים את המיצב לפני הירידה לשטח?"
 
   form_description_label: "תיאור מלא של הרעיון"
   form_description_guidetext_html: "תני תיאור חוויתי מלא, שכולל את האינטראקציה עם החלום ואיך הוא משתלב עם קהילת מידברן. יש לך 4096 תווים , תנצלי אותם! "

@@ -33,7 +33,7 @@
 }
 
 .budgetprogressbar .gb-budgetprogressbar .ui-progressbar-value {
-  float: right;
+  float: left;
   margin: 0 -2px;
   border: none;
 }
@@ -47,14 +47,14 @@
     border-radius: 20px;
     background-color: #dce0e3;
     background: #dce0e3;
-    float: right;
+    float: left;
     display: inline-block;
     position: relative;
     border: none;
 }
 
 .budgetprogressbar .progressbar-info {
-  float: right;
+  float: left;
   text-align: center;
   width: 5em;
 }
@@ -81,7 +81,7 @@
   display: block;
   top: -0.2em;
   width: 50px;
-  text-align: right;
+  text-align: left;
 }
 
 .budgetprogressbar .minCrossedHoverBar {

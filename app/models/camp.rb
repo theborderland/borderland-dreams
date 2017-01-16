@@ -40,6 +40,7 @@ class Camp < ActiveRecord::Base
       :not_seeking_funding,
       :active,
       :not_hidden,
+      :is_cocreation
     ]
   )
   # Scope definitions. We implement all Filterrific filters through ActiveRecord
@@ -52,16 +53,17 @@ class Camp < ActiveRecord::Base
       # replace "*" with "%" for wildcard searches,
       # append '%', remove duplicate '%'s
       terms = terms.map { |e|
-        (e.gsub('*', '%') + '%').gsub(/%+/, '%')
+        ('%' + e.gsub('*', '%') + '%').gsub(/%+/, '%')
       }
       # configure number of OR conditions for provision
       # of interpolation arguments. Adjust this if you
       # change the number of OR conditions.
-      num_or_conditions = 2
+      num_or_conditions = 3
       where(
         terms.map {
           or_clauses = [
             "LOWER(camps.name) LIKE ?",
+            "LOWER(camps.cocreation) LIKE ?",
             "LOWER(camps.subtitle) LIKE ?"
           ].join(' OR ')
           "(#{ or_clauses })"
@@ -112,6 +114,11 @@ class Camp < ActiveRecord::Base
 
   scope :not_hidden, lambda { |flag|
     where(is_public: flag)
+  }
+
+  scope :is_cocreation, lambda { |flag|
+    where("camps.cocreation IS NOT \"\" ").
+    where("camps.cocreation IS NOT NULL")
   }
 
   # before_save do

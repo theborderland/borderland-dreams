@@ -11,11 +11,6 @@
         </div>
         <div class="col-md-7">
           <div class="header-nav">
-            <% if I18n.locale == I18n.default_locale %>
-              <%= link_to "EN", :lang=>'en'%>
-            <% else %>
-              <%= link_to "עב", :lang=>'he'%>
-            <%end%>
 
             <% if user_signed_in? and !Rails.application.config.x.firestarter_settings['disable_open_new_dream'] %>
             <%= link_to t("register_creation_menu"), new_camp_path %>

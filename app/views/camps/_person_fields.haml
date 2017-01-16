@@ -8,8 +8,5 @@
     = f.text_field :phone_number, class: 'form-control'
     = f.label :background
     = f.text_field :background, class: 'form-control'
-    = f.label :roles
-    = f.collection_check_boxes(:role_ids, Role.all, :id, :identifier) do |b|
-      = b.label { b.check_box + ' ' + t("project_roles." + b.text) }
     %br
     = link_to_remove_association t("remove_person"), f, class: 'remove_person fa fa-trash'

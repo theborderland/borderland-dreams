@@ -1,0 +1,12 @@
+language: ruby
+addons:
+  apt:
+    packages:
+    - libpq-dev
+    - libmagickcore-dev
+    - libmagickwand-dev
+install:
+  - gem install bundler
+  - bundle install
+script:
+  - bundle exec rspec spec -fd

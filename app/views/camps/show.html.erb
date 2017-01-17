@@ -190,11 +190,16 @@
         <% end %>
 
         <% if Rails.configuration.x.firestarter_settings["add_to_list"] %>
-            <% if current_user and @camp.creator != current_user %>
-                <% if (not @camp.users.where(id: current_user.id).exists?) %>
-                    <%= button_to t(:add_my_name), :join_camp, {class: 'btn btn-success button join-dream-button'} %>
-                <% else %>
-                    <%= button_to t(:added_my_name), :join_camp, {class: 'btn btn-success button join-dream-button', disabled: true} %><% end %>
+            <% if current_user %>
+                <% if @camp.creator != current_user %>
+                    <% if (not @camp.users.where(id: current_user.id).exists?) %>
+                        <%= button_to t(:add_my_name), :join_camp, {class: 'btn btn-success button join-dream-button'} %>
+                    <% else %>
+                        <%= button_to t(:added_my_name), :join_camp, {class: 'btn btn-success button join-dream-button', disabled: true} %>
+                    <% end %>
+                <% end %>
+            <% else %>
+                <%= button_to t(:add_my_name), :join_camp, {class: 'btn btn-success button join-dream-button'} %>
             <% end %>
         <% end %>
 

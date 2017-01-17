@@ -44,6 +44,7 @@
     text-decoration: none;
     background: rgba(235, 20, 120, 0.62);
     padding: 3px 8px;
+    margin: 0 3px;
 
     &:hover {
         color: $c-pinky !important;
@@ -100,6 +101,8 @@
 
   .header-nav a {
     font-size: 18px;
+
+    padding: 3px 7px;
   }
   .camps_list .camp-index {
     text-align: center;
@@ -109,5 +112,11 @@
 @media (max-width: 600px) {
   .camps_list .camp-index img {
     width: 100%;
+  }
+
+  .header-nav a {
+    font-size: 15px;
+
+    padding: 3px 1px;
   }
 }

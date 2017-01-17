@@ -40,6 +40,7 @@ class Camp < ActiveRecord::Base
       :not_seeking_funding,
       :active,
       :not_hidden,
+      :is_cocreation
     ]
   )
   # Scope definitions. We implement all Filterrific filters through ActiveRecord
@@ -52,13 +53,15 @@ class Camp < ActiveRecord::Base
       # replace "*" with "%" for wildcard searches,
       # append '%', remove duplicate '%'s
       terms = terms.map { |e|
-        (e.gsub('*', '%') + '%').gsub(/%+/, '%')
+        ('%' + e.gsub('*', '%') + '%').gsub(/%+/, '%')
       }
 
       or_array = [
         "LOWER(camps.name) LIKE ?",
         "LOWER(camps.subtitle) LIKE ?",
+        "LOWER(camps.cocreation) LIKE ?",
       ]
+
       if Rails.configuration.x.firestarter_settings["multi_lang_support"]
         or_array.push("LOWER(camps.en_name) LIKE ?",
           "LOWER(camps.en_subtitle) LIKE ?")
@@ -117,6 +120,11 @@ class Camp < ActiveRecord::Base
 
   scope :not_hidden, lambda { |flag|
     where(is_public: flag)
+  }
+
+  scope :is_cocreation, lambda { |flag|
+    where("camps.cocreation IS NOT \"\" ").
+    where("camps.cocreation IS NOT NULL")
   }
 
   # before_save do

@@ -349,6 +349,15 @@ en:
 
   errors_str: "Errors"
 
+  versionate:
+    latest_version: "Latest Version"
+    created_at: "Created at"
+    modify_at: "Modify at"
+    current_version: "Current version"
+    previous_version: "Previous Version"
+    go_to_current_version: "Go to current version"
+    no_older_version: "This item does not have any old version"
+
   activeadmin:
     recent_updated: "Recently Updated"
     item: "Dream"

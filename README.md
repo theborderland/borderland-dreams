@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Midburn/dreams.svg?branch=master)](https://travis-ci.org/Midburn/dreams)
+
 # Midburn Dreams
 
 This is a platform to plan co-created events. It was originally created for Urban Burn Stockholm in 2016 and was then used for The Borderland in 2016 and For Midburnerot 2016. It's being continuously and sporadically developed by a rag-tag team and will probably always be in beta. This version was the adoption of the Midburn - Israeli regional community. You can see it in action here: 

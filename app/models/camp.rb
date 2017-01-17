@@ -123,8 +123,7 @@ class Camp < ActiveRecord::Base
   }
 
   scope :is_cocreation, lambda { |flag|
-    where("camps.cocreation IS NOT \"\" ").
-    where("camps.cocreation IS NOT NULL")
+    where.not(camps: { cocreation: nil }).where.not(camps: { cocreation: '' })
   }
 
   # before_save do

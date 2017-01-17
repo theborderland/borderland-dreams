@@ -1,4 +1,6 @@
 ActiveAdmin.register Person do
+  scope :in_camp, default: true
+
   csv do
     column :name
     column :email

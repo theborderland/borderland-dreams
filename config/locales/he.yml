@@ -28,6 +28,7 @@ he:
   # Front page
   html_direction: "rtl"
   reverse_direction: "left"
+  lang_direction: "right"
 
   browser_title_tag: "חלומות מידברן"
   # For facebook main page sharing
@@ -76,10 +77,13 @@ he:
 
   # Dream Description
   form_summary: "תקציר החלום"
-  form_dream_name_label: "שם החלום (חובה)"
+  form_dream_name_label: "שם החלום (נדרש)"
+  form_dream_name: "שם החלום"
   form_dream_name_guidetext_html: "איך קוראים לחלום שלך?"
+  form_dream_name_en_label: "שם החלום באנגלית (נדרש)"
   form_subtitle_label: "סיכום החלום במשפט (נדרש)"
   form_subtitle_guidetext_html: "סיכום קצר של החלום שאת מציעה. סיכום זה יופיע בעמוד הראשי של האתר. תעשי את זה קצר, עד 256 תווים."
+  form_subtitle_en_label: "סיכום החלום במשפט באנגלית (נדרש)"
   form_creator_name_label: "שם הקבוצה/אמן"
   form_creator_name_guidetext_html: ""
 
@@ -105,13 +109,9 @@ he:
   form_project_management: "ניהול הפרויקט"
   form_project_management_crew: "חברי הצוות ובעלי תפקידים"
   form_project_management_crew_desc: "רקע רלוונטי ישמש עבור קרן האמנות להערכת פוטנציאל הביצוע. אם לא מאויש להותיר ריק"
-  form_project_management_is_theme_camp_dream: "האם זהו מיצב של מחנה נושא?"
-  form_project_management_is_dream_near_theme_camp: "האם המיצב מתוכנן להיות מוקם בתוך/בקרבת המחנה?"
-  form_project_management_dream_pre_construction_site: "אתר העבודה"
-  form_project_management_dream_pre_construction_site_guidetext_html: "היכן אתם בונים את המיצב לפני הירידה לשטח?"
   choose_person: "בחר אדם"
   add_a_new_person: "הוסף אדם חדש"
-  edit_person: 'ערוך פרטים'
+  edit_person: "ערוך פרטים"
   remove_responsibility: "הסר אחראיות"
   remove_person: "הסר אדם"
   form_project_manager_name: "שם מנהל הפרויקט"
@@ -126,6 +126,11 @@ he:
     foreman: "מנהלת עבודה"
     pyromaniac: "אחראי שריפה"
     designer: "מעצב/ת"
+
+  form_project_management_is_theme_camp_dream: "האם זהו מיצב של מחנה נושא?"
+  form_project_management_is_dream_near_theme_camp: "האם המיצב מתוכנן להיות מוקם בתוך/בקרבת המחנה?"
+  form_project_management_dream_pre_construction_site: "אתר העבודה"
+  form_project_management_dream_pre_construction_site_guidetext_html: "היכן אתם בונים את המיצב לפני הירידה לשטח?"
 
   form_description_label: "תיאור מלא של הרעיון"
   form_description_guidetext_html: "תני תיאור חוויתי מלא, שכולל את האינטראקציה עם החלום ואיך הוא משתלב עם קהילת מידברן. יש לך 4096 תווים , תנצלי אותם! "
@@ -428,6 +433,7 @@ he:
   security_more_grants: "שגיאת מציאות. לא ניתן לתת יותר לבבות ממה שיש לך כרגע. ניסית לתת %{granted} ויש לך %{current_user_grants}. נסיון יפה."
   security_cant_delete_dreams_you_dont_own: "שגיאה - אתה לא יכול למחוק חלום שלא שייך לך - האקר הצטרף אלינו"
   security_cant_edit_dreams_you_dont_own: "שגיאה - אתה לא יכול לערוך חלום שלא שייך לך - האקר הצטרף אלינו"
+  security_cant_change_images_you_dont_own: "שגיאה - אתה לא יכול לשנות תמונה שלא שייכת לך - האקר הצטרף אלינו"
   dream_not_found: 'החלום שחיפשת לא נמצא. האם תרצי ליצור חלום חדש?'
 
   # Add me to dream
@@ -437,6 +443,7 @@ he:
 
   yes_text: "כן"
   no_text: "לא"
+  or_text: "או"
   
   versionate:
     latest_version: "גרסה אחרונה"
@@ -483,6 +490,9 @@ he:
       comment:
         one: "הערה"
         other: "הערות"
+      person:
+        one: "אדם"
+        other: "אנשים"
     attributes:
       user:
         email: "אימייל"

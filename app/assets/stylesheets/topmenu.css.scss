@@ -4,8 +4,20 @@
   margin: 0px;
   color: rgb(0, 213, 255);
   width: 100%;
-  height: 240px;
+  height: 210px;
   max-width: none;
+}
+
+.logophoto {
+  @extend %holder;
+  padding: 10px;
+  margin: 10px 0px;
+  color: rgb(0, 213, 255);
+  width: 312px;
+  height: 94px;
+  max-width: none;
+  background-repeat: no-repeat;
+  background-size: 312px 94px;
 }
 
 .header-top-menu {
@@ -13,6 +25,7 @@
   font-size: 52px;
   font-family: 'Dosis', sans-serif;
   weight: bold;
+  background: none !important;
 }
 
 .coverphoto-panel {
@@ -21,12 +34,35 @@
 
 .top_menu {
   padding-top: 0px;
+    
+  .row {
+      margin: 0;
+  }
+
   a {
-    color: rgb(255,255,255);
+    color: white;
     text-decoration: none;
-    &:hover { 
-        color: rgb(250, 176, 11);
+    background: rgba(235, 20, 120, 0.62);
+    padding: 3px 8px;
+
+    &:hover {
+        color: $c-pinky !important;
+        background: rgba(0, 0, 0, 0.7) !important;
+        border-radius: 4px;
       }
+  }
+
+  .dropdown {
+    padding: 3px 8px;
+    
+    .dropdown-menu {
+      background: none;
+      color: white;
+
+      &:hover {
+        background: none;        
+      }
+    }
   }
 
 }
@@ -41,8 +77,37 @@
   justify-content: space-around;
 
   a {
-    margin-left: 15px;
+    border-radius: 4px;
     font-size: 24px;
     font-weight: 500;
+  }
+
+  .dropdown-menu>li>a {
+    color: white;
+  }
+
+}
+
+@media (max-width: 992px) {
+
+  .top_menu {
+    padding: 0;
+  }
+
+  .coverphoto {
+    padding: 0;
+  }
+
+  .header-nav a {
+    font-size: 18px;
+  }
+  .camps_list .camp-index {
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .camps_list .camp-index img {
+    width: 100%;
   }
 }

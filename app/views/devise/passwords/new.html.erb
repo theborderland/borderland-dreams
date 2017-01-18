@@ -1,21 +1,21 @@
 <% content_for(:head) do %>
-  <% browser_title = "Editing password" + " - " + t(:browser_title_tag) %>
+  <% browser_title = t(:change_your_password) + " - " + t(:browser_title_tag) %>
   <title><%= browser_title %></title>
 <% end %>
 
-<div class="passwords_new">
-  <h2>Forgot your password?</h2>
+<div class="passwords_new" dir=<%=t :html_direction %>>
+  <h2><%=t :forgot_password %></h2>
 
   <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
     <%= devise_error_messages! %>
 
     <div class="field">
       <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true %>
+      <%= f.email_field :email, autofocus: true, :class => "form-control" %>
     </div>
 
     <div class="actions">
-      <%= f.submit "Send me reset password instructions" , class: "btn btn-success" %>
+      <%= f.submit t(:reset_password_instructions) , class: "btn btn-success" %>
     </div>
   <% end %>
 

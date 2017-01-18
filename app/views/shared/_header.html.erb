@@ -1,17 +1,18 @@
-<% image_path = image_path("coverphoto.jpg") %>
+<% image_path = image_path("coverphoto.png") %>
+<% logo_path = image_path("logo_" + I18n.locale.to_s + ".png") %>
 
 <header>
-<div class="container coverphoto" style="background-image:url('<%= image_path %>'); background-position: center; ">
+<div class="container coverphoto <%= yield(:cover_head) %>" style="background-image:url('<%= image_path %>');background-position: center; ">
 
   <div class="main_content top_menu">
       <div class="row">
-        <div class="col-xs-6">
-          <h1><a class="header-top-menu" href="/"><%=t :top_headline_html %></a></h1>
+        <div class="col-md-5">
+          <h1><a class="header-top-menu" href="/"> <div class='logophoto' style="background-image:url('<%= logo_path %>');"></div> </a></h1>
         </div>
-        <div class="col-xs-6">
-          <div class="header-nav">
-            <a href="/"><%=t :creations_menu %></a>
-            <% if user_signed_in? %>
+        <div class="col-md-7">
+          <!-- div class="header-nav">
+
+            <% if user_signed_in? and !Rails.application.config.x.firestarter_settings['disable_open_new_dream'] %>
             <%= link_to t("register_creation_menu"), new_camp_path %>
             <% end %>
             <% if !user_signed_in? %>
@@ -21,9 +22,15 @@
             <%= link_to t("register_menu"), new_user_registration_path %>
             <% end %>
             <% if user_signed_in? %>
-            <%= link_to t("logout_menu"), destroy_user_session_path, method: :delete %>
+            <div class="dropdown">
+              <a class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> <%=t :private_area %></a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <li><a href="/me"><%=t :my_area %></a></li>
+                <li><%= link_to t("logout_menu"), destroy_user_session_path, method: :delete %></li>
+              </ul>
+            </div>
             <% end %>
-          </div>
+          </div -->
         </div>
       </div>
   </div>

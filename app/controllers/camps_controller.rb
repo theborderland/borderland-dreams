@@ -1,10 +1,22 @@
 class CampsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
+  before_action :load_camp!, except: [:index, :new, :create]
+  before_action :enforce_delete_permission!, only: [:destroy, :archive]
+
 
   def index
+    filter = params[:filterrific] || { sorted_by: 'updated_at_desc' }
+    filter[:active] = true
+    filter[:not_hidden] = true
+
+    if (!current_user.nil? && (current_user.admin? || current_user.guide?))
+      filter[:hidden] = true
+      filter[:not_hidden] = false
+    end
+
     @filterrific = initialize_filterrific(
       Camp,
-      params[:filterrific]
+      filter
     ) or return
     @camps = @filterrific.find.page(params[:page])
 
@@ -16,22 +28,22 @@ class CampsController < ApplicationController
 
   def new
     @camp = Camp.new
-    @submit_text = 'Create'
   end
 
   def edit
     @camp = Camp.find params[:id]
-    @submit_text = 'Update'
   end
 
   def create
+    # Create camp without people then add them
     @camp = Camp.new(camp_params)
     @camp.creator = current_user
 
-    if @camp.save
-      redirect_to camps_path
+    if create_camp
+      flash[:notice] = t('created_new_dream')
+      redirect_to edit_camp_path(id: @camp.id)
     else
-      flash.now[:notice] = "Errors: #{@camp.errors.full_messages.join(', ')}"
+      flash.now[:notice] = "#{t:errors_str}: #{@camp.errors.full_messages.uniq.join(', ')}"
       render :new
     end
   end
@@ -39,74 +51,89 @@ class CampsController < ApplicationController
   # Toggle granting
 
   def toggle_granting
-    @camp = Camp.find(params[:id])
     @camp.toggle!(:grantingtoggle)
     redirect_to camp_path(@camp)
   end
 
   # Handle the grant updates in their own controller action
   def update_grants
-    @camp = Camp.find(params[:id])
-
     # Reduce the number of grants assigned to the current user by the number
     # of grants given away. Increase the number of grants assigned to the
     # camp by the same number of grants.
 
     # Decrement user grants. Check first if granting more than needed.
     granted = params['grants'].to_i
+    if(granted <= 0)
+      flash[:alert] = "#{t:cant_send_less_then_one}"
+      redirect_to camp_path(@camp) and return
+    end
+
+    if @camp.maxbudget.nil?
+      flash[:alert] = "#{t:dream_need_to_have_max_budget}"
+      redirect_to camp_path(@camp) and return
+    end
+
     if @camp.grants_received + granted > @camp.maxbudget
-      granted = @camp.maxbudget - @camp.grants_received
+        granted = @camp.maxbudget - @camp.grants_received
     end
 
     if current_user.grants < granted
-      flash[:alert] = "Security error cannot grant more then available grants #{granted} / #{current_user.grants}"
+      flash[:alert] = "#{t:security_more_grants, granted: granted, current_user_grants: current_user.grants}"
       redirect_to camp_path(@camp) and return
     end
 
-    current_user.grants -= granted
+    ActiveRecord::Base.transaction do
+      current_user.grants -= granted
 
-    # Increase camp grants.
-    @camp.grants_received += granted
+      # Increase camp grants.
+      @camp.grants.new({:user_id => current_user.id, :amount => granted})      
 
-    if @camp.grants_received >= @camp.minbudget
-      @camp.minfunded = true
-    else
-      @camp.minfunded = false
-    end
-
-    if @camp.grants_received >= @camp.maxbudget
-      @camp.fullyfunded = true
-    else
-      @camp.fullyfunded = false
-    end
-
-    unless current_user.save
-      flash[:notice] = "Errors: #{current_user.errors.full_messages.join(', ')}"
-      redirect_to camp_path(@camp) and return
-    end
-
-    unless @camp.save
-      flash[:notice] = "Errors: #{@camp.errors.full_messages.join(', ')}"
-      redirect_to camp_path(@camp) and return
+      if @camp.grants_received + granted >= @camp.minbudget
+        @camp.minfunded = true
+      else
+        @camp.minfunded = false
+      end
+      
+      if @camp.grants_received + granted >= @camp.maxbudget
+        @camp.fullyfunded = true
+      else
+        @camp.fullyfunded = false
+      end
+        
+      unless current_user.save
+        flash[:notice] = "#{t:errors_str}: #{current_user.errors.full_messages.uniq.join(', ')}"
+        redirect_to camp_path(@camp) and return
+      end
+      
+      unless @camp.save
+        flash[:notice] = "#{t:errors_str}: #{@camp.errors.full_messages.uniq.join(', ')}"
+        redirect_to camp_path(@camp) and return
+      end
     end
 
     redirect_to camp_path(@camp)
-    flash[:notice] = "Thanks for sending #{granted} grant(s)"
+    flash[:notice] = "#{t:thanks_for_sending, grants: granted}"
   end
 
   def update
-    @camp = Camp.find(params[:id])
+    if (@camp.creator != current_user) and (!current_user.admin)
+      flash[:alert] = "#{t:security_cant_edit_dreams_you_dont_own}"
+      redirect_to camp_path(@camp) and return
+    end
 
     if @camp.update_attributes camp_params
-      redirect_to camp_path(@camp)
+      if params[:done] == '1'
+        redirect_to camp_path(@camp)
+      else
+        redirect_to edit_camp_path(id: @camp.id)
+      end
     else
-      flash.now[:notice] = "Errors: #{@camp.errors.full_messages.join(', ')}"
+      flash.now[:notice] = "#{t:errors_str}: #{@camp.errors.full_messages.uniq.join(', ')}"
       render :edit
     end
   end
 
   def destroy
-    @camp = Camp.find(params[:id])
     @camp.destroy!
 
     redirect_to camps_path
@@ -114,8 +141,7 @@ class CampsController < ApplicationController
 
   # Display a camp and its users
   def show
-    @camp = Camp.find(params[:id])
-    @users = @camp.users
+    @users = @camp.users.select(:email)
 
     # Added this to move some code out of the view.
     if current_user
@@ -125,9 +151,7 @@ class CampsController < ApplicationController
 
   # Allow a user to join a particular camp.
   def join
-    @camp = Camp.find(params[:id])
-
-    params[:user] ? @user = User.find(params[:user]) : @user = nil
+    @user = current_user
 
     #
     # Only add a user to the list of associated members if the user isn't
@@ -135,14 +159,19 @@ class CampsController < ApplicationController
     #
 
     if !@user
-      flash[:notice] = "You need to be logged in to add your email to the list."
-    elsif @camp.users.include?(@user)
-      flash[:notice] = "Nice! You've already sent your email to the creator."
+      flash[:notice] = "#{t:join_dream}"
+    elsif @camp.users.where(id: @user.id).exists?
+      flash[:notice] = "#{t:join_already_sent}"
     else
-      flash[:notice] = "Sweet! You just sent your email adress to the creator."
+      flash[:notice] = "#{t:join_dream}"
       @camp.users << @user
     end
     redirect_to @camp
+  end
+
+  def archive
+    @camp.update!(active: false)
+    redirect_to camps_path
   end
 
   private
@@ -151,4 +180,33 @@ class CampsController < ApplicationController
     params.require(:camp).permit!
   end
 
+  def load_camp!
+    @camp = Camp.find_by(id: params[:id])
+    if @camp.nil?
+      flash[:alert] = t('dream_not_found')
+      redirect_to camps_path
+    end
+  end
+
+  def enforce_delete_permission!
+    if (@camp.creator != current_user) and (!current_user.admin)
+      flash[:alert] = "#{t:security_cant_delete_dreams_you_dont_own}"
+      redirect_to camp_path(@camp)
+    end
+  end
+
+  def create_camp
+    Camp.transaction do
+      @camp.save!
+      if Rails.application.config.x.firestarter_settings['google_drive_integration'] and ENV['GOOGLE_APPS_SCRIPT'].present?
+        response = NewDreamAppsScript::createNewDreamFolder(@camp.creator.email, @camp.id, @camp.name)
+        @camp.google_drive_folder_path = response['id']
+        @camp.google_drive_budget_file_path = response['budget']
+        @camp.save!
+      end
+    end
+    true
+  rescue ActiveRecord::RecordInvalid
+    false
+  end
 end

@@ -3,43 +3,35 @@ ActiveAdmin.register_page "Dashboard" do
   menu priority: 1, label: proc{ I18n.t("active_admin.dashboard") }
 
   content title: proc{ I18n.t("active_admin.dashboard") } do
-    div class: "blank_slate_container", id: "dashboard_default_message" do
-      span class: "blank_slate" do
-        span I18n.t("active_admin.dashboard_welcome.welcome")
-        small I18n.t("active_admin.dashboard_welcome.call_to_action")
+    default_coins = 10
+
+    columns do
+      column do
+        panel "Info" do
+          para User.count.to_s + " registered users"
+          para (User.count * default_coins).to_s + " Total available coins for all users"
+          para Grant.sum(:amount).to_s + " coins were distributed"
+          para (Grant.sum(:amount) * Rails.application.config.coin_rate).to_s + " amount of money distributed"
+        end
       end
     end
 
-    columns do
-        columns do
-            panel "Users" do
-            end
+    # app/admin/dashboard.rb
+    panel I18n.t("activeadmin.recent_updated") do
+      table_for PaperTrail::Version.order('id desc').limit(20) do # Use PaperTrail::Version if this throws an error
+        #column ("Item") { |v| v.item }
+        column (I18n.t("activeadmin.item")) do |v|
+          if(v.item.present? and v.item.name.present?)
+            link_to v.item.name, [:admin, v.item] 
+          end
         end
-        column do
-            panel "Info" do
-                para "Welcome to ActiveAdmin!"
+        column (I18n.t("activeadmin.modified_at")) { |v| v.created_at.to_s :long }
+        column (I18n.t("activerecord.models.user.one")) do |v|
+            if(v.whodunnit)
+              link_to User.find(v.whodunnit).email, [:admin, User.find(v.whodunnit)]
             end
-        end
+          end
+      end
     end
-
-    # Here is an example of a simple dashboard with columns and panels.
-    #
-    # columns do
-    #   column do
-    #     panel "Recent Posts" do
-    #       ul do
-    #         Post.recent(5).map do |post|
-    #           li link_to(post.title, admin_post_path(post))
-    #         end
-    #       end
-    #     end
-    #   end
-
-    #   column do
-    #     panel "Info" do
-    #       para "Welcome to ActiveAdmin."
-    #     end
-    #   end
-    # end
-  end # content
+  end
 end

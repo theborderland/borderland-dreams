@@ -1,6 +1,14 @@
+.byebug_history
+.ruby-version
 .DS_Store
+.env
+
 tmp/*
 log/
 .bundle/
-.env
 public/system/
+db/*.sqlite3
+.idea/
+client_secret.json
+
+public/assets/

@@ -12,6 +12,34 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require_tree .
 //= require blueimp-gallery-all
 //= require filterrific/filterrific-jquery
+//= require cocoon
+
+$(function() {
+	//Fix the hidden element issue on some chrome browsers
+  	window.scroll(0,1);
+  	window.scroll(0,0);
+
+	$('.budgetprogressbar').budgetprogressbar();
+
+	$('.donate-now-button').click(function(){
+		$('.donate-now-button').prop('disabled', true);
+		$('.donate-now-button').css('cursor', 'wait');
+		$('#donateModal').css('cursor', 'wait');
+		$('#donateForm').submit();
+	});
+
+	$('.create-new-dream').click(function(){
+		$('.create-new-dream').prop('disabled', true);
+		$('.create-new-dream').css('cursor', 'wait');
+		$('#createDreamForm').submit();
+		$('.loading-new-dream').fadeIn();
+		setInterval(function(){
+			$('.loading-new-dream').fadeOut('fast', function() {
+				$(this).text("זה לרוב לוקח כ-8 שניות. קח נשימה עמוקה בזמן שאנחנו מכינים את הפלאייה עבורך. יוצרים לך תיקייה בדרייב ומסנכרנים...").fadeIn('fast'); 
+			})}, 4000);
+	});
+});

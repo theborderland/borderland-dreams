@@ -7,30 +7,46 @@
   border-radius: 5px;
   text-align: center;
   @extend %textOverflowEllipsis;
+}
+
+.delete_button {
+  @extend %button;
+  background: $c-red;
+
+  &:active {
+    background: darken($c-red, 10%);
+  }
+}
+
+.toggle_button {
+  @extend %button;
+  background: $c-blue;
+
+  &:active {
+    background: darken($c-blue, 10%);
+  }
+}
+
+.granting_button {
+  @extend %button;
+  background: $c-blue;
+
+  &:active {
+    background: darken($c-blue, 10%);
+  }
+}
+
+.submit_button {
+  @extend %button;
+  color: $c-green;
 
   &:active {
     background: darken($c-green, 10%);
   }
 }
 
-.delete_button {
-  @extend %button;
-  background: $c-red;
-}
-
-.toggle_button {
-  @extend %button;
-  background: $c-blue;
-}
-
-.granting_button {
-  @extend %button;
-  background: $c-blue;
-}
-
-.submit_button {
-  @extend %button;
-  color: $c-green;
+label {
+  color: black;
 }
 
 input,
@@ -66,16 +82,6 @@ input[type=submit] {
   -webkit-appearance: none;
 }
 
-input[type=text],
-input[type=email],
-input[type=password] {
-  width: 100%;
-  padding: 5px;
-  margin-top: 5px;
-  border-radius: 5px;
-  border: 1px solid #999;
-}
-
 input[type=submit] {
   @extend %button;
   width: 180px;
@@ -86,6 +92,7 @@ input[type=submit] {
 input[type=checkbox] {
   margin: 0;
   margin-right: 4px;
+  display: inline-block;
 }
 
 
@@ -104,4 +111,28 @@ input[type=checkbox] {
   width: 180px;
   margin-top: 15px;
   cursor: pointer;
+}
+
+.field_with_errors {
+  input[type=text],
+  input[type=number],
+  input[type=email],
+  textarea {
+    border: 1px solid $c-pinky;
+    border-radius: 5px;
+  }
+}
+
+a.fa:before {
+  padding: 5px;
+}
+
+.camp_responsibles_person {
+  display: inline;
+}
+
+#createDreamForm {
+  .remove_person {
+    display: none;
+  }
 }

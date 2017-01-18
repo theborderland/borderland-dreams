@@ -2,7 +2,7 @@
   padding-top: 20px;
 
   clear: both;
-  margin: 0 -10px;
+  margin: 0;
 
   &:before,
   &:after {
@@ -10,10 +10,213 @@
     line-height: 0;
     clear: both;
   }
+
+  .panel {
+    height: 31.5em;
+
+    .description {
+      height: 180px;
+      margin: 0.5em;
+    }
+  }
+
+  .panel-info {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+
+    &:hover {
+      color: #2a2a2a;
+      border-color: #a8a8a8;
+
+      .name { 
+        text-decoration: underline;
+      }
+    }
+
+    .name {
+      font-size: 16px;
+      font-weight: normal;
+      color: $c-pinky;
+      margin: 0.5em 0.5em;
+      }
+  }
+
+  .panel-info > .panel-heading {
+    background-color: $c-pinky;
+    color: white;
+  }
+
+  .panel-default > .panel-heading {
+    background-color: white;
+    color: black;
+    font-weight: bold;
+  }
+
+  .panel-body {
+    margin: 0;
+    padding: 0;
+  }
+
 }
+
+$main-image-height: 550px;
+.dream_main_image {
+  -webkit-background-size: cover !important;
+  -moz-background-size: cover !important;
+  -o-background-size: cover !important;
+  background-size: cover !important;
+  width: 100%;
+  height: $main-image-height;
+
+  background-color: $c-pinky;
+}
+
+.join-dream-button {
+  padding: 13px 20px;
+  margin: 2em 0;
+}
+
+.dream_main_text {
+  position: relative;
+  height: $main-image-height;
+  width: 93%;
+  margin: 0 auto;
+  padding: 20px;
+  resize: both;
+  overflow: hidden;
+
+  div.center-dream {
+    width: 60%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 20px;
+    resize: none;
+    overflow: hidden;
+
+    // TODO - temporary
+    .budgetprogressbar {
+      display: none;
+    }
+
+    .budget-info {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 12px;
+      text-align: center;
+
+      .budget-box {
+        margin-left: 24px;
+        padding-left: 24px;
+        border-left: 1px solid rgba(255,255,255,0.3);
+      }
+
+      h3 {
+        font-size: 26px;
+        font-weight: bold;
+        display: inline-block;
+      }
+      h4 {
+        font-size: 16px;
+        display: inline-block;
+      }
+    }
+
+    .rect-seperator {
+      display: inherit;
+      width: 1px;
+      height: 30px;
+      opacity: 0.3;
+      background-color: white;
+      margin: 0 .6em;
+    }
+
+    p {
+      padding: 0 0 0.1em 0;
+      margin: 0;
+      font-size: 40px;
+      font-weight: bold;
+    }
+
+    p.dream_main_creator {
+      font-size: 34px;
+      font-weight: normal;
+      padding-bottom: 1.5em;
+    }
+
+    form {
+      display: inline-block;
+      vertical-align: text-bottom;
+    }
+
+    .donate-button {
+      background: $c-donate-color;
+      color: white;
+
+      padding: 13px 20px;
+      width: auto;
+
+      margin: 0 10px;
+      margin-bottom: 15px;
+      font-size: large;
+      font-weight: bold;
+
+      &:active {
+        background: darken($c-donate-color, 15%) !important;
+      }
+
+      &:hover {
+        background: darken($c-donate-color, 10%) !important;
+      }
+
+      &:focus {
+        background: darken($c-donate-color, 10%) !important;
+      }
+    }
+  }
+}
+
+#donateModal {
+  .modal-dialog {
+    max-width: 460px;
+  }
+  .donate-value {
+    display: inline-block;
+    width: 70px;
+    margin: 0 .5em;
+  }
+
+  .coins-left  {
+    line-height: 2em;
+  }
+
+  .donate-now-button {
+    background: $c-donate-color;
+    width:100%;
+
+    &:active {
+        background: darken($c-donate-color, 15%) !important;
+      }
+
+      &:hover {
+        background: darken($c-donate-color, 10%) !important;
+      }
+
+      &:focus {
+        background: darken($c-donate-color, 10%) !important;
+      }
+  }
+}
+
 
 .top_message {
   padding: 10px;
+
+  a {
+    text-decoration: underline;
+    color: $c_pinky;
+  }
 }
 
 .join_creation {
@@ -43,7 +246,7 @@
 
 .camp-image {
   display: inline-block;
-  width: 30%;
+  width: 29%;
   margin-right: 3%;
   margin-bottom: 40px;
 }
@@ -51,7 +254,7 @@
 .thumbnail {
   position: relative;
   width: 30%;
-  height: 100px;
+  height: 140px;
   overflow: hidden;
   display: inline-block;
   clip-path: inset(10px 20px 30px 40px);
@@ -84,7 +287,6 @@ div label input {
 
 .granting-label {
     display:block;
-    text-align: left;
     margin-top: 10px;
 }
 
@@ -97,5 +299,73 @@ body {
 }
 
 
+@media (min-width: 992px) {
+  .camp-index img {
+    width: 100%;
+    max-width: 400px;
+    height: 222px;
+    min-height: 222px;
+    max-height: 222px;
+  }
+}
+
+@media (max-width: 992px) {
+  .camps_list .panel {
+    height: auto;
+  }
+  .camps_list .camp-index .description {
+    height: auto;
+  }
+
+  #links .thumbnail {
+    position: relative;
+    width: 47%;
+    height: 140px;
+    overflow: hidden;
+    display: inline-block;
+    clip-path: inset(10px 20px 30px 40px);
+    margin: 0px;
+  }
+
+  .dream_main_text {
+    width: 100%;
+  }
+
+  .dream_main_text {
+
+    div.center-dream {
+      width: 94%;
+    }
+  }
+
+}
+
+@media (max-width: 540px) {
+  div.center-dream {
+    .budget-info {
+      .budget-box {
+        flex: 1;
+        margin-left: 0;
+        padding-left: 0;
+        margin-bottom: 24px;
+      }
+    }
+
+    .budget-not-opened {
+      flex: 1;
+    }
+  }
+}
 
 
+#footer-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: left;
+  padding: 14px 13px;
+  z-index: 1;
+  background: #f3f3f3;
+  border-top: 1px solid black;
+}

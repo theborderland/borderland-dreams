@@ -1,9 +1,13 @@
+a:hover {
+  text-decoration: none;
+}
+
 .main_content {
   @extend %holder;
-  padding: 20px;
+  padding: 20px 2px;
   color: rgb(0,0,0);
   width: 100%;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 body {
@@ -30,17 +34,37 @@ body {
   border-radius: 5px;
 }
 
-.panel-default > .panel-heading {
-  background-color: white;
-  color: black;
-  font-weight: bold;
+.footer-text {
+  color: #818181;
+  font-size: 12px;
 }
 
 .footer {
-  padding-top: 20px;
+  padding: 20px 0;
   text-align: justify;
+  color: #818181;
+  font-size: 12px;
+
+  a {
+    text-decoration: underline;
+  }
+
+  span {
+    
+    color: $c-pinky;
+  }
 }
 
 .footer_image_col {
   text-align: center;
 }
+
+.glyphicon {
+  vertical-align: bottom;
+}
+
+.gi-1-5x{font-size: 1.5em;}
+.gi-2x{font-size: 2em;}
+.gi-3x{font-size: 3em;}
+.gi-4x{font-size: 4em;}
+.gi-5x{font-size: 5em;}

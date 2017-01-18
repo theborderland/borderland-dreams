@@ -21,21 +21,48 @@
 
 en:
   # Front page
+  html_direction: "ltr"
+  reverse_direction: "right"
+
   browser_title_tag: "Borderland Dreams"
+  # For facebook main page sharing
+  main_sharing_description: "Borderland dreams is a place where we dream together and breathe life into our mad creations. We share resources to make dreams happen."
+
   top_headline_html: "Borderland<br>Dreams"
+  top_headline_resources: "Resources >"
+  top_headline_dreams: "Dreams"
+  top_headline_old_dreams: "2015 Dreams"
+  top_headline_faq: "Faq"
+
   creations_menu: "Dreams"
   register_creation_menu: "Create Dream"
   login_menu: "Log in"
   register_menu: "Register"
+  private_area: "Private area >"
+  my_area: "Me"
   logout_menu: "Log out"
-  welcome_guest_title: "Welcome to your Dreams"
-  welcome_guest_text_html: "Congratulations! You've stumbled upon something special! <b><a href='http://www.theborderland.se'>THE BORDERLAND</a></b> is some awesome fucking shit. I mean, you can't even begin to understand the total exuberance of outlandish hijinks that people come up with for this thing. Dang!</b>"
-  welcome_user_title: "Welcome to your Dreams"
-  welcome_user_text_html: "Borderland Dreams is a directory of our collective imagination. We dream together and breathe life into our mad and wonderous creations. Dreams need matter to come to life, and this is where we share resources to make that happen. All borderlings get 8 grants to give out as they see fit. Think of these as superpowers, with which you can make dreams into matter! To activate granting for your dream, talk to you friendly local Dream Guide. Pretty neat, huh? Have a look around or create a dream of your own!"
-  footer_left_html: "The Borderland is a participatory community where we co-create events and gatherings as prototypes for our dreams. It is an empty container, open to your initiative. It is an invitation to play, to reflect, and to engage. If you have any question please ask in our <a href='facebook.com/groups/theborderland/'>Facebook Group</a>."
-  footer_right_html: "In July 18-24 2016, The Borderland community will gather in Boesdal limestone quarry, south of Copenhagen, Denmark. It is a festival, where all the organization and all creative content is created by the participants. The event is for co-creators only, and not open to spectators."
+
+  humans_credit_html: "The dreams platform started at the Borderland, from there it reached the Middle east to Midburnerot & Midburn and is available to use for all events.<br>Here are the humans who made the dreams platform possible (Refresh the page, Swipe to shuffle, Or use the arrow keys)"
+
+  welcome_guest_title: "Welcome to our Dreams"
+  welcome_guest_text_html: "Congratulations! You've stumbled upon something special! <b>Borderland</b> is some awesome fucking shit. We dream together and breathe life into our mad and wonderous creations. Dreams need matter to come to life, and this is where we share resources to make that happen."
+  welcome_user_title: "Welcome to your Dreams!"
+  welcome_user_text_html: "Borderland Dreams is a directory of our collective imagination. We dream together and breathe life into our mad and wonderous creations. Dreams need matter to come to life, and this is where we share resources to make that happen. Have a look around or create a dream of your own!"
+  header_faq_link: "Did you already read our FAQ page?"
+  footer_left_html: "Borderland is a participatory community where we co-create events and gatherings as prototypes for our dreams. It is an empty container, open to your initiative. It is an invitation to play, to reflect, and to engage."
+  footer_right_html: "In July 2017, Borderland community will gather in Boesdal, Denmark. It is a festival, where all the organization and all creative content is created by the participants. The event is for co-creators only, and not open to spectators."
+  footer_html: "This platform was originally written by Borderlings and Midburners. Dreams is <a href='https://github.com/midburn/dreams'>open source</a> and served with <span>❤</span> by the <a href='http://dreams.theborderland.se/pages/humans'>Humans who made the system</a>."
+  
+  errors: "Errors"
+
+  search_title: "Search"
+  hide_fully_funded: "Hide fully funded"
+  hide_minimum_funded: "Hide minimum funded"
+  hide_not_open_for_granting: "Hide not open for granting"
+  sort_by: "Sort by"
 
   # Creation registration form
+  form_summary: "Summary"
   form_basics_headline: "Dream registration"
 
   form_dream_name_label: "Dream name (required) "
@@ -43,14 +70,30 @@ en:
   form_subtitle_label: "Summarize your dream (required)"
   form_subtitle_guidetext_html: "Brief summary of the dream prototype you are applying for that will go on the front page of the dreams site. Keep it short, under 256 characters."
   form_creator_name_label: "Your name (required)"
-  form_creator_name_guidetext_html: "What's your name, dreamer?"
+  form_creator_name_guidetext_html: ""
+  form_loading_text: "Making room for your dream in our magical cloud..."
+  form_loadin_text2: "This usually takes ~8 seconds. Take a mindful breath as we integrate with the drive for you..."
+
+  form_dream_visability: "Is it public?"
+  form_dream_visability_yes: "Yes, Show it to the world"
+  form_dream_visability_no: "No, Hide it for now"
+  form_dream_visability_guidetext_html: "Public dreams will be shown on the main page. Private dreams will be shown only with a direct link"
+  form_dream_visability_not_public: "Privae"
+
   form_creator_email_label: "Your email (required)"
+  form_dream_visability: "Public for everyone to see?"
   form_creator_email_guidetext_html: "To let people get in touch..."
   form_contact_phone_label: "Your phonenumber (won't be published)"
   form_contact_phone_guidetext_html: "For urgent contact if needed."
+  form_about_the_artist_label: "About the group/Artist"
+  form_dream_website_label: "Web Site / Facebook page"
+  form_dream_website_short: "The dream website"
 
   form_additional_headline: "Additional information"
   form_additional_info_text_html: "Can be filled in later, or not at all if it doesn't apply"
+
+  form_project_management: "Project management" 
+  form_project_manager: "Dream contact"
 
   form_description_label: "Full description of concept"
   form_description_guidetext_html: "Give a full physical and conceptual description, including interactivity how it will fit into the Borderland community. You've got 4096 characters. Make them count."
@@ -73,8 +116,85 @@ en:
   form_neighbors_label: "Who would your perfect neighbors be?"
   form_neighbors_guidetext_html: "What kind of Borderlings would you like as neighbors?"
 
+  form_spec_headline: "Practical & technical information"
+
+  form_dream_prop_head: "Dream Theme"
+
+  form_project_management: "Project Management"
+  form_project_management_crew: "Team Members"
+  form_project_management_crew_desc: "Add your team"
+
+  form_program_head: "Program Info"
+  form_program_name: "Dream Name"
+  form_program_hebrew: "Hebrew"
+  form_program_english: "English"
+  form_program_dreamer: "Artist Name / Artist Group name"
+
+  form_dream_scholarship_head: "Art Grants"
+  form_dream_scholarship_head_desc_html: "<p>Art grants are given by the Borderland community. Each Borderling has 8 art-grants to hand out. You can give all your grants to one project or spread them around. Once a grant has been gifted to a dream, it can't be taken back. Each grant is worth 50 DKK. You should approximate your budget in number of grants needed. For example, if you need 5000 DKK this translates into 100 grants.</p>"
+  form_dream_scholarship_head_desc_link: "Guidelines for Dreams and grants"
+  form_dream_scholarship_fund_is_open_for_public: "We want funding for our dream"
+  form_dream_scholarship_budget: "Budget overview"
+  form_dream_scholarship_budget_desc: "How will you use your budget? Describe your costs, not too specific, not too vague, perfectly balanced."
+  form_dream_scholarship_budget_min_original: "Minumum number of grants needed:"
+  form_dream_scholarship_budget_max_original: "Grants needed to fully fund dream:"
+  form_dream_scholarship_budget_max_original_desc: "How many grants you need to fully fund your project."
+  form_dream_scholarship_budget_min_original_desc: "Necessary minimum budget level, below which you won't get funded."
+  form_dream_scholarship_budget_form_desc: "Art grant form link"
+  form_dream_scholarship_bank_account_info: "Bank account details"
+  form_dream_scholarship_bank_account_info_guidetext_html: "Enter your bank account details, inluding IBAN and SWIFT if the bank is not Swedish. Will not be published."
+  form_dream_scholarship_execution_potential: "Previous experience and feasibility"
+  form_dream_scholarship_execution_potential_previous_experience: "What experience does the team have to help pull this off?"
+  form_dream_scholarship_execution_potential_previous_experience_guidetext_html: "Don't worry, you don't have to be an expert"
+
+  form_basics_safety_bag: "Fields which are marked in ultra pink are required for the safety file. Most of them are not shown in the public dream page"
+  form_safetybag_headline: "Safety file info"
+  form_safetybag_show_hide: "Show / Hide Safety file info"
+  form_safetybag_needs_to_fill: "Please notice the button above me. click it! You should fill safety bag info till the 22/11"
+  form_safetybag_crewsize_label: "Crew size"
+  form_safetybag_crewsize_guidetext_html: "How many people are you?"
+  form_safetybag_plan_label: "Details work plan for safety file - what are you building and in what order"
+  form_safetybag_plan_guidetext_html: "Setup plan Break plan"
+  form_safetybag_builder_label: "Construction Manager"
+  form_safetybag_builder_guidetext_html: "What is the name of your main builder"
+  form_safetybag_safetyer_label: "Safety Manager"
+  form_safetybag_safetyer_guidetext_html: "What is the name of your main safety manager"
+  form_safetybag_mooper_label: "Moop Manager"
+  form_safetybag_mooper_guidetext_html: "What is the name of the moop manager"
+  form_safetybag_materials_label: "Materials"
+  form_safetybag_materials_guidetext_html: "In which materials are you going to use?"
+  form_safetybag_work_in_height_label: "Work in height - Yes / No, and which?"
+  form_safetybag_work_in_height_guidetext_html: "Will you work in height? if so how?"
+  form_extra_team_member_head: "Extra Team Members"
+  form_extra_team_member_headline: "Write here your team members private names"
+  form_extra_team_member_info: "Write here your team members that still hasn't registered for the event. Note - right now there is up to 2 members per project."
+  form_extra_extra_team_members_info: "If there are any extra team members, write them in the Extra comments under the safety file. If there will be more places in the event, we will register them."
+  form_safetybag_first_member_name_label: "Team member name"
+  form_safetybag_first_member_email_label: "Team member email"
+  form_safetybag_second_member_name_label: "Extra team member 2 name"
+  form_safetybag_second_member_email_label: "Extra team member 2 email"
+  form_safetybag_tools_label: "Tools"
+  form_safetybag_tools_guidetext_html: "What tools are you going to use?"
+  form_safetybag_grounding_label: "Mounting to ground"
+  form_safetybag_grounding_guidetext_html: "How is your project would be mounted to the ground?"
+  form_safetybag_safety_label: "Securing / Marking / Preventing injuries"
+  form_safetybag_safety_guidetext_html: "How will you secure your project, mark it and prevent injuries?"
+  form_safetybag_electricity_label: "Electricity safety"
+  form_safetybag_electricity_guidetext_html: "How will you make sure that any electricity use is safe"
+  form_safetybag_daily_routine_label: "Daily routine"
+  form_safetybag_daily_routine_guidetext_html: "Who will check daily the project and what does it include?"
+  form_safetybag_other_comments_label: "Other commnets for safety file"
+  form_safetybag_other_comments_guidetext_html: "Do you have anything else to say?"
+  form_safetybag_the_form_label: "Does all your crew members filled the Insurance Art registration form. Click here"
+  form_safetybag_remember_sketch: "Please make sure you've uploaded a Sketch along with an image. Without a sketch your safety file won't be approved"
+
   form_artgrants_headline: "Art grant information"
-  form_artgrants_text_html: "<p>If you're not looking for an art grant, leave these fields blank.</p><p>Art grants are given by the Borderland comminity. Each Borderling has 8 art-grants to hand out. You can give all your grants to one project or spread them around. Once a grant has been gifted to a dream, it can't be taken back. Each grant is worth 50 DKK. You should approximate your budget in number of grants needed. For example, if you need 5000 DKK this translates into 100 grants.</p>"
+  form_artgrants_text_html: "<p>If you're not looking for an art heart, leave these fields blank.</p><p>Art hearts are given by Borderland community. Each Borderling who donated has 10 art-hearts to hand out. One can give all of the hearts to one project or spread them around. Once a heart has been gifted to a dream, it can't be taken back. Please enter the amount in NIS and we will translate it to the amount in hearts.</p>"
+
+  form_minigrants_realcurrency_label: "Minimum sum of money in NIS needed"
+  form_minigrants_realcurrency_guidetext_html: "Minium funding needed to lift the project, below which you won't get funded."
+  form_maxigrants_realcurrency_label: "Maximum sum of money in NIS needed to fully fund the dream"
+  form_maxigrants_realcurrency_guidetext_html: "How much money in NIS do you need to fully fund your project."
 
   form_minigrants_label: "Minumum number of grants needed:"
   form_minigrants_guidetext_html: "Necessary minimum budget level, below which you won't get funded."
@@ -82,17 +202,228 @@ en:
   form_maxigrants_guidetext_html: "How many grants you need to fully fund your project."
   form_budgetplan_label: "Budget overview"
   form_budgetplan_guidetext_html: "How will you use your budget? Describe your costs, not too specific, not too vague, perfectly balanced."
+  create_dream: "Create Dream!"
+  update_dream: "Update Dream!"
+  edit_dream: "Edit Dream"
+  manage_images: "Manage Images"
+
+  give_grants: 'Give Grants'
+  i_gift_thee_grants: 'Donate to dream'
+  no_granting_yet: 'No granting for this dream yet!'
+  donate_title: "Oh Wow! this thing you are about to do..."
+  donate_content: "There are many ways to help a dream come true, yet here you are invited to divide your Hearts donation and give it to this dream."
+  donate_text: "Donate"
+  coins_text: "Heart"
+  coins_left: "Heart available:"
+
+  currency: "DKK"
+
+  created_new_dream: "Yeah! You've created a dream. You can add info to your dream now or save and continue adding info in the future"
 
   # Creation view
   what_is_this_title: "What is this?"
-  what_is_this_text_html: "Congratulations! You've stumbled upon something special. The Borderland is a participatory festival that takes place in Boesdal quarry in Denmark on July 18-24. It's a fully participatory event where everything is created by the participants themselves, with out any spectators. Read more at <a href='http://www.theborderland.se'><b>theborderland.se</b></a> and as questions in our <a href='https://www.facebook.com/groups/theborderland/'>group</a>"
+  what_is_this_text_html: "Congratulations! You've stumbled upon something special. Borderland is a participatory festival that takes place in Boesdal, Denmark. It's a fully participatory event where everything is created by the participants themselves, with out any spectators."
 
   creation_info_headline: "Details"
+  next_random_dream: "Next random dream"
+  contact_name: "Contact Name"
+  contact_alternative_name: "Contact Name"
+  contact_email: "Contact Email"
+
+  actions_headline: "Actions"
+  save_camp: "Save & Continue"
+  done_camp: "Done"
+
+  # Guide safetybag
+  creation_safetybaginfo_headline: "Safetyfile info (Shown only to you,dreamer)"
+
+  # Granting adming
+  turn_off_granting: "Turn off granting"
+  enable_granting: "Enable Granting"
 
   cocreator_application_guidetext: "If you're interested in helping out with this dream, you can add your email to a list which only the dream creator can see."
   cocreators_list_guidetext: "These people want to co-create with you:"
 
   # Manage images view
-  images_headline: "Lorem ipsum"
-  upload_headline: "Lorem ipsum"
-  upload_guidetext_html: "Lorem ipsum"
+  images_headline: "Dream images"
+  upload_headline: "Upload Image"
+  upload_guidetext_html: "Images must be smaller than 8 mb and be in jpg, png or gif format. To make your Dream look really awesome, make sure your images are in landscape format and larger than 1500x800 pixels."
+  upload_button: "Upload Image"
+  remove_image: "Remove Image"
+  back_to_dream: "Back to dream"
+  error_no_image_selected: "No image selected"
+  
+  # Grants widget
+  fully_funded: "Fully funded"
+  grants_recieved: "Grants Recieved"
+  granting_not_enabled: "Granting disabled"
+  not_funded_yet: "Not funded yet"
+  funded: "Funded"
+  min_funded: "Minimum"
+  max_funded: "Target"
+  minimum_funding_reached: "Minimum funding reached"
+  minimum_grants_needed: "Minimum grants needed"
+  needed_to_fully_fund: "Needed to fully fund"
+
+  minimum_grants_needed: "Minimum grants needed"
+  needed_to_fully_fund: "Needed to fully fund"
+
+  minimum_grants_realcurrency_needed: "Minimum budget needed in NIS"
+  needed_to_fully_fund_realcurrency: "Needed to fully fund in NIS"
+  
+  your_available_grants: "Your available grants"
+  youre_out_of_grants: "You're out of grants"
+
+  add_my_name: "Add my name"
+  added_my_name: "Your name was added"
+  delete_this_creation: "Delete this creation"
+  archive_this_creation: "Archive this creation"
+  delete_are_you_sure: "Are you sure?"
+  are_you_sure: "Are you sure?"
+
+  # Me page
+  your_space: "Your personal space"
+  your_dream:
+    one: "Your dream"
+    other: "Your dreams"
+  youve_donated: "You've donated"
+  coins_name: "Hearts"
+  dreams_you_help_make: "Dreams you made happen"
+
+  # Login page
+  log_in: "Log in"
+  email: "Email"
+  password: "Password"
+  remember_me" : "Remember Me"
+  sign_up: "Sign Up"
+  forgot_password: "Forgot your password?"
+  reset_password_instructions: "Send me reset password"
+  password_characters_minimum: "Minimum %{count} Characters"
+  
+  # Change password
+  change_your_password: "Change your password"
+  change_my_password: "Change my password"
+  new_password: "New password"
+  confirm_new_password: "Confirm new password"
+
+  registration_text: "If you've donated - enter the same phone number you used upon donation."
+  registration_code: "Phone number"
+
+  invalid_membership_code: "Cant find a user with that Email / Phone number. make sure you use the same email and phone you used when made the donation"
+  membership_code_registered: "Membership code is already registered for another user. Perhaps you want to Login"
+
+  thanks_for_sending: "Thanks for sending %{grants} grant(s)"
+
+  # Reset password email
+  reset_pass_hello: "Hello"
+  reset_pass_link_text: "Someone has requested a link to change your password. You can do this through the link below."
+  reset_pass_didnt: "If you didn't request this, please ignore this email."
+  reset_pass_wont_change: "Your password won't change until you access the link above and create a new one."
+
+  cant_send_less_then_one: "One cannot send less then 1 grants"
+  dream_need_to_have_max_budget: "Dream needs to have maximum budget. please contact dreamer or dream guides"
+  security_more_grants: "Security error cannot grant more then available grants. you tried gifting %{granted} grants. you have %{current_user_grants}. nice try."
+  security_cant_delete_dreams_you_dont_own: "One cannot delete dreams he dont own - hacker come join us"
+  security_cant_edit_dreams_you_dont_own: "One cannot delete dreams he dont own - hacker come join us"
+  security_cant_change_images_you_dont_own: "One cannot change image he dont own - hacker come join us"
+
+  # Add me to dream
+  join_dream: "Sweet! You just sent your email adress to the creator."
+  join_errors_login: "You need to be logged in to add your email to the list."
+  join_already_sent: "Nice! You've already sent your email to the creator."
+
+  yes_text: "yes"
+  no_text: "no"
+  or_text: "or"
+
+  activeadmin:
+    recent_updated: "Recently Updated Content"
+
+  # Errors
+  new_dream_is_disabled: "Creating new dreams is disabled at the moment. If you think this is a mistake please contact bureau of dreams"
+
+  errors_str: "Errors"
+
+  activeadmin:
+    recent_updated: "Recently Updated"
+    item: "Dream"
+    modified_at: "Modified at"
+
+  activerecord:
+    models:
+      camp:
+        one: "Dream"
+        other: "Dreams"
+      user:
+        one: "User"
+        other: "Users"
+      admin_user:
+        one: "Admin"
+        other: "Admins"
+      ticket:
+        one: "Ticket"
+        other: "Tickets"
+      grant:
+        one: "Heart"
+        other: "Hearts"
+    attributes:
+      user:
+        email: "Email"
+        password: "Password"
+        password_confirmation: "Password Confirmation"
+        ticket_id: "Phone Number"
+        encrypted_password: "Encrypted Password"
+        admin: "Admin"
+        guide: "Guid"
+        grants: "Hearts"
+        created_at: "Created At"
+        updated_at: "Updated At"
+        remember_me: "Remember Me"
+        blank: "Cannot be empty"
+        invalid: "Invalid"
+      person: &person
+        name: 'Name'
+        email: "Email"
+        phone_number: "Phone"
+        background: "Background"
+        roles: "Roles"
+      people:
+        <<: *person
+
+    errors:
+      models:
+        camp:
+          attributes:
+            name:
+              blank: "Please select a name for your dream"
+            subtitle:
+              blank: "Please enter dream summary"
+            contact_email:
+              blank: "Please enter email"
+              too_short: "Too short - minimum %{count} characters"
+            contact_name:
+              blank: "Please enter contact name"
+            maxbudget_realcurrency:
+              greater_than_or_equal_to: "Maximum budget must be bigger then zero."
+            minbudget_realcurrency:
+              greater_than_or_equal_to: "Minimum budget must be bigger then zero."
+        user:
+          attributes:
+            password:
+              blank: "Please enter password"
+              confirmation: "Passwords does not match"
+              too_short: "Password too short - minimum %{count} characters"
+            password_confirmation:
+              confirmation: "Password does not match"
+            email:
+              blank: "Please enter email"
+              too_short: "Too short - Minimum %{count} characters"
+              taken: "This email is already being used. Please LOGIN instead."
+            reset_password_token:
+              invalid: "This link has expired - Please press on forgot password again to receive a new link"
+
+      messages:
+        record_invalid: 'Auth failed : %{errors}'
+  errors:
+    messages:
+      not_saved: "Not saved"

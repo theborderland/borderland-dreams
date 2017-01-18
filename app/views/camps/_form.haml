@@ -1,132 +1,236 @@
+:javascript
+  // Iterate checkboxes with data-show attributes and show/hide their target divs
+  function toggleScholarship() {
+    $("#dream_scholarship_extension").toggle($(".funding-toggle").is(':checked'));
+  }
+  $(document).ready(function() {
+    $("[data-show]").change((e) => {
+      let target = e.target.attributes['data-show'].value;
+      $(target).fadeToggle();
+    });
 
-= form_for @camp do |form|
+    $("[data-show]").each((i,e) => {
+      let target = e.attributes['data-show'].value;
+      if ($(e).is(':checked')) {
+        $(target).show();
+      }else {
+        $(target).hide();
+      }
+    });
+
+    toggleScholarship();
+
+    // Toggle dream_scholarship_extension only in cases where 2nd checkbox is off
+    $(".funding-toggle").change(toggleScholarship);
+
+  });
+
+- if !Rails.configuration.x.firestarter_settings["disable_edit_safetybag"] or (current_user && (current_user.guide || current_user.admin))
+  :javascript
+    $(function() { $(".hide_show_safetyfile").click(function(){ 
+    if($('.safetybar-info').css('display') === "none") {
+      $('.safetybar-info').fadeIn();
+      }else {
+      $('.safetybar-info').fadeOut();
+      }
+    })});
+- else
+  :javascript
+    $(function() { $(".hide_show_safetyfile").click(function(){ 
+      alert( "עריכת שדות תיק הבטיחות סגור כעת\r\nSafety file is currrently disabled" );
+    })});
+
+= simple_form_for @camp, :html => {:dir => I18n.t(:html_direction), :id => 'camp-form' } do |form|
 
   .header-heading
     = t("form_basics_headline")
 
+  .header-safetybag-description
+    - if Rails.configuration.x.firestarter_settings["safetybag"]
+      = t("form_basics_safety_bag")
+
   .combo#name
     = form.label t("form_dream_name_label")
-    = form.text_field :name, :maxlength => 64
+    = form.text_field :name, :maxlength => 64, :class => "form-control"
     = t("form_dream_name_guidetext_html")
 
   .combo#subtitle
     = form.label t("form_subtitle_label")
-    = form.text_area :subtitle, :maxlength => 255
+    = form.text_area :subtitle, :maxlength => 255, :class => "form-control"
     = t("form_subtitle_guidetext_html")
 
   .combo#contact_name
     = form.label t("form_creator_name_label")
-    = form.text_field :contact_name, :maxlength => 64
+    = form.text_field :contact_name, :maxlength => 64, :class => "form-control"
     = t("form_creator_name_guidetext_html")
 
-  .combo#contact_email
-    = form.label t("form_creator_email_label")
-    = form.text_field :contact_email, :maxlength => 64
-    = t("form_creator_email_guidetext_html")
+  .combo#visability
+    = form.label t("form_dream_visability")
+    = form.radio_button :is_public, true
+    = form.label t("form_dream_visability_yes")
+    = form.radio_button :is_public, false
+    = form.label t("form_dream_visability_no")
+    %br
+    = t("form_dream_visability_guidetext_html")
 
   .combo#contact_phone
-  - if Rails.configuration.x.firestarter_settings["contact_phone"]
-    = form.label t("form_contact_phone_label")
-    = form.text_field :contact_phone, :maxlength => 64
-    = t("form_contact_phone_guidetext_html")
+    - if Rails.configuration.x.firestarter_settings["contact_phone"]
+      = form.label t("form_contact_phone_label")
+      = form.text_field :contact_phone, :maxlength => 64, :class => "form-control"
+      = t("form_contact_phone_guidetext_html")
+
+  %br
+  %br
+
+  #additional_information
+
+    .header-heading
+      = t("form_additional_headline")
+
+    .combo
+      = form.label t("form_about_the_artist_label")
+      = form.text_area :about_the_artist, :maxlength => 1024, :class => "form-control"
+
+    .combo
+      = form.label t("form_dream_website_label")
+      = form.text_field :website, :maxlength => 512, :class => "form-control"
+
+    .combo#description
+      - if Rails.configuration.x.firestarter_settings["description"]
+        = form.label t("form_description_label")
+        = form.text_area :description, :maxlength => 4096, :class => "form-control"
+        = t("form_description_guidetext_html")
+
+
+    .combo#plan
+      - if Rails.configuration.x.firestarter_settings["plan"]
+        = form.label t("form_plan_label")
+        = form.text_area :plan, :maxlength => 1024, :class => "form-control"
+        = t("form_plan_guidetext_html")
+
+
+    .combo#cocreation
+      - if Rails.configuration.x.firestarter_settings["cocreation"]
+        = form.label t("form_cocreation_label")
+        = form.text_area :cocreation, :maxlength => 4096, :class => "form-control"
+        = t("form_cocreation_guidetext_html")
+
+  %br
+  %br
+
+  #practical
+
+    .header-heading
+      = t("form_spec_headline")
+
+    .combo#electricity
+      - if Rails.configuration.x.firestarter_settings["electricity"]
+        = form.label t("form_electricity_label")
+        = form.text_field :electricity, :maxlength => 256, :class => "form-control"
+        = t("form_electricity_guidetext_html")
+
+    .combo#fire
+      - if Rails.configuration.x.firestarter_settings["fire"]
+        = form.label t("form_fire_label")
+        = form.text_area :fire, :maxlength => 512, :class => "form-control"
+        = t("form_fire_guidetext_html")
+
+    .combo#noise
+      - if Rails.configuration.x.firestarter_settings["noise"]
+        = form.label t("form_noise_label")
+        = form.text_field :noise, :maxlength => 256, :class => "form-control"
+        = t("form_noise_guidetext_html")
+
+    .combo#nature
+      - if Rails.configuration.x.firestarter_settings["nature"]
+        = form.label t("form_nature_label")
+        = form.text_area :nature, :maxlength => 512, :class => "form-control"
+        = t("form_nature_guidetext_html")
+
+    .combo#recycling
+      - if Rails.configuration.x.firestarter_settings["recycling"]
+        = form.label t("form_recycling_label")
+        = form.text_area :recycling, :maxlength => 512, :class => "form-control"
+        = t("form_recycling_guidetext_html")
+
+    .combo#light
+      - if Rails.configuration.x.firestarter_settings["light"]
+        = form.label t("form_light_label")
+        = form.text_field :light, :maxlength => 512, :class => "form-control"
+        = t("form_light_guidetext_html")
+
+    .combo#moop
+      - if Rails.configuration.x.firestarter_settings["moop"]
+        = form.label t("form_moop_label")
+        = form.text_area :moop, :maxlength => 1024, :class => "form-control"
+        = t("form_moop_guidetext_html")
+
+    .combo#neighbors
+      - if Rails.configuration.x.firestarter_settings["neighbors"]
+        = form.label t("form_neighbors_label")
+        = form.text_area :neighbors, :maxlength => 4096, :class => "form-control"
+        = t("form_neighbors_guidetext_html")
+
+  %br
+  %br
 
   .header-heading
-  - if Rails.configuration.x.firestarter_settings["additional_info"]
-    = t("form_additional_headline")
-  .combo#additonal
-  - if Rails.configuration.x.firestarter_settings["additional_info"]
-    = t("form_additional_info_text_html")
+    = t("form_dream_scholarship_head")
 
-  .combo#description
-  - if Rails.configuration.x.firestarter_settings["description"]
-    = form.label t("form_description_label")
-    = form.text_area :description, :maxlength => 4096
-    = t("form_description_guidetext_html")
+  #dream_scholarship
 
-  .combo#electricity
-  - if Rails.configuration.x.firestarter_settings["electricity"]
-    = form.label t("form_electricity_label")
-    = form.text_field :electricity, :maxlength => 256
-    = t("form_electricity_guidetext_html")
+    .combo
+      = t("form_dream_scholarship_head_desc_html")
+      %a{ :href => "http://wiki.theborderland.se/Dreams", :target => "_blank"}
+        = t("form_dream_scholarship_head_desc_link")
 
-  .combo#light
-  - if Rails.configuration.x.firestarter_settings["light"]
-    = form.label t("form_light_label")
-    = form.text_field :light, :maxlength => 512
-    = t("form_light_guidetext_html")
+    .combo
+      = form.label t("form_dream_scholarship_fund_is_open_for_public")
+      = form.check_box :dreamscholarship_fund_is_open_for_public, class: 'funding-toggle'
 
-  .combo#fire
-  - if Rails.configuration.x.firestarter_settings["fire"]
-    = form.label t("form_fire_label")
-    = form.text_area :fire, :maxlength => 512
-    = t("form_fire_guidetext_html")
+  #dream_scholarship_extension
 
-  .combo#noise
-  - if Rails.configuration.x.firestarter_settings["noise"]
-    = form.label t("form_noise_label")
-    = form.text_field :noise, :maxlength => 256
-    = t("form_noise_guidetext_html")
+    .combo
+      = form.label t("form_dream_scholarship_budget_min_original")
+      = form.number_field :minbudget_realcurrency, :maxlength => 6 ,class:'form-control'
+      = t("form_dream_scholarship_budget_min_original_desc")
 
-  .combo#nature
-  - if Rails.configuration.x.firestarter_settings["nature"]
-    = form.label t("form_nature_label")
-    = form.text_area :nature, :maxlength => 512
-    = t("form_nature_guidetext_html")
+    .combo
+      = form.label t("form_dream_scholarship_budget_max_original")
+      = form.number_field :maxbudget_realcurrency, :maxlength => 6 ,class:'form-control'
+      = t("form_dream_scholarship_budget_max_original_desc")
 
-  .combo#moop
-  - if Rails.configuration.x.firestarter_settings["moop"]
-    = form.label t("form_moop_label")
-    = form.text_area :moop, :maxlength => 1024
-    = t("form_moop_guidetext_html")
+    .combo
+      = form.label t("form_dream_scholarship_budget")
+      = form.text_area :dreamscholarship_budget_max_original_desc, :max_length => 4096, :class => "form-control"
+      = t("form_dream_scholarship_budget_desc")
 
-  .combo#plan
-  - if Rails.configuration.x.firestarter_settings["plan"]
-    = form.label t("form_plan_label")
-    = form.text_area :plan, :maxlength => 1024
-    = t("form_plan_guidetext_html")
-
-  .combo#cocreation
-  - if Rails.configuration.x.firestarter_settings["cocreation"]
-    = form.label t("form_cocreation_label")
-    = form.text_area :cocreation, :maxlength => 4096
-    = t("form_cocreation_guidetext_html")
-
-  .combo#neighbors
-  - if Rails.configuration.x.firestarter_settings["neighbors"]
-    = form.label t("form_neighbors_label")
-    = form.text_area :neighbors, :maxlength => 4096
-    = t("form_neighbors_guidetext_html")
-
-  - if Rails.configuration.x.firestarter_settings["granting"]
     %br
-    %br
-    .header-heading
-      = t("form_artgrants_headline")
+    .combo
+      = form.label t("form_dream_scholarship_bank_account_info")
+      = form.text_area :dreamscholarship_bank_account_info, :max_length => 128, :class => "form-control"
+      = t("form_dream_scholarship_bank_account_info_guidetext_html")
 
-  .combo#artgrants
-  - if Rails.configuration.x.firestarter_settings["granting"]
-    = t("form_artgrants_text_html")
+    .h3
+      = t("form_dream_scholarship_execution_potential")
 
-  .combo#minbudget
-  - if Rails.configuration.x.firestarter_settings["granting"]
-    = form.label t("form_minigrants_label")
-    = form.number_field :minbudget, :maxlength => 6
-    = t("form_minigrants_guidetext_html")
+    .combo
+      = form.label t("form_dream_scholarship_execution_potential_previous_experience")
+      = form.text_area :dreamscholarship_execution_potential_previous_experience, :max_length => 4096, :class => "form-control"
+      = t("form_dream_scholarship_execution_potential_previous_experience_guidetext_html")
 
-  .combo#maxbudget
-  - if Rails.configuration.x.firestarter_settings["granting"]
-    = form.label t("form_maxigrants_label")
-    = form.number_field :maxbudget, :maxlength => 6
-    = t("form_maxigrants_guidetext_html")
+  %br
+  %br
 
-  .combo#budgetplan
-  - if Rails.configuration.x.firestarter_settings["budgetplan"]
-    = form.label t("form_budgetplan_label")
-    = form.text_area :budgetplan, :maxlength => 4096
-    = t("form_budgetplan_guidetext_html")
+  .header-heading
+    = t("form_project_management")
+  .h3
+    = form.label t("form_project_management_crew")
+  
+  #responsibles
+    = form.fields_for :people do |person|
+      = render 'person_fields', :f => person, :camp_id => @camp.id
+ 
+    .links.col-xs-12
+      = link_to_add_association t('add_a_new_person'), form, :people, render_options: { locals: { camp_id: @camp.id } }, class: 'btn btn-success'
 
-  .submit
-    -if @camp.name
-      = form.submit "Update dream!", class: 'btn btn-success'
-    -else
-      = form.submit "Create dream!", class: 'btn btn-success'

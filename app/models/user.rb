@@ -1,4 +1,7 @@
+require 'concerns/RegistrationValidation'
+
 class User < ActiveRecord::Base
+  include RegistrationValidation  
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -8,6 +11,9 @@ class User < ActiveRecord::Base
   has_many :tickets
   has_many :memberships
   has_many :camps, through: :memberships
+  has_many :created_camps, class_name: :Camp
+
+  schema_validations whitelist: [:id, :created_at, :updated_at, :encrypted_password]
 
   # Again, from Rails Girls tutorial on Facebook auth.
   # Used for handling the facebook auth callback.
@@ -17,19 +23,6 @@ class User < ActiveRecord::Base
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
       #user.name = auth.info.name # We don't persist usernames to the DB.
-    end
-  end
-
-   validate :invite_code_valid, :on => :create
-
-  def invite_code_valid
-    if Rails.configuration.x.firestarter_settings["user_authentication_codes"]
-      unless Ticket.exists?(id_code: self.ticket_id)
-        self.errors.add(:ticket_id, "membership code is not one we recognize, check again?")
-      end
-      if User.exists?(ticket_id: self.ticket_id)
-        self.errors.add(:ticket_id, "membership code is already registered for another user.")
-      end
     end
   end
   

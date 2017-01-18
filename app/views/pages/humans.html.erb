@@ -1,0 +1,51 @@
+<% content_for(:head) do %>
+  <script type="text/javascript" src="//unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="//unpkg.com/flickity@2/dist/flickity.min.css"/>
+  <script>
+    $(document).ready(function(){
+      var $carousel = $('.humans').flickity({
+        cellSelector: 'img',
+        imagesLoaded: true,
+        percentPosition: false,
+        autoPlay: 2000,
+        rightToLeft: true,
+        wrapAround: true
+      });
+
+      var $caption = $('.caption');
+      var flkty = $carousel.data('flickity');
+
+      $carousel.on( 'select.flickity', function() {
+        $caption.text( flkty.selectedElement.alt )
+      });
+
+    });
+  </script>
+<% end %>
+
+<div dir=<%=t :html_direction %>><%=t :humans_credit_html %></div>
+<br>
+
+<div class="humans">
+  <% images = [
+    "gal_bracha.jpg","sivan_katza.jpg", "hugi_asgeirsson.jpg",
+    "kasperhelweg.jpg","anika_har.jpg", "basel_shbita.jpg",
+    "elisha_eshed.jpg", "elad_gariany.jpg", "eyal_rosen.jpg",
+    "halo_lor.jpg", "nir_benita.jpg", "rotem_bonder.jpg",
+    "fredrik_rubensson.png", "jesse_bastide.png", "daniel_deterrence_brooks.jpg",
+    "or_granot.jpg"] %>
+  <% names = [
+    "Gal Bracha", "Sivan Katzenellenbogen", "Hugi Asgeirsson",
+    "Kasper Helweg", "Anika Har", "Basel Shbita",
+    "Elisha Eshed", "Elad Gariany", "Eyal Rosen",
+    "Halo Lor", "Nir Benita", "Rotem Bonder",
+    "Fredrik Rubensson", "Jesse Bastide","Daniel DeTerrence Brooks",
+    "Or Granot"] %>
+  <% random_ppl = (0...images.length).sort_by{rand}[0..images.length] %>
+
+  <% random_ppl.each do |i| %>
+    <%= image_tag("ppl/"+images[i],alt: names[i]) %>
+  <% end %>
+</div>
+
+<p class="caption">&nbsp;</p>

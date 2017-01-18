@@ -1,0 +1,62 @@
+# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
+
+he:
+  devise:
+    confirmations:
+      confirmed: "כתובת האימייל שלך אומתה בצהלחה."
+      send_instructions: "בקרוב תקבל אימייל לאישור ההרשמה."
+      send_paranoid_instructions: "אם האימייל שלך אכן קיים במערכת. בקרוב תקבל אימייל לאישור ההרשמה"
+    failure:
+      already_authenticated: "את כבר מחוברת."
+      inactive: "החשבון טרם הופעל. אנא בדקי את המייל שלך"
+      invalid: "%{authentication_keys} או סיסמא לא תקינים."
+      locked: "החשבון שלך נעול."
+      last_attempt: "יש לך נסיון אחד נוסף לפני שהחשבון ננעל"
+      not_found_in_database: "%{authentication_keys} או סיסמא לא תקינים."
+      timeout: "עבר זמן רב מאז שביצעת פעולה כלשהי. אנא היכנסי מחדש ונסי שנית."
+      unauthenticated: "אנא התחברי או הירשמי בשביל להמשיך"
+      unconfirmed: "אנא היכנסי לאימייל שלך ואשרי אותי לפני שתמשיכי"
+    mailer:
+      confirmation_instructions:
+        subject: "חלומות מידברן - הוראות אימות"
+      reset_password_instructions:
+        subject: "חלומות מידברן - הוראות לאיפוס סיסמא"
+      unlock_instructions:
+        subject: "חלומות מידברן - הוראות ביטול נעילה"
+      password_change:
+        subject: "חלומות מידברן - הסיסמא השתנתה"
+    omniauth_callbacks:
+      failure: "לא ניתן לאשר אותך ב %{kind} בגלל \"%{reason}\"."
+      success: "אושרת בהצלחת דרך חשבון %{kind}."
+    passwords:
+      no_token: "אתה צריך להגיע לכאן דרך אימייל איפוס הסיסמא."
+      send_instructions: "בקרוב תקבלי אימייל עם הוראות על איך לאפס את הסיסמא שלך."
+      send_paranoid_instructions: "If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes."
+      updated: "הסיסמא שלך שונתה בהצלחה. את כעת מחוברת."
+      updated_not_active: "הסיסמא שונתה בהצלחה."
+    registrations:
+      destroyed: "ביי! החשבון שלך בוטל. נפגש בעתיד."
+      signed_up: "ברוכה הבאה! נרשמת בהצלחה."
+      signed_up_but_inactive: "נרשמת בהצלחה. עם זאת, טרם חוברת מאחר והחשבון שלך עדיין לא אומת. אנא אמתי חשבון דרך אימייל."
+      signed_up_but_locked: "You have signed up successfully. However, we could not sign you in because your account is locked."
+      signed_up_but_unconfirmed: "הודעה עם אישור נשלחה לכתובת המייל שלך. עקבי אחר ההוראות להפעלה."
+      update_needs_confirmation: "You updated your account successfully, but we need to verify your new email address. Please check your email and follow the confirm link to confirm your new email address."
+      updated: "החשבון שלך עודכן בהצלחה."
+    sessions:
+      signed_in: "התחברת בהצלחה. ברוכה הבאה"
+      signed_out: "התנתקת בהצלחה."
+      already_signed_out: "התנתקת בהצלחה."
+    unlocks:
+      send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
+      send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."
+      unlocked: "Your account has been unlocked successfully. Please sign in to continue."
+  errors:
+    messages:
+      already_confirmed: "החשבון כבר אושר. אנא נסי להתחבר"
+      confirmation_period_expired: "needs to be confirmed within %{period}, please request a new one"
+      expired: "פג תוקף, אנא בקשי מחדש"
+      not_found: "לא נמצא"
+      not_locked: "לא היה נעול"
+      not_saved:
+        one: "אנא תקני את השגיאה הבאה:"
+        other: "אנא תקני את השגיאות הבאות:"

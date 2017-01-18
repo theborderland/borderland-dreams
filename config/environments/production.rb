@@ -27,6 +27,7 @@ Rails.application.configure do
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
+  config.assets.gzip = true
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.serve_static_assets = false
@@ -79,7 +80,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # needed for urls in mails
-  Rails.application.routes.default_url_options[:host] = 'borderlanddreams.herokuapp.com'
+  Rails.application.routes.default_url_options[:host] = ENV['APP_URL']
 
   # S3 config
   config.paperclip_defaults = {

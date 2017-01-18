@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
-ruby '2.3.0'
+ruby '2.3.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.5'
+gem 'rails', '4.2.7.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -15,10 +15,10 @@ gem 'coffee-rails', '~> 4.1.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+# Jquery ui
+gem 'jquery-ui-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
-# bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 0.4.0', group: :doc
 
 # User management
 gem 'devise'
@@ -36,9 +36,6 @@ gem 'haml'
 
 # Enable Facebook authentication.
 gem 'omniauth-facebook'
-
-# Manage app secrets
-gem 'figaro'
 
 # Admin backend
 gem 'activeadmin', github: 'activeadmin'
@@ -61,11 +58,31 @@ gem 'paperclip'
 gem 'aws-sdk', '< 2'
 gem 'rmagick'
 
+gem 'nokogiri'
+
+gem 'newrelic_rpm'
+
+gem 'cocoon'
+gem 'simple_form'
+gem 'font-awesome-sass'
+gem 'google-api-client'
+gem 'rack-timeout'
+
+gem 'paper_trail'
+
+gem 'schema_validations'
+
 group :production do
   # needed by herokus
   gem 'rails_12factor'
   # postgres
   gem 'pg'
+  # needed by aws
+  gem 'puma'
+end
+
+group :production, :staging do
+  gem 'raygun4ruby'
 end
 
 group :development, :test do
@@ -89,4 +106,13 @@ group :development do
 
   # Use faker to get random test data
   gem 'faker'
+
+  # Awesome print helps us print!
+  gem 'awesome_print'
+
+  # Print a log when i18n lookup fails
+  gem 'i18n-debug'
+
+  # bundle exec rake doc:rails generates the API under doc/api.
+  gem 'sdoc', '~> 0.4.0', group: :doc
 end

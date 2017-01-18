@@ -2,8 +2,16 @@
 // Colors
 //
 
+$c-pinky: #eb1478;
+$c-pinky-darker: #D6136E;
+$c-pinky-darkest: #AB0F58;
+$c-greenish: #A9CBB7;
+$c-brownish: #56494E;
+$c-brownish-darker: #473C40;
 $c-orange: #fba230;
 $c-orange_dark: #f27a22;
+
+$c-donate-color: #364fd1;
 
 $c-red: #a94442;
 
@@ -59,7 +67,7 @@ $font-weight-semibold: 600;
 $font-weight-bold: 700;
 
 %holder {
-  max-width: 960px;
+  max-width: 1120px;
   margin: 0 auto;
   padding: 0 .8em;
 }
@@ -97,6 +105,38 @@ html {
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+@font-face {
+    font-family: 'fb_baznatregular';
+    src: url('fbbaznat-regular-webfont.woff2') format('woff2'),
+         url('fbbaznat-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'fb_baznatbold';
+    src: url('fbbaznat-bold-webfont.woff2') format('woff2'),
+         url('fbbaznat-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'fb_baznatblack';
+    src: url('fbbaznat-black-webfont.woff2') format('woff2'),
+         url('fbbaznat-black-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'fb_baznatlight';
+    src: url('fbbaznat-light-webfont.woff2') format('woff2'),
+         url('fbbaznat-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
 }
 body {
   background: #fff;
@@ -167,4 +207,79 @@ address {
   padding: 10px;
   border: 1px solid rgb(239, 211, 215);
   border-radius: 5px;
+}
+
+.grow { transition: all .2s ease-in-out; }
+.grow:hover { transform: scale(1.05); }
+
+.label-warning {
+  background-color: $c-greenish;
+}
+
+.label-primary {
+  background-color: $c-brownish;
+}
+
+.label-success {
+  background-color: $c-pinky;
+}
+
+.label-info {
+  background-color: $c-brownish;
+}
+
+
+.btn-success {
+  background-color: $c-pinky;
+  border: none;
+
+  &:hover {
+    background-color: $c-pinky-darker !important;
+    border-color: $c-pinky-darker;
+  }
+  &:active {
+    background-color: $c-pinky-darkest !important;
+    border-color: $c-pinky-darker;
+  }
+  &:focus {
+    background-color: $c-pinky-darkest !important;
+    border-color: $c-pinky-darker;
+  }
+}
+
+@media (max-width: 992px) {
+.row {
+    margin-right: 15px;
+    margin-left: 15px;
+  }
+}
+
+// Centering the modal window
+.modal-dialog {
+  margin-top: 0;
+  margin-bottom: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  button.close {
+    width: 12px;
+  }
+}
+
+.modal-body {
+  padding: 21px;
+}
+
+.modal-title {
+  font-weight: bold;
+}
+
+.modal.fade .modal-dialog {
+  transform: translate(0, -100%);
+}
+
+.modal.in .modal-dialog {
+  transform: translate(0, 0);
 }

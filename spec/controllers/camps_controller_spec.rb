@@ -1,5 +1,6 @@
 require 'rails_helper'
 require 'faker'
+I18n.reload!
 
 describe CampsController do  
   describe "camp creation" do
@@ -9,12 +10,13 @@ describe CampsController do
     let(:camp_attributes){
       {
         name: 'Burn something',
+        subtitle: 'Subtitle',
         description: 'We will build something and then burn it',
-        size_of_necessary_space: 'Big enough for a big fire',
-        camp_necessities: 'There sill be need of good ventilation',
-        number_of_members: '2 to build and 3 to burn',
-        noise_level: 'The fire consumes everything',
-        safety_risks: 'Well - it will burn....',
+        electricity: 'Big enough for a big fire',
+        light: 'There sill be need of good ventilation',
+        fire: '2 to build and 3 to burn',
+        noise: 'The fire consumes everything',
+        nature: 'Well - it will burn....',
         contact_email: 'burn@example.com',
         contact_name: camp_leader
       }
@@ -22,7 +24,7 @@ describe CampsController do
 
     let(:email) { Faker::Internet.email }
 
-    let(:user) { User.create! email: email, password: Faker::Internet.password }
+    let(:user) { User.create! email: email, password: Faker::Internet.password, ticket_id: '6687' }
 
     before do
       sign_in user

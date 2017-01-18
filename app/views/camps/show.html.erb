@@ -73,7 +73,8 @@
             <% end %>
             <div class="dream_main_text">
                 <div class="center-dream">
-                    <p><%= @camp.name %></p>
+                    <% @name = (Rails.configuration.x.firestarter_settings['multi_lang_support'] and @camp.en_name.present? and I18n.locale.to_s == 'en')? @camp.en_name : @camp.name %>
+                    <p><%= @name %></p>
                     <p class='dream_main_creator'><%= @camp.contact_name %></p>
 
 
@@ -134,7 +135,9 @@
         <b><%= @camp.event_id %></b>
         <div class="camp-description">
             <b><%=t :form_summary %></b>
-            <p><%= simple_format(@camp.subtitle) %></p>
+            <% @subtitle = (Rails.configuration.x.firestarter_settings['multi_lang_support'] and @camp.en_subtitle.present? and I18n.locale.to_s == 'en')? @camp.en_subtitle : @camp.subtitle %>
+
+            <p><%= simple_format(@subtitle) %></p>
         </div>
 
         <% if Rails.configuration.x.firestarter_settings["description"] and @camp.description.present? %>

@@ -23,6 +23,7 @@ en:
   # Front page
   html_direction: "ltr"
   reverse_direction: "right"
+  lang_direction: "left"
 
   browser_title_tag: "Borderland Dreams"
   # For facebook main page sharing
@@ -65,14 +66,17 @@ en:
   form_summary: "Summary"
   form_basics_headline: "Dream registration"
 
-  form_dream_name_label: "Dream name (required) "
+  form_dream_name_label: "Dream name (required)"
+  form_dream_name_en_label: "Dream name in English (required)"
   form_dream_name_guidetext_html: "What's your dream prototype called?"
+  form_subtitle_en_label: "Summarize your dream in English (required)"
   form_subtitle_label: "Summarize your dream (required)"
   form_subtitle_guidetext_html: "Brief summary of the dream prototype you are applying for that will go on the front page of the dreams site. Keep it short, under 256 characters."
   form_creator_name_label: "Your name (required)"
   form_creator_name_guidetext_html: ""
-  form_loading_text: "Making room for your dream in our magical cloud..."
-  form_loadin_text2: "This usually takes ~8 seconds. Take a mindful breath as we integrate with the drive for you..."
+
+  create_dream_loading_text: "Making room for your dream in our magical cloud..."
+  create_dream_loading_text2: "This usually takes ~8 seconds. Take a mindful breath as we integrate with the drive for you..."
 
   form_dream_visability: "Is it public?"
   form_dream_visability_yes: "Yes, Show it to the world"
@@ -122,7 +126,26 @@ en:
 
   form_project_management: "Project Management"
   form_project_management_crew: "Team Members"
+
+  choose_person: "Choose person"
+  add_a_new_person: "Add a new person"
+  edit_person: "Edit person"
+  remove_responsibility: "Remove responsible"
+  remove_person: "Remove person"
+  form_project_manager_name: "Project Manager name"
+  form_project_manager: "Project manager"
+  project_roles:
+    manager: "Project Manager"
+    vp: "Project Manager Deputy"
+    qa: "Daily Routine Responsible"
+    liquidation: "Teardown Responsible"
+    cfo: "Money Recruiting Manager"
+    construction: "Master Builder"
+    foreman: "Work Manager"
+    pyromaniac: "Fire Manager"
+    designer: "Designer"
   form_project_management_crew_desc: "Add your team"
+
 
   form_program_head: "Program Info"
   form_program_name: "Dream Name"

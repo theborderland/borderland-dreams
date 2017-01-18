@@ -148,6 +148,8 @@ ActiveRecord::Schema.define(version: 20170118145316) do
     t.boolean  "projectmgmt_is_dream_near_theme_camp",                     :default=>false, :null=>false
     t.string   "projectmgmt_dream_pre_construction_site",                  :limit=>4096
     t.string   "event_id",                                                 :limit=>128, :default=>"borderland2017"
+    t.string   "en_name",                                                  :limit=>64
+    t.string   "en_subtitle",                                              :limit=>255
   end
 
   create_table "grants", force: :cascade do |t|

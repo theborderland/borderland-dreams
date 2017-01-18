@@ -6,7 +6,7 @@
 
     <div class="camps_list">
 
-        <% @camps.select { |camp| camp.event_id == "borderland2016" }.each do |camp| %>
+        <% @camps.select { |camp| camp.event_id == Rails.application.config.default_event }.each do |camp| %>
         <div class='col-md-4'>
             <a href="<%= url_for(camp) %>">
 

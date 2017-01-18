@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170114112133) do
+ActiveRecord::Schema.define(version: 20170118145316) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     :index=>{:name=>"index_active_admin_comments_on_namespace"}
@@ -147,6 +147,7 @@ ActiveRecord::Schema.define(version: 20170114112133) do
     t.boolean  "projectmgmt_is_theme_camp_dream",                          :default=>false, :null=>false
     t.boolean  "projectmgmt_is_dream_near_theme_camp",                     :default=>false, :null=>false
     t.string   "projectmgmt_dream_pre_construction_site",                  :limit=>4096
+    t.string   "event_id",                                                 :limit=>128, :default=>"borderland2017"
   end
 
   create_table "grants", force: :cascade do |t|

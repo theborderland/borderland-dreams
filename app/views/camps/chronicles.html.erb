@@ -1,0 +1,42 @@
+<% content_for(:head) do %>
+  <% browser_title = t(:browser_title_tag) %>
+  <title><%= browser_title %></title>
+  <%= javascript_include_tag 'blueimp_script' %> 
+  <meta property="og:title" content="<%= t :browser_title_tag %>" />
+  <meta property="og:description" content="<%= t :main_sharing_description %>" />
+  <meta property="og:image" content="http://dreams.midburnerot.com/assets/coverphoto.png" />
+<% end %>
+
+<div class="top_message" dir=<%=t :html_direction %>>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <%=t :welcome_user_title %>
+    </div>
+    <div class="panel-body">
+      <div class="col-md-8">
+        <%=t :welcome_user_text_html %>
+      </div>
+      <div class="col-md-4">
+        <%= form_for_filterrific @filterrific do |f| %>
+
+        <div>
+          <%=t :search_title %>
+          <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
+          <%= f.text_field(
+            :search_query,
+            class: 'filterrific-periodically-observed form-control'
+          ) %>
+        </div>
+
+        <%= render_filterrific_spinner %>
+
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= render(
+  partial: 'camps/list_chronicles',
+  locals: { camps: @camps }
+) %>

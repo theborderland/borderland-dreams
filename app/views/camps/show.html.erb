@@ -48,9 +48,9 @@
                 <% status = "" %>
                 <% if index == 0 %>
                     <% status = "active" %>
-                    <% @mainImage = image.attachment.url(:large) %>
+                    <% @mainImage = image.attachment.url(:original) %>
                 <% end %>
-                <% image_url = image.attachment.url(:large)%>
+                <% image_url = image.attachment.url(:original)%>
                 <% thumb_url = image.attachment.url(:medium)%>
 
                 <div class="thumbnail">

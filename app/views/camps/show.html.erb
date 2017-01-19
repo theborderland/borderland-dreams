@@ -132,7 +132,6 @@
         <% end %>
 
         <!-- Creation text content -->
-        <b><%= @camp.event_id %></b>
         <div class="camp-description">
             <b><%=t :form_summary %></b>
             <% @subtitle = (Rails.configuration.x.firestarter_settings['multi_lang_support'] and @camp.en_subtitle.present? and I18n.locale.to_s == 'en')? @camp.en_subtitle : @camp.subtitle %>

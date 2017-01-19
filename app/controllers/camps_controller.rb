@@ -20,10 +20,12 @@ class CampsController < ApplicationController
     ) or return
     @camps = @filterrific.find.page(params[:page])
 
-    respond_to do |format|
-      format.html
-      format.js
+    if params[:id] == 'old'
+      render 'chronicles'
+    else
+      render 'current'
     end
+
   end
 
   def new

@@ -1,0 +1,41 @@
+<div id="filterrific_results">
+
+    <%=t :sort_by%>:
+    <%= filterrific_sorting_link(@filterrific, :updated_at) %>
+
+    <div class="camps_list">
+
+        <% @camps.select { |camp| camp.event_id != Rails.application.config.default_event }.each do |camp| %>
+        <div class='col-md-4'>
+            <a href="<%= url_for(camp) %>">
+
+                <div class="panel panel-info">
+                    <div class="panel-body camp-index">
+                        <% if camp.images.any? %>
+                            <%= image_tag(camp.images.first.attachment.url(:square), :class => "grow") %>
+                        <% else %>
+                            <%= image_tag('bsb_placeholder_square.jpg' , :class => "grow") %>
+                        <% end %>
+
+                        <h4 class="name"><%= truncate(camp.name, length: 50) %></h4>
+
+                        <div class="description">
+                            <p><%= truncate(camp.subtitle, length: 256) %></p>
+                        </div>
+
+                        <% if !camp.is_public? %>
+                            <h4 style="color: #eb1478; position: absolute; top:4px; right:20px;"><span class="glyphicon glyphicon-lock" aria-hidden="true"></h4>
+                        <% end %>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <% end %>
+
+    </div>
+
+    <div class="top_message" align="center" dir=<%=t :html_direction %>>
+        <div class="col-xm-12"><%= paginate @camps %></div>
+    </div>
+
+</div>

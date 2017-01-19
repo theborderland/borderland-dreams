@@ -341,6 +341,7 @@ en:
 
   # Errors
   new_dream_is_disabled: "Creating new dreams is disabled at the moment. If you think this is a mistake please contact bureau of dreams"
+  new_user_is_disabled: "Registering is disabled at the moment. If you think this is a mistake please contact bureau of dreams"
 
   errors_str: "Errors"
 

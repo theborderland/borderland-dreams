@@ -1,0 +1,78 @@
+<% content_for(:head) do %>
+  <% browser_title = t(:browser_title_tag) %>
+  <title><%= browser_title %></title>
+  <%= javascript_include_tag 'blueimp_script' %> 
+  <meta property="og:title" content="<%= t :browser_title_tag %>" />
+  <meta property="og:description" content="<%= t :main_sharing_description %>" />
+  <meta property="og:image" content="http://dreams.midburnerot.com/assets/coverphoto.png" />
+<% end %>
+
+<div class="top_message">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <p>Welcome to the house of Dreams...</p>
+    </div>
+    <div class="panel-body">
+      <div class="col-md-12">
+        <p>This is where you'll dream up the awesome shit you'll do at the Borderland. For now, have some tea and get ready... </p>
+        <p>If you're looking for your dreams from 2016, they're <%= link_to "safe and sound here", chronicles_path(id: "old") %>.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- div class="top_message" dir=<%=t :html_direction %>>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <% if user_signed_in? %>
+        <%=t :welcome_user_title %>
+      <% else %>
+        <%=t :welcome_guest_title %>
+      <% end %>
+    </div>
+    <div class="panel-body">
+      <div class="col-md-8">
+        <% if user_signed_in? %>
+          <%=t :welcome_user_text_html %>
+        <% else %>
+          <%=t :welcome_guest_text_html %>
+        <% end %>
+      </div>
+      <div class="col-md-4">
+        <%= form_for_filterrific @filterrific do |f| %>
+
+        <div>
+          <%=t :search_title %>
+          <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
+          <%= f.text_field(
+            :search_query,
+            class: 'filterrific-periodically-observed form-control'
+          ) %>
+        </div>
+
+        <div class="form-inline">
+          <%= f.check_box(:not_fully_funded, class: 'filterrific-periodically-observed checkbox') %>
+          <span><span class="glyphicon glyphicon-heart gi-1-5x" aria-hidden="true"></span>&nbsp&nbsp<%=t :hide_fully_funded %></span>
+        </div>
+
+        <div class="form-inline">
+          <%= f.check_box(:not_min_funded, class: 'filterrific-periodically-observed checkbox') %>
+          <span class="glyphicon glyphicon-heart-empty gi-1-5x" aria-hidden="true"></span><span>&nbsp&nbsp<%=t :hide_minimum_funded %></span>
+        </div>
+
+        <div class="form-inline">
+          <%= f.check_box(:not_seeking_funding, class: 'filterrific-periodically-observed checkbox') %> 
+          <span class="glyphicon glyphicon-eye-close gi-1-5x" aria-hidden="true"></span><span>&nbsp&nbsp <%=t :hide_not_open_for_granting %></span>
+        </div>
+
+        <%= render_filterrific_spinner %>
+
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div -->
+
+<%= render(
+  partial: 'camps/list',
+  locals: { camps: @camps }
+) %>

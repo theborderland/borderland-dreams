@@ -419,6 +419,8 @@ en:
   coins_left: 'Heart available:'
   currency: NIS
   how_can_i_help_title: "How can I help?"
+  how_can_i_help_title_desc_html: In this page you will find all our dreamers current needs. Find a dream you'd like to join, and click 
+  how_can_i_help_page_description: In this page you will find all our dreamers current needs. Find a dream you'd like to join, and click add my name"
   created_new_dream: Yeah! You've created a dream. You can add info to your dream
     now or save and continue adding info in the future
   what_is_this_title: What is this?

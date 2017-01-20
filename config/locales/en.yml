@@ -101,6 +101,10 @@ en:
     foreman: Foreman
     pyromaniac: Fire and flammability supervisor
     designer: Designer
+  form_project_management_is_theme_camp_dream: Does this art installation belong to a theme camp?
+  form_project_management_is_dream_near_theme_camp: Is this art installation planned to be set up in or close to the theme camp?
+  form_project_management_dream_pre_construction_site: Construction site
+  form_project_management_dream_pre_construction_site_guidetext_html: Where will you build your art installation, prior to arriving at the Playa?
   form_description_label: Full description of the concept
   form_description_guidetext_html: Give a full physical and conceptual description,
     including interactivity how it will fit into Midburn community. You've got 4096
@@ -654,6 +658,29 @@ en:
         program_special_activity: Special activities for the programme
         dreamscholarship_financial_conduct_intial_budget_desc: How will you fund the
           building stage?
+        # Lots of aliases are a bad practice. TODO: fix this
+        safety_is_heavy_equipment: :form_is_heavey_equip_needed
+        safety_equipment: :form_safety_equipment_desc
+        safety_how_to_build_safety: :form_safety_how_to_build_safety
+        safety_how: :form_safety_how
+        safety_grounding: :form_safety_grounding
+        safety_securing: :form_safety_securing
+        safety_securing_parts: :form_safety_securing_parts
+        safety_signs: :form_safety_signs
+        location_info: :form_location_info
+        dreamscholarship_fund_is_from_art_fund: :form_dream_scholarship_fund_is_from_art_fund
+        dreamscholarship_fund_is_open_for_public: :form_dream_scholarship_fund_is_open_for_public
+        dreamscholarship_budget_min_original: :form_dream_scholarship_budget_min_original
+        dreamscholarship_budget_max_original: :form_dream_scholarship_budget_max_original
+        dreamscholarship_budget_max_original_desc: :form_dream_scholarship_budget_max_original_desc
+        dreamscholarship_bank_account_info: :form_dream_scholarship_bank_account_info
+        dreamscholarship_financial_conduct_is_intial_budget: :form_dream_scholarship_financial_conduct_is_intial_budget
+        dreamscholarship_financial_conduct_money_raise_desc: :form_dream_scholarship_financial_conduct_money_raise_desc
+        dreamscholarship_execution_potential_previous_experience: :form_dream_scholarship_execution_potential_previous_experience
+        dreamscholarship_execution_potential_work_plan: :form_dream_scholarship_execution_potential_work_plan
+        projectmgmt_is_theme_camp_dream: :form_project_management_is_theme_camp_dream
+        projectmgmt_is_dream_near_theme_camp: :form_project_management_is_dream_near_theme_camp
+        projectmgmt_dream_pre_construction_site: :form_project_management_dream_pre_construction_site
       person:
         name: Name
         email: Email

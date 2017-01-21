@@ -103,6 +103,8 @@ he:
   form_dream_website_label: "אתר אינטרנט/עמוד פייסבוק של הפרויקט"
   form_dream_website_short: "אתר החלום"
 
+  form_dream_point_of_contact_email: "איש הקשר שלכם ממחלקת קשרי אמנים"
+
   form_additional_headline: "מידע נוסף"
   form_additional_info_text_html: "אפשר למלא את זה במועד מאוחר יותר או להשאיר ריק במידה ואין צורך."
 
@@ -351,6 +353,7 @@ he:
   contact_email: "אימייל"
   save_camp: "שמור והמשך"
   done_camp: "סיימתי"
+  update_point_of_contact: "עדכן איש קשר"
 
   actions_headline: "פעולות"
 
@@ -624,6 +627,7 @@ he:
         projectmgmt_is_theme_camp_dream: :form_project_management_is_theme_camp_dream
         projectmgmt_is_dream_near_theme_camp: :form_project_management_is_dream_near_theme_camp
         projectmgmt_dream_pre_construction_site: :form_project_management_dream_pre_construction_site
+        dream_point_of_contact_email: :form_dream_point_of_contact_email
       person: &person
         name: 'שם'
         email: "אימייל"

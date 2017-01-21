@@ -6,6 +6,7 @@ en:
       cancel: Cancel
   html_direction: ltr
   reverse_direction: right
+  lang_direction: left
   browser_title_tag: Midburn Dreams
   main_sharing_description: Midburn dreams is a place where we dream together and
     breathe life into our mad creations. We share resources to make dreams happen.
@@ -58,12 +59,16 @@ en:
   form_creator_alternative_name_guidetext_html: Please enter your birth name. If you
     wish to remain anonymous, you may enter an alias.
   form_summary: Summary
-  form_dream_name_label: 'Dream name (required) '
+  form_dream_name: Dream name
+  form_dream_name_en_label: Dream name in English (required)
+  form_dream_name_label: Dream name (required) 
   form_dream_name_guidetext_html: What's your dream prototype called?
+  form_subtitle_en_label: Summarize your dream in English (required)
   form_subtitle_label: Summarize your dream (required)
   form_subtitle_guidetext_html: Brief summary of the dream prototype you are applying
     for the front page of the dream's site. Keep it short, up to 256 characters.
   form_creator_name_label: Your name (required)
+  form_creator_name_guidetext_html: ""
   form_dream_visability: Public for everyone to see?
   form_dream_visability_yes: Yes, Show it to the world
   form_dream_visability_no: No, Hide it for now

@@ -218,13 +218,13 @@
 
   #electricity_needed
     .combo
-      = form.label t("form_spec_electricity_info")
+      = form.label :spec_electricity_info
       = form.label t("form_spec_electricity_details_label")
       = form.text_area :spec_electricity_details, :maxlength => 4096, :class => "form-control"
       = t("form_spec_electricity_details_guidetext_html")
 
     .combo
-      = form.label t("form_spec_electricity_how_label")
+      = form.label :spec_electricity_how
       = form.text_area :spec_electricity_how, :maxlength => 4096, :class => "form-control"
 
     .combo
@@ -232,7 +232,7 @@
       = form.check_box :spec_electricity_is_daytime
 
     .combo
-      = form.label t("form_spec_electricity_watt_label")
+      = form.label :spec_electricity_watt
       = form.text_area :spec_electricity_watt, :maxlength => 4096, :class => "form-control"
 
   %br
@@ -253,7 +253,7 @@
     = t("form_dream_prop_interactivity")
 
   .combo
-    = form.label t("form_dream_prop_interactivity_audience_participation")
+    = form.label :dreamprop_interactivity_audience_participation
     = form.text_area :dreamprop_interactivity_audience_participation, :max_length => 4096, :class => "form-control"
     = t("form_dream_prop_interactivity_audience_participation_guidetext_html")
 
@@ -263,7 +263,7 @@
 
   #fire_present
     .combo
-      = form.label t("form_dream_prop_interactivity_fire_present_desc")
+      = form.label :dreamprop_interactivity_fire_present_desc
       = form.text_area :dreamprop_interactivity_fire_present_desc, :max_length => 4096, :class => "form-control"
       = t("form_dream_prop_interactivity_fire_present_desc_guidetext_html")
 
@@ -273,7 +273,7 @@
 
   #sound_present
     .combo
-      = form.label t("form_dream_prop_interactivity_sound_desc")
+      = form.label :dreamprop_interactivity_sound_desc
       = form.text_area :dreamprop_interactivity_sound_desc, :max_length => 4096, :class => "form-control"
       = t("form_dream_prop_interactivity_sound_desc_guidetext_html")
 
@@ -283,7 +283,7 @@
 
   #fire_event
     .combo
-      = form.label t("form_dream_prop_interactivity_fire_event_desc")
+      = form.label :dreamprop_interactivity_fire_event_desc
       = form.text_area :dreamprop_interactivity_fire_event_desc, :max_length => 4096 , :class => "form-control"
       = t("form_dream_prop_interactivity_fire_event_desc_guidetext_html")
 
@@ -304,7 +304,7 @@
 
   #community_context
     .combo
-      = form.label t("form_dream_prop_community_context_desc")
+      = form.label :dreamprop_community_context_desc
       = form.text_area :dreamprop_community_context_desc, :max_length => 4096, :class => "form-control"
       = t("form_dream_prop_community_context_desc_guidetext_html")
 
@@ -321,7 +321,7 @@
 
   #theme_annual
     .combo
-      = form.label t("form_dream_prop_theme_annual_desc")
+      = form.label :dreamprop_theme_annual_desc
       = form.text_area :dreamprop_theme_annual_desc, :max_length => 4096, :class => "form-control"
       = t("form_dream_prop_theme_annual_desc_guidetext_html")
 

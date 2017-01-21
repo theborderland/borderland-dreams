@@ -162,56 +162,28 @@ en:
     will lighting play and what will be its added value? Is the use of light a substantial
     part of your installation? What will your artwork look like during day-time? and
     how will it contribute and blend with the playa?'
-  form_spec_electricity_info: 'Any information you may choose to enter in this form
-    could have implications regarding the project''s planning, budget and field deployment.
-    We ask that you fill it in with great care and attention. If you feel that you
-    might not possess the proper knowledge or the required information, please consult
-    a professional prior to submission. Please be advised: Electric connection and
-    wiring during the event will be performed exclusively during night-time. Any further
-    need for additional operation hours and/or power beyond what is supplied by the
-    event''s production will be addressed privately to a professional third party
-    or to the art department''s staff and will entail additional expenses.'
   form_spec_electricity_details_label: Please indicate power requirements
   form_spec_electricity_details_guidetext_html: What objects will require electricity
     in your art installation? Electric systems, computers, lighting, sound, triangle
     toasters etc.
-  form_spec_electricity_how_label: How will the wiring be installed and hooked up
-    to the generators?
-  form_spec_electricity_watt_label: What would be the required electric rate for the
-    art installation? Please insert a Watt measurement. (Mandatory)
-  form_dream_prop_head: Dream Theme
-  form_dream_prop_philosophy: What the philosophy behind the piece/art installation?
-  form_dream_prop_inspiration: What were your insperations  for this project?
-  form_dream_prop_inspiration_guidetext_html: 'For instance: historical, cultural,
-    social etc.'
-  form_dream_prop_interactivity: Interactivity
-  form_dream_prop_interactivity_audience_participation: How does the art installation
-    involve its audience and elicit participation?
   form_dream_prop_interactivity_audience_participation_guidetext_html: At Midburn,
-    the artists are encouraged to break the barriers between the art work and its
-    viewers. Please share with us your vision regarding the level in which one could
-    interact with the installation or influence it - climbing, touching, operating,
-    playing etc. Please feel free to consider movement, performance, events, encounters,
-    occurrences around it etc.
-  form_dream_prop_interactivity_fire_present_desc: Description
+              the artists are encouraged to break the barriers between the art work and its
+              viewers. Please share with us your vision regarding the level in which one could
+              interact with the installation or influence it - climbing, touching, operating,
+              playing etc. Please feel free to consider movement, performance, events, encounters,
+              occurrences around it etc.
   form_dream_prop_interactivity_fire_present_desc_guidetext_html: 'Please be advised:
-    Art installations that involve fire will require personal coordination with the
-    art department staff'
-  form_dream_prop_interactivity_sound_desc: Description
+              Art installations that involve fire will require personal coordination with the
+              art department staff'
   form_dream_prop_interactivity_sound_desc_guidetext_html: What kind of sound, how
-    loud, who, and at what time? (This, so that we can locate you in the optimal place)
-  form_dream_prop_interactivity_fire_event_desc: Description
+                        loud, who, and at what time? (This, so that we can locate you in the optimal place)
   form_dream_prop_interactivity_fire_event_desc_guidetext_html: Please describe the
     motives and the artistic value behind the burning of your installation and the
     manner in which it will take place (the burning of installations will be coordinated
     with the fire department, as it involves certain restrictions. This statement
     does not imply confirmation or an obligation to burn the art installation.
-  form_dream_prop_community: Community
-  form_dream_prop_community_context_desc: Description
   form_dream_prop_community_context_desc_guidetext_html: Cooperation during costruction,
-    shared events with other communities etc.
-  form_dream_prop_theme: Theme
-  form_dream_prop_theme_annual_desc: Description
+              shared events with other communities etc.
   form_dream_prop_theme_annual_desc_guidetext_html: Does the art installation draw its inspiration from the annual "Lucid Dream" theme or supports the ten Burning Man principles?
   form_dream_scholarship_head: Midburn Art Fund scholarship application
   form_dream_scholarship_head_desc: 'If you wish to receive a stipend from Midburn''s
@@ -220,7 +192,15 @@ en:
     for evaluation. Please take into consideration that detail and depth are key to
     the evaluation of your request, we recommend that you take time and complete this
     section with care alongside the other sections. For more information regarding
-    the criteria of the art fund and the scholarship specification, please visit : '
+    the criteria of the art fund and the scholarship specification, please visit: '
+  form_dream_prop_community: Community
+  form_dream_prop_theme: Theme
+  form_dream_prop_head: Dream Theme
+  form_dream_prop_philosophy: What the philosophy behind the piece/art installation?
+  form_dream_prop_inspiration: What were your insperations  for this project?
+  form_dream_prop_inspiration_guidetext_html: 'For instance: historical, cultural,
+    social etc.'
+  form_dream_prop_interactivity: Interactivity
   form_dream_scholarship_head_desc_link: Link
   form_dream_scholarship_fund_is_from_art_fund: Are you interested in submitting a
     scholarship application for your project?
@@ -654,7 +634,7 @@ en:
         spec_visual_night_day: Visual day and night
         spec_is_electricity: Needs electricity
         spec_electricity_details: Details of use of electricity
-        spec_electricity_how: Which kind of electricity    (??)
+        spec_electricity_how: How will electricity be wired
         spec_electricity_is_daytime: Use of electricity during the day
         spec_electricity_watt: The power in Watt
         program_dream_name_he: Name of the installation for the Hebrew programme
@@ -764,8 +744,29 @@ en:
             of the year?
           spec_is_electricity: Will your installation need electricity?
           spec_electricity_is_daytime: Will it need electricity at day time?
+          spec_electricity_watt: What would be the required electric rate for the
+                      art installation? Please insert a Watt measurement. (Mandatory)
           dreamscholarship_financial_conduct_is_intial_budget: Do you have an elementary
             budget for creating your installation?
+          spec_electricity_info: 'Any information you may choose to enter in this form
+              could have implications regarding the project''s planning, budget and field deployment.
+              We ask that you fill it in with great care and attention. If you feel that you
+              might not possess the proper knowledge or the required information, please consult
+              a professional prior to submission. Please be advised: Electric connection and
+              wiring during the event will be performed exclusively during night-time. Any further
+              need for additional operation hours and/or power beyond what is supplied by the
+              event''s production will be addressed privately to a professional third party
+              or to the art department''s staff and will entail additional expenses.'
+          spec_electricity_how: How will the wiring be installed and hooked up to the generators?
+          # TODO: same for HE
+          dreamprop_interactivity_audience_participation: How does the art installation
+            involve its audience and elicit participation?
+          dreamprop_interactivity_fire_present: Description
+          dreamprop_interactivity_sound_desc: Description
+          dreamprop_interactivity_fire_event_desc: Description
+          dreamprop_community_context_desc: Description
+          dreamprop_theme_annual_desc: Description
+
   errors:
     format: "%{attribute} %{message}"
     messages:

@@ -65,9 +65,9 @@ en:
   form_subtitle_guidetext_html: Brief summary of the dream prototype you are applying
     for the front page of the dream's site. Keep it short, up to 256 characters.
   form_creator_name_label: Your name (required)
-  form_creator_name_guidetext_html: ""
-  create_dream_loading_text: "Making room for your dream in our magical cloud..."
-  create_dream_loading_text2: "This usually takes ~8 seconds. Take a mindful breath as we integrate with the drive for you..."
+  form_creator_name_guidetext_html: 
+  create_dream_loading_text: Making room for your dream in our magical cloud...
+  create_dream_loading_text2: This usually takes ~8 seconds. Take a mindful breath as we integrate with the drive for you...
   form_dream_visability: Public for everyone to see?
   form_dream_visability_yes: Yes, Show it to the world
   form_dream_visability_no: No, Hide it for now
@@ -367,7 +367,7 @@ en:
   coins_text: Heart
   coins_left: 'Heart available:'
   currency: NIS
-  how_can_i_help_title: "How can I help?"
+  how_can_i_help_title: How can I help?
   how_can_i_help_title_desc_html: In this page you will find all our dreamers current needs. Find a dream you'd like to join, and click 
   how_can_i_help_page_description: In this page you will find all our dreamers current needs. Find a dream you'd like to join, and click add my name"
   created_new_dream: Yeah! You've created a dream. You can add info to your dream
@@ -415,7 +415,7 @@ en:
   your_available_grants: Your available grants
   youre_out_of_grants: You're out of grants. Hats off!
   add_my_name: Add my name
-  added_my_name: "Your name was added"
+  added_my_name: Your name was added
   delete_this_creation: Delete this creation
   archive_this_creation: Archive this creation
   delete_are_you_sure: Are you sure?
@@ -457,7 +457,7 @@ en:
     hacker come join us
   security_cant_edit_dreams_you_dont_own: One cannot delete dreams he dont own - hacker
     come join us
-  security_cant_change_images_you_dont_own: "One cannot change image he dont own - hacker come join us"
+  security_cant_change_images_you_dont_own: One cannot change image he dont own - hacker come join us
   dream_not_found: The Dream you were looking for doesn't exist. Would you like to
     create a new Dream?
   join_dream: Sweet! You just sent your email adress to the creator.
@@ -468,8 +468,8 @@ en:
   or_text: Or
   versionate:
     latest_version: Latest version
-    created_at: "Created at"
-    modify_at: "Modified at"
+    created_at: Created at
+    modify_at: Modified at
     current_version: Current version
     previous_version: Previous Version
     go_to_current_version: Go to current version

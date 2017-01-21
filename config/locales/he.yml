@@ -72,9 +72,6 @@ he:
   # Creation registration form
   form_basics_headline: "רישום החלום"
 
-  form_creator_alternative_name_label: "אופציונלי - שם בעל החלום"
-  form_creator_alternative_name_guidetext_html: "כאן ניתן לרשום את השם שנולדת איתו. או לחילופין כינוי/אלטר אגו במידה ותרצה לשמור על אנונימיות"
-
   # Dream Description
   form_summary: "תקציר החלום"
   form_dream_name_label: "שם החלום (נדרש)"
@@ -94,9 +91,7 @@ he:
   form_dream_visability_yes: "כן, הצג את החלום בפומבי"
   form_dream_visability_no: "לא, הסתר את החלום לבינתיים"
   form_dream_visability_guidetext_html: "פרוייקטים פומביים יופיעו בעמוד הראשי ויאפשרו לקהילה להחשף לחלום לפני הארוע.<br>בצורה זו תוכלו לבקש מהקהילה עזרה ולייצר שיח סביב היצירה לפני הארוע.<br>פרוייקט לא פומבי, יהיה זמין רק עם קישור ישיר.<br>השדות המופיעים עם התגית <span class='label label-success'>פומבי</span> יוצגו לקהל הרחב כולל תמונות הפרויקט."
-  form_dream_visability_not_public: "פרטי"
 
-  form_creator_email_label: "כתובת מייל (נדרש)"
   form_contact_phone_label: "מספר טלפון (לא יפורסם)"
   form_contact_phone_guidetext_html: "במידה ונצטרך להשיג אותך באופן דחוף."
   form_about_the_artist_label: "על הקבוצה/אמן"
@@ -114,7 +109,6 @@ he:
   edit_person: "ערוך פרטים"
   remove_responsibility: "הסר אחראיות"
   remove_person: "הסר אדם"
-  form_project_manager_name: "שם מנהל הפרויקט"
   form_project_manager: "מנהל הפרויקט"
   project_roles:
     manager: "מנהל הפרויקט"
@@ -207,8 +201,6 @@ he:
   form_dream_scholarship_execution_potential_previous_experience_guidetext_html: "פירוט של ניסיון רלוונטי ועבודות קודמות. אנא הוסיפו קישורים לתיקי עבודות, דפי פייסבוק, אתרי אינטרנט וכדומה..."
   form_dream_scholarship_execution_potential_work_plan: "מהי תכנית העבודה שלכם?"
   form_dream_scholarship_execution_potential_work_plan_guidetext_html: "אנא פרטו לוח זמנים, תכנית עבודה, תכנית הקמה ופירוק הכוללת לוחות זמנים, כוח אדם, תכנית חשל\"ש ואמצעי שינוע למקום האירוע וחזור."
-  form_dream_scholarship_gaunt: "גאנט"
-  form_dream_scholarship_gaunt_desc: "אנא מלאו בקובץ הבא את תכנית העבודה שלכם. שימו לב זה קובץ אישי שלכם והוא נוצר כשיצרתם את חלום."
   form_dream_scholarship_post_desc: "לנוחיותכם שוב לינקים שימושיים:"
   form_dream_scholarship_post_desc_criterions: "קריטריונים"
   form_dream_scholarship_post_desc_faq: "שאלות נפוצות"
@@ -273,9 +265,7 @@ he:
   form_safetybag_work_in_height_label: "עבודה בגובה כן/לא ופרט"
   form_safetybag_work_in_height_guidetext_html: "האם תהיה עבודה בגובה? איזה?"
   form_extra_team_member_head: "חברי צוות"
-  form_extra_team_member_headline: "רשמו כאן את כל חבריי צוות החלום בשמות פרטיים"
   form_extra_team_member_info: "רשמו כאן את חברי הצוות שלכם שעוד לא רשומים לארוע - לצורך הבטחת מקומם. הערה - כרגע יש עד 2 חברי צוות נוספים."
-  form_extra_extra_team_members_info: "אם יש לכם בצוות חברים נוספים שאינם רשומים לאירוע, רשמו אותם (שם+כתובת) ב״הערות נוספות״ תחת תיק הבטיחות. אם יתפנו לנו מקומות נוספים באירוע נרשום גם אותם."
   form_safetybag_first_member_name_label: "שם חבר צוות"
   form_safetybag_first_member_email_label: "אימייל חבר צוות"
   form_safetybag_second_member_name_label: "שם חבר צוות נוסף 2"
@@ -292,23 +282,9 @@ he:
   form_safetybag_daily_routine_guidetext_html: "מי בודק את המיצב ומה הוא עושה?"
   form_safetybag_other_comments_label: "הערות נוספות לתיק הבטיחות"
   form_safetybag_other_comments_guidetext_html: "יש לכם משהו נוסף שתרצו לציין?"
-  form_safetybag_the_form_label: "האם כל חברי הצוות מילאו טופס מתנדבי אמנות לצורכי ביטוח? לחץ עליי"
   form_safetybag_remember_sketch: "אנא וודאו כי בנוסף לתמונה, העלתם שרטוט טכני לחלום - ללא שרטוט טכני לא ניתן יהיה לקבל אישור תיק בטיחות"
 
-  form_artgrants_headline: "מידע על לבבות אמנות"
-  form_artgrants_text_html: "אם אינך מחפש מענק כספי לסיוע הגשמת החלום שלך, השאר את השדות האלה ריקים.<br>מענקים אומנותיים כספיים מעונקים כלבבות על ידי משתתפי מידברן. לכל משתתף שתרם לארוע מידברן יש 10 לבבות לחלק. אפשר להעניק את כל עשרת ההלבבות לפרוייקט אחד או לחלק אותם בין כמה פרוייקטים. ברגע שהוענק לב, לא ניתן לקבלו בחזרה. כרגע אנא הכנס את הכסף בשקלים ואנחנו נמירו ללבבות - כל לב שווה בערך ל-3 שקלים. חשוב לזכור שזה ארוע קטן וככל שנהיה מינימליסטים כך יותר חלומות יוכלו להתגשם."
-
-  form_minigrants_realcurrency_label: "מספר מינימלי של כסף בשקלים הנדרש ליצירת הפרויקט"
-  form_minigrants_realcurrency_guidetext_html: "התקציב המינימלי שאתה צריך כדי להרים את הפרוייקט, שמתחתיו לא תוכל להרימו. חשוב לזכור שזה ארוע קטן - בוא ננסה להיות מדוייקים ברצונות שלנו וכך כולנו נוכל לחלום יחדיו. אנחנו נמיר את זה ללבבות"
-  form_maxigrants_realcurrency_label: "תקציב בשקלים שאתה צריך בכדי לממן את החלום במלואו"
-  form_maxigrants_realcurrency_guidetext_html: "כמה כסף אתה צריך כדי לממן את הפרוייקט במלואו. חשוב לזכור שמדובר בארוע קטן - אנא נסה להיות מדוייק. אנחנו נמיר את זה ללבבות"
-
-  form_minigrants_label: "מספר מינימלי של לבבות שחייבים"
-  form_minigrants_guidetext_html: "התקציב המינימלי שאתה צריך כדי להרים את הפרוייקט, שמתחתיו לא תוכל להרימו"
-  form_maxigrants_label: "לבבוצ שצריכים כדי לממן את החלום במלואו"
-  form_maxigrants_guidetext_html: "כמה לבבות אתה צריך כדי לממן את הפרוייקט במלואו"
   form_budgetplan_label: "סקירת התקציב בש\"ח"
-  form_budgetplan_guidetext_html: "איך תשתמשו בתקציב שלכם? תתארו את העלויות שלכם לפי נושאים כללים של הצרכים שלכם בשקלים. לדוג׳ - הובלה, ציוד לקנייה וכדומה."
   create_dream: "לשלב הבא >>"
   update_dream: "עדכן חלום!"
   edit_dream: "ערוך חלום"

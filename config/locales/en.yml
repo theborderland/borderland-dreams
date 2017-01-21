@@ -55,9 +55,6 @@ en:
   hide_not_open_for_granting: Hide not open for funding
   sort_by: Sort by
   form_basics_headline: Dream registration
-  form_creator_alternative_name_label: Name of dreamer - Optional
-  form_creator_alternative_name_guidetext_html: Please enter your birth name. If you
-    wish to remain anonymous, you may enter an alias.
   form_summary: Summary
   form_dream_name: Dream name
   form_dream_name_en_label: Dream name in English (required)
@@ -74,16 +71,11 @@ en:
   form_dream_visability_no: No, Hide it for now
   form_dream_visability_guidetext_html: Public dreams will be shown on the main page.
     Private dreams will be shown only with a direct link
-  form_dream_visability_not_public: Private
-  form_creator_email_label: Your email (required)
   form_contact_phone_label: Your phone number (won't be published)
   form_contact_phone_guidetext_html: Emergency contact
   form_about_the_artist_label: About the group/Artist
   form_dream_website_label: Web Site / Facebook page
   form_dream_website_short: The dream website
-  form_additional_headline: Additional information
-  form_additional_info_text_html: Can be filled in later, or not at all if it doesn't
-    apply
   form_project_management: Project Management
   form_project_management_crew: Team Members
   form_project_management_crew_desc: Relevant (/your personal) background information
@@ -94,7 +86,6 @@ en:
   edit_person: Edit details
   remove_responsibility: Remove responsibility
   remove_person: Remove person
-  form_project_manager_name: Name of project manager
   form_project_manager: Project manager
   project_roles:
     manager: Project manager
@@ -248,9 +239,6 @@ en:
     us a detail account of your schedule, work plan, deployment and de-construction
     plans including schedules, time estimates, man power, moop management and transportation
     means to and from the event.
-  form_dream_scholarship_gaunt: 'Work plan and schedule on Google Sheet '
-  form_dream_scholarship_gaunt_desc: Please fill in your work plan. Note that this
-    file is a personal one and was created when you created the dream.
   form_dream_scholarship_post_desc: Here are some useful links for your convenience
   form_dream_scholarship_post_desc_criterions: Criteria
   form_dream_scholarship_post_desc_faq: FAQ
@@ -337,12 +325,8 @@ en:
   form_safetybag_work_in_height_label: Work in height - Yes / No, and which?
   form_safetybag_work_in_height_guidetext_html: Will you work in height? if so how?
   form_extra_team_member_head: Extra Team Members
-  form_extra_team_member_headline: Write here your team members private names
   form_extra_team_member_info: Write here your team members that still hasn't registered
     for the event. Note - right now there is up to 2 members per project.
-  form_extra_extra_team_members_info: If there are any extra team members, write them
-    in the Extra comments under the safety file. If there will be more places in the
-    event, we will register them.
   form_safetybag_first_member_name_label: Team member name
   form_safetybag_first_member_email_label: Team member email
   form_safetybag_second_member_name_label: Extra team member 2 name
@@ -363,32 +347,9 @@ en:
     what does it include?
   form_safetybag_other_comments_label: Other commnets for safety file
   form_safetybag_other_comments_guidetext_html: Do you have anything else to say?
-  form_safetybag_the_form_label: Does all your crew members filled the Insurance Art
-    registration form. Click here
   form_safetybag_remember_sketch: Please make sure you've uploaded a Sketch along
     with an image. Without a sketch your safety file won't be approved
-  form_artgrants_headline: Art grant information
-  form_artgrants_text_html: "<p>If you're not looking for an art heart, leave these
-    fields blank.</p><p>Art hearts are given by Midburn community. Each Midburner
-    who donated has 10 art-hearts to hand out. One can give all of the hearts to one
-    project or spread them around. Once a heart has been gifted to a dream, it can't
-    be taken back. Please enter the amount in NIS and we will translate it to the
-    amount in hearts.</p>"
-  form_minigrants_realcurrency_label: Minimum sum of money in NIS needed
-  form_minigrants_realcurrency_guidetext_html: Minimum funding needed to lift the
-    project, below which you won't get funded.
-  form_maxigrants_realcurrency_label: Maximum sum of money in NIS needed to fully
-    fund the dream
-  form_maxigrants_realcurrency_guidetext_html: How much money in NIS do you need to
-    fully fund your project.
-  form_minigrants_label: 'Minimum number of grants needed:'
-  form_minigrants_guidetext_html: Necessary minimum budget level, below which you
-    won't get funded.
-  form_maxigrants_label: 'Grants needed to fully fund dream:'
-  form_maxigrants_guidetext_html: How many grants you need to fully fund your project.
   form_budgetplan_label: Budget overview
-  form_budgetplan_guidetext_html: How will you use your budget? Describe your costs,
-    not too specific, not too vague, perfectly balanced.
   create_dream: Create Dream!
   update_dream: Update Dream!
   edit_dream: Edit Dream
@@ -499,6 +460,7 @@ en:
   join_already_sent: Nice! You've already sent your email to the creator.
   yes_text: Yesss
   no_text: Nope
+  or_text: Or
   activeadmin:
     recent_updated: Recently Updated
     item: Dream

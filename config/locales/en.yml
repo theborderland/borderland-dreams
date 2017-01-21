@@ -55,9 +55,6 @@ en:
   hide_not_open_for_granting: Hide not open for funding
   sort_by: Sort by
   form_basics_headline: Dream registration
-  form_creator_alternative_name_label: Name of dreamer - Optional
-  form_creator_alternative_name_guidetext_html: Please enter your birth name. If you
-    wish to remain anonymous, you may enter an alias.
   form_summary: Summary
   form_dream_name: Dream name
   form_dream_name_en_label: Dream name in English (required)
@@ -68,22 +65,19 @@ en:
   form_subtitle_guidetext_html: Brief summary of the dream prototype you are applying
     for the front page of the dream's site. Keep it short, up to 256 characters.
   form_creator_name_label: Your name (required)
-  form_creator_name_guidetext_html: ""
+  form_creator_name_guidetext_html: 
+  create_dream_loading_text: Making room for your dream in our magical cloud...
+  create_dream_loading_text2: This usually takes ~8 seconds. Take a mindful breath as we integrate with the drive for you...
   form_dream_visability: Public for everyone to see?
   form_dream_visability_yes: Yes, Show it to the world
   form_dream_visability_no: No, Hide it for now
   form_dream_visability_guidetext_html: Public dreams will be shown on the main page.
     Private dreams will be shown only with a direct link
-  form_dream_visability_not_public: Private
-  form_creator_email_label: Your email (required)
   form_contact_phone_label: Your phone number (won't be published)
   form_contact_phone_guidetext_html: Emergency contact
   form_about_the_artist_label: About the group/Artist
   form_dream_website_label: Web Site / Facebook page
   form_dream_website_short: The dream website
-  form_additional_headline: Additional information
-  form_additional_info_text_html: Can be filled in later, or not at all if it doesn't
-    apply
   form_project_management: Project Management
   form_project_management_crew: Team Members
   form_project_management_crew_desc: Relevant (/your personal) background information
@@ -94,7 +88,6 @@ en:
   edit_person: Edit details
   remove_responsibility: Remove responsibility
   remove_person: Remove person
-  form_project_manager_name: Name of project manager
   form_project_manager: Project manager
   project_roles:
     manager: Project manager
@@ -162,56 +155,28 @@ en:
     will lighting play and what will be its added value? Is the use of light a substantial
     part of your installation? What will your artwork look like during day-time? and
     how will it contribute and blend with the playa?'
-  form_spec_electricity_info: 'Any information you may choose to enter in this form
-    could have implications regarding the project''s planning, budget and field deployment.
-    We ask that you fill it in with great care and attention. If you feel that you
-    might not possess the proper knowledge or the required information, please consult
-    a professional prior to submission. Please be advised: Electric connection and
-    wiring during the event will be performed exclusively during night-time. Any further
-    need for additional operation hours and/or power beyond what is supplied by the
-    event''s production will be addressed privately to a professional third party
-    or to the art department''s staff and will entail additional expenses.'
   form_spec_electricity_details_label: Please indicate power requirements
   form_spec_electricity_details_guidetext_html: What objects will require electricity
     in your art installation? Electric systems, computers, lighting, sound, triangle
     toasters etc.
-  form_spec_electricity_how_label: How will the wiring be installed and hooked up
-    to the generators?
-  form_spec_electricity_watt_label: What would be the required electric rate for the
-    art installation? Please insert a Watt measurement. (Mandatory)
-  form_dream_prop_head: Dream Theme
-  form_dream_prop_philosophy: What the philosophy behind the piece/art installation?
-  form_dream_prop_inspiration: What were your insperations  for this project?
-  form_dream_prop_inspiration_guidetext_html: 'For instance: historical, cultural,
-    social etc.'
-  form_dream_prop_interactivity: Interactivity
-  form_dream_prop_interactivity_audience_participation: How does the art installation
-    involve its audience and elicit participation?
   form_dream_prop_interactivity_audience_participation_guidetext_html: At Midburn,
-    the artists are encouraged to break the barriers between the art work and its
-    viewers. Please share with us your vision regarding the level in which one could
-    interact with the installation or influence it - climbing, touching, operating,
-    playing etc. Please feel free to consider movement, performance, events, encounters,
-    occurrences around it etc.
-  form_dream_prop_interactivity_fire_present_desc: Description
+              the artists are encouraged to break the barriers between the art work and its
+              viewers. Please share with us your vision regarding the level in which one could
+              interact with the installation or influence it - climbing, touching, operating,
+              playing etc. Please feel free to consider movement, performance, events, encounters,
+              occurrences around it etc.
   form_dream_prop_interactivity_fire_present_desc_guidetext_html: 'Please be advised:
-    Art installations that involve fire will require personal coordination with the
-    art department staff'
-  form_dream_prop_interactivity_sound_desc: Description
+              Art installations that involve fire will require personal coordination with the
+              art department staff'
   form_dream_prop_interactivity_sound_desc_guidetext_html: What kind of sound, how
-    loud, who, and at what time? (This, so that we can locate you in the optimal place)
-  form_dream_prop_interactivity_fire_event_desc: Description
+                        loud, who, and at what time? (This, so that we can locate you in the optimal place)
   form_dream_prop_interactivity_fire_event_desc_guidetext_html: Please describe the
     motives and the artistic value behind the burning of your installation and the
     manner in which it will take place (the burning of installations will be coordinated
     with the fire department, as it involves certain restrictions. This statement
     does not imply confirmation or an obligation to burn the art installation.
-  form_dream_prop_community: Community
-  form_dream_prop_community_context_desc: Description
   form_dream_prop_community_context_desc_guidetext_html: Cooperation during costruction,
-    shared events with other communities etc.
-  form_dream_prop_theme: Theme
-  form_dream_prop_theme_annual_desc: Description
+              shared events with other communities etc.
   form_dream_prop_theme_annual_desc_guidetext_html: Does the art installation draw its inspiration from the annual "Lucid Dream" theme or supports the ten Burning Man principles?
   form_dream_scholarship_head: Midburn Art Fund scholarship application
   form_dream_scholarship_head_desc: 'If you wish to receive a stipend from Midburn''s
@@ -220,7 +185,15 @@ en:
     for evaluation. Please take into consideration that detail and depth are key to
     the evaluation of your request, we recommend that you take time and complete this
     section with care alongside the other sections. For more information regarding
-    the criteria of the art fund and the scholarship specification, please visit : '
+    the criteria of the art fund and the scholarship specification, please visit: '
+  form_dream_prop_community: Community
+  form_dream_prop_theme: Theme
+  form_dream_prop_head: Dream Theme
+  form_dream_prop_philosophy: What the philosophy behind the piece/art installation?
+  form_dream_prop_inspiration: What were your insperations  for this project?
+  form_dream_prop_inspiration_guidetext_html: 'For instance: historical, cultural,
+    social etc.'
+  form_dream_prop_interactivity: Interactivity
   form_dream_scholarship_head_desc_link: Link
   form_dream_scholarship_fund_is_from_art_fund: Are you interested in submitting a
     scholarship application for your project?
@@ -249,6 +222,7 @@ en:
   form_dream_scholarship_bank_account_info_guidetext_html: Name of account holder/bank
     no./branch/account number
   form_dream_scholarship_financial_conduct: Financial conduct
+  form_dream_scholarship_financial_conduct_is_intial_budget: Has the project bare minimum budget met?
   form_dream_scholarship_financial_conduct_intial_budget_desc: Upon approval, scholarships will be granted only after the art installation has been completed and once it's approved as "in line with scholarship's requirements" (approx. 45 days after the event). How are you planning on financing the construction of your art installation?
   form_dream_scholarship_financial_conduct_money_raise_desc: When and how are funds
     going to be raised?
@@ -268,9 +242,6 @@ en:
     us a detail account of your schedule, work plan, deployment and de-construction
     plans including schedules, time estimates, man power, moop management and transportation
     means to and from the event.
-  form_dream_scholarship_gaunt: 'Work plan and schedule on Google Sheet '
-  form_dream_scholarship_gaunt_desc: Please fill in your work plan. Note that this
-    file is a personal one and was created when you created the dream.
   form_dream_scholarship_post_desc: Here are some useful links for your convenience
   form_dream_scholarship_post_desc_criterions: Criteria
   form_dream_scholarship_post_desc_faq: FAQ
@@ -357,12 +328,8 @@ en:
   form_safetybag_work_in_height_label: Work in height - Yes / No, and which?
   form_safetybag_work_in_height_guidetext_html: Will you work in height? if so how?
   form_extra_team_member_head: Extra Team Members
-  form_extra_team_member_headline: Write here your team members private names
   form_extra_team_member_info: Write here your team members that still hasn't registered
     for the event. Note - right now there is up to 2 members per project.
-  form_extra_extra_team_members_info: If there are any extra team members, write them
-    in the Extra comments under the safety file. If there will be more places in the
-    event, we will register them.
   form_safetybag_first_member_name_label: Team member name
   form_safetybag_first_member_email_label: Team member email
   form_safetybag_second_member_name_label: Extra team member 2 name
@@ -383,32 +350,9 @@ en:
     what does it include?
   form_safetybag_other_comments_label: Other commnets for safety file
   form_safetybag_other_comments_guidetext_html: Do you have anything else to say?
-  form_safetybag_the_form_label: Does all your crew members filled the Insurance Art
-    registration form. Click here
   form_safetybag_remember_sketch: Please make sure you've uploaded a Sketch along
     with an image. Without a sketch your safety file won't be approved
-  form_artgrants_headline: Art grant information
-  form_artgrants_text_html: "<p>If you're not looking for an art heart, leave these
-    fields blank.</p><p>Art hearts are given by Midburn community. Each Midburner
-    who donated has 10 art-hearts to hand out. One can give all of the hearts to one
-    project or spread them around. Once a heart has been gifted to a dream, it can't
-    be taken back. Please enter the amount in NIS and we will translate it to the
-    amount in hearts.</p>"
-  form_minigrants_realcurrency_label: Minimum sum of money in NIS needed
-  form_minigrants_realcurrency_guidetext_html: Minimum funding needed to lift the
-    project, below which you won't get funded.
-  form_maxigrants_realcurrency_label: Maximum sum of money in NIS needed to fully
-    fund the dream
-  form_maxigrants_realcurrency_guidetext_html: How much money in NIS do you need to
-    fully fund your project.
-  form_minigrants_label: 'Minimum number of grants needed:'
-  form_minigrants_guidetext_html: Necessary minimum budget level, below which you
-    won't get funded.
-  form_maxigrants_label: 'Grants needed to fully fund dream:'
-  form_maxigrants_guidetext_html: How many grants you need to fully fund your project.
   form_budgetplan_label: Budget overview
-  form_budgetplan_guidetext_html: How will you use your budget? Describe your costs,
-    not too specific, not too vague, perfectly balanced.
   create_dream: Create Dream!
   update_dream: Update Dream!
   edit_dream: Edit Dream
@@ -423,7 +367,7 @@ en:
   coins_text: Heart
   coins_left: 'Heart available:'
   currency: NIS
-  how_can_i_help_title: "How can I help?"
+  how_can_i_help_title: How can I help?
   how_can_i_help_title_desc_html: In this page you will find all our dreamers current needs. Find a dream you'd like to join, and click 
   how_can_i_help_page_description: In this page you will find all our dreamers current needs. Find a dream you'd like to join, and click add my name"
   created_new_dream: Yeah! You've created a dream. You can add info to your dream
@@ -471,6 +415,7 @@ en:
   your_available_grants: Your available grants
   youre_out_of_grants: You're out of grants. Hats off!
   add_my_name: Add my name
+  added_my_name: Your name was added
   delete_this_creation: Delete this creation
   archive_this_creation: Archive this creation
   delete_are_you_sure: Are you sure?
@@ -512,6 +457,7 @@ en:
     hacker come join us
   security_cant_edit_dreams_you_dont_own: One cannot delete dreams he dont own - hacker
     come join us
+  security_cant_change_images_you_dont_own: One cannot change image he dont own - hacker come join us
   dream_not_found: The Dream you were looking for doesn't exist. Would you like to
     create a new Dream?
   join_dream: Sweet! You just sent your email adress to the creator.
@@ -519,24 +465,21 @@ en:
   join_already_sent: Nice! You've already sent your email to the creator.
   yes_text: Yesss
   no_text: Nope
+  or_text: Or
+  versionate:
+    latest_version: Latest version
+    created_at: Created at
+    modify_at: Modified at
+    current_version: Current version
+    previous_version: Previous Version
+    go_to_current_version: Go to current version
+    no_older_version: No older version found
   activeadmin:
     recent_updated: Recently Updated
     item: Dream
     modified_at: Modified at
   new_dream_is_disabled: Creating new dreams is disabled at the moment. If you think
     this is a mistake please contact bureau of dreams
-  helpers:
-    label:
-      user:
-        email: email
-        password: Password
-        too_short: Too short - at least 8 characters
-        password_confirmation: Confirm Password
-        remember_me: Remember me
-        blank: Can't be left unfilled
-        invalid: Not correct
-      ticket:
-        id_code: Cellphone number - registration code
   time:
     am: am
     formats:
@@ -561,6 +504,12 @@ en:
       grant:
         one: Heart
         other: Hearts
+      comment:
+        one: Comment
+        other: Comments
+      person:
+        one: Person
+        other: People
     attributes:
       user:
         email: Email
@@ -571,7 +520,11 @@ en:
         guide: Instructor
         grants: Hearts
         created_at: Created
-        updated_at: Revised/Updated
+        updated_at: Updated
+        password_confirmation: Confirm Password
+        remember_me: Remember me
+        blank: Can't be left unfilled
+        invalid: Not correct
       admin_user:
         email: Email
         created_at: Created
@@ -654,7 +607,7 @@ en:
         spec_visual_night_day: Visual day and night
         spec_is_electricity: Needs electricity
         spec_electricity_details: Details of use of electricity
-        spec_electricity_how: Which kind of electricity    (??)
+        spec_electricity_how: How will electricity be wired
         spec_electricity_is_daytime: Use of electricity during the day
         spec_electricity_watt: The power in Watt
         program_dream_name_he: Name of the installation for the Hebrew programme
@@ -689,18 +642,14 @@ en:
         projectmgmt_is_theme_camp_dream: :form_project_management_is_theme_camp_dream
         projectmgmt_is_dream_near_theme_camp: :form_project_management_is_dream_near_theme_camp
         projectmgmt_dream_pre_construction_site: :form_project_management_dream_pre_construction_site
-      person:
+      person: &person
         name: Name
         email: Email
         phone_number: Phone
         background: Background
         roles: Responsibilities
-      responsibles/person:
-        name: Name
-        email: Email
-        phone_number: Phone
-        background: Background
-        roles: Responsibilities
+      people:
+        <<: *person
       grant:
         amount: Quantity
         created_at: 'Created '
@@ -764,8 +713,29 @@ en:
             of the year?
           spec_is_electricity: Will your installation need electricity?
           spec_electricity_is_daytime: Will it need electricity at day time?
+          spec_electricity_watt: What would be the required electric rate for the
+                      art installation? Please insert a Watt measurement. (Mandatory)
           dreamscholarship_financial_conduct_is_intial_budget: Do you have an elementary
             budget for creating your installation?
+          spec_electricity_info: 'Any information you may choose to enter in this form
+              could have implications regarding the project''s planning, budget and field deployment.
+              We ask that you fill it in with great care and attention. If you feel that you
+              might not possess the proper knowledge or the required information, please consult
+              a professional prior to submission. Please be advised: Electric connection and
+              wiring during the event will be performed exclusively during night-time. Any further
+              need for additional operation hours and/or power beyond what is supplied by the
+              event''s production will be addressed privately to a professional third party
+              or to the art department''s staff and will entail additional expenses.'
+          spec_electricity_how: How will the wiring be installed and hooked up to the generators?
+          # TODO: same for HE
+          dreamprop_interactivity_audience_participation: How does the art installation
+            involve its audience and elicit participation?
+          dreamprop_interactivity_fire_present: Description
+          dreamprop_interactivity_sound_desc: Description
+          dreamprop_interactivity_fire_event_desc: Description
+          dreamprop_community_context_desc: Description
+          dreamprop_theme_annual_desc: Description
+
   errors:
     format: "%{attribute} %{message}"
     messages:

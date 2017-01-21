@@ -66,6 +66,8 @@ en:
     for the front page of the dream's site. Keep it short, up to 256 characters.
   form_creator_name_label: Your name (required)
   form_creator_name_guidetext_html: ""
+  create_dream_loading_text: "Making room for your dream in our magical cloud..."
+  create_dream_loading_text2: "This usually takes ~8 seconds. Take a mindful breath as we integrate with the drive for you..."
   form_dream_visability: Public for everyone to see?
   form_dream_visability_yes: Yes, Show it to the world
   form_dream_visability_no: No, Hide it for now
@@ -220,6 +222,7 @@ en:
   form_dream_scholarship_bank_account_info_guidetext_html: Name of account holder/bank
     no./branch/account number
   form_dream_scholarship_financial_conduct: Financial conduct
+  form_dream_scholarship_financial_conduct_is_intial_budget: Has the project bare minimum budget met?
   form_dream_scholarship_financial_conduct_intial_budget_desc: Upon approval, scholarships will be granted only after the art installation has been completed and once it's approved as "in line with scholarship's requirements" (approx. 45 days after the event). How are you planning on financing the construction of your art installation?
   form_dream_scholarship_financial_conduct_money_raise_desc: When and how are funds
     going to be raised?
@@ -412,6 +415,7 @@ en:
   your_available_grants: Your available grants
   youre_out_of_grants: You're out of grants. Hats off!
   add_my_name: Add my name
+  added_my_name: "Your name was added"
   delete_this_creation: Delete this creation
   archive_this_creation: Archive this creation
   delete_are_you_sure: Are you sure?
@@ -453,6 +457,7 @@ en:
     hacker come join us
   security_cant_edit_dreams_you_dont_own: One cannot delete dreams he dont own - hacker
     come join us
+  security_cant_change_images_you_dont_own: "One cannot change image he dont own - hacker come join us"
   dream_not_found: The Dream you were looking for doesn't exist. Would you like to
     create a new Dream?
   join_dream: Sweet! You just sent your email adress to the creator.
@@ -461,24 +466,20 @@ en:
   yes_text: Yesss
   no_text: Nope
   or_text: Or
+  versionate:
+    latest_version: Latest version
+    created_at: "Created at"
+    modify_at: "Modified at"
+    current_version: Current version
+    previous_version: Previous Version
+    go_to_current_version: Go to current version
+    no_older_version: No older version found
   activeadmin:
     recent_updated: Recently Updated
     item: Dream
     modified_at: Modified at
   new_dream_is_disabled: Creating new dreams is disabled at the moment. If you think
     this is a mistake please contact bureau of dreams
-  helpers:
-    label:
-      user:
-        email: email
-        password: Password
-        too_short: Too short - at least 8 characters
-        password_confirmation: Confirm Password
-        remember_me: Remember me
-        blank: Can't be left unfilled
-        invalid: Not correct
-      ticket:
-        id_code: Cellphone number - registration code
   time:
     am: am
     formats:
@@ -503,6 +504,12 @@ en:
       grant:
         one: Heart
         other: Hearts
+      comment:
+        one: Comment
+        other: Comments
+      person:
+        one: Person
+        other: People
     attributes:
       user:
         email: Email
@@ -513,7 +520,11 @@ en:
         guide: Instructor
         grants: Hearts
         created_at: Created
-        updated_at: Revised/Updated
+        updated_at: Updated
+        password_confirmation: Confirm Password
+        remember_me: Remember me
+        blank: Can't be left unfilled
+        invalid: Not correct
       admin_user:
         email: Email
         created_at: Created
@@ -631,18 +642,14 @@ en:
         projectmgmt_is_theme_camp_dream: :form_project_management_is_theme_camp_dream
         projectmgmt_is_dream_near_theme_camp: :form_project_management_is_dream_near_theme_camp
         projectmgmt_dream_pre_construction_site: :form_project_management_dream_pre_construction_site
-      person:
+      person: &person
         name: Name
         email: Email
         phone_number: Phone
         background: Background
         roles: Responsibilities
-      responsibles/person:
-        name: Name
-        email: Email
-        phone_number: Phone
-        background: Background
-        roles: Responsibilities
+      people:
+        <<: *person
       grant:
         amount: Quantity
         created_at: 'Created '

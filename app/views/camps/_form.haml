@@ -330,7 +330,15 @@
     = t("form_project_management")
   .h3
     = form.label t("form_project_management_crew")
-  = t("form_project_management_crew_desc")
+  
+  - if Rails.configuration.x.firestarter_settings["crew_size"]
+    .combo.col-xs-7
+      = form.label t("form_safetybag_crewsize_label")
+      = form.text_field :safetybag_crewsize, :maxlength => 5, :class => "form-control"
+      %br
+
+  .col-xs-12
+    = t("form_project_management_crew_desc")
   
   #responsibles
     = form.fields_for :people do |person|
@@ -593,11 +601,6 @@
       = t("form_safetybag_show_hide")
 
     .safetybar-info.hideme
-
-      .combo.safety
-        = form.label t("form_safetybag_crewsize_label")
-        = form.text_field :safetybag_crewsize, :maxlength => 5, :class => "form-control"
-        = t("form_safetybag_crewsize_guidetext_html")
 
       .combo.safety
         = form.label t("form_safetybag_plan_label")

@@ -331,7 +331,7 @@
   .h3
     = form.label t("form_project_management_crew")
   
-  - if Rails.configuration.x.firestarter_settings["crewsize"]
+  - if Rails.configuration.x.firestarter_settings["crew_size"]
     .combo.col-xs-7
       = form.label t("form_safetybag_crewsize_label")
       = form.text_field :safetybag_crewsize, :maxlength => 5, :class => "form-control"

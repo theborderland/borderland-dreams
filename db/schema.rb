@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170115182246) do
+ActiveRecord::Schema.define(version: 20170122213524) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     :index=>{:name=>"index_active_admin_comments_on_namespace"}
@@ -182,9 +182,11 @@ ActiveRecord::Schema.define(version: 20170115182246) do
     t.string   "email"
     t.string   "phone_number"
     t.string   "background"
-    t.datetime "created_at",   :null=>false
-    t.datetime "updated_at",   :null=>false
-    t.integer  "camp_id",      :null=>false, :index=>{:name=>"index_people_on_camp_id"}
+    t.datetime "created_at",          :null=>false
+    t.datetime "updated_at",          :null=>false
+    t.integer  "camp_id",             :null=>false, :index=>{:name=>"index_people_on_camp_id"}
+    t.boolean  "has_ticket"
+    t.boolean  "needs_early_arrival"
   end
 
   create_table "people_roles", force: :cascade do |t|

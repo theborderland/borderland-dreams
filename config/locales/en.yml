@@ -648,6 +648,8 @@ en:
         phone_number: Phone
         background: Background
         roles: Responsibilities
+        needs_early_arrival: "Needs early Arrival"
+        has_ticket: "Has ticket"
       people:
         <<: *person
       grant:

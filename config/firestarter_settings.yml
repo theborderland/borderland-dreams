@@ -24,6 +24,7 @@ defaults: &defaults
   footer_logo: false
   creation_sidebar_welcome: true
   safetybag: false
+  crewsize:  <%= ENV['CREW_SIZE'] or false %>
   multi_lang_support: <%= ENV['MULTI_LANG_SUPPORT'] or false %>
   disable_open_new_dream: <%= ENV['disable_open_new_dream'] or false %>
   disable_edit_safetybag: <%= ENV['disable_edit_safetybag'] or false %>

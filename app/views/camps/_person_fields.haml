@@ -8,6 +8,19 @@
     = f.text_field :phone_number, class: 'form-control'
     = f.label :background
     = f.text_field :background, class: 'form-control'
+    - if Rails.configuration.x.firestarter_settings["person_early_arrival"]
+      .early-arrival
+        = f.label :needs_early_arrival
+        = f.check_box :needs_early_arrival, class: "checkbox"
+        %br
+
+    - if Rails.configuration.x.firestarter_settings["person_has_ticket"]
+      .has-ticket
+        = f.label :has_ticket
+        = f.check_box :has_ticket, class: "checkbox"
+        %br
+        %br
+
     = f.label :roles
     = f.collection_check_boxes(:role_ids, Role.all, :id, :identifier) do |b|
       = b.label { b.check_box + ' ' + t("project_roles." + b.text) }

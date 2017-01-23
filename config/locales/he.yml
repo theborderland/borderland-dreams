@@ -594,6 +594,8 @@ he:
         phone_number: "טלפון"
         background: "רקע"
         roles: "תפקידים"
+        needs_early_arrival: "האם נדרשת הגעה מוקדמת"
+        has_ticket: "האם יש כרטיס"
       people:
         <<: *person
 

@@ -40,6 +40,14 @@
       alert( "עריכת שדות תיק הבטיחות סגור כעת\r\nSafety file is currrently disabled" );
     })});
 
+= content_for :head do
+  javascript_include_tag 'jquery.autogrowtextarea'
+
+:javascript
+  $(function() {
+    $("textarea").autoGrow();
+  });
+
 = simple_form_for @camp, :html => {:dir => I18n.t(:html_direction), :id => 'camp-form' } do |form|
 
   .header-heading

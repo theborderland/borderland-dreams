@@ -78,6 +78,9 @@ en:
   form_about_the_artist_label: About the group/Artist
   form_dream_website_label: Web Site / Facebook page
   form_dream_website_short: The dream website
+  
+  form_dream_point_of_contact_email: Your contact person from Art Department
+
   form_project_management: Project Management
   form_project_management_crew: Team Members
   form_project_management_crew_desc: Relevant (/your personal) background information
@@ -384,6 +387,7 @@ en:
   contact_email: Contact Email
   save_camp: Save and continue
   done_camp: Done
+  update_point_of_contact: Update contact
   actions_headline: Actions
   creation_safetybaginfo_headline: Safetyfile info (Shown only to you,dreamer)
   turn_off_granting: Turn off granting

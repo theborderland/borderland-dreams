@@ -16,7 +16,7 @@
             <% else %>
               <%= link_to "עב", :lang=>'he'%>
             <%end%>
-
+            <%= link_to t("top_headline_faq"), '/pages/faq-'+I18n.locale.to_s %>
             <%= link_to t("how_can_i_help_title"), howcanihelp_path %>
             <% if user_signed_in? and !Rails.application.config.x.firestarter_settings['disable_open_new_dream'] %>
             <%= link_to t("register_creation_menu"), new_camp_path %>

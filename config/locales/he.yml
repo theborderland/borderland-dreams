@@ -415,7 +415,11 @@ he:
   yes_text: "כן"
   no_text: "לא"
   or_text: "או"
-  
+
+  recaptcha:
+    errors:
+      verification_failed: 'נראה שאתה רובוט-ברנר. האימות נכשל. נסה שנית'
+
   versionate:
     latest_version: "גרסה אחרונה"
     created_at: "Created at"

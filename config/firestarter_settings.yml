@@ -33,6 +33,7 @@ defaults: &defaults
   disable_edit_budget: <%= ENV['disable_edit_budget'] or false %>
   google_drive_integration: <%= ENV['GOOGLE_DRIVE_INTEGRATION'] or false %>
   show_point_of_contact: <%= ENV['SHOW_POINT_OF_CONTACT'] or false %>
+  recaptcha: <%= ENV['RECAPTCHA'] or false %>
 
 development:
   <<: *defaults

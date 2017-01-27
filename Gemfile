@@ -72,6 +72,9 @@ gem 'paper_trail'
 
 gem 'schema_validations'
 
+# recaptcha to identify humans - for setup where registration is open for all
+gem 'recaptcha', require: "recaptcha/rails"
+
 group :production do
   # needed by herokus
   gem 'rails_12factor'

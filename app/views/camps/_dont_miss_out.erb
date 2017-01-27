@@ -1,0 +1,10 @@
+<%
+  lockdown_info = Lockdown.new.next(except)
+  if lockdown_info.present?
+      time_left = distance_of_time_in_words(Time.now, lockdown_info[1])
+    action = t("dont_miss_out.actions.#{lockdown_info[0]}")
+%>
+  <p class="notice" style='float: <%=t :reverse_direction %>' dir='<%=t :html_direction %>'>
+    <%= t(:'dont_miss_out.banner', time: time_left, action: action) %>
+  </p>
+<% end %>

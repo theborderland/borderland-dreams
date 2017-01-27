@@ -484,6 +484,11 @@ en:
     modified_at: Modified at
   new_dream_is_disabled: Creating new dreams is disabled at the moment. If you think
     this is a mistake please contact bureau of dreams
+  dont_miss_out:
+    banner: Don't miss out! Only %{time} left to %{action}
+    actions:
+      submit_dream: create a new dream
+      safety_file: submit a safety file
   time:
     am: am
     formats:

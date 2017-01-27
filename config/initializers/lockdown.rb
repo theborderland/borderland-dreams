@@ -10,7 +10,6 @@ class Lockdown
     exceptions.compact!
 
     @conf.select { |k, v|
-      ap k
       v > Time.now and (!exceptions.include?(k))
     }.min_by { |_, v|
       v

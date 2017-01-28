@@ -40,6 +40,7 @@ class Camp < ActiveRecord::Base
       :not_seeking_funding,
       :active,
       :not_hidden,
+      :is_cocreation
     ]
   )
   # Scope definitions. We implement all Filterrific filters through ActiveRecord
@@ -52,18 +53,25 @@ class Camp < ActiveRecord::Base
       # replace "*" with "%" for wildcard searches,
       # append '%', remove duplicate '%'s
       terms = terms.map { |e|
-        (e.gsub('*', '%') + '%').gsub(/%+/, '%')
+        ('%' + e.gsub('*', '%') + '%').gsub(/%+/, '%')
       }
-      # configure number of OR conditions for provision
-      # of interpolation arguments. Adjust this if you
-      # change the number of OR conditions.
-      num_or_conditions = 2
+
+      or_array = [
+        "LOWER(camps.name) LIKE ?",
+        "LOWER(camps.subtitle) LIKE ?",
+        "LOWER(camps.cocreation) LIKE ?",
+      ]
+
+      if Rails.configuration.x.firestarter_settings["multi_lang_support"]
+        or_array.push("LOWER(camps.en_name) LIKE ?",
+          "LOWER(camps.en_subtitle) LIKE ?")
+      end
+
+      num_or_conditions = or_array.length
+
       where(
         terms.map {
-          or_clauses = [
-            "LOWER(camps.name) LIKE ?",
-            "LOWER(camps.subtitle) LIKE ?"
-          ].join(' OR ')
+          or_clauses = or_array.join(' OR ')
           "(#{ or_clauses })"
         }.join(' AND '),
         *terms.map { |e| [e] * num_or_conditions }.flatten
@@ -114,9 +122,14 @@ class Camp < ActiveRecord::Base
     where(is_public: flag)
   }
 
+
   before_save do
     align_budget
   end
+
+  scope :is_cocreation, lambda { |flag|
+    where.not(camps: { cocreation: nil }).where.not(camps: { cocreation: '' })
+  }
 
   def grants_received
     return self.grants.sum(:amount)

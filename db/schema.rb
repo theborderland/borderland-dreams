@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170118145316) do
+ActiveRecord::Schema.define(version: 20170122213524) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     :index=>{:name=>"index_active_admin_comments_on_namespace"}
@@ -150,6 +150,7 @@ ActiveRecord::Schema.define(version: 20170118145316) do
     t.string   "event_id",                                                 :limit=>128, :default=>"borderland2017"
     t.string   "en_name",                                                  :limit=>64
     t.string   "en_subtitle",                                              :limit=>255
+    t.string   "dream_point_of_contact_email",                             :limit=>64
   end
 
   create_table "grants", force: :cascade do |t|
@@ -183,9 +184,11 @@ ActiveRecord::Schema.define(version: 20170118145316) do
     t.string   "email"
     t.string   "phone_number"
     t.string   "background"
-    t.datetime "created_at",   :null=>false
-    t.datetime "updated_at",   :null=>false
-    t.integer  "camp_id",      :null=>false, :index=>{:name=>"index_people_on_camp_id"}
+    t.datetime "created_at",          :null=>false
+    t.datetime "updated_at",          :null=>false
+    t.integer  "camp_id",             :null=>false, :index=>{:name=>"index_people_on_camp_id"}
+    t.boolean  "has_ticket"
+    t.boolean  "needs_early_arrival"
   end
 
   create_table "people_roles", force: :cascade do |t|

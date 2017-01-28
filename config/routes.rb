@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   root 'camps#index'
   
   devise_for :users,
-    :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+    controllers: { 
+      omniauth_callbacks: 'users/omniauth_callbacks',
+      registrations: 'users/registrations' 
+  }
   
   resources :camps, :path => 'dreams' do
     resources :images
@@ -20,6 +23,7 @@ Rails.application.routes.draw do
   get '/chronicles/:id', to: 'camps#index'
   get '/pages/:page' => 'pages#show'
   get '/me' => 'users#me'
+  get '/howcanihelp' => 'howcanihelp#index'
   
   get '*unmatched_route' => 'application#not_found'
 end

@@ -31,7 +31,6 @@ class CampsController < ApplicationController
   end
 
   def edit
-    @camp = Camp.find params[:id]
   end
 
   def create

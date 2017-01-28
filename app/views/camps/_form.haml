@@ -46,7 +46,7 @@
   });
 
 = simple_form_for @camp, :html => {:dir => I18n.t(:html_direction), :id => 'camp-form' } do |form|
-
+  = render 'dont_miss_out', except: 'submit_dream'
   .header-heading
     = t("form_basics_headline")
 

@@ -2,25 +2,23 @@
   <% browser_title = t(:browser_title_tag) %>
   <title><%= browser_title %></title>
   <%= javascript_include_tag 'blueimp_script' %> 
-  <meta property="og:title" content="<%= t :browser_title_tag %>" />
-  <meta property="og:description" content="<%= t :main_sharing_description %>" />
+  <meta property="og:title" content="<%= t :chronicles_welcome_user_title %>" />
+  <meta property="og:description" content="<%= t :chronicles_welcome_user_text_html %>" />
   <meta property="og:image" content="http://dreams.midburnerot.com/assets/coverphoto.png" />
 <% end %>
 
 <div class="top_message" dir=<%=t :html_direction %>>
   <div class="panel panel-default">
     <div class="panel-heading">
-      <%=t :chronicles_welcome_user_title %>
+      <h3><%= t(:chronicles_welcome_user_title) %></h3>
     </div>
     <div class="panel-body">
-      <div class="col-md-8">
-        <%=t :chronicles_welcome_user_text_html %>
-      </div>
-      <div class="col-md-4">
+      <div class="col-md-12">
+      <%= t(:chronicles_welcome_user_text_html) %><br>
+        <b><%=t :search_title %></b>
         <%= form_for_filterrific @filterrific do |f| %>
 
         <div>
-          <%=t :search_title %>
           <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
           <%= f.text_field(
             :search_query,
@@ -37,6 +35,6 @@
 </div>
 
 <%= render(
-  partial: 'camps/list_chronicles',
+  partial: 'chronicles/list',
   locals: { camps: @camps }
 ) %>

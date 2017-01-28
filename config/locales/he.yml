@@ -72,12 +72,10 @@ he:
   # Creation registration form
   form_basics_headline: "רישום החלום"
 
-  form_creator_alternative_name_label: "אופציונלי - שם בעל החלום"
-  form_creator_alternative_name_guidetext_html: "כאן ניתן לרשום את השם שנולדת איתו. או לחילופין כינוי/אלטר אגו במידה ותרצה לשמור על אנונימיות"
-
   # Dream Description
   form_summary: "תקציר החלום"
   form_dream_name_label: "שם החלום (נדרש)"
+  form_dream_name: "שם החלום"
   form_dream_name_guidetext_html: "איך קוראים לחלום שלך?"
   form_dream_name_en_label: "שם החלום באנגלית (נדרש)"
   form_subtitle_label: "סיכום החלום במשפט (נדרש)"
@@ -93,17 +91,14 @@ he:
   form_dream_visability_yes: "כן, הצג את החלום בפומבי"
   form_dream_visability_no: "לא, הסתר את החלום לבינתיים"
   form_dream_visability_guidetext_html: "פרוייקטים פומביים יופיעו בעמוד הראשי ויאפשרו לקהילה להחשף לחלום לפני הארוע.<br>בצורה זו תוכלו לבקש מהקהילה עזרה ולייצר שיח סביב היצירה לפני הארוע.<br>פרוייקט לא פומבי, יהיה זמין רק עם קישור ישיר.<br>השדות המופיעים עם התגית <span class='label label-success'>פומבי</span> יוצגו לקהל הרחב כולל תמונות הפרויקט."
-  form_dream_visability_not_public: "פרטי"
 
-  form_creator_email_label: "כתובת מייל (נדרש)"
   form_contact_phone_label: "מספר טלפון (לא יפורסם)"
   form_contact_phone_guidetext_html: "במידה ונצטרך להשיג אותך באופן דחוף."
   form_about_the_artist_label: "על הקבוצה/אמן"
   form_dream_website_label: "אתר אינטרנט/עמוד פייסבוק של הפרויקט"
   form_dream_website_short: "אתר החלום"
 
-  form_additional_headline: "מידע נוסף"
-  form_additional_info_text_html: "אפשר למלא את זה במועד מאוחר יותר או להשאיר ריק במידה ואין צורך."
+  form_dream_point_of_contact_email: "איש הקשר שלכם ממחלקת קשרי אמנים"
 
   form_project_management: "ניהול הפרויקט"
   form_project_management_crew: "חברי הצוות ובעלי תפקידים"
@@ -113,7 +108,6 @@ he:
   edit_person: "ערוך פרטים"
   remove_responsibility: "הסר אחראיות"
   remove_person: "הסר אדם"
-  form_project_manager_name: "שם מנהל הפרויקט"
   form_project_manager: "מנהל הפרויקט"
   project_roles:
     manager: "מנהל הפרויקט"
@@ -164,30 +158,21 @@ he:
   form_spec_height_label: "גובה"
   form_spec_visual_night_day_label: "כיצד המיצב נראה, איזו נראות יש לו ביום ואיזו בלילה?"
   form_spec_visual_night_day_guidetext_html: "חשוב לציין שיש לתת מחשבה על החוויות השונות של חושך ואור: כיצד המיצב נראה בלילה, איזה מקום ממלאת התאורה ואיזה תוכן היא מוסיפה, האם שימוש באור הוא חלק מהותי מהמיצב? כיצד היצירה נראית במהלך היום, איך היא מוסיפה ומתחברת לנוף הפלאייה?"
-  form_spec_electricity_info: "למידע שתמלאו כאן יכולות להיות השלכות על תכנון הפרויקט, תקציב הפרויקט ופריסת המיצבים בשטח. אנא השתדלו למלא אותו בתשומת לב יתרה. אם אין בידכם את המידע או הידע הדרוש, התייעצו עם איש מקצוע. שימו לב:  בזמן האירוע חיבור לחשמל יבוצע במהלך שעות הלילה בלבד. כל צורך בהרחבה של שעות ההפעלה ו/או הגדלת ההספק שניתן ע\"י ההפקה יתואם פרטנית מול צוות מחלקת אמנות ויהיה כרוך בעלויות נוספות."
   form_spec_electricity_details_label: "פירוט צרכני החשמל"
   form_spec_electricity_details_guidetext_html: "מהם צרכני החשמל במיצב? מערכות אלקטרוניות, מחשוב, תאורה, סאונד, טוסטר משולשים וכד'"
-  form_spec_electricity_how_label: "כיצד יעברו כבלי החשמל ואיך יחוברו למקור המתח?"
-  form_spec_electricity_watt_label: "מה ההספק שהמיצב צורך (יש לציין ערך ב-וואט) (חובה)"
 
   form_dream_prop_head: "אופי היצירה"
   form_dream_prop_philosophy: "מהי הפילוסופיה מאחורי היצירה?"
   form_dream_prop_inspiration: "מהם מקורות ההשראה העומדים ברקע לפרויקט?"
   form_dream_prop_inspiration_guidetext_html: "למשל - היסטוריים, תרבותיים, חברתיים"
   form_dream_prop_interactivity: "אינטראקטיביות"
-  form_dream_prop_interactivity_audience_participation: "כיצד המיצב מערב את הקהל ומזמין השתתפות?"
   form_dream_prop_interactivity_audience_participation_guidetext_html: "האמנות במידברן מעודדת פריצת גבולות בין יצירת אמנות לצופה בה. תנו דעתכם ליכולת של הפרט להשפיע על היצירה - לטפס, לגעת, להפעיל, לשחק וכדומה. ניתן ורצוי להתייחס לתזוזה, פרפורמנס,  אירועים / מפגשים / התרחשות סביב המיצב."
-  form_dream_prop_interactivity_fire_present_desc: "פירוט"
   form_dream_prop_interactivity_fire_present_desc_guidetext_html: "שימו לב מיצבים המערבים שימוש באש ידרשו תיאום פרטני מול צוות מחלקת אמנות."
-  form_dream_prop_interactivity_sound_desc: "פירוט"
   form_dream_prop_interactivity_sound_desc_guidetext_html: "איזה סאונד, איזו עוצמה, על ידי מי ובאילו שעות? (זאת כדי שנוכל למקם אתכם בצורה אופטימלית)"
-  form_dream_prop_interactivity_fire_event_desc: "פירוט"
   form_dream_prop_interactivity_fire_event_desc_guidetext_html: "פרטו את המניעים והערך האמנותי בשריפת המיצב ואת האופן בו זה יבוצע (שריפת מיצבים תתואם מול מחלקת אש ומותנית באילוצים רבים. אין בהצהרה זו אישור או התחייבות לשריפתו של המיצב)"
   form_dream_prop_community: "קהילה"
-  form_dream_prop_community_context_desc: "פירוט"
   form_dream_prop_community_context_desc_guidetext_html: "שיתוף פעולה בזמן הבנייה, אירועים משותפים עם קהילות אחרות וכן הלאה..."
   form_dream_prop_theme: "תמה"
-  form_dream_prop_theme_annual_desc: "פירוט"
   form_dream_prop_theme_annual_desc_guidetext_html: "מהי הפילוסופיה של המיצב? האם המיצב שואב השראה או תומך בתמה השנתית - 'חלום צלול' ו/או עשרת העקרונות?"
 
   form_dream_scholarship_head: "הגשת מלגה לקרן האמנות של מידברן"
@@ -215,8 +200,6 @@ he:
   form_dream_scholarship_execution_potential_previous_experience_guidetext_html: "פירוט של ניסיון רלוונטי ועבודות קודמות. אנא הוסיפו קישורים לתיקי עבודות, דפי פייסבוק, אתרי אינטרנט וכדומה..."
   form_dream_scholarship_execution_potential_work_plan: "מהי תכנית העבודה שלכם?"
   form_dream_scholarship_execution_potential_work_plan_guidetext_html: "אנא פרטו לוח זמנים, תכנית עבודה, תכנית הקמה ופירוק הכוללת לוחות זמנים, כוח אדם, תכנית חשל\"ש ואמצעי שינוע למקום האירוע וחזור."
-  form_dream_scholarship_gaunt: "גאנט"
-  form_dream_scholarship_gaunt_desc: "אנא מלאו בקובץ הבא את תכנית העבודה שלכם. שימו לב זה קובץ אישי שלכם והוא נוצר כשיצרתם את חלום."
   form_dream_scholarship_post_desc: "לנוחיותכם שוב לינקים שימושיים:"
   form_dream_scholarship_post_desc_criterions: "קריטריונים"
   form_dream_scholarship_post_desc_faq: "שאלות נפוצות"
@@ -281,9 +264,7 @@ he:
   form_safetybag_work_in_height_label: "עבודה בגובה כן/לא ופרט"
   form_safetybag_work_in_height_guidetext_html: "האם תהיה עבודה בגובה? איזה?"
   form_extra_team_member_head: "חברי צוות"
-  form_extra_team_member_headline: "רשמו כאן את כל חבריי צוות החלום בשמות פרטיים"
   form_extra_team_member_info: "רשמו כאן את חברי הצוות שלכם שעוד לא רשומים לארוע - לצורך הבטחת מקומם. הערה - כרגע יש עד 2 חברי צוות נוספים."
-  form_extra_extra_team_members_info: "אם יש לכם בצוות חברים נוספים שאינם רשומים לאירוע, רשמו אותם (שם+כתובת) ב״הערות נוספות״ תחת תיק הבטיחות. אם יתפנו לנו מקומות נוספים באירוע נרשום גם אותם."
   form_safetybag_first_member_name_label: "שם חבר צוות"
   form_safetybag_first_member_email_label: "אימייל חבר צוות"
   form_safetybag_second_member_name_label: "שם חבר צוות נוסף 2"
@@ -300,23 +281,9 @@ he:
   form_safetybag_daily_routine_guidetext_html: "מי בודק את המיצב ומה הוא עושה?"
   form_safetybag_other_comments_label: "הערות נוספות לתיק הבטיחות"
   form_safetybag_other_comments_guidetext_html: "יש לכם משהו נוסף שתרצו לציין?"
-  form_safetybag_the_form_label: "האם כל חברי הצוות מילאו טופס מתנדבי אמנות לצורכי ביטוח? לחץ עליי"
   form_safetybag_remember_sketch: "אנא וודאו כי בנוסף לתמונה, העלתם שרטוט טכני לחלום - ללא שרטוט טכני לא ניתן יהיה לקבל אישור תיק בטיחות"
 
-  form_artgrants_headline: "מידע על לבבות אמנות"
-  form_artgrants_text_html: "אם אינך מחפש מענק כספי לסיוע הגשמת החלום שלך, השאר את השדות האלה ריקים.<br>מענקים אומנותיים כספיים מעונקים כלבבות על ידי משתתפי מידברן. לכל משתתף שתרם לארוע מידברן יש 10 לבבות לחלק. אפשר להעניק את כל עשרת ההלבבות לפרוייקט אחד או לחלק אותם בין כמה פרוייקטים. ברגע שהוענק לב, לא ניתן לקבלו בחזרה. כרגע אנא הכנס את הכסף בשקלים ואנחנו נמירו ללבבות - כל לב שווה בערך ל-3 שקלים. חשוב לזכור שזה ארוע קטן וככל שנהיה מינימליסטים כך יותר חלומות יוכלו להתגשם."
-
-  form_minigrants_realcurrency_label: "מספר מינימלי של כסף בשקלים הנדרש ליצירת הפרויקט"
-  form_minigrants_realcurrency_guidetext_html: "התקציב המינימלי שאתה צריך כדי להרים את הפרוייקט, שמתחתיו לא תוכל להרימו. חשוב לזכור שזה ארוע קטן - בוא ננסה להיות מדוייקים ברצונות שלנו וכך כולנו נוכל לחלום יחדיו. אנחנו נמיר את זה ללבבות"
-  form_maxigrants_realcurrency_label: "תקציב בשקלים שאתה צריך בכדי לממן את החלום במלואו"
-  form_maxigrants_realcurrency_guidetext_html: "כמה כסף אתה צריך כדי לממן את הפרוייקט במלואו. חשוב לזכור שמדובר בארוע קטן - אנא נסה להיות מדוייק. אנחנו נמיר את זה ללבבות"
-
-  form_minigrants_label: "מספר מינימלי של לבבות שחייבים"
-  form_minigrants_guidetext_html: "התקציב המינימלי שאתה צריך כדי להרים את הפרוייקט, שמתחתיו לא תוכל להרימו"
-  form_maxigrants_label: "לבבוצ שצריכים כדי לממן את החלום במלואו"
-  form_maxigrants_guidetext_html: "כמה לבבות אתה צריך כדי לממן את הפרוייקט במלואו"
   form_budgetplan_label: "סקירת התקציב בש\"ח"
-  form_budgetplan_guidetext_html: "איך תשתמשו בתקציב שלכם? תתארו את העלויות שלכם לפי נושאים כללים של הצרכים שלכם בשקלים. לדוג׳ - הובלה, ציוד לקנייה וכדומה."
   create_dream: "לשלב הבא >>"
   update_dream: "עדכן חלום!"
   edit_dream: "ערוך חלום"
@@ -333,6 +300,10 @@ he:
 
   currency: "ש\"ח"
 
+  how_can_i_help_title: "איך אני יכול לעזור?"
+  how_can_i_help_title_desc_html: "בדף זה נמצאים במרוכז כל הצרכים של החולמים.<br>מצא חלום שבא לך לעזור להגשים. הכנס לחלום ולחץ על "
+  how_can_i_help_page_description: "בדף זה נמצאים במרוכז כל הצרכים של החולמים. מצא חלום שבא לך לעזור להגשים. הכנס לחלום ולחץ על הצטרפו לחלום"
+
   created_new_dream: "השלב הראשון הושלם! ניתן לעדכן את פרטי החלום כעת וגם ניתן לחזור ולהשלימם עד ה11/2"
 
   # Creation view
@@ -346,6 +317,7 @@ he:
   contact_email: "אימייל"
   save_camp: "שמור והמשך"
   done_camp: "סיימתי"
+  update_point_of_contact: "עדכן איש קשר"
 
   actions_headline: "פעולות"
 
@@ -443,7 +415,25 @@ he:
   yes_text: "כן"
   no_text: "לא"
   or_text: "או"
-  
+
+  recaptcha:
+    errors:
+      verification_failed: 'נראה שאתה רובוט-ברנר. האימות נכשל. נסה שנית'
+
+  dont_miss_out:
+    banner: אל תפספסי! רק %{time} נותרו ל%{action}
+    actions:
+      submit_dream: יצירת חלום
+      safety_file: הגשת תיק בטיחות
+  versionate:
+    latest_version: "גרסה אחרונה"
+    created_at: "Created at"
+    modify_at: "Modified at"
+    current_version: "גרסה נוכחית"
+    previous_version: "גרסה קודמת"
+    go_to_current_version: "קפוץ לגרסה אחרונה"
+    no_older_version: "אין גרסאות ישנות"
+
   activeadmin:
     recent_updated: "תוכן שעודכן לאחרונה"
     item: "חלום"
@@ -477,6 +467,12 @@ he:
       grant:
         one: "לב"
         other: "לבבות"
+      comment:
+        one: "הערה"
+        other: "הערות"
+      person:
+        one: "אדם"
+        other: "אנשים"
     attributes:
       user:
         email: "אימייל"
@@ -604,12 +600,15 @@ he:
         projectmgmt_is_theme_camp_dream: :form_project_management_is_theme_camp_dream
         projectmgmt_is_dream_near_theme_camp: :form_project_management_is_dream_near_theme_camp
         projectmgmt_dream_pre_construction_site: :form_project_management_dream_pre_construction_site
+        dream_point_of_contact_email: :form_dream_point_of_contact_email
       person: &person
         name: 'שם'
         email: "אימייל"
         phone_number: "טלפון"
         background: "רקע"
         roles: "תפקידים"
+        needs_early_arrival: "האם נדרשת הגעה מוקדמת"
+        has_ticket: "האם יש כרטיס"
       people:
         <<: *person
 
@@ -674,6 +673,17 @@ he:
           spec_is_electricity: "האם המיצב דורש חיבור לחשמל?"
           spec_electricity_is_daytime: "האם יש צורך בחיבור לחשמל בשעות היום?"
           dreamscholarship_financial_conduct_is_intial_budget: "האם קיים התקציב הראשוני לקיום הפרויקט?"
+          spec_electricity_watt: "מה ההספק שהמיצב צורך (יש לציין ערך ב-וואט) (חובה)"
+          spec_electricity_info: "למידע שתמלאו כאן יכולות להיות השלכות על תכנון הפרויקט, תקציב הפרויקט ופריסת המיצבים בשטח. אנא השתדלו למלא אותו בתשומת לב יתרה. אם אין בידכם את המידע או הידע הדרוש, התייעצו עם איש מקצוע. שימו לב:  בזמן האירוע חיבור לחשמל יבוצע במהלך שעות הלילה בלבד. כל צורך בהרחבה של שעות ההפעלה ו/או הגדלת ההספק שניתן ע\"י ההפקה יתואם פרטנית מול צוות מחלקת אמנות ויהיה כרוך בעלויות נוספות."
+          spec_electricity_how: "כיצד יעברו כבלי החשמל ואיך יחוברו למקור המתח?"
+          dreamprop_interactivity_audience_participation: "כיצד המיצב מערב את הקהל ומזמין השתתפות?"
+          dreamprop_interactivity_fire_present: "פירוט"
+          dreamprop_interactivity_sound_desc: "פירוט"
+          dreamprop_interactivity_fire_event_desc: "פירוט"
+          dreamprop_community_context_desc: "פירוט"
+          dreamprop_theme_annual_desc: "פירוט"
+
+
   errors:
     format: "%{attribute} %{message}"
     messages:
@@ -699,29 +709,92 @@ he:
       wrong_length: לא באורך הנכון (חייב להיות %{count} תווים)
       not_saved: "לא נשמר"
 
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      accepted: חייב באישור
+      blank: לא יכול להיות ריק
+      confirmation: לא תואם לאישורו
+      empty: לא יכול להיות ריק
+      equal_to: חייב להיות שווה ל- %{count}
+      even: חייב להיות זוגי
+      exclusion: לא זמין
+      greater_than: חייב להיות גדול מ- %{count}
+      greater_than_or_equal_to: חייב להיות גדול או שווה ל- %{count}
+      inclusion: לא נכלל ברשימה
+      invalid: לא תקין
+      less_than: חייב להיות קטן מ- %{count}
+      less_than_or_equal_to: חייב להיות קטן או שווה ל- %{count}
+      not_a_number: חייב להיות מספר
+      not_an_integer: חייב להיות מספר שלם
+      odd: חייב להיות אי זוגי
+      taken: כבר בשימוש
+      too_long: ארוך מדי (יותר מ- %{count} תווים)
+      too_short: קצר מדי (פחות מ- %{count} תווים)
+      wrong_length: לא באורך הנכון (חייב להיות %{count} תווים)
+      not_saved: "לא נשמר"
 
-errors:
-  format: "%{attribute} %{message}"
-  messages:
-    accepted: חייב באישור
-    blank: לא יכול להיות ריק
-    confirmation: לא תואם לאישורו
-    empty: לא יכול להיות ריק
-    equal_to: חייב להיות שווה ל- %{count}
-    even: חייב להיות זוגי
-    exclusion: לא זמין
-    greater_than: חייב להיות גדול מ- %{count}
-    greater_than_or_equal_to: חייב להיות גדול או שווה ל- %{count}
-    inclusion: לא נכלל ברשימה
-    invalid: לא תקין
-    less_than: חייב להיות קטן מ- %{count}
-    less_than_or_equal_to: חייב להיות קטן או שווה ל- %{count}
-    not_a_number: חייב להיות מספר
-    not_an_integer: חייב להיות מספר שלם
-    odd: חייב להיות אי זוגי
-    taken: כבר בשימוש
-    too_long: ארוך מדי (יותר מ- %{count} תווים)
-    too_short: קצר מדי (פחות מ- %{count} תווים)
-    wrong_length: לא באורך הנכון (חייב להיות %{count} תווים)
-    not_saved: "לא נשמר"
-
+  datetime:
+    dotiw:
+      seconds:
+        one: שניה
+        other: "%{count} שניות"
+      minutes:
+        one: דקה
+        other: "%{count} דקות"
+      hours:
+        one: שעה
+        other: "%{count} שעות"
+      days:
+        one: יום
+        other: "%{count} ימים"
+      weeks:
+        one: שבוע
+        other: "%{count} שבועות"
+      months:
+        one: חודש
+        other: "%{count} חודשים"
+      years:
+        one: שנה
+        other: "%{count} שנים"
+      less_than_x: "פחות מ%{distance}"
+      words_connector: ", "
+      last_word_connector: " ו-"
+      two_words_connector: " ו-"
+    distance_in_words:
+      about_x_hours:
+        one: בערך שעה אחת
+        other: בערך %{count} שעות
+      about_x_months:
+        one: בערך חודש אחד
+        other: בערך %{count} חודשים
+      about_x_years:
+        one: בערך שנה אחת
+        other: בערך %{count} שנים
+      almost_x_years:
+        one: כמעט שנה
+        other: כמעט %{count} שנים
+      half_a_minute: חצי דקה
+      less_than_x_minutes:
+        one: פחות מדקה אחת
+        other: פחות מ- %{count} דקות
+        zero: פחות מדקה אחת
+      less_than_x_seconds:
+        one: פחות משניה אחת
+        other: פחות מ- %{count} שניות
+        zero: פחות משניה אחת
+      over_x_years:
+        one: מעל שנה אחת
+        other: מעל %{count} שנים
+      x_days:
+        one: יום אחד
+        other: "%{count} ימים"
+      x_minutes:
+        one: דקה אחת
+        other: "%{count} דקות"
+      x_months:
+        one: חודש אחד
+        other: "%{count} חודשים"
+      x_seconds:
+        one: שניה אחת
+        other: "%{count} שניות"

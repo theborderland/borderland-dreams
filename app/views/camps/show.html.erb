@@ -133,7 +133,7 @@
 
     <% if current_user && @camp.creator == current_user %>
         <%= render 'camps/dont_miss_out', except: nil %>
-      <% end %>
+    <% end %>
 
     <!-- Creation text content -->
         <div class="camp-description">
@@ -328,7 +328,11 @@
                       <% end %>
 
                       <br>
-                      <%= t("activerecord.models.user.one") %> <%= @camp.creator.email %>
+
+                    <% if current_user&.guide || current_user&.admin %>
+                        <b><%= t("form_project_manager") %></b>: <%= @camp.creator.email %>
+                    <% end %>
+
                     <% end %>
 
                     <% if Rails.configuration.x.firestarter_settings["add_to_list"] %>
@@ -359,9 +363,9 @@
                         <span class='label label-default'><%= t("project_roles." + role.identifier) %></span>
                       <% end %>
                       <br>
-                      <%= person.name %>
-                      <%= person.email %>
-                      <%= person.phone_number %>
+                      <b>Name:</b> <%= person.name %> <br>
+                      <b>Email:</b> <%= person.email %> <br>
+                      <b>Phone:</b> <%= person.phone_number %>
                       <br>
                     </li>
                   <% end %>

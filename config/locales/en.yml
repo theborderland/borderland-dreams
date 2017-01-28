@@ -37,6 +37,7 @@ en:
 
   creations_menu: "Dreams"
   register_creation_menu: "Create Dream"
+  chronicles_menu: "Old Dreams"
   login_menu: "Log in"
   register_menu: "Register"
   private_area: "Private area >"
@@ -49,12 +50,15 @@ en:
   welcome_guest_text_html: "Congratulations! You've stumbled upon something special! <b>Borderland</b> is some awesome fucking shit. We dream together and breathe life into our mad and wonderous creations. Dreams need matter to come to life, and this is where we share resources to make that happen."
   welcome_user_title: "Welcome to your Dreams!"
   welcome_user_text_html: "Borderland Dreams is a directory of our collective imagination. We dream together and breathe life into our mad and wonderous creations. Dreams need matter to come to life, and this is where we share resources to make that happen. Have a look around or create a dream of your own!"
-  chronicles_welcome_user_title: "Welcome to the Chronicle of Dreams from 2016!"
-  chronicles_welcome_user_text_html: "Welcome to the Chronicle of Dreams. Borderland Dreams is a directory of our collective imagination. Here you'll find an imaginarium of creations dreamt up by ancient Borderlings, anno 2016."
   header_faq_link: "Did you already read our FAQ page?"
   footer_left_html: "Borderland is a participatory community where we co-create events and gatherings as prototypes for our dreams. It is an empty container, open to your initiative. It is an invitation to play, to reflect, and to engage."
   footer_right_html: "In July 2017, Borderland community will gather in Boesdal, Denmark. It is a festival, where all the organization and all creative content is created by the participants. The event is for co-creators only, and not open to spectators."
   footer_html: "This platform was originally written by Borderlings and Midburners. Dreams is <a href='https://github.com/midburn/dreams'>open source</a> and served with <span>❤</span> by the <a href='http://dreams.theborderland.se/pages/humans'>Humans who made the system</a>."
+
+  chronicles_title: "Old Dreams ..."
+  chronicles_welcome_user_title: "Welcome to the Chronicle of Dreams from 2016!"
+  chronicles_welcome_user_text_html: "Welcome to the Chronicle of Dreams. Borderland Dreams is a directory of our collective imagination. Here you'll find an imaginarium of creations dreamt up by ancient Borderlings, anno 2016."
+
   
   errors: "Errors"
 
@@ -238,10 +242,14 @@ en:
   donate_title: "Oh Wow! this thing you are about to do..."
   donate_content: "There are many ways to help a dream come true, yet here you are invited to divide your Hearts donation and give it to this dream."
   donate_text: "Donate"
-  coins_text: "Heart"
-  coins_left: "Heart available:"
+  coins_text: "Coins"
+  coins_left: "Coins available:"
 
   currency: "DKK"
+
+  how_can_i_help_title: How can I help?
+  how_can_i_help_title_desc_html: "In this page you will find all our dreamers current needs. Find a dream you'd like to join, and click add my name."
+  how_can_i_help_page_description: "In this page you will find all our dreamers current needs. Find a dream you'd like to join, and click add my name."
 
   created_new_dream: "Yeah! You've created a dream. You can add info to your dream now or save and continue adding info in the future"
 
@@ -357,9 +365,35 @@ en:
   join_errors_login: "You need to be logged in to add your email to the list."
   join_already_sent: "Nice! You've already sent your email to the creator."
 
-  yes_text: "yes"
-  no_text: "no"
-  or_text: "or"
+  yes_text: Yesss
+  no_text: Nope
+  or_text: Or
+  versionate:
+    latest_version: Latest version
+    created_at: Created at
+    modify_at: Modified at
+    current_version: Current version
+    previous_version: Previous Version
+    go_to_current_version: Go to current version
+    no_older_version: No older version found
+  activeadmin:
+    recent_updated: Recently Updated
+    item: Dream
+    modified_at: Modified at
+  new_dream_is_disabled: Creating new dreams is disabled at the moment. If you think this is a mistake please contact bureau of dreams"
+  dont_miss_out:
+    banner: Don't miss out! Only %{time} left to %{action}
+    actions:
+      enter_granting: get your dream ready for granting
+      give_grants: give out some sweet sweet grants
+      safety_file: submit a safety file
+  time:
+    am: am
+    formats:
+      default: "%a %d %b %H:%M:%S %Z %Y"
+      long: "%a %d %b %Y %H:%M"
+      short: "%d %b %H:%M"
+    pm: pm
 
   activeadmin:
     recent_updated: "Recently Updated Content"

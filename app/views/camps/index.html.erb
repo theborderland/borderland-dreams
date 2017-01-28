@@ -10,17 +10,17 @@
 <div class="top_message">
   <div class="panel panel-default">
     <div class="panel-heading">
-      <p>Welcome the house of Dreams...</p>
+      <p>Welcome to the house of Dreams...</p>
     </div>
     <div class="panel-body">
       <div class="col-md-12">
-        <p>This is where you'll dream up the awesome shit you'll do at the Borderland. For now, have some tea and get ready... If you're looking for your dreams from 2016, they're safe and sound in the archive and you'll be able to access them again soon for inspiration. Dreamers will still have access to edit, update or remove dreams from 2016.</p>
+        <p>This is where you'll dream up the awesome shit you'll do at the Borderland. For now, have some tea and get ready... </p>
+        <p>If you're looking for your dreams from 2016, they're <%= link_to "safe and sound here", chronicles_path(id: "old") %>.</p>
       </div>
     </div>
   </div>
 </div>
-
-<!-- div class="top_message" dir=<%=t :html_direction %>>
+<div class="top_message" dir=<%=t :html_direction %>>
   <div class="panel panel-default">
     <div class="panel-heading">
       <% if user_signed_in? %>
@@ -70,7 +70,7 @@
       </div>
     </div>
   </div>
-</div -->
+</div>
 
 <%= render(
   partial: 'camps/list',

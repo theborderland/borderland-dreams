@@ -40,8 +40,10 @@
     </div>
     <br>
     
-    <%= flash[:recaptcha_error] %>
-    <%= recaptcha_tags hl:I18n.locale%>
+    <% if Rails.application.config.x.firestarter_settings['recaptcha'] %>
+      <%= flash[:recaptcha_error] %>
+      <%= recaptcha_tags hl:I18n.locale%>
+    <% end %>
 
       <div class="actions">
         <%= f.submit t(:sign_up), class: "btn btn-success" %>

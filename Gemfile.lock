@@ -102,6 +102,9 @@ GEM
     dotenv-rails (2.1.1)
       dotenv (= 2.1.1)
       railties (>= 4.0, < 5.1)
+    dotiw (3.1.1)
+      actionpack (>= 3)
+      i18n
     draper (2.1.0)
       actionpack (>= 3.0)
       activemodel (>= 3.0)
@@ -382,6 +385,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   devise
   dotenv-rails
+  dotiw
   draper
   faker
   filterrific

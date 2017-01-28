@@ -735,6 +735,32 @@ he:
       not_saved: "לא נשמר"
 
   datetime:
+    dotiw:
+      seconds:
+        one: שניה
+        other: "%{count} שניות"
+      minutes:
+        one: דקה
+        other: "%{count} דקות"
+      hours:
+        one: שעה
+        other: "%{count} שעות"
+      days:
+        one: יום
+        other: "%{count} ימים"
+      weeks:
+        one: שבוע
+        other: "%{count} שבועות"
+      months:
+        one: חודש
+        other: "%{count} חודשים"
+      years:
+        one: שנה
+        other: "%{count} שנים"
+      less_than_x: "פחות מ%{distance}"
+      words_connector: ", "
+      last_word_connector: " ו-"
+      two_words_connector: " ו-"
     distance_in_words:
       about_x_hours:
         one: בערך שעה אחת

@@ -102,6 +102,9 @@ GEM
     dotenv-rails (2.1.1)
       dotenv (= 2.1.1)
       railties (>= 4.0, < 5.1)
+    dotiw (3.1.1)
+      actionpack (>= 3)
+      i18n
     draper (2.1.0)
       actionpack (>= 3.0)
       activemodel (>= 3.0)
@@ -277,6 +280,8 @@ GEM
       rack
     rdoc (4.2.1)
       json (~> 1.4)
+    recaptcha (4.0.1)
+      json
     representable (2.3.0)
       uber (~> 0.0.7)
     request_store (1.3.0)
@@ -380,6 +385,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   devise
   dotenv-rails
+  dotiw
   draper
   faker
   filterrific
@@ -404,6 +410,7 @@ DEPENDENCIES
   rails (= 4.2.7.1)
   rails_12factor
   raygun4ruby
+  recaptcha
   rmagick
   rspec-rails
   sass-rails (~> 5.0)

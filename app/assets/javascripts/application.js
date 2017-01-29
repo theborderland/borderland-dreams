@@ -39,7 +39,7 @@ $(function() {
 		$('.loading-new-dream').fadeIn();
 		setInterval(function(){
 			$('.loading-new-dream').fadeOut('fast', function() {
-				$(this).text("It usually takes 8 seconds. Take a deep breath while we're making the Playa for you. Creating a folder in the cloud and syncing...").fadeIn('fast'); 
+				$(this).text("זה לרוב לוקח כ-8 שניות. קח נשימה עמוקה בזמן שאנחנו מכינים את הפלאייה עבורך. יוצרים לך תיקייה בדרייב ומסנכרנים...").fadeIn('fast'); 
 			})}, 4000);
 	});
 });

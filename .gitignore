@@ -11,8 +11,5 @@ db/*.sqlite3
 .idea/
 client_secret.json
 
-<<<<<<< HEAD
 public/assets/
-=======
-public/assets/
->>>>>>> sync-with-midburn-28012016
+

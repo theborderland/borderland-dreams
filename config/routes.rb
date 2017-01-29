@@ -16,13 +16,10 @@ Rails.application.routes.draw do
     patch 'update_grants', on: :member
   end
 
-<<<<<<< HEAD
-  get '/chronicles', to: 'camps#index'
-  get '/chronicles/:id', to: 'camps#index'
-=======
   get '/chronicles' => 'chronicles#index'
->>>>>>> sync-with-midburn-28012016
   get '/pages/:page' => 'pages#show'
+  get '/me' => 'users#me'
+  get '/howcanihelp' => 'howcanihelp#index'#show'
   get '/me' => 'users#me'
   
   get '*unmatched_route' => 'application#not_found'

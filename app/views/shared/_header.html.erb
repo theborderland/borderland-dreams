@@ -11,7 +11,7 @@
         </div>
         <div>
           <div class="header-nav col-xs-12">
-            <!-- %= link_to t("top_headline_faq"), '/pages/faq-'+I18n.locale.to_s % -->
+            <%= link_to t("top_headline_faq"), '/pages/faq-'+I18n.locale.to_s %>
             <%= link_to t("how_can_i_help_title"), howcanihelp_path %>
             <%= link_to "Old Dreams", chronicles_path(id: "old") %>
             <% if user_signed_in? and !Rails.application.config.x.firestarter_settings['disable_open_new_dream'] %>

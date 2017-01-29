@@ -40,8 +40,7 @@ class Camp < ActiveRecord::Base
       :not_seeking_funding,
       :active,
       :not_hidden,
-      :is_cocreation,
-      :is_current_event
+      :is_cocreation
     ]
   )
   # Scope definitions. We implement all Filterrific filters through ActiveRecord
@@ -123,22 +122,14 @@ class Camp < ActiveRecord::Base
     where(is_public: flag)
   }
 
-  scope :is_cocreation, lambda { |flag|
-    where.not(camps: { cocreation: nil }).where.not(camps: { cocreation: '' })
-  }
-
-  scope :is_current_event, lambda { |flag|
-    where(camps: { event_id: Rails.application.config.default_event })
-  }
-
-  scope :is_old_event, lambda { |flag|
-    where.not(camps: { event_id: Rails.application.config.default_event })
-  }
 
   before_save do
     align_budget
   end
 
+  scope :is_cocreation, lambda { |flag|
+    where.not(camps: { cocreation: nil }).where.not(camps: { cocreation: '' })
+  }
 
   def grants_received
     return self.grants.sum(:amount)

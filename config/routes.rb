@@ -19,7 +19,8 @@ Rails.application.routes.draw do
     patch 'update_grants', on: :member
   end
 
-  get '/chronicles', to: 'chronicles#index'
+  get '/chronicles', to: 'camps#index'
+  get '/chronicles/:id', to: 'camps#index'
   get '/pages/:page' => 'pages#show'
   get '/me' => 'users#me'
   get '/howcanihelp' => 'howcanihelp#index'

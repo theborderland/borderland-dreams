@@ -26,6 +26,6 @@ module Firestarter
     Rails.application.config.coin_rate = 50 #Coin conversion from DKK
     Rails.application.config.default_event = "borderland2017" #Coin conversion from DKK    
 
-    # config.autoload_paths += Dir["#{config.root}/lib/googleAppsScript/**/"]
+    config.autoload_paths += Dir["#{config.root}/lib/googleAppsScript/**/"]
   end
 end

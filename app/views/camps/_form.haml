@@ -221,8 +221,10 @@
 
     %br
     .combo
+
+      = t("form_dream_scholarship_drive_folder_desc")
       %a{ :href => @camp.google_drive_folder_path, :target => "_blank"}
-        = t("form_dream_scholarship_drive_folder_desc")
+        = t("form_dream_scholarship_drive_folder_link")
 
     .combo
       = form.label t("form_dream_scholarship_bank_account_info")

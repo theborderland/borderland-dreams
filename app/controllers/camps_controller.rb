@@ -20,10 +20,16 @@ class CampsController < ApplicationController
     ) or return
     @camps = @filterrific.find.page(params[:page])
 
+<<<<<<< HEAD
     if params[:id] == 'old'
       render 'chronicles'
     else
       render 'current'
+=======
+    respond_to do |format|
+      format.html
+      format.js
+>>>>>>> sync-with-midburn-28012016
     end
 
   end

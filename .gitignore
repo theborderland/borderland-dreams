@@ -11,6 +11,5 @@ db/*.sqlite3
 .idea/
 client_secret.json
 
-public/assets/
 
 app/controllers/camps_controller.rb

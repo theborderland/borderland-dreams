@@ -24,7 +24,7 @@ module Firestarter
     config.active_record.raise_in_transactional_callbacks = true
     Rails.application.config.x.firestarter_settings = config_for(:firestarter_settings)
     Rails.application.config.coin_rate = 50 #Coin conversion from DKK
-    Rails.application.config.default_event = "borderland2017" #Current event ID
+    Rails.application.config.default_event = "borderland2017" #Coin conversion from DKK    
 
     config.autoload_paths += Dir["#{config.root}/lib/googleAppsScript/**/"]
   end

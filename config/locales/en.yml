@@ -170,6 +170,8 @@ en:
   form_dream_scholarship_budget_max_original_desc: "How much do you need to fully fund your project, in DKK?"
   form_dream_scholarship_budget_min_original_desc: "Necessary minimum budget level, below which you won't get funded."
   form_dream_scholarship_budget_form_desc: "Art grant form link"
+  form_dream_scholarship_drive_folder_desc_html: "<b>A personal drive folder has been created for your dream. You can use it to upload a detailed budget, keep track of members, upload receipts for reimbursements and photos for documentation. Dream guides and admins have access to your Dream drive folder.</b><br>"
+  form_dream_scholarship_drive_folder_link: "Click here to go to your Dream drive"
   form_dream_scholarship_bank_account_info: "Bank account details"
   form_dream_scholarship_bank_account_info_guidetext_html: "Enter your bank account details, inluding IBAN and SWIFT if the bank is not Swedish. Will not be published."
   form_dream_scholarship_execution_potential: "Previous experience and feasibility"

@@ -1,0 +1,44 @@
+<div id="filterrific_results">
+
+  <%=t :sort_by%>:
+  <%= filterrific_sorting_link(@filterrific, :updated_at) %>
+
+  <div class="camps_list">
+
+      <% @camps.each do |camp| %>
+      <div class='col-md-4'>
+          <a href="<%= url_for(camp) %>">
+
+              <div class="panel panel-info">
+                  <div class="panel-body camp-index">
+                      <% if camp.images.any? %>
+                          <%= image_tag(camp.images.first.attachment.url(:square), :class => "grow") %>
+                      <% else %>
+                          <%= image_tag('bsb_placeholder_square.jpg' , :class => "grow") %>
+                      <% end %>
+
+                      <% @name = (Rails.configuration.x.firestarter_settings['multi_lang_support'] and camp.en_name.present? and I18n.locale.to_s == 'en')? camp.en_name : camp.name %>
+                      <h4 class="name"><%= truncate(@name, length: 60) %></h4>
+
+                      <div class="description">
+                      <% if Rails.configuration.x.firestarter_settings["cocreation"] and camp.cocreation.present? %>
+                          <p><b>How can you help?</b><br><%= simple_format(truncate(camp.cocreation, length: 340)) %></p>
+                      <% end %>
+                      </div>
+
+                      <% if !camp.is_public? %>
+                          <h4 style="color: #eb1478; position: absolute; top:4px; right:20px;"><span class="glyphicon glyphicon-lock" aria-hidden="true"></h4>
+                      <% end %>
+                  </div>
+              </div>
+          </a>
+      </div>
+      <% end %>
+
+  </div>
+
+  <div class="top_message" align="center" dir=<%=t :html_direction %>>
+      <div class="col-xm-12"><%= paginate @camps %></div>
+  </div>
+
+</div>

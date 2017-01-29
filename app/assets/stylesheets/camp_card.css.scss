@@ -32,6 +32,12 @@ p {
 }
 
 .creation-info {
+  .dream-point-of-contact {
+    .glyphicon-envelope {
+      color: $c-pinky;
+      vertical-align: middle;
+    }
+  }
   .dream-website {
     a {
       &:hover {

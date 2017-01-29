@@ -40,8 +40,6 @@ class Camp < ActiveRecord::Base
       :not_seeking_funding,
       :active,
       :not_hidden,
-      :is_cocreation,
-      :is_current_event
     ]
   )
   # Scope definitions. We implement all Filterrific filters through ActiveRecord
@@ -54,25 +52,18 @@ class Camp < ActiveRecord::Base
       # replace "*" with "%" for wildcard searches,
       # append '%', remove duplicate '%'s
       terms = terms.map { |e|
-        ('%' + e.gsub('*', '%') + '%').gsub(/%+/, '%')
+        (e.gsub('*', '%') + '%').gsub(/%+/, '%')
       }
-
-      or_array = [
-        "LOWER(camps.name) LIKE ?",
-        "LOWER(camps.subtitle) LIKE ?",
-        "LOWER(camps.cocreation) LIKE ?",
-      ]
-
-      if Rails.configuration.x.firestarter_settings["multi_lang_support"]
-        or_array.push("LOWER(camps.en_name) LIKE ?",
-          "LOWER(camps.en_subtitle) LIKE ?")
-      end
-
-      num_or_conditions = or_array.length
-
+      # configure number of OR conditions for provision
+      # of interpolation arguments. Adjust this if you
+      # change the number of OR conditions.
+      num_or_conditions = 2
       where(
         terms.map {
-          or_clauses = or_array.join(' OR ')
+          or_clauses = [
+            "LOWER(camps.name) LIKE ?",
+            "LOWER(camps.subtitle) LIKE ?"
+          ].join(' OR ')
           "(#{ or_clauses })"
         }.join(' AND '),
         *terms.map { |e| [e] * num_or_conditions }.flatten
@@ -123,22 +114,9 @@ class Camp < ActiveRecord::Base
     where(is_public: flag)
   }
 
-  scope :is_cocreation, lambda { |flag|
-    where.not(camps: { cocreation: nil }).where.not(camps: { cocreation: '' })
-  }
-
-  scope :is_current_event, lambda { |flag|
-    where(camps: { event_id: Rails.application.config.default_event })
-  }
-
-  scope :is_old_event, lambda { |flag|
-    where.not(camps: { event_id: Rails.application.config.default_event })
-  }
-
   before_save do
     align_budget
   end
-
 
   def grants_received
     return self.grants.sum(:amount)

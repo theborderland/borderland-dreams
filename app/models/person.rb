@@ -5,6 +5,4 @@ class Person < ActiveRecord::Base
   validates :name, presence: true
 
   schema_validations whitelist: [:id, :created_at, :updated_at, :camp]
-
-  scope :in_camp, -> { joins(:camp) }
 end

@@ -28,17 +28,23 @@ class CampsController < ApplicationController
   end
 
   def new
-    @camp = Camp.new
+    if Ticket.exists?(email: current_user.email)
+      @camp = Camp.new
+    else
+      redirect_to camps_path
+      flash[:alert] = "#{t:need_ticket_to_create_camp}"
+    end
   end
 
   def edit
     @camp = Camp.find params[:id]
+    redirect_to camp_path(@camp)
   end
 
   def create
     # Create camp without people then add them
-    @camp = Camp.new(camp_params)
-    @camp.creator = current_user
+      @camp = Camp.new(camp_params)
+      @camp.creator = current_user
 
     if create_camp
       flash[:notice] = t('created_new_dream')

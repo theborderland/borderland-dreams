@@ -34,5 +34,9 @@ class User < ActiveRecord::Base
       #user.name = auth.info.name # We don't persist usernames to the DB.
     end
   end
+
+  def has_ticket
+    return Ticket.exists?(email: @user.email)
+  end 
   
 end

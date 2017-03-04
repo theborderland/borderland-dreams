@@ -78,6 +78,15 @@ gem 'recaptcha', require: "recaptcha/rails"
 # Better distance_of_time_in_words
 gem 'dotiw'
 
+# Cron jobs for Ruby with Whenever
+gem 'whenever', :require => false
+
+# A simple HTTP and REST client
+gem 'rest-client'
+
+# JSON Parser
+gem 'json'
+
 group :production do
   # needed by herokus
   gem 'rails_12factor'

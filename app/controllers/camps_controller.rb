@@ -38,7 +38,6 @@ class CampsController < ApplicationController
 
   def edit
     @camp = Camp.find params[:id]
-    redirect_to camp_path(@camp)
   end
 
   def create

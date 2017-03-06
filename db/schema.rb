@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170122213524) do
+ActiveRecord::Schema.define(version: 20170303112108) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     :index=>{:name=>"index_active_admin_comments_on_namespace"}
@@ -201,8 +201,9 @@ ActiveRecord::Schema.define(version: 20170122213524) do
   end
 
   create_table "tickets", force: :cascade do |t|
-    t.text   "id_code"
-    t.string "email",   :limit=>64, :default=>"", :null=>false
+    t.text    "id_code"
+    t.string  "email",          :limit=>64, :default=>"", :null=>false
+    t.integer "remote_user_id"
   end
 
   create_table "users", force: :cascade do |t|

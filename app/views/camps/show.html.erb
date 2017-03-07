@@ -446,7 +446,7 @@
                 <% end %>
 
                 
-                <% random = Camp.active(true).not_hidden(true).order("RANDOM()").first %>
+                <% random = Camp.active(true).not_hidden(true).is_current_event(true).order("RANDOM()").first %>
                 <a href="<%= url_for(random) %>" class="btn btn-primary camp-button" role="button">
                     <%=t :next_random_dream %> <span class="glyphicon glyphicon-random vertical-middle" aria-hidden="true"></span>
                 </a>

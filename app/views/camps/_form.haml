@@ -249,7 +249,4 @@
   #responsibles
     = form.fields_for :people do |person|
       = render 'person_fields', :f => person, :camp_id => @camp.id
- 
-    .links.col-xs-12
-      = link_to_add_association t('add_a_new_person'), form, :people, render_options: { locals: { camp_id: @camp.id } }, class: 'btn btn-success'
 

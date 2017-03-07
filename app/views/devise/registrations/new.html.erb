@@ -6,6 +6,8 @@
 <div class="sign_up" dir=<%=t :html_direction %>>
   <h2><%=t :sign_up %></h2>
 
+  <div><p><b>Welcome, Borderling!</b> Anyone can sign up on Borderland Dreams, but you'll need a membership to <a href="http://theborderland.se">The Borderland</a> to create Dreams or distribute grants. You need to sign up with the same email that you used (or will use) to register a membership on <a href="https://burnertickets.com/the-borderland-2017/">BurnerTickets</a>. Accounts from last year are still active, and if you've used the same email for BurnerTickets, you're good to go!</p></div>
+
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
 

@@ -386,9 +386,9 @@ en:
   dont_miss_out:
     banner: Don't miss out! Only %{time} left to %{action}
     actions:
-      enter_granting: Get your dream ready for granting
-      give_grants: Give out some sweet sweet hearts
-      safety_file: Submit a safety file
+      enter_granting: Get your dream ready before this date to ensure being assigned a Dream Guide 
+      granting_begins: Granting begins! Dreamers and Dream Guides need to get Dreams ready before this date.
+      granting_closes: You can grant until this date. Give out some sweet sweet hearts! <3
   time:
     am: am
     formats:

@@ -668,7 +668,14 @@ en:
         projectmgmt_is_theme_camp_dream: :form_project_management_is_theme_camp_dream
         projectmgmt_is_dream_near_theme_camp: :form_project_management_is_dream_near_theme_camp
         projectmgmt_dream_pre_construction_site: :form_project_management_dream_pre_construction_site
+        dream_point_of_contact_email: :form_dream_point_of_contact_email
         safety_file_comments: Safety File Comments
+        google_drive_folder_path: Google drive folder path
+        google_drive_budget_file_path: Google drive budget file
+        en_name: English name
+        en_subtitle: English subtitle
+        id: id
+        tags: tags
       person: &person
         name: Name
         email: Email

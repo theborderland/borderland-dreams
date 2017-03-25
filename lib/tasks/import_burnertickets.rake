@@ -32,7 +32,7 @@ task :import_burnertickets => [:environment] do
         puts "Added email: " + email + ", BurnerTickets ID: " + userId + ", ticket ID: " + ticket_id
       else
         unless Ticket.exists?(id_code: ticket_id) and Ticket.exists?(email: email)
-          ticket = Ticket.find_by(id_code: id_code)
+          ticket = Ticket.find_by(id_code: ticket_id)
           ticket.email = email
           ticket.remote_user_id = userId
           updatedCounter+=1

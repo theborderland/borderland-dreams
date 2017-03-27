@@ -39,9 +39,8 @@ task :import_burnertickets => [:environment] do
           else
             ignoredCounter+=1
           end
+        end
       end
-
-    end
   rescue SocketError => e
     self.errors.add(:ticket_id, e.message)
     puts e.message

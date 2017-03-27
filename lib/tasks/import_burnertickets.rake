@@ -22,13 +22,13 @@ task :import_burnertickets => [:environment] do
     puts "Found " + tickets.length.to_s + " tickets"
     tickets.each do |ticket|
 
-      email = ticket["EmailAddress"]
+      email = ticket["EmailAddress"].downcase
       ticket_id = ticket["TicketNumber"]
       userId = ticket["UserId"]
 
       unless Ticket.exists?(id_code: ticket_id)
         counter+=1
-        Ticket.create(:id_code => ticket_id, :email => email, :remote_user_id => userId)
+        Ticket.create(:id_code => ticket_id, :email => email.downcase, :remote_user_id => userId)
         puts "Added email: " + email + ", BurnerTickets ID: " + userId + ", ticket ID: " + ticket_id
       else
         unless Ticket.exists?(id_code: ticket_id) and Ticket.exists?(email: email)

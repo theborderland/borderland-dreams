@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
   end
 
   def has_ticket
-    return Ticket.exists?(email: @user.email)
+    return Ticket.exists?(email: @user.email.downcase)
   end 
   
 end

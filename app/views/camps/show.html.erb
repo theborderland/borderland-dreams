@@ -178,10 +178,10 @@
             </div>
         <% end %>
 
-        <% if Rails.configuration.x.firestarter_settings["budgetplan"] and @camp.budgetplan.present? %>
+        <% if Rails.configuration.x.firestarter_settings["budgetplan"] and @camp.dreamscholarship_budget_max_original_desc.present? %>
             <div class="camp-description">
                 <b><%=t :form_budgetplan_label %></b>
-                <p><%= simple_format(@camp.budgetplan) %>
+                <p><%= simple_format(@camp.dreamscholarship_budget_max_original_desc) %>
                 </p>
             </div>
         <% end %>

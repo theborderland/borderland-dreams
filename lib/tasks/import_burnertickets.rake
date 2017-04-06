@@ -31,7 +31,7 @@ task :import_burnertickets => [:environment] do
         Ticket.create(:id_code => ticket_id, :email => email.downcase, :remote_user_id => userId)
         puts "Added email: " + email + ", BurnerTickets ID: " + userId + ", ticket ID: " + ticket_id
       else
-        unless Ticket.exists?(id_code: ticket_id) and Ticket.exists?(email: email)
+        unless Ticket.exists?(email: email)
           ticket = Ticket.find_by(id_code: ticket_id)
           ticket.email = email
           ticket.remote_user_id = userId

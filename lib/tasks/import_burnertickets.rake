@@ -49,7 +49,7 @@ task :import_burnertickets => [:environment] do
   end
 
   puts "Added " + counter.to_s + " Tickets to our database"
-  puts "Found " + counter.to_s + " Tickets that are allready in the database"
-  puts "Transferred " + counter.to_s + " Tickets to new burners"
+  puts "Found " + ignoredCounter.to_s + " Tickets that are allready in the database"
+  puts "Transferred " + updatedCounter.to_s + " Tickets to new burners"
 
 end

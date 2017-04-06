@@ -19,7 +19,7 @@ task :import_burnertickets => [:environment] do
     response = RestClient.post(ENV['TICKETS_EVENT_URL'], {'method' => 'GetUsersWithTicketsEventId', 'eventId' => ENV['BURNER_TICKETS_EVENT_ID'], 'apiKey' => ENV['BURNER_TICKETS_API_KEY']})
     parsedResponse = JSON.parse(response.body)
     burnerTickets = parsedResponse["message"]
-    puts "Found " + tickets.length.to_s + " tickets"
+    puts "Found " + burnerTickets.length.to_s + " tickets"
     burnerTickets.each do |burnerTicket|
 
       email = burnerTicket["EmailAddress"].downcase

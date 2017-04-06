@@ -18,13 +18,13 @@ task :import_burnertickets => [:environment] do
     updatedCounter = 0
     response = RestClient.post(ENV['TICKETS_EVENT_URL'], {'method' => 'GetUsersWithTicketsEventId', 'eventId' => ENV['BURNER_TICKETS_EVENT_ID'], 'apiKey' => ENV['BURNER_TICKETS_API_KEY']})
     parsedResponse = JSON.parse(response.body)
-    tickets = parsedResponse["message"]
+    burnerTickets = parsedResponse["message"]
     puts "Found " + tickets.length.to_s + " tickets"
-    tickets.each do |ticket|
+    burnerTickets.each do |burnerTicket|
 
-      email = ticket["EmailAddress"].downcase
-      ticket_id = ticket["TicketNumber"]
-      userId = ticket["UserId"]
+      email = burnerTicket["EmailAddress"].downcase
+      ticket_id = burnerTicket["TicketNumber"]
+      userId = burnerTicket["UserId"]
 
       unless Ticket.exists?(id_code: ticket_id)
         counter+=1

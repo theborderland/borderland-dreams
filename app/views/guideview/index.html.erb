@@ -7,33 +7,31 @@
   <meta property="og:image" content="http://dreams.theborderland.se/assets/coverphoto.png" />
 <% end %>
 
-<div class="top_message" dir=<%=t :html_direction %>>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h3>Dream Guide View</h3>
-    </div>
-    <div class="panel-body">
-      <div class="col-md-12">
-        <b><%=t :search_title %></b>
-        <%= form_for_filterrific @filterrific do |f| %>
+<div class="row">
+  <h1>Dream List</h1>
+  <br>
 
-        <div>
-          <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
-          <%= f.text_field(
-            :search_query,
-            class: 'filterrific-periodically-observed form-control'
-          ) %>
-        </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Dream</th>
+        <th>Borderling email</th>
+        <th>Min budget</th>
+        <th>Max budget</th>
+        <th>Current funding</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @camps.each do |camp| %>
+        <tr>
+          <td><%= truncate(camp.name, length: 60) %></td>
+          <td><%= truncate(camp.creator.email, length: 60) %></td>
+          <td><%= truncate(camp.minbudget, length: 60) %></td>
+          <td><%= truncate(camp.maxbudget, length: 60) %></td>
+          <td><%= truncate(camp.grants_received, length: 60) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-        <%= render_filterrific_spinner %>
-
-        <% end %>
-      </div>
-    </div>
-  </div>
 </div>
-
-<%= render(
-  partial: 'guideview/list',
-  locals: { camps: @camps }
-) %>

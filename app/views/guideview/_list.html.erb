@@ -1,35 +1,28 @@
-<div id="filterrific_results">
+<div class="row">
+  <h1>Dream List</h1>
+  <br>
 
-  <%=t :sort_by%>:
-  <%= filterrific_sorting_link(@filterrific, :updated_at) %>
-
-  <div class="row">
-    <h1>Dream List</h1>
-    <br>
-
-    <table class="table table-striped">
-      <thead>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Dream</th>
+        <th>Borderling email</th>
+        <th>Min budget</th>
+        <th>Max budget</th>
+        <th>Current funding</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @camps.each do |camp| %>
         <tr>
-          <th>Dream</th>
-          <th>Borderling email</th>
-          <th>Min budget</th>
-          <th>Max budget</th>
-          <th>Current funding</th>
+          <td><%= truncate(@camp.name, length: 60) %></td>
+          <td><%= truncate(@camp.creator.email, length: 60) %></td>
+          <td><%= truncate(@camp.minbudget, length: 60) %></td>
+          <td><%= truncate(@camp.maxbudget, length: 60) %></td>
+          <td><%= truncate(@camp.grants_received, length: 60) %></td>
         </tr>
-      </thead>
-      <tbody>
-        <% @camps.each do |camp| %>
-          <tr>
-            <td><%= truncate(@camp.name, length: 60) %></td>
-            <td><%= truncate(@camp.creator.email, length: 60) %></td>
-            <td><%= truncate(@camp.minbudget, length: 60) %></td>
-            <td><%= truncate(@camp.maxbudget, length: 60) %></td>
-            <td><%= truncate(@camp.grants_received, length: 60) %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-
-  </div>
+      <% end %>
+    </tbody>
+  </table>
 
 </div>

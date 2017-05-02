@@ -93,6 +93,11 @@ class CampsController < ApplicationController
       redirect_to camp_path(@camp) and return
     end
 
+    if Grant.all.sum(:amount) >= Rails.application.config.maxbudget
+      flash[:alert] = "Sorry, we've allready reached to max budget for Dreams this year – early Borderling gets the bird!"
+      redirect_to camp_path(@camp) and return
+    end
+
     ActiveRecord::Base.transaction do
       current_user.grants -= granted
 

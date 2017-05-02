@@ -2,8 +2,6 @@ class GuideviewController < ApplicationController
   def index
     filter = params[:filterrific] || { sorted_by: 'updated_at_desc' }
     filter[:active] = true
-    filter[:not_hidden] = true
-    filter[:is_cocreation] = true
     filter[:is_current_event] = true
     if (!current_user.nil? && (current_user.admin? || current_user.guide?))
       filter[:hidden] = true

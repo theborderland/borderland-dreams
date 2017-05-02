@@ -16,11 +16,11 @@
       <% @camps = Camp.select.all %>
       <% @camps.select { |camp| camp.event_id == Rails.application.config.default_event }.each do |camp| %>
         <tr>
-          <td><%= truncate(@camp.name, length: 60) %></td>
-          <td><%= truncate(@camp.creator.email, length: 60) %></td>
-          <td><%= truncate(@camp.minbudget, length: 60) %></td>
-          <td><%= truncate(@camp.maxbudget, length: 60) %></td>
-          <td><%= truncate(@camp.grants_received, length: 60) %></td>
+          <td>TEST</td>
+          <td>TEST</td>
+          <td>TEST</td>
+          <td>TEST</td>
+          <td>TEST</td>
         </tr>
       <% end %>
     </tbody>

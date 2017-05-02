@@ -1,6 +1,6 @@
 class CampsController < ApplicationController
-  before_action :authenticate_user!, except: [:show, :index]
-  before_action :load_camp!, except: [:index, :new, :create]
+  before_action :authenticate_user!, except: [:show, :guideview, :index]
+  before_action :load_camp!, except: [:index, :guideview, :new, :create]
   before_action :enforce_delete_permission!, only: [:destroy, :archive]
 
 
@@ -28,7 +28,8 @@ class CampsController < ApplicationController
   end
 
   def guideview
-    @camps = Camp.where(is_current_event: true)
+    @camps = Camp.where(:event_id => Rails.application.config.default_event).sort_by &:created_at
+    render :guideview
   end
 
   def new

@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
+  after_initialize :add_product
 
   def me
     @grants = Grant.where(user_id: current_user.id).find_each
@@ -12,4 +13,13 @@ class UsersController < ApplicationController
       format.js
     end
   end
+
+  def get_grants
+    self.grants ||= 10 if self.has_ticket?
+  end
+
 end
+
+
+
+

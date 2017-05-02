@@ -20,7 +20,7 @@
   <tbody>
     <% @camps.sort_by(&:grants_received).each do |camp| %>
       <tr>
-        <td><%= <a href="<%= url_for(camp) %>">truncate(camp.name, length: 60) %></a> </td>
+        <td><a href="<%= url_for(camp) %>"><%= truncate(camp.name, length: 60) %></a></td>
         <td><%= camp.creator.email %></td>
         <td><%= camp.minbudget %></td>
         <td><%= camp.maxbudget %></td>

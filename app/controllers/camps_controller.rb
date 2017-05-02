@@ -27,6 +27,10 @@ class CampsController < ApplicationController
 
   end
 
+  def guideview
+    @camps = Camp.where(is_current_event: true)
+  end
+
   def new
     if Ticket.exists?(email: current_user.email)
       @camp = Camp.new

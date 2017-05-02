@@ -23,7 +23,6 @@ Rails.application.routes.draw do
   get '/pages/:page' => 'pages#show'
   get '/me' => 'users#me'
   get '/howcanihelp' => 'howcanihelp#index'
-  get '/guideview' => 'guideview#index'
   
   get '*unmatched_route' => 'application#not_found'
 end

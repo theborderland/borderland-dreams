@@ -15,7 +15,6 @@
       <th>Min budget</th>
       <th>Max budget</th>
       <th>Current funding</th>
-      <th>% of min</th>
     </tr>
   </thead>
   <tbody>
@@ -26,7 +25,6 @@
         <td><%= camp.minbudget %></td>
         <td><%= camp.maxbudget %></td>
         <td><%= camp.grants.sum(:amount) %></td>
-        <td><%= camp.grants.sum(:amount)/camp.minbudget * 100 %></td>
       </tr>
     <% end %>
   </tbody>

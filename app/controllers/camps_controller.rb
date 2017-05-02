@@ -28,7 +28,7 @@ class CampsController < ApplicationController
   end
 
   def guideview
-    @camps = Camp.where(:event_id => Rails.application.config.default_event).sort_by &:created_at
+    @camps = Camp.where(:event_id => Rails.application.config.default_event)
     render :guideview
   end
 

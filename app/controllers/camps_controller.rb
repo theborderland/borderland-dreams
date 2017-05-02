@@ -98,8 +98,8 @@ class CampsController < ApplicationController
       redirect_to camp_path(@camp) and return
     end
 
-    if !current_user.has_ticket
-      flash[:alert] = "You need a membership to the Borderland to give grants, but you seem eager, so I'm sure you'll get one if you look!"
+    if !Ticket.exists?(email: current_user.has_ticket)
+      flash[:alert] = "You need a membership to the Borderland to give grants, but you seem eager, so I hope you'll get one soon!"
       redirect_to camp_path(@camp) and return
     end
 

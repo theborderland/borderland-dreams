@@ -1,6 +1,5 @@
 class PagesController < ApplicationController
   def show
-    @camps = Camp.select.all
     if valid_page?
       render template: "pages/#{params[:page]}"
     else

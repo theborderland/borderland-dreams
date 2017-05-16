@@ -214,12 +214,12 @@ en:
   form_safetybag_remember_sketch: "Please make sure you've uploaded a Sketch along with an image. Without a sketch your safety file won't be approved"
 
   form_artgrants_headline: "Art grant information"
-  form_artgrants_text_html: "<p>If you're not looking for an art heart, leave these fields blank.</p><p>Art hearts are given by Borderland community. Each Borderling who donated has 10 art-hearts to hand out. One can give all of the hearts to one project or spread them around. Once a heart has been gifted to a dream, it can't be taken back. Please enter the amount in NIS and we will translate it to the amount in hearts.</p>"
+  form_artgrants_text_html: "<p>If you're not looking for an art grant, leave these fields blank.</p><p>Art grants are given by Borderland community. Each Borderling who donated has 10 art-grants to hand out. One can give all of the grants to one project or spread them around. Once a grant has been gifted to a dream, it can't be taken back. Please enter the amount in DKK and we will translate it to the amount in grants.</p>"
 
-  form_minigrants_realcurrency_label: "Minimum sum of money in NIS needed"
+  form_minigrants_realcurrency_label: "Minimum sum of money in DKK needed"
   form_minigrants_realcurrency_guidetext_html: "Minium funding needed to lift the project, below which you won't get funded."
-  form_maxigrants_realcurrency_label: "Maximum sum of money in NIS needed to fully fund the dream"
-  form_maxigrants_realcurrency_guidetext_html: "How much money in NIS do you need to fully fund your project."
+  form_maxigrants_realcurrency_label: "Maximum sum of money in DKK needed to fully fund the dream"
+  form_maxigrants_realcurrency_guidetext_html: "How much money in DKK do you need to fully fund your project."
 
   form_minigrants_label: "Minumum number of grants needed:"
   form_minigrants_guidetext_html: "Necessary minimum budget level, below which you won't get funded."
@@ -236,10 +236,10 @@ en:
   i_gift_thee_grants: 'Donate to dream'
   no_granting_yet: 'No granting for this dream yet!'
   donate_title: "Oh Wow! this thing you are about to do..."
-  donate_content: "There are many ways to help a dream come true, yet here you are invited to divide your Hearts donation and give it to this dream."
+  donate_content: "There are many ways to help a dream come true, yet here you are invited to divide your Grants donation and give it to this dream."
   donate_text: "Donate"
-  coins_text: "Heart"
-  coins_left: "Heart available:"
+  coins_text: "Grant"
+  coins_left: "Grants available:"
 
   currency: "DKK"
 
@@ -293,8 +293,8 @@ en:
   minimum_grants_needed: "Minimum grants needed"
   needed_to_fully_fund: "Needed to fully fund"
 
-  minimum_grants_realcurrency_needed: "Minimum budget needed in NIS"
-  needed_to_fully_fund_realcurrency: "Needed to fully fund in NIS"
+  minimum_grants_realcurrency_needed: "Minimum budget needed in DKK"
+  needed_to_fully_fund_realcurrency: "Needed to fully fund in DKK"
   
   your_available_grants: "Your available grants"
   youre_out_of_grants: "You're out of grants"
@@ -312,7 +312,7 @@ en:
     one: "Your dream"
     other: "Your dreams"
   youve_donated: "You've donated"
-  coins_name: "Hearts"
+  coins_name: "Grants"
   dreams_you_help_make: "Dreams you made happen"
 
   # Login page
@@ -390,8 +390,8 @@ en:
         one: "Ticket"
         other: "Tickets"
       grant:
-        one: "Heart"
-        other: "Hearts"
+        one: "Grant"
+        other: "Grants"
     attributes:
       user:
         email: "Email"
@@ -401,7 +401,7 @@ en:
         encrypted_password: "Encrypted Password"
         admin: "Admin"
         guide: "Guid"
-        grants: "Hearts"
+        grants: "Grants"
         created_at: "Created At"
         updated_at: "Updated At"
         remember_me: "Remember Me"

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170211131221) do
+ActiveRecord::Schema.define(version: 20170830102511) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     :index=>{:name=>"index_active_admin_comments_on_namespace"}
@@ -242,7 +242,7 @@ ActiveRecord::Schema.define(version: 20170211131221) do
     t.text     "ticket_id"
     t.boolean  "guide",                  :default=>false
     t.boolean  "admin",                  :default=>false
-    t.integer  "grants",                 :default=>0
+    t.integer  "grants",                 :default=>10
   end
 
   create_table "versions", force: :cascade do |t|

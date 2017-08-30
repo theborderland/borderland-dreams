@@ -43,6 +43,11 @@ Currently sqlite is used as the local database. We will stick to this in develop
 Postgres in production. Install sqlite with your favourite package manager and you should
 be up and running right away.
 
+## Production
+If you're running the server locally you should those env variables:
+* RACK_ENV=production
+* RAILS_ENV=production
+
 ## Mail
 
 In development mode [mailcatcher](http://mailcatcher.me/) is configured to catch emails
@@ -85,12 +90,15 @@ Make sure you change the username, password, token and event id
 
 ## Production
 
+### Make sure all the env variables are set
+On heroku use - https://github.com/xavdid/heroku-config
+
 ### Creating initial database
 
 From command line run
 
 ```
-heroku run rake db:migrate db:seed --app <<APP_NAME>>
+heroku run exec rake db:migrate db:seed --app <<APP_NAME>>
 ```
 
 #### Puma

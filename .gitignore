@@ -10,5 +10,7 @@ public/system/
 db/*.sqlite3
 .idea/
 client_secret.json
+/Gemfile.lock
+/vendor/bundle
 
 public/assets/

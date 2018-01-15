@@ -7,11 +7,11 @@ Midburn runs it at http://dreams.midburn.org and http://dreams.midburnerot.com.
 
 ## To get started
 
-* Install ruby 2.3.1 (or any ruby will probably work).
+* Install ruby (version number indicated in `/Gemfile`).
 * Install postgres - `brew install postgresql`
-* Install imagemagick - `brew install imagemagick`
+* Install ImageMagick v6, for example [this way](https://stackoverflow.com/questions/42250292/rails-cant-install-rmagick-2-16-0-cant-find-magickwand-h#answer-43715913)
 ```
-    gem install bundler # if needed
+    gem install bundler
     bundle install
     bundle exec rake db:migrate
 ```

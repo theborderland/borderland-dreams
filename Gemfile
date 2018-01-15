@@ -51,7 +51,7 @@ gem 'kaminari-bootstrap'
 gem 'kaminari'
 
 # Filtering
-gem 'filterrific'
+gem 'filterrific', '< 5'
 
 # Images at S3
 gem 'paperclip'

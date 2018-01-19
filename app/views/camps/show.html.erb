@@ -327,12 +327,6 @@
                                       { method: :delete, class: "btn btn-danger", data: { confirm: t(:delete_are_you_sure) } } %>
                       <% end %>
 
-                      <br>
-
-                    <% if current_user&.guide || current_user&.admin %>
-                        <b><%= t("form_project_manager") %></b>: <%= @camp.creator.email %>
-                    <% end %>
-
                     <% end %>
 
                     <% if Rails.configuration.x.firestarter_settings["add_to_list"] %>
@@ -394,7 +388,7 @@
                 <% if @camp.website.present? %>
                     <li>
                     <span class='dream-website'>
-                        <a href='<%= @camp.website %>'><span class="glyphicon glyphicon-globe" aria-hidden="true"></span>&nbsp<%=t :form_dream_website_short %></a>
+                        <a href='<%= @camp.website %>'><span class="glyphicon glyphicon-globe" aria-hidden="true"></span>&nbsp<%=@camp.website %></a>
                     </span>
                     </li>
                     <br>

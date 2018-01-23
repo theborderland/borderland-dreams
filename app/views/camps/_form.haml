@@ -107,7 +107,7 @@
 
     .combo
       = form.label t("form_dream_website_label")
-      = form.text_field :website, :maxlength => 512, :class => "form-control"
+      = form.text_field :website, :maxlength => 512, :class => "form-control", :placeholder => "http://..."
 
     .combo#description
       - if Rails.configuration.x.firestarter_settings["description"]
@@ -204,10 +204,19 @@
 
   #dream_scholarship_extension
 
+    .h3
+      = t("form_dream_scholarship_estimated_budget_spreadsheet")
+
     .combo
-      = form.label t("form_dream_scholarship_budget_min_original")
-      = form.number_field :minbudget_realcurrency, :maxlength => 6 ,class:'form-control'
-      = t("form_dream_scholarship_budget_min_original_desc")
+      = t("form_dream_scholarship_step_1_html")
+      %a{ :href => "#{@camp.google_drive_folder_path}", :target => "_blank"}
+        = t("form_dream_scholarship_drive_folder_link")
+
+    .combo
+      = t("form_dream_scholarship_step_2_html")
+      = t("form_dream_scholarship_step_3_html")
+
+    %br
 
     .combo
       = form.label t("form_dream_scholarship_budget_max_original")
@@ -215,20 +224,9 @@
       = t("form_dream_scholarship_budget_max_original_desc")
 
     .combo
-      = form.label t("form_dream_scholarship_budget")
-      = form.text_area :dreamscholarship_budget_max_original_desc, :max_length => 4096, :class => "form-control"
-      = t("form_dream_scholarship_budget_desc")
-
-    %br
-    .combo
-      = t("form_dream_scholarship_drive_folder_desc_html")
-      %a{ :href => "#{@camp.google_drive_folder_path}", :target => "_blank"}
-        = t("form_dream_scholarship_drive_folder_link")
-
-    .combo
-      = form.label t("form_dream_scholarship_bank_account_info")
-      = form.text_area :dreamscholarship_bank_account_info, :max_length => 128, :class => "form-control"
-      = t("form_dream_scholarship_bank_account_info_guidetext_html")
+      = form.label t("form_dream_scholarship_budget_min_original")
+      = form.number_field :minbudget_realcurrency, :maxlength => 6 ,class:'form-control'
+      = t("form_dream_scholarship_budget_min_original_desc")
 
     .h3
       = t("form_dream_scholarship_execution_potential")
@@ -237,14 +235,3 @@
       = form.label t("form_dream_scholarship_execution_potential_previous_experience")
       = form.text_area :dreamscholarship_execution_potential_previous_experience, :max_length => 4096, :class => "form-control"
       = t("form_dream_scholarship_execution_potential_previous_experience_guidetext_html")
-
-  %br
-  %br
-
-  .header-heading
-    = t("form_project_management")
-  
-  #responsibles
-    = form.fields_for :people do |person|
-      = render 'person_fields', :f => person, :camp_id => @camp.id
-

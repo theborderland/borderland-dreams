@@ -91,7 +91,7 @@ group :production do
   # needed by herokus
   gem 'rails_12factor'
   # postgres
-  gem 'pg'
+  gem 'pg', '0.21.0'
   # needed by aws
   gem 'puma'
 end

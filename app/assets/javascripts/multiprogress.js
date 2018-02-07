@@ -27,15 +27,7 @@
 			self.progressRoot = self._createProgressRoot();
 			self.progressBottomText = self._createProgressBottomText();
 			self.progressHoverBar = self._createProgressHoverBar();
-
-			// TODO: remove
-      console.log("### multiprogress.js > _create() > before 'self.progressRoot.progressbar'");
-
 			self.progressRoot.progressbar({value: 0, disabled: self.options.disabled}); // Creates one part with width 0%
-
-      // TODO: remove
-      console.log("### multiprogress.js > _create() > after 'self.progressRoot.progressbar'");
-
 			self.progressRoot.addClass("gb-budgetprogressbar");
 			self.progressRoot.css('width',calculatedProgressWidth);
 			
@@ -77,12 +69,6 @@
 			var self = this;
 			var template = $("<div class='progressbar-main'></div>");
 			self.element.append(template);
-
-      // TODO: remove
-      console.log("### multiprogress.js > _createProgressRoot() > self:", self);
-      console.log("### multiprogress.js > _createProgressRoot() > self.element:", self.element);
-      console.log("### multiprogress.js > _createProgressRoot() > template:", template);
-
       return template;
 		},
 

@@ -69,7 +69,13 @@
 			var self = this;
 			var template = $("<div class='progressbar-main'></div>");
 			self.element.append(template);
-			return template;
+
+      // TODO: remove
+      console.log("### multiprogress.js > _createProgressRoot() > self:", self);
+      console.log("### multiprogress.js > _createProgressRoot() > self.element:", self.element);
+      console.log("### multiprogress.js > _createProgressRoot() > template:", template);
+
+      return template;
 		},
 
 		_createProgressBottomText: function() {

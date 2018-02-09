@@ -10,7 +10,7 @@
           </div>
           <div class="modal-body">
             <p><%=t :donate_content %></p>
-            <p><strong><%=t :donate_heart_value %></strong></p>
+            <p><strong><%= (t :donate_heart_value).gsub("${heartValue}", Rails.application.config.coin_rate).gsub("${currency}", Rails.application.config.currency) %></strong></p>
             <div>
                 <span>
                     <b> <%=t :donate_text %>

@@ -242,16 +242,14 @@ en:
   manage_images: "Manage Images"
 
   give_grants: 'Give Hearts'
-  i_gift_thee_grants: 'Give hearts'
+  i_gift_thee_grants: 'Give Hearts'
   no_granting_yet: 'No granting for this dream yet!'
   donate_title: "Wow! You're making a dream come true..."
-  donate_content: "There are many ways to help a dream come true... Here you are invited to give this dream hearts."
-  donate_heart_value: "1 Heart is worth 133 SEK"
+  donate_content: "There are many ways to help a dream come true... Here you are invited to give this dream Hearts."
+  donate_heart_value: "1 Heart is worth ${heartValue} ${currency}"
   donate_text: "Donate"
   coins_text: "Hearts"
   coins_left: "Hearts available:"
-
-  currency: "SEK"
 
   how_can_i_help_title: How can I help?
   how_can_i_help_title_desc_html: "In this page you will find all our dreamers current needs. Find a dream you'd like to join, and click add my name."

@@ -1,6 +1,7 @@
 /*jslint white: true vars: true browser: true todo: true */
 /*jshint camelcase:true, plusplus:true, forin:true, noarg:true, noempty:true, eqeqeq:true, bitwise:true, strict:true, undef:true, unused:true, curly:true, browser:true, devel:true, maxerr:100, white:false, onevar:false */
 /*global jQuery:true $:true */
+//= require jquery-ui
 
 /* Taken from https://github.com/rootux/jquery-ui-budgetprogressbar */
 (function($) {
@@ -69,7 +70,7 @@
 			var self = this;
 			var template = $("<div class='progressbar-main'></div>");
 			self.element.append(template);
-			return template;
+      return template;
 		},
 
 		_createProgressBottomText: function() {

@@ -19,7 +19,7 @@ defaults: &defaults
   user_authentication_codes: false
   user_authentication_vs_tixwise: false
   add_to_list: true
-  granting_active: true
+  granting_active: false
   footer_text: true
   footer_logo: false
   creation_sidebar_welcome: true

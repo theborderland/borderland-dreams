@@ -160,7 +160,7 @@ en:
   form_program_dreamer: "Artist Name / Artist Group name"
 
   form_dream_scholarship_head: "Art Grants"
-  form_dream_scholarship_head_desc_html: "<p>Art grants are given by the Borderland community. Each Borderling has art-grants. You can give all your grants to one project or spread them around. Once a grant has been gifted to a dream, it can't be taken back. Grants are given as Hearts, and each Heart is worth ${heartValue} ${currency}.</p>"
+  form_dream_scholarship_head_desc: "Art grants are given by the Borderland community. Each Borderling has art-grants. You can give all your grants to one project or spread them around. Once a grant has been gifted to a dream, it can't be taken back. Grants are given as Hearts, and each Heart is worth ${heartValue} ${currency}."
   form_dream_scholarship_head_desc_link: "Guidelines for Dreams and grants"
   form_dream_scholarship_fund_is_open_for_public: "We want funding for our dream"
   form_dream_scholarship_budget: "Budget overview"

@@ -194,7 +194,8 @@
   #dream_scholarship
 
     .combo
-      = t("form_dream_scholarship_head_desc_html").gsub("${heartValue}", Rails.application.config.coin_rate.to_s).gsub("${currency}", Rails.application.config.currency)
+      - form_dream_scholarship_head_desc = t("form_dream_scholarship_head_desc").gsub("${heartValue}", Rails.application.config.coin_rate.to_s).gsub("${currency}", Rails.application.config.currency)
+      %p #{form_dream_scholarship_head_desc}
       %a{ :href => "http://wiki.theborderland.se/Dreams", :target => "_blank"}
         = t("form_dream_scholarship_head_desc_link")
 

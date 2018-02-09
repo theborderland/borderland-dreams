@@ -246,7 +246,7 @@ en:
   no_granting_yet: 'No granting for this dream yet!'
   donate_title: "Wow! You're making a dream come true..."
   donate_content: "There are many ways to help a dream come true... Here you are invited to give this dream hearts."
-  donate_heart_value: "1 Heart equals 133 SEK"
+  donate_heart_value: "1 Heart is worth 133 SEK"
   donate_text: "Donate"
   coins_text: "Hearts"
   coins_left: "Hearts available:"

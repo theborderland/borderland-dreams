@@ -194,7 +194,7 @@
   #dream_scholarship
 
     .combo
-      = t("form_dream_scholarship_head_desc_html")
+      = t("form_dream_scholarship_head_desc_html").gsub("${heartValue}", Rails.application.config.coin_rate.to_s).gsub("${currency}", Rails.application.config.currency)
       %a{ :href => "http://wiki.theborderland.se/Dreams", :target => "_blank"}
         = t("form_dream_scholarship_head_desc_link")
 
@@ -219,12 +219,12 @@
     %br
 
     .combo
-      = form.label t("form_dream_scholarship_budget_max_original")
+      = form.label t("form_dream_scholarship_budget_max_original").gsub("${currency}", Rails.application.config.currency)
       = form.number_field :maxbudget_realcurrency, :maxlength => 6 ,class:'form-control'
       = t("form_dream_scholarship_budget_max_original_desc")
 
     .combo
-      = form.label t("form_dream_scholarship_budget_min_original")
+      = form.label t("form_dream_scholarship_budget_min_original").gsub("${currency}", Rails.application.config.currency)
       = form.number_field :minbudget_realcurrency, :maxlength => 6 ,class:'form-control'
       = t("form_dream_scholarship_budget_min_original_desc")
 

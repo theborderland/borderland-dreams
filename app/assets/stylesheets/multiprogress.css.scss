@@ -7,13 +7,19 @@ $border-radius: 20px;
 .labels {
   display: flex;
   align-items: center;
+
+  margin: 0 1em;
 }
 
 .budget-info {
   font-size: 20px;
+  text-align: center;
+  margin-right: 0.5em;
 }
 
 .budgetprogressbar {
+  flex-grow: 1;
+
   > .ui-progressbar {
     height: 8px;
   }

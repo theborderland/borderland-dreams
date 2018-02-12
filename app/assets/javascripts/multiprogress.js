@@ -132,9 +132,6 @@
 					}else if (self.options.min < 100) {
 						minValueText = "  " + minValueText; //so the margin would be right for 50 as it for 500
 					}
-					if (!minValueText || minValueText.length == 0) {
-						minValueText = "   "; //fill with &nbsp so margin would look good
-					}
 					$('<div></div>').addClass("minCrossedHoverBar").css('margin-right', 'calc(' + minValue + '% + 2px)').appendTo(self.progressBottomText);
 					//$('<div></div>').addClass("minCrossedBarText").css('margin-right', 'calc(' + minValue + '% - 0.5em)').text(minValueText).appendTo(self.progressBottomText);
 					$('<div></div>').addClass("minCrossedBarText").css('margin-right', 'calc(' + minValue + '% - 1em)').text(minValueText).appendTo(self.progressBottomText);

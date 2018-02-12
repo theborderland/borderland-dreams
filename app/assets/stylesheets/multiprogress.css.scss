@@ -4,6 +4,8 @@
 
 @CHARSET "UTF-8";
 
+$border-radius: 20px;
+
 .budgetprogressbar {
   font-family: Helvetica, Arial, Sans-Serif;
   display: inline-block;
@@ -48,9 +50,8 @@
 }
 
 .budgetprogressbar .gb-budgetprogressbar {
-    border-radius: 20px;
+    border-radius: $border-radius;
     background-color: #dce0e3;
-    background: #dce0e3;
     float: left;
     display: inline-block;
     position: relative;
@@ -96,4 +97,9 @@
   width: 2px;
   height: 12px;
   background-color: #24283a;
+}
+
+.ui-progressbar-value {
+  border-radius: $border-radius;
+  height: 100%;
 }

@@ -121,7 +121,7 @@
 					first = false;
 					// Check if the part would exceed the 100% and cut it at 100%
 					part.value = totalValue+part.value > 100 ? 100-totalValue : part.value; 
-					partElement.css('width', 'calc(' + part.value + '% + 2px)').show();
+					partElement.css('width', part.value + "%").show();
 					lastVisibleElement = partElement;
 					totalValue += part.value;
 

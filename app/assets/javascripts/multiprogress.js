@@ -7,7 +7,7 @@
 (function($) {
 	"use strict";
 	var calculatedProgressMargin = '0em';
-	var calculatedProgressWidth = 'calc(100%)';
+	var calculatedProgressWidth = '100%';
 	
 	$.widget("gu.budgetprogressbar", 
 	
@@ -27,7 +27,6 @@
 			self.element.addClass("budgetprogressbar");
 			self.progressRoot = self._createProgressRoot();
 			self.progressBottomText = self._createProgressBottomText();
-			self.progressHoverBar = self._createProgressHoverBar();
 			self.progressRoot.progressbar({value: 0, disabled: self.options.disabled}); // Creates one part with width 0%
 			self.progressRoot.addClass("gb-budgetprogressbar");
 			self.progressRoot.css('width',calculatedProgressWidth);
@@ -80,13 +79,6 @@
 			return template;
 		},
 
-		_createProgressHoverBar: function()  {
-			var self = this;
-			var template = $("<div></div>").addClass('progressbar-hoverBar');
-			self.element.append(template);
-			return template;
-		},
-		
 		/**
 		 * @returns {Object} a jQuery object containing all part elements.
 		 * @private
@@ -121,23 +113,14 @@
 					first = false;
 					// Check if the part would exceed the 100% and cut it at 100%
 					part.value = totalValue+part.value > 100 ? 100-totalValue : part.value; 
-					partElement.css('width', 'calc(' + part.value + '% + 2px)').show();
+					partElement.css('width', part.value + "%").show();
 					lastVisibleElement = partElement;
 					totalValue += part.value;
 
 					var minValue = (self.options.min / self.options.max * 100);
 					var minValueText = self.options.min.toString();
-					if (self.options.min < 10) {
-						minValueText = "   " + minValueText; //so the margin would be right for 5 as it for 50
-					}else if (self.options.min < 100) {
-						minValueText = "  " + minValueText; //so the margin would be right for 50 as it for 500
-					}
-					if (!minValueText || minValueText.length == 0) {
-						minValueText = "   "; //fill with &nbsp so margin would look good
-					}
-					$('<div></div>').addClass("minCrossedHoverBar").css('margin-right', 'calc(' + minValue + '% + 2px)').appendTo(self.progressBottomText);
-					//$('<div></div>').addClass("minCrossedBarText").css('margin-right', 'calc(' + minValue + '% - 0.5em)').text(minValueText).appendTo(self.progressBottomText);
-					$('<div></div>').addClass("minCrossedBarText").css('margin-right', 'calc(' + minValue + '% - 1em)').text(minValueText).appendTo(self.progressBottomText);
+					$('<div></div>').addClass("minCrossedHoverBar").css('margin-left', 'calc(' + minValue + '% - 1px)').appendTo(self.progressBottomText);
+					$('<div></div>').addClass("minCrossedBarText").css('margin-left', 'calc(' + minValue + '% - 1em)').text(minValueText).appendTo(self.progressBottomText);
 				}
 				else {
 					// Hide part if the progress is <= 0 or if we exceeded 100% already 

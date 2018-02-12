@@ -18,7 +18,7 @@
 
 .budgetprogressbar {
   flex-grow: 1;
-  
+
   margin-top: 0.6em;
 
   > .ui-progressbar {
@@ -38,6 +38,11 @@
 
     width: 2px;
     height: 10px;
+  }
+
+  .minCrossedBarText {
+    width: 2em;
+    text-align: center;
   }
 }
 

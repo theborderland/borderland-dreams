@@ -18,6 +18,7 @@
 
 .budgetprogressbar {
   flex-grow: 1;
+  
   margin-top: 0.6em;
 
   > .ui-progressbar {
@@ -47,6 +48,7 @@
 .progressbar-bottomText {
   display: flex;
   flex-direction: column;
+
   margin-top: -9px;
 }
 

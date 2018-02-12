@@ -2,101 +2,49 @@
 *= require jquery-ui
 */
 
-@CHARSET "UTF-8";
-
 $border-radius: 20px;
 
-.budgetprogressbar {
-  font-family: Helvetica, Arial, Sans-Serif;
-  display: inline-block;
-  width: calc(100% - 140px);
-  position: relative;
-  vertical-align: middle;
-}
-
 .labels {
-  padding-left: 10px;
+  display: flex;
+  align-items: center;
 }
 
 .budget-info {
-  display: inline-block;
-  margin: 0 12px;
   font-size: 20px;
-  text-align: center;
-  h3 {
-    display: inline-block;
+}
+
+.budgetprogressbar {
+  > .ui-progressbar {
+    height: 8px;
   }
-}
 
-.budget-not-opened {
-  display: inline-block;
-  margin: 0 5px;
-  align-self: center;
-}
-
-.budgetprogressbar .ui-progressbar {
-  height: 8px;
-}
-
-.budgetprogressbar .gb-budgetprogressbar .ui-progressbar-value {
-  float: left;
-  margin: 0 -2px;
-  border: none;
-}
-
-.budgetprogressbar .gb-budgetprogressbar .gb-budgetprogressbar-valuetext {
-  margin-top: 0.3em;
-  text-align: center;
-}
-
-.budgetprogressbar .gb-budgetprogressbar {
+  .gb-budgetprogressbar {
     border-radius: $border-radius;
     background-color: #dce0e3;
-    float: left;
-    display: inline-block;
+
+    /* TODO: remove?
+    .ui-progressbar-value {
+      border: none;
+    } */
+  }
+
+  .minBarValue {
+    background-image: linear-gradient(99deg, #ffc233, #ffe19c);
+  }
+
+  .minCrossedBarValue {
+    background-image: linear-gradient(93deg, #68c9f7, #3799ec);
+  }
+
+  .minCrossedHoverBar {
+    display: block;
     position: relative;
-    border: none;
-}
-
-.budgetprogressbar .progressbar-info {
-  float: left;
-  text-align: center;
-  width: 5em;
-}
-
-.budgetprogressbar .minBarValue {
-  background-image: linear-gradient(99deg, #ffc233, #ffe19c);
-}
-
-.budgetprogressbar .minCrossedBarValue {
-  background-image: linear-gradient(93deg, #68c9f7, #3799ec);
-}
-
-.budgetprogressbar .progressbar-bottomText {
-  position: relative;
-  top: 0.11em;
-}
-
-.budgetprogressbar .progressbar-hoverBar {
-  position: relative;
-}
-
-.budgetprogressbar .minCrossedBarText {
-  position: relative;
-  display: block;
-  top: -0.2em;
-  width: 50px;
-  text-align: left;
-}
-
-.budgetprogressbar .minCrossedHoverBar {
-  display: block;
-  position: relative;
-  top: -0.25em;
-  right: -2px;
-  width: 2px;
-  height: 12px;
-  background-color: #24283a;
+    top: -0.25em;
+    right: -2px;
+    width: 2px;
+    height: 12px;
+    background-color: #24283a;
+  }
 }
 
 .ui-progressbar-value {

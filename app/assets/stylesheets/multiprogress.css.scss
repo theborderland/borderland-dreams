@@ -2,8 +2,6 @@
 *= require jquery-ui
 */
 
-$border-radius: 20px;
-
 .labels {
   display: flex;
   align-items: center;
@@ -43,7 +41,6 @@ $border-radius: 20px;
 }
 
 .gb-budgetprogressbar {
-  border-radius: $border-radius;
   background-color: #dce0e3;
 }
 
@@ -54,6 +51,5 @@ $border-radius: 20px;
 }
 
 .ui-progressbar-value {
-  border-radius: $border-radius;
   height: 100%;
 }

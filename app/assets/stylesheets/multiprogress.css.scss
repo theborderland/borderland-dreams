@@ -14,24 +14,16 @@ $border-radius: 20px;
 .budget-info {
   font-size: 20px;
   text-align: center;
+
   margin-right: 0.5em;
 }
 
 .budgetprogressbar {
   flex-grow: 1;
+  margin-top: 0.6em;
 
   > .ui-progressbar {
     height: 8px;
-  }
-
-  .gb-budgetprogressbar {
-    border-radius: $border-radius;
-    background-color: #dce0e3;
-
-    /* TODO: remove?
-    .ui-progressbar-value {
-      border: none;
-    } */
   }
 
   .minBarValue {
@@ -44,7 +36,21 @@ $border-radius: 20px;
 
   .minCrossedHoverBar {
     background-color: #24283a;
+
+    width: 2px;
+    height: 10px;
   }
+}
+
+.gb-budgetprogressbar {
+  border-radius: $border-radius;
+  background-color: #dce0e3;
+}
+
+.progressbar-bottomText {
+  display: flex;
+  flex-direction: column;
+  margin-top: -9px;
 }
 
 .ui-progressbar-value {

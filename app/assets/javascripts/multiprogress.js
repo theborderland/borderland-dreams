@@ -7,7 +7,7 @@
 (function($) {
 	"use strict";
 	var calculatedProgressMargin = '0em';
-	var calculatedProgressWidth = 'calc(100%)';
+	var calculatedProgressWidth = '100%';
 	
 	$.widget("gu.budgetprogressbar", 
 	
@@ -27,7 +27,6 @@
 			self.element.addClass("budgetprogressbar");
 			self.progressRoot = self._createProgressRoot();
 			self.progressBottomText = self._createProgressBottomText();
-			self.progressHoverBar = self._createProgressHoverBar();
 			self.progressRoot.progressbar({value: 0, disabled: self.options.disabled}); // Creates one part with width 0%
 			self.progressRoot.addClass("gb-budgetprogressbar");
 			self.progressRoot.css('width',calculatedProgressWidth);
@@ -80,13 +79,6 @@
 			return template;
 		},
 
-		_createProgressHoverBar: function()  {
-			var self = this;
-			var template = $("<div></div>").addClass('progressbar-hoverBar');
-			self.element.append(template);
-			return template;
-		},
-		
 		/**
 		 * @returns {Object} a jQuery object containing all part elements.
 		 * @private
@@ -128,7 +120,7 @@
 					var minValue = (self.options.min / self.options.max * 100);
 					var minValueText = self.options.min.toString();
 					$('<div></div>').addClass("minCrossedHoverBar").css('margin-left', minValue + "%").appendTo(self.progressBottomText);
-					$('<div></div>').addClass("minCrossedBarText").css('margin-left', minValue + "%").text(minValueText).appendTo(self.progressBottomText);
+					$('<div></div>').addClass("minCrossedBarText").css('margin-left', 'calc(' + minValue + '% - 10px)').text(minValueText).appendTo(self.progressBottomText);
 				}
 				else {
 					// Hide part if the progress is <= 0 or if we exceeded 100% already 

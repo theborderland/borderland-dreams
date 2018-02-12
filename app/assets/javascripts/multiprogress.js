@@ -119,7 +119,7 @@
 
 					var minValue = (self.options.min / self.options.max * 100);
 					var minValueText = self.options.min.toString();
-					$('<div></div>').addClass("minCrossedHoverBar").css('margin-left', minValue + "%").appendTo(self.progressBottomText);
+					$('<div></div>').addClass("minCrossedHoverBar").css('margin-left', 'calc(' + minValue + '% - 1px)').appendTo(self.progressBottomText);
 					$('<div></div>').addClass("minCrossedBarText").css('margin-left', 'calc(' + minValue + '% - 10px)').text(minValueText).appendTo(self.progressBottomText);
 				}
 				else {

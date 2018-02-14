@@ -2,11 +2,10 @@
 
   <table>
     <tr>
-      <th>Title</th>
-      <th>Text</th>
+      <th>Name</th>
       <th>Created at</th>
     </tr>
-    <% camp.each do |camp| %>
+    <% camps.each do |camp| %>
       <tr>
         <td><%= camp.name %></td>
         <td><%= camp.created_at %></td>

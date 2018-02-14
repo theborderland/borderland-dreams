@@ -25,6 +25,23 @@
                 <p><%= truncate(@subtitle, length: 256) %></p>
               </div>
 
+              <div class="labels">
+                <% if Rails.configuration.x.firestarter_settings["granting_active"] and camp.minbudget %>
+
+                  <h3 class='budget-info'><%= camp.grants_received %>/<%= camp.maxbudget %><br><%=t :funded %></h3>
+
+                  <!-- Only if never got grants and not opened for granting -->
+                  <% if !camp.grantingtoggle and camp.grants_received <= 0%>
+                    <h3 class='budget-not-opened'>
+                      <%=t :granting_not_enabled %>
+                    </h3>
+                  <% else %>
+                    <div class="budgetprogressbar" data-min="<%= camp.minbudget %>" data-max="<%= camp.maxbudget %>" data-value="<%= camp.grants_received %>"></div>
+                  <% end %>
+
+                <% end %>
+              </div>
+
               <% if !camp.is_public? %>
                 <h4 style="color: #eb1478; position: absolute; top:4px; right:20px;"><span class="glyphicon glyphicon-lock" aria-hidden="true"></h4>
               <% end %>

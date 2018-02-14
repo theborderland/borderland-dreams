@@ -30,9 +30,6 @@ class Camp < ActiveRecord::Base
   validates :maxbudget_realcurrency, :numericality => { :greater_than_or_equal_to => 0 }, allow_blank: true
   validates_with CanCreateNewDreamValidator, :on => :create
 
-  # This directive enables Filterrific for the Article class.
-  # We define a default sorting by most recent sign up, and then
-  # we make a number of filters available through Filterrific.
   filterrific(
       default_filter_params: { sorted_by: 'updated_at_desc' },
       available_filters: [

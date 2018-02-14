@@ -92,6 +92,8 @@ class Camp < ActiveRecord::Base
         # Joining on other tables is quite common in Filterrific, and almost
         # every ActiveRecord table has a 'created_at' column.
         order("camps.created_at #{ direction }")
+      when /^updated_at_/
+        order("camps.updated_at #{ direction }")
       when /^name_/
         # Simple sort on the name colums
         order("LOWER(camps.name) #{ direction }")

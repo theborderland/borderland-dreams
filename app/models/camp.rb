@@ -48,6 +48,10 @@ class Camp < ActiveRecord::Base
   # scopes. In this example we omit the implementation of the scopes for brevity.
   # Please see 'Scope patterns' for scope implementation details.
     scope :search_query, lambda { |query|
+
+      # TODO: remove
+      puts "### camp.rb > search_query > query: " + query
+
       return nil  if query.blank?
       # condition query, parse into individual keywords
       terms = query.downcase.split(/\s+/)
@@ -83,6 +87,9 @@ class Camp < ActiveRecord::Base
       # extract the sort direction from the param value.
       direction = (sort_option =~ /desc$/) ? 'desc' : 'asc'
 
+      # TODO: remove
+      puts "### camp.rb > sorted_by > " + direction
+
       case sort_option.to_s
       when /^name/
          # Simple sort on the created_at column.
@@ -101,6 +108,10 @@ class Camp < ActiveRecord::Base
   }
 
   scope :not_fully_funded, lambda { |flag|
+
+    # TODO: remove
+    puts "### camp.rb > not_fully_funded > " + flag
+
     return nil  if '0' == flag # checkbox unchecked
     where(fullyfunded: false)
   }

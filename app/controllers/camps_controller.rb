@@ -6,6 +6,10 @@ class CampsController < ApplicationController
 
   def index
     filter = params[:filterrific] || { sorted_by: 'updated_at_desc' }
+
+    # TODO: remove
+    puts "### camps_controller.rb > index > filter: " + filter.to_s
+
     filter[:active] = true
     filter[:not_hidden] = true
 

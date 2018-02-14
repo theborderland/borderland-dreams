@@ -24,4 +24,6 @@ $(document).ready(function() {
     el.fadeOut('slow');
   })
 
+  $('.budgetprogressbar').budgetprogressbar();
+
 });

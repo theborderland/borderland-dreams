@@ -23,8 +23,6 @@ $(function() {
   	window.scroll(0,1);
   	window.scroll(0,0);
 
-	$('.budgetprogressbar').budgetprogressbar();
-
 	$('.donate-now-button').click(function(){
 		$('.donate-now-button').prop('disabled', true);
 		$('.donate-now-button').css('cursor', 'wait');

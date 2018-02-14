@@ -106,4 +106,69 @@ class Camp < ActiveRecord::Base
         ['Creation date (oldest first)', 'created_at_asc']
     ]
   end
+
+  scope :not_fully_funded, lambda { |flag|
+    return nil  if '0' == flag # checkbox unchecked
+    where(fullyfunded: false)
+  }
+
+  scope :not_min_funded, lambda { |flag|
+    return nil  if '0' == flag # checkbox unchecked
+    where(minfunded: false)
+  }
+
+  scope :not_seeking_funding, lambda { |flag|
+    return nil  if '0' == flag # checkbox unchecked
+    where(grantingtoggle: true)
+  }
+
+  scope :active, lambda { |flag|
+    where(active: true)
+  }
+
+  scope :not_hidden, lambda { |flag|
+    where(is_public: flag)
+  }
+
+  scope :is_cocreation, lambda { |flag|
+    where.not(camps: { cocreation: nil }).where.not(camps: { cocreation: '' })
+  }
+
+  scope :is_current_event, lambda { |flag|
+    where(camps: { event_id: Rails.application.config.default_event })
+  }
+
+  scope :is_old_event, lambda { |flag|
+    where.not(camps: { event_id: Rails.application.config.default_event })
+  }
+
+  before_save do
+    align_budget
+  end
+
+
+  def grants_received
+    return self.grants.sum(:amount)
+  end
+
+  # Translating the real currency to budget
+  # This called on create and on update
+  # Rounding up 0.1 = 1, 1.2 = 2
+  def align_budget
+    if self.minbudget_realcurrency.nil?
+      self.minbudget = nil
+    elsif self.minbudget_realcurrency > 0
+      self.minbudget = (self.minbudget_realcurrency / Rails.application.config.coin_rate).ceil
+    else
+      self.minbudget = 0
+    end
+
+    if self.maxbudget_realcurrency.nil?
+      self.maxbudget = nil
+    elsif self.maxbudget_realcurrency > 0
+      self.maxbudget = (self.maxbudget_realcurrency / Rails.application.config.coin_rate).ceil
+    else
+      self.maxbudget = 0
+    end
+  end
 end

@@ -102,16 +102,6 @@ class Camp < ActiveRecord::Base
     end
   }
 
-  # This method provides select options for the `sorted_by` filter select input.
-  # It is called in the controller as part of `initialize_filterrific`.
-  def self.options_for_sorted_by
-    [
-        ['Name (a-z)', 'name_asc'],
-        ['Creation date (newest first)', 'created_at_desc'],
-        ['Creation date (oldest first)', 'created_at_asc']
-    ]
-  end
-
   scope :not_fully_funded, lambda { |flag|
     return nil  if '0' == flag # checkbox unchecked
     where(fullyfunded: false)

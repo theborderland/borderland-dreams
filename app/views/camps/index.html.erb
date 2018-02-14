@@ -34,16 +34,6 @@
                     class: 'filterrific-periodically-observed form-control'
                 ) %>
           </div>
-          <div>
-            Sorted by
-            <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by]) %>
-          </div>
-          <div>
-            <%= link_to(
-                    'Reset filters',
-                    reset_filterrific_url,
-                    ) %>
-          </div>
 
           <div class="form-inline">
             <%= f.check_box(:not_fully_funded, class: 'filterrific-periodically-observed checkbox') %>

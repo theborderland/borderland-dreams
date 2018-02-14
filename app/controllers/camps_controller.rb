@@ -17,12 +17,12 @@ class CampsController < ApplicationController
     @filterrific = initialize_filterrific(
         Camp,
         params[:filterrific],
-        select_options: {
-            sorted_by: Camp.options_for_sorted_by
-        },
         persistence_id: 'shared_key',
         default_filter_params: {},
-        available_filters: [:sorted_by, :search_query],
+        available_filters: [
+            :sorted_by,
+            :search_query
+        ],
         ) or return
     # Get an ActiveRecord::Relation for all articles that match the filter settings.
     # You can paginate with will_paginate or kaminari.

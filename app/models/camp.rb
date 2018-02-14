@@ -34,7 +34,7 @@ class Camp < ActiveRecord::Base
   # We define a default sorting by most recent sign up, and then
   # we make a number of filters available through Filterrific.
   filterrific(
-      default_filter_params: { sorted_by: 'created_at_desc' },
+      default_filter_params: { sorted_by: 'updated_at_desc' },
       available_filters: [
           :sorted_by,
           :search_query,

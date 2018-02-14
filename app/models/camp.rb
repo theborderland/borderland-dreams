@@ -37,7 +37,10 @@ class Camp < ActiveRecord::Base
       default_filter_params: { sorted_by: 'created_at_desc' },
       available_filters: [
           :sorted_by,
-          :search_query
+          :search_query,
+          :not_fully_funded,
+          :not_min_funded,
+          :not_seeking_funding
       ]
   )
 

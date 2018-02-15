@@ -5,25 +5,11 @@ class CampsController < ApplicationController
 
 
   def index
-    filter = params[:filterrific] || { sorted_by: 'updated_at_desc' }
-    filter[:active] = true
-    filter[:not_hidden] = true
-
-    if (!current_user.nil? && (current_user.admin? || current_user.guide?))
-      filter[:hidden] = true
-      filter[:not_hidden] = false
-    end
-
     @filterrific = initialize_filterrific(
         Camp,
-        params[:filterrific],
-        persistence_id: 'shared_key',
-        default_filter_params: {},
-        available_filters: [
-            :sorted_by,
-            :search_query
-        ],
+        params[:filterrific]
         ) or return
+
     # Get an ActiveRecord::Relation for all articles that match the filter settings.
     # You can paginate with will_paginate or kaminari.
     # NOTE: filterrific_find returns an ActiveRecord Relation that can be
@@ -37,9 +23,9 @@ class CampsController < ApplicationController
       format.js
     end
 
-      # Recover from invalid param sets, e.g., when a filter refers to the
-      # database id of a record that doesn’t exist any more.
-      # In this case we reset filterrific and discard all filter params.
+  # Recover from invalid param sets, e.g., when a filter refers to the
+  # database id of a record that doesn’t exist any more.
+  # In this case we reset filterrific and discard all filter params.
   rescue ActiveRecord::RecordNotFound => e
     # There is an issue with the persisted param_set. Reset it.
     puts "Had to reset filterrific params: #{ e.message }"

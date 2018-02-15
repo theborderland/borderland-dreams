@@ -37,7 +37,10 @@ class Camp < ActiveRecord::Base
           :search_query,
           :not_fully_funded,
           :not_min_funded,
-          :not_seeking_funding
+          :not_seeking_funding,
+          :active,
+          :not_hidden,
+          :is_cocreation
       ]
   )
 

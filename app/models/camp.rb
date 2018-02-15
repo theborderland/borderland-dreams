@@ -40,7 +40,8 @@ class Camp < ActiveRecord::Base
           :not_seeking_funding,
           :active,
           :not_hidden,
-          :is_cocreation
+          :is_cocreation,
+          :is_current_event
       ]
   )
 

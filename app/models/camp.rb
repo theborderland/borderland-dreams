@@ -35,9 +35,9 @@ class Camp < ActiveRecord::Base
       available_filters: [
           :sorted_by,
           :search_query,
-          :not_fully_funded,
-          :not_min_funded,
-          :not_seeking_funding,
+# TODO    :not_fully_funded,
+# TODO    :not_min_funded,
+# TODO    :not_seeking_funding,
           :active,
           :not_hidden,
           :is_cocreation,
@@ -49,33 +49,34 @@ class Camp < ActiveRecord::Base
   # scopes. In this example we omit the implementation of the scopes for brevity.
   # Please see 'Scope patterns' for scope implementation details.
   scope :search_query, lambda { |query|
-    # Searches the articles table on the 'title' and 'text' columns.
-    # Matches using LIKE, automatically appends '%' to each term.
-    # LIKE is case INsensitive with MySQL, however it is case
-    # sensitive with PostGreSQL. To make it work in both worlds,
-    # we downcase everything.
     return nil  if query.blank?
-
-    # TODO: remove
-    puts "### camp.rb > search_query > query: " + query
-
     # condition query, parse into individual keywords
     terms = query.downcase.split(/\s+/)
-
     # replace "*" with "%" for wildcard searches,
     # append '%', remove duplicate '%'s
     terms = terms.map { |e|
-      (e.gsub('*', '%') + '%').gsub(/%+/, '%')
+      ('%' + e.gsub('*', '%') + '%').gsub(/%+/, '%')
     }
-    # configure number of OR conditions for provision
-    # of interpolation arguments. Adjust this if you
-    # change the number of OR conditions.
-    num_or_conds = 2
+
+    or_array = [
+        "LOWER(camps.name) LIKE ?",
+        "LOWER(camps.subtitle) LIKE ?",
+        "LOWER(camps.cocreation) LIKE ?",
+    ]
+
+    if Rails.configuration.x.firestarter_settings["multi_lang_support"]
+      or_array.push("LOWER(camps.en_name) LIKE ?",
+                    "LOWER(camps.en_subtitle) LIKE ?")
+    end
+
+    num_or_conditions = or_array.length
+
     where(
-        terms.map { |term|
-          "(LOWER(camps.name) LIKE ? OR LOWER(camps.subtitle) LIKE ?)"
+        terms.map {
+          or_clauses = or_array.join(' OR ')
+          "(#{ or_clauses })"
         }.join(' AND '),
-        *terms.map { |e| [e] * num_or_conds }.flatten
+        *terms.map { |e| [e] * num_or_conditions }.flatten
     )
   }
 
@@ -83,21 +84,18 @@ class Camp < ActiveRecord::Base
     # extract the sort direction from the param value.
     direction = (sort_option =~ /desc$/) ? 'desc' : 'asc'
 
-    # TODO: remove
-    puts "### camp.rb > sorted_by > sort_option: " + sort_option
-
     case sort_option.to_s
-      when /^created_at_/
+      when /^name/
         # Simple sort on the created_at column.
         # Make sure to include the table name to avoid ambiguous column names.
         # Joining on other tables is quite common in Filterrific, and almost
         # every ActiveRecord table has a 'created_at' column.
-        order("camps.created_at #{ direction }")
+        order("camps.name #{ direction }")
       when /^updated_at_/
         order("camps.updated_at #{ direction }")
-      when /^name_/
-        # Simple sort on the name colums
-        order("LOWER(camps.name) #{ direction }")
+      when /^created_at_/
+        order("camps.created_at #{ direction }")
+        raise(ArgumentError, "Sort option: #{ sort_option.inspect }")
       else
         raise(ArgumentError, "Invalid sort option: #{ sort_option.inspect }")
     end

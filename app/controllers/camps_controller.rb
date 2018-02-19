@@ -5,26 +5,31 @@ class CampsController < ApplicationController
 
 
   def index
-    filter = params[:filterrific] || { sorted_by: 'updated_at_desc' }
-    filter[:active] = true
-    filter[:not_hidden] = true
-
-    if (!current_user.nil? && (current_user.admin? || current_user.guide?))
-      filter[:hidden] = true
-      filter[:not_hidden] = false
-    end
-
     @filterrific = initialize_filterrific(
-      Camp,
-      filter
-    ) or return
+        Camp,
+        params[:filterrific]
+        ) or return
+
+    # Get an ActiveRecord::Relation for all articles that match the filter settings.
+    # You can paginate with will_paginate or kaminari.
+    # NOTE: filterrific_find returns an ActiveRecord Relation that can be
+    # chained with other scopes to further narrow down the scope of the list,
+    # e.g., to apply permissions or to hard coded exclude certain types of records.
     @camps = @filterrific.find.page(params[:page])
 
+    # Respond to html for initial page load and to js for AJAX filter updates.
     respond_to do |format|
       format.html
       format.js
     end
 
+  # Recover from invalid param sets, e.g., when a filter refers to the
+  # database id of a record that doesn’t exist any more.
+  # In this case we reset filterrific and discard all filter params.
+  rescue ActiveRecord::RecordNotFound => e
+    # There is an issue with the persisted param_set. Reset it.
+    puts "Had to reset filterrific params: #{ e.message }"
+    redirect_to(reset_filterrific_url(format: :html)) and return
   end
 
   def guideview
@@ -47,8 +52,8 @@ class CampsController < ApplicationController
 
   def create
     # Create camp without people then add them
-      @camp = Camp.new(camp_params)
-      @camp.creator = current_user
+    @camp = Camp.new(camp_params)
+    @camp.creator = current_user
 
     if create_camp
       flash[:notice] = t('created_new_dream')
@@ -85,7 +90,7 @@ class CampsController < ApplicationController
     end
 
     if @camp.grants_received + granted > @camp.maxbudget
-        granted = @camp.maxbudget - @camp.grants_received
+      granted = @camp.maxbudget - @camp.grants_received
     end
 
     if current_user.grants < granted
@@ -107,25 +112,25 @@ class CampsController < ApplicationController
       current_user.grants -= granted
 
       # Increase camp grants.
-      @camp.grants.new({:user_id => current_user.id, :amount => granted})      
+      @camp.grants.new({:user_id => current_user.id, :amount => granted})
 
       if @camp.grants_received + granted >= @camp.minbudget
         @camp.minfunded = true
       else
         @camp.minfunded = false
       end
-      
+
       if @camp.grants_received + granted >= @camp.maxbudget
         @camp.fullyfunded = true
       else
         @camp.fullyfunded = false
       end
-        
+
       unless current_user.save
         flash[:notice] = "#{t:errors_str}: #{current_user.errors.full_messages.uniq.join(', ')}"
         redirect_to camp_path(@camp) and return
       end
-      
+
       unless @camp.save
         flash[:notice] = "#{t:errors_str}: #{@camp.errors.full_messages.uniq.join(', ')}"
         redirect_to camp_path(@camp) and return
@@ -230,4 +235,5 @@ class CampsController < ApplicationController
   rescue ActiveRecord::RecordInvalid
     false
   end
+
 end

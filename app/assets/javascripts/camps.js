@@ -1,18 +1,18 @@
 $(document).ready(function() {
   $("#responsibles a.add_fields").
-    data("association-insertion-position", 'before').
-    data("association-insertion-node", 'this');
+  data("association-insertion-position", 'before').
+  data("association-insertion-node", 'this');
 
   $('#responsibles').on('cocoon:after-insert',
     function() {
-     $(".project-tag-fields a.add_fields").
-         data("association-insertion-position", 'before').
-         data("association-insertion-node", 'this');
-     $('.responsible-fields').on('cocoon:after-insert',
-          function() {
-            $(this).children(".responsible_from_list").remove();
-            $(this).children("a.add_fields").hide();
-          });
+      $(".project-tag-fields a.add_fields").
+      data("association-insertion-position", 'before').
+      data("association-insertion-node", 'this');
+      $('.responsible-fields').on('cocoon:after-insert',
+        function() {
+          $(this).children(".responsible_from_list").remove();
+          $(this).children("a.add_fields").hide();
+        });
     });
 
   $('#responsibles').bind('cocoon:before-insert', function(e,el) {
@@ -23,5 +23,7 @@ $(document).ready(function() {
     $(this).data('remove-timeout', 1000);
     el.fadeOut('slow');
   })
+
+  $('.budgetprogressbar').budgetprogressbar();
 
 });

@@ -385,7 +385,7 @@
                 <% if @camp.website.present? %>
                     <li>
                     <span class='dream-website'>
-                        <a href='<%= @camp.website %>'><span class="glyphicon glyphicon-globe" aria-hidden="true"></span>&nbsp<%=t :form_dream_website_short %></a>
+                        <a href='http://<%= @camp.website %>'><span class="glyphicon glyphicon-globe" aria-hidden="true"></span><%= @camp.website %></a>
                     </span>
                     </li>
                     <br>

@@ -81,13 +81,9 @@ class CampsController < ApplicationController
 
     @grants_received_by_this_user = Grant.received_for_camp_by_user(@camp.id, current_user.id)
 
-    if @grants_received_by_this_user == Grant.max_per_user_per_dream
-      flash[:alert] = "#{t:max_grants_reached_by_user_for_this_dream, max_grants_per_user_per_dream: Grant.max_per_user_per_dream}"
-      redirect_to camp_path(@camp) and return
-    end
-
     if @grants_received_by_this_user + granted > Grant.max_per_user_per_dream
-      granted = Grant.max_per_user_per_dream - @grants_received_by_this_user
+      flash[:alert] = "#{t:exceeds_max_grants_per_user_for_this_dream, max_grants_per_user_per_dream: Grant.max_per_user_per_dream}"
+      redirect_to camp_path(@camp) and return
     end
 
     if current_user.grants < granted

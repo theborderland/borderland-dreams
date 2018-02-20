@@ -412,7 +412,7 @@ he:
 
   cant_send_less_then_one: "לא ניתן לשלוח פחות מלב אחד"
   dream_need_to_have_max_budget: "החלום צריך תחילה להגדיר מקסימום תקציב. אנא פנה לבעל החלום ואו למדריכים החלומות"
-  max_grants_reached_by_user_for_this_dream: You have already spent your maximum of %{max_grants_per_user_per_dream} grants on this dream.
+  exceeds_max_grants_per_user_for_this_dream: You cannot spend more than %{max_grants_per_user_per_dream} grants on one dream
   security_more_grants: "שגיאת מציאות. לא ניתן לתת יותר לבבות ממה שיש לך כרגע. ניסית לתת %{granted} ויש לך %{current_user_grants}. נסיון יפה."
   security_cant_delete_dreams_you_dont_own: "שגיאה - אתה לא יכול למחוק חלום שלא שייך לך - האקר הצטרף אלינו"
   security_cant_tag_dreams_you_dont_own: "שגיאה - רק מדריכים יכולים לתייג חלומות. רוצה לעזור לנו?"

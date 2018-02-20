@@ -1,5 +1,5 @@
 defaults: &defaults
-  coin_rate: 10.0
+  grant_value_for_currency: 10.0
   additional_info: true
   contact_phone: true
   description: true

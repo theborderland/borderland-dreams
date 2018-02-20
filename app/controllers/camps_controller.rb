@@ -76,7 +76,7 @@ class CampsController < ApplicationController
     end
 
     if @camp.grants_received + granted > @camp.maxbudget
-        granted = @camp.maxbudget - @camp.grants_received
+      granted = @camp.maxbudget - @camp.grants_received
     end
 
     @grants_received_by_this_user = Grant.received_for_camp_by_user(@camp.id, current_user.id)

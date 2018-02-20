@@ -85,7 +85,7 @@ he:
   form_subtitle_label: "סיכום החלום במשפט (נדרש)"
   form_subtitle_guidetext_html: "סיכום קצר של החלום שאת מציעה. סיכום זה יופיע בעמוד הראשי של האתר. תעשי את זה קצר, עד 256 תווים."
   form_subtitle_en_label: "סיכום החלום במשפט באנגלית (נדרש)"
-  form_creator_name_label: "שם הקבוצה/אמן"
+  form_creator_name_label: "שם הקבוצה/אמן (נדרש)"
   form_creator_name_guidetext_html: ""
 
   create_dream_loading_text: "מכינים במיוחד עבורך מקום בענן הקסום שלנו..."

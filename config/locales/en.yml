@@ -56,14 +56,14 @@ en:
   form_basics_headline: Dream registration
   form_summary: Summary
   form_dream_name: Dream name
-  form_dream_name_en_label: Dream name in English (required)
-  form_dream_name_label: Dream name (required) 
+  form_dream_name_en_label: Dream name in English *
+  form_dream_name_label: Dream name *
   form_dream_name_guidetext_html: What's your dream prototype called?
-  form_subtitle_en_label: Summarize your dream in English (required)
-  form_subtitle_label: Summarize your dream (required)
+  form_subtitle_en_label: Summarize your dream in English *
+  form_subtitle_label: Summarize your dream *
   form_subtitle_guidetext_html: Brief summary of the dream prototype you are applying
     for the front page of the dream's site. Keep it short, up to 256 characters.
-  form_creator_name_label: Group / Artist name
+  form_creator_name_label: Group / Artist name *
   form_creator_name_guidetext_html: ''
   create_dream_loading_text: Making room for your dream in our magical cloud...
   create_dream_loading_text2: This usually takes ~8 seconds. Take a mindful breath as we integrate with the drive for you...

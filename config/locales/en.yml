@@ -428,8 +428,6 @@ en:
   minimum_funding_reached: Minimum funding reached
   minimum_grants_needed: Minimum grants needed
   needed_to_fully_fund: Needed to fully fund
-  minimum_grants_realcurrency_needed: Minimum budget needed in NIS
-  needed_to_fully_fund_realcurrency: Needed to fully fund in NIS
   your_available_grants: Your available grants
   youre_out_of_grants: You're out of grants. Hats off!
   add_my_name: Add my name
@@ -586,8 +584,6 @@ en:
         updated_at: Update
         minfunded: Reached minimum funding
         fullyfunded: Reached maximum funding
-        minbudget_realcurrency: Minimum funding in Real Currency
-        maxbudget_realcurrency: Maximum funding in Real Currency
         safetybag_crewsize: Size of the team
         safetybag_plan: Work plan/schedule
         safetybag_builder: Construction supervisior

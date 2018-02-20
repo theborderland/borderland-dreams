@@ -363,9 +363,6 @@ he:
   minimum_grants_needed: "לבבות מינימלים שצריכים"
   needed_to_fully_fund: "לבבות מקסימלים שצריכים"
 
-  minimum_grants_realcurrency_needed: "תקציב מינימלי בשקלים"
-  needed_to_fully_fund_realcurrency: "תקציב החלום במלואו בשקלים"
-
   your_available_grants: "לבבות שנותרו לך"
   youre_out_of_grants: "השתמשת בכל הלבבות שלך. ריספקט"
 
@@ -539,8 +536,6 @@ he:
         updated_at: "עודכן"
         minfunded: "מימון מינימלי הושג"
         fullyfunded: "מימון מקסימלי הושג"
-        minbudget_realcurrency: "מימון מינימלי בשקלים"
-        maxbudget_realcurrency: "מימון מקסימלי בשקלים"
         safetybag_crewsize: "גודל הצוות"
         safetybag_plan: "תכנית עבודה"
         safetybag_builder: "אחראי בנייה"

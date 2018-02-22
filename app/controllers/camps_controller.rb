@@ -5,6 +5,10 @@ class CampsController < ApplicationController
 
 
   def index
+
+    # TODO: remove
+    puts "### camps_controller.rb > index > DB creds: " + ActiveRecord::Base.configurations[Rails.env].to_s
+
     @filterrific = initialize_filterrific(
         Camp,
         params[:filterrific]

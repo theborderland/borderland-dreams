@@ -182,4 +182,14 @@ class Camp < ActiveRecord::Base
       self.maxbudget = 0
     end
   end
+
+  def website_url
+    @protocol_index = self.website.index("https://")
+
+    if @protocol_index == nil
+      @protocol_index = self.website.index("http://")
+    end
+
+    return @protocol_index == nil ? "http://" + self.website : self.website
+  end
 end

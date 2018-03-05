@@ -306,18 +306,18 @@
                     </span></li>
 
                     <!-- Granting system -->
-                    <% if current_user && (current_user.guide || current_user.admin) %>
+                    <% if current_user.guide || current_user.admin %>
                         <%= button_to t(@camp.grantingtoggle? ? :turn_off_granting : :enable_granting),
                                       :toggle_granting_camp, { method: :patch, class: "btn btn-danger" } %>
                     <% end %>
 
-                    <% if current_user&.guide || current_user&.admin %>
+                    <% if @camp.creator == current_user || current_user.guide || current_user.admin %>
                       <% if @camp.active? %>
                         <%= button_to t(:archive_this_creation), :archive_camp,
                                       { method: :post, class: "btn btn-danger", data: { confirm: t(:are_you_sure) } } %>
                       <% end %>
 
-                      <% if current_user&.admin %>
+                      <% if current_user.admin %>
                         <%= button_to t(:delete_this_creation), { action: 'destroy' },
                                       { method: :delete, class: "btn btn-danger", data: { confirm: t(:delete_are_you_sure) } } %>
                       <% end %>
@@ -329,7 +329,7 @@
                     <% if Rails.configuration.x.firestarter_settings["add_to_list"] %>
                         <br>
 
-                        <% if current_user && (@camp.creator == current_user || current_user.guide) %>
+                        <% if @camp.creator == current_user || current_user.guide %>
                             <br>
                             <li><span><b><%=t :cocreators_list_guidetext %></b>
                                 <% @users.each do |user| %>

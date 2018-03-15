@@ -51,10 +51,10 @@ gem 'kaminari-bootstrap'
 gem 'kaminari'
 
 # Filtering
-gem 'filterrific', '< 5'
+gem 'filterrific'
 
 # Images at S3
-gem 'paperclip', '4.3.7'
+gem 'paperclip'
 gem 'aws-sdk', '< 2'
 gem 'rmagick'
 
@@ -90,7 +90,7 @@ group :production do
   # needed by herokus
   gem 'rails_12factor'
   # postgres
-  gem 'pg', '0.21.0'
+  gem 'pg'
   # needed by aws
   gem 'puma'
 end

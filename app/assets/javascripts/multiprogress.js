@@ -69,7 +69,7 @@
 			var self = this;
 			var template = $("<div class='progressbar-main'></div>");
 			self.element.append(template);
-      return template;
+			return template;
 		},
 
 		_createProgressBottomText: function() {
@@ -106,21 +106,26 @@
 			var first = true;
 			var lastVisibleElement = null;
 			var totalValue = 0;
+			var isLangRtl = $("body > .main_content").prop("dir") === "rtl";
+
 			$.each(parts, function(i, part) {
 				var partElement = $(self._partTemplate).appendTo(self.progressRoot);
 				partElement.removeClass("ui-corner-left");
 				if (part.value >= 0 && totalValue < 100) {
 					first = false;
 					// Check if the part would exceed the 100% and cut it at 100%
-					part.value = totalValue+part.value > 100 ? 100-totalValue : part.value; 
-					partElement.css('width', part.value + "%").show();
+					part.value = totalValue+part.value > 100 ? 100-totalValue : part.value;
+					partElement.css('width', part.value + '%').show();
 					lastVisibleElement = partElement;
 					totalValue += part.value;
 
 					var minValue = (self.options.min / self.options.max * 100);
 					var minValueText = self.options.min.toString();
-					$('<div></div>').addClass("minCrossedHoverBar").css('margin-left', 'calc(' + minValue + '% - 1px)').appendTo(self.progressBottomText);
-					$('<div></div>').addClass("minCrossedBarText").css('margin-left', 'calc(' + minValue + '% - 1em)').text(minValueText).appendTo(self.progressBottomText);
+
+          var marginDirection = isLangRtl ? "margin-right" : "margin-left";
+
+          $('<div></div>').addClass("minCrossedHoverBar").css(marginDirection, 'calc(' + minValue + '% - 1px)').appendTo(self.progressBottomText); // 1px is half of the indicator's width
+          $('<div></div>').addClass("minCrossedBarText").css(marginDirection, 'calc(' + minValue + '% - 1em)').text(minValueText).appendTo(self.progressBottomText); // 1em is half of the text element's width
 				}
 				else {
 					// Hide part if the progress is <= 0 or if we exceeded 100% already 

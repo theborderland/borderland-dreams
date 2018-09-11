@@ -1,13 +1,5 @@
 require 'concerns/RegistrationValidation'
 
-class CanRegisterNewUserValidator < ActiveModel::Validator
-  def validate(record)
-    if Rails.application.config.x.firestarter_settings['disable_register_new_user']
-      record.errors[:base] << I18n.t("new_user_is_disabled")
-    end
-  end
-end
-
 class User < ActiveRecord::Base
   include RegistrationValidation  
   # Include default devise modules. Others available are:
@@ -22,8 +14,7 @@ class User < ActiveRecord::Base
   has_many :created_camps, class_name: :Camp
 
   schema_validations whitelist: [:id, :created_at, :updated_at, :encrypted_password]
-  validates_with CanRegisterNewUserValidator, :on => :create
-  
+
   # Again, from Rails Girls tutorial on Facebook auth.
   # Used for handling the facebook auth callback.
 
@@ -34,9 +25,5 @@ class User < ActiveRecord::Base
       #user.name = auth.info.name # We don't persist usernames to the DB.
     end
   end
-
-  def has_ticket
-    return Ticket.exists?(email: @user.email.downcase)
-  end 
   
 end

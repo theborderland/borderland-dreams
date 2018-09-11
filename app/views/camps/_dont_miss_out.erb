@@ -1,6 +1,5 @@
-<!--
 <%
-  lockdown_info = Lockdown.new.next(except)
+  lockdown_info = Lockdown.instance.next(except)
   if lockdown_info.present?
       time_left = distance_of_time_in_words(Time.now, lockdown_info[1], false, highest_measures: 2)
     action = t("dont_miss_out.actions.#{lockdown_info[0]}")
@@ -11,4 +10,3 @@
   </p>
 </div>
 <% end %>
--->

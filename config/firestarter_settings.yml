@@ -1,4 +1,5 @@
 defaults: &defaults
+  grant_value_for_currency: 140
   additional_info: true
   contact_phone: true
   description: true
@@ -6,9 +7,9 @@ defaults: &defaults
   light: true
   fire: true
   noise: true
-  nature: true
-  moop: true
-  plan: true
+  nature: false
+  moop: false
+  plan: false
   cocreation: true
   neighbors: true
   recycling: false
@@ -17,24 +18,24 @@ defaults: &defaults
   granting: true
   # Only people with "Ticket records of phone and email can register"
   user_authentication_codes: false
-  user_authentication_vs_tixwise: false
+  user_authentication_vs_tixwise: true
   add_to_list: true
   granting_active: true
   footer_text: true
   footer_logo: false
   creation_sidebar_welcome: true
   safetybag: false
-  crew_size:  <%= ENV['CREW_SIZE'] or false %>
-  person_early_arrival:  <%= ENV['PERSON_EARLY_ARRIVAL'] or false %>
-  person_has_ticket:  <%= ENV['PERSON_HAS_TICKET'] or false %>
-  multi_lang_support: <%= ENV['MULTI_LANG_SUPPORT'] or false %>
-  disable_open_new_dream: <%= ENV['disable_open_new_dream'] or false %>
-  disable_register_new_user:  <%= ENV['disable_open_new_dream'] or false %>
-  disable_edit_safetybag: <%= ENV['disable_edit_safetybag'] or false %>
-  disable_edit_budget: <%= ENV['disable_edit_budget'] or false %>
-  google_drive_integration: <%= ENV['GOOGLE_DRIVE_INTEGRATION'] or false %>
-  show_point_of_contact: <%= ENV['SHOW_POINT_OF_CONTACT'] or false %>
+  person_early_arrival: false
+  person_has_ticket: false
+  multi_lang_support: false
+  disable_open_new_dream: false
+  disable_edit_safetybag: false
+  disable_edit_budget: false
+  google_drive_integration: true
+  show_point_of_contact: false
+  show_safety_file_comments: false
   recaptcha: <%= ENV['RECAPTCHA'] or false %>
+  max_grants_per_user_per_dream: 7
 
 development:
   <<: *defaults

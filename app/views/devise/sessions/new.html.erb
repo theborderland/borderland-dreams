@@ -6,8 +6,6 @@
 <div class="sign_in" dir="<%=t :html_direction %>">
   <h2><%=t :log_in %></h2>
 
-  <p><b>Hey there Borderling!</b> Anyone can register at Borderland Dreams, but you'll need a membership to <a href="http://theborderland.se">The Borderland</a> to create Dreams or distribute grants. Accounts from last year are still active, and if you've used the same email for BurnerTickets, you're good to go! Otherwise, you'll have to register a new account with the same email that you used for <a href="https://burnertickets.com/the-borderland-2017/">BurnerTickets</a>.</p>
-
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field">
       <%= f.label :email %><br />

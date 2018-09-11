@@ -2,7 +2,7 @@ module RegistrationValidation
  extend ActiveSupport::Concern
 
   included do
-    if Rails.configuration.x.firestarter_settings["user_authentication_codes"]
+    if Rails.configuration.x.firestarter_settings["user_authentication_vs_tixwise"]
       validate :invite_code_valid, :on => :create
     end
   end
@@ -15,53 +15,18 @@ module RegistrationValidation
     if ticket.present?
       return
     end
-
-    if invite_code_remote_tickets_valid()
-      # Found the user in database - clear old errors local database not found
-      self.errors.clear
-      return
-    end
   end
 
   def invite_code_local_tickets_valid
-    if Rails.configuration.x.firestarter_settings["user_authentication_codes"]
-      unless Ticket.exists?(id_code: self.ticket_id)
-        self.errors.add(:ticket_id, I18n.t(:invalid_membership_code))
-        return
-      end
+    if Rails.configuration.x.firestarter_settings["user_authentication_vs_tixwise"]
       unless Ticket.exists?(email: self.email)
         self.errors.add(:ticket_id, I18n.t(:invalid_membership_code))
-        return
-      end
-      if User.exists?(ticket_id: self.ticket_id)
-        self.errors.add(:ticket_id, I18n.t(:membership_code_registered))
         return
       end
       if User.exists?(email: self.email)
         self.errors.add(:ticket_id, I18n.t(:membership_code_registered))
         return
       end
-    end
-  end
-
-  def invite_code_remote_tickets_valid
-    if Rails.configuration.x.firestarter_settings["user_authentication_vs_tixwise"] and ENV['TICKETS_EVENT_URL'].present?
-      emailPhoneNumber = parseTixWiseAsHash()
-      if emailPhoneNumber[self.email] == self.ticket_id
-        # Check that user not already created manually
-        if User.exists?(ticket_id: self.ticket_id)
-          return false #Errors was set in the earlier local function
-        end
-        if User.exists?(email: self.email)
-          return false #Errors was set in the earlier local function
-        end
-        # Create a ticket in our system to prevent duplicate sign ups
-        unless Ticket.exists?(email: self.email) and Ticket.exists?(id_code: self.ticket_id)
-          Ticket.create(:id_code => self.ticket_id, :email => self.email)
-        end
-        return true
-      end
-      return false
     end
   end
 

@@ -21,7 +21,7 @@ gem 'jquery-ui-rails'
 gem 'jbuilder', '~> 2.0'
 
 # User management
-gem 'devise', '3.5.3'
+gem 'devise'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -51,11 +51,11 @@ gem 'kaminari-bootstrap'
 gem 'kaminari'
 
 # Filtering
-gem 'filterrific', '< 5'
+gem 'filterrific'
 
 # Images at S3
-gem 'paperclip', '4.3.7'
-gem 'aws-sdk', '2.10.123'
+gem 'paperclip'
+gem 'aws-sdk', '< 2'
 gem 'rmagick'
 
 gem 'nokogiri'
@@ -72,26 +72,27 @@ gem 'paper_trail'
 
 gem 'schema_validations'
 
+gem 'rest-client'
+
 # recaptcha to identify humans - for setup where registration is open for all
 gem 'recaptcha', require: "recaptcha/rails"
 
 # Better distance_of_time_in_words
 gem 'dotiw'
 
-# Cron jobs for Ruby with Whenever
-gem 'whenever', :require => false
+# rtl<>ltr automatically
+gem 'string-direction'
 
-# A simple HTTP and REST client
-gem 'rest-client'
-
-# JSON Parser
-gem 'json'
+# Inline editing
+gem 'best_in_place', '~> 3.0.1'
+# Tag dreams
+gem 'acts-as-taggable-on', '~> 4.0'
 
 group :production do
   # needed by herokus
   gem 'rails_12factor'
   # postgres
-  gem 'pg', '0.21.0'
+  gem 'pg'
   # needed by aws
   gem 'puma'
 end
@@ -124,9 +125,6 @@ group :development do
 
   # Awesome print helps us print!
   gem 'awesome_print'
-
-  # Print a log when i18n lookup fails
-  gem 'i18n-debug'
 
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', '~> 0.4.0', group: :doc

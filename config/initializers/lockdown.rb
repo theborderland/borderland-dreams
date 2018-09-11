@@ -1,4 +1,6 @@
 class Lockdown
+  include Singleton
+
   def initialize
     @conf = Rails.application.config_for(:lockdown)
   end

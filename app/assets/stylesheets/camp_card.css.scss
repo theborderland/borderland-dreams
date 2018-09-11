@@ -48,6 +48,7 @@ p {
     .glyphicon-globe {
       color: $c-pinky;
       vertical-align: middle;
+      margin-right: 5px;
     }
   }
 }
@@ -85,8 +86,24 @@ p {
   top: 270px;
 }
 
-.camp-description{
+.camp-description {
   margin-top: 10px;
+
+  &.gad {
+    > h2 {
+      font-weight: bold;
+      margin: 2em 0 1em 0;
+    }
+
+    label {
+      font-weight: normal;
+      min-width: 10em;
+    }
+
+    .explanation {
+      margin-top: 1em;
+    }
+  }
 }
 
 .delete-button {

@@ -49,8 +49,9 @@ he:
   logout_menu: "התנתקי"
 
   public: "פומבי"
+  private: "פרטי"
 
-  humans_credit_html: "מערכת החלומות התחילה את דרכה בבורדרלנד. משם עברה דרך המזרח התיכון והגיעה למידברנרות. וכעת למידברן.<br>האנשים שיצרו את מערכת החלומות (רפרשו את הדף, עשו סוייפ בשביל לשחק והשתמשו בחצי המקלדת)"
+  humans_credit_html: "מערכת החלומות התחילה את דרכה בבורדרלנד. משם עברה דרך המזרח התיכון והגיעה למידברנרות. מידברן וכעת למטה-ברן.<br>האנשים שיצרו את מערכת החלומות (רפרשו את הדף, עשו סוייפ בשביל לשחק והשתמשו בחצי המקלדת)"
 
   welcome_guest_title: "ברוכים הבאות לחלומות שלנו!"
   welcome_guest_text_html: "מזל טוב! נתקלתם במשהו מיוחד! חלומות מידברן היא ספריה של הדימיון הקולקטיבי שלנו. אנחנו חולמים ביחד ומפיחים רוח חיים ליצירות המופרכות והאדירות שלנו. זוהי גם המערכת שאוספת את כל החומרים שצריך בשביל מחלקת האמנות ולמי שרוצה, גם לבקשה למלגה לקרן האמנות. כן, כן הכל במקום אחד! מגניב, נכון? תתרשם מהסביבה כדי ליצור חלום משלך. "
@@ -59,7 +60,10 @@ he:
   header_faq_link: "היי את - האם קראת את עמוד שאלות ותשובות?"
   footer_left_html: "מידברן זאת קהילה השתתפותית שבה אנחנו מיצרים ביחד אירועים ומפגשים כפרוטוטייפים לחלומותינו. זה כמו מיכל ריק, פתוח ליוזמתך. זאת הזמנה לשחק, להרהר, ולתקשר. אם יש לכם שאלות, אתם מוזמנים לשאול בקבוצת הפייסבוק שלנו. "
   footer_right_html: " בדצמבר 2016 תתכנס קהילת מידברן בפארק ירוחם, ישראל. זה פסטיבל שבו כל האירגון והתוכן היצירתי נעשה על ידי המשתתפים. האירוע מיועד למשתתפים בלבד, ולא פתוחה לצופים."
-  footer_html: "המערכת נכתבה במקור על-ידי בורדרלנד <a href='https://github.com/aerugo/firestarter'>(קוד מקור)</a> אומצה על-ידי לשכת החלומות מידברנרות, נכתבה ב<a href='https://github.com/midburn/dreams'>קוד פתוח</a> ומוגשת ב <span>❤</span> <a href='http://dreams.midburn.org/pages/humans'>האנשים שיצרו את המערכת</a>."
+  footer_html: "המערכת נכתבה במקור על-ידי בורדרלנד <a href='https://github.com/aerugo/firestarter'>(קוד מקור)</a>
+      אומצה על-ידי לשכת החלומות מידברנרות, נכתבה ב<a href='https://github.com/midburn/dreams'>קוד פתוח</a>
+      ומוגשת ב <span>❤</span> <a href='http://dreams.midburn.org/pages/humans'>האנשים שיצרו את המערכת</a>.
+      <br /><a href='http://midburn.org/he-terms-and-privacy/'>תנאי שימוש באתר ומדיניות פרטיות</a>"
   
   errors_str: "שגיאות"
 
@@ -81,7 +85,7 @@ he:
   form_subtitle_label: "סיכום החלום במשפט (נדרש)"
   form_subtitle_guidetext_html: "סיכום קצר של החלום שאת מציעה. סיכום זה יופיע בעמוד הראשי של האתר. תעשי את זה קצר, עד 256 תווים."
   form_subtitle_en_label: "סיכום החלום במשפט באנגלית (נדרש)"
-  form_creator_name_label: "שם הקבוצה/אמן"
+  form_creator_name_label: "שם הקבוצה/אמן (נדרש)"
   form_creator_name_guidetext_html: ""
 
   create_dream_loading_text: "מכינים במיוחד עבורך מקום בענן הקסום שלנו..."
@@ -96,9 +100,10 @@ he:
   form_contact_phone_guidetext_html: "במידה ונצטרך להשיג אותך באופן דחוף."
   form_about_the_artist_label: "על הקבוצה/אמן"
   form_dream_website_label: "אתר אינטרנט/עמוד פייסבוק של הפרויקט"
-  form_dream_website_short: "אתר החלום"
 
   form_dream_point_of_contact_email: "איש הקשר שלכם ממחלקת קשרי אמנים"
+  dream_safety_file_comments_nop_message: "הידד! אין לך מה לעדכן כרגע..."
+  dream_safety_file_comments_update: "עדכן הערות"
 
   form_project_management: "ניהול הפרויקט"
   form_project_management_crew: "חברי הצוות ובעלי תפקידים"
@@ -204,6 +209,8 @@ he:
   form_dream_scholarship_post_desc_criterions: "קריטריונים"
   form_dream_scholarship_post_desc_faq: "שאלות נפוצות"
   
+  form_click_to_edit_html: "<a>לחצי בכדי לערוך</a>"
+
   form_safety_head: "תיק הבטיחות"
   form_safety_head_description: "יש להשלים את מילוי תיק הבטיחות והצבה בפלאייה עד לתאריך 15.3.2017"
 
@@ -235,7 +242,7 @@ he:
   form_program_hebrew: "עברית"
   form_program_english: "English"
   form_program_dreamer: "שם האמן/קבוצת אמנים"
-  form_program_description: "יש לך עד 100 מילים לתאר את המיצב שלך באופן שיוצג בתכניה האירוע לציבור הרחב!"
+  form_program_description: "יש לך עד 100 תווים לתאר את המיצב שלך באופן שיוצג בתכניה האירוע לציבור הרחב!"
   form_program_activity: "פעילות מיוחדת, מופע, טקס או כל דבר שאתם מתכננים סביב/בהקשר למיצב בזמן האירוע ותרצו להזמין אליו את תושבי העיר"
   form_program_activity_desc: "יש לציין יום, שעה, שם הפעילות, האם מדובר בפעילות חד פעמית או חוזרת"
 
@@ -288,6 +295,8 @@ he:
   update_dream: "עדכן חלום!"
   edit_dream: "ערוך חלום"
   manage_images: "ערוך תמונות"
+  open_dream_for_guide_edit: "פתח חלום לעריכת מנהל"
+  open_dream_for_guide_edit_view_only: "נעל חלום לצפייה בלבד"
 
   give_grants: "כמה לבבות?"
   i_gift_thee_grants: "תרמו לחלום"
@@ -318,6 +327,8 @@ he:
   save_camp: "שמור והמשך"
   done_camp: "סיימתי"
   update_point_of_contact: "עדכן איש קשר"
+
+  press_to_edit: "לחצי על שדה בכדי לערוך אותו"
 
   actions_headline: "פעולות"
 
@@ -351,9 +362,6 @@ he:
   minimum_funding_reached: "מימון מינימאלי הושג"
   minimum_grants_needed: "לבבות מינימלים שצריכים"
   needed_to_fully_fund: "לבבות מקסימלים שצריכים"
-
-  minimum_grants_realcurrency_needed: "תקציב מינימלי בשקלים"
-  needed_to_fully_fund_realcurrency: "תקציב החלום במלואו בשקלים"
 
   your_available_grants: "לבבות שנותרו לך"
   youre_out_of_grants: "השתמשת בכל הלבבות שלך. ריספקט"
@@ -401,8 +409,10 @@ he:
 
   cant_send_less_then_one: "לא ניתן לשלוח פחות מלב אחד"
   dream_need_to_have_max_budget: "החלום צריך תחילה להגדיר מקסימום תקציב. אנא פנה לבעל החלום ואו למדריכים החלומות"
+  exceeds_max_grants_per_user_for_this_dream: You cannot spend more than %{max_grants_per_user_per_dream} grants on one dream
   security_more_grants: "שגיאת מציאות. לא ניתן לתת יותר לבבות ממה שיש לך כרגע. ניסית לתת %{granted} ויש לך %{current_user_grants}. נסיון יפה."
   security_cant_delete_dreams_you_dont_own: "שגיאה - אתה לא יכול למחוק חלום שלא שייך לך - האקר הצטרף אלינו"
+  security_cant_tag_dreams_you_dont_own: "שגיאה - רק מדריכים יכולים לתייג חלומות. רוצה לעזור לנו?"
   security_cant_edit_dreams_you_dont_own: "שגיאה - אתה לא יכול לערוך חלום שלא שייך לך - האקר הצטרף אלינו"
   security_cant_change_images_you_dont_own: "שגיאה - אתה לא יכול לשנות תמונה שלא שייכת לך - האקר הצטרף אלינו"
   dream_not_found: 'החלום שחיפשת לא נמצא. האם תרצי ליצור חלום חדש?'
@@ -416,6 +426,8 @@ he:
   no_text: "לא"
   or_text: "או"
 
+  tags_saved: 'התגיות נשמרו בהצלחה'
+
   recaptcha:
     errors:
       verification_failed: 'נראה שאתה רובוט-ברנר. האימות נכשל. נסה שנית'
@@ -423,7 +435,7 @@ he:
   dont_miss_out:
     banner: אל תפספסי! רק %{time} נותרו ל%{action}
     actions:
-      submit_dream: יצירת חלום
+      submit_dream: הגשת החלומות ובקשת מלגה
       safety_file: הגשת תיק בטיחות
   versionate:
     latest_version: "גרסה אחרונה"
@@ -435,6 +447,7 @@ he:
     no_older_version: "אין גרסאות ישנות"
 
   activeadmin:
+    info: "מידע"
     recent_updated: "תוכן שעודכן לאחרונה"
     item: "חלום"
     modified_at: "שונה"
@@ -523,8 +536,6 @@ he:
         updated_at: "עודכן"
         minfunded: "מימון מינימלי הושג"
         fullyfunded: "מימון מקסימלי הושג"
-        minbudget_realcurrency: "מימון מינימלי בשקלים"
-        maxbudget_realcurrency: "מימון מקסימלי בשקלים"
         safetybag_crewsize: "גודל הצוות"
         safetybag_plan: "תכנית עבודה"
         safetybag_builder: "אחראי בנייה"
@@ -601,6 +612,13 @@ he:
         projectmgmt_is_dream_near_theme_camp: :form_project_management_is_dream_near_theme_camp
         projectmgmt_dream_pre_construction_site: :form_project_management_dream_pre_construction_site
         dream_point_of_contact_email: :form_dream_point_of_contact_email
+        safety_file_comments: "הערות תיק בטיחות"
+        google_drive_folder_path: תיקייה בדרייב
+        google_drive_budget_file_path: מסמך תקציב
+        en_name: שם באנגלית
+        en_subtitle: תקציר באנגלית
+        id: מזהה
+        tags: תגיות
       person: &person
         name: 'שם'
         email: "אימייל"
@@ -629,7 +647,7 @@ he:
               blank: "אנא הכנסי אימייל"
               too_short: "קצרה מדיי - מינימום %{count} תווים"
             contact_name:
-              blank: "אנא הכנסי שם החולם"
+              blank: "אנא הכנסי שם הקבוצה/אמן"
             maxbudget_realcurrency:
               greater_than_or_equal_to: "תקציב מקסימלי חייב להיות גדול מאפס אחרת אתה בגרעון."
             minbudget_realcurrency:
@@ -798,3 +816,4 @@ he:
       x_seconds:
         one: שניה אחת
         other: "%{count} שניות"
+  form_tags: "תגיות"

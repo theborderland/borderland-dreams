@@ -1,0 +1,13 @@
+<%= simple_form_for @camp, url: { action: 'tag' } do |f| %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2 class="header-sub-heading"><%= Camp.human_attribute_name(:tags) %></h2>
+    </div>
+    <div class="panel-body">
+      <%= f.text_field :tag_list, value: f.object.tag_list.to_s, class: 'form-control' %>
+      <%= f.submit t(:done_camp), id: 'done-tags', class: 'btn btn-success' %>
+
+    </div>
+  </div>
+
+<% end %>

@@ -10,6 +10,8 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require blueimp-gallery-all
+ *= require jquery-ui
  */
 
 // These imports have to be first and order is important.
@@ -30,7 +32,5 @@
 @import 'font-awesome';
 
 /*
-*= require_tree .
-*= require_self
-*= require blueimp-gallery-all
-*/
+ *= require_tree .
+ */

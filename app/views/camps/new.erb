@@ -1,3 +1,5 @@
+<% @can_edit = true %>
+
 <script type="text/javascript">
     $(document).ready(function() {
         $('#camp_people_attributes_0_role_ids_1').prop('checked', true).on('click', function () {
@@ -39,6 +41,7 @@
     <%= t("form_creator_name_guidetext_html") %>
     <br>
   </div>
+  <div>
 
   <div class="submit col-xs-12">
     <%= form.submit t(:create_dream), class: 'btn btn-success create-new-dream', data:{toggle: 'tooltip'}, title:'Creating your new dream' %>

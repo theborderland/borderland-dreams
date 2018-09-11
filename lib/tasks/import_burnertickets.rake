@@ -1,4 +1,4 @@
-# to import run bundle exec rake importtixwise
+# to import run bundle exec rake import_burnertickets
 
 require 'rest-client'
 require 'json'
@@ -8,8 +8,8 @@ task :import_burnertickets => [:environment] do
 
   file = ENV['TICKETS_EVENT_URL']
   if file.nil?
-  	puts "Error: Please set env TICKETS_EVENT_URL"
-  	next
+    puts "Error: Please set env TICKETS_EVENT_URL"
+    next
   end
 
   begin
@@ -28,28 +28,27 @@ task :import_burnertickets => [:environment] do
 
       unless Ticket.exists?(id_code: ticket_id)
         counter+=1
-        Ticket.create(:id_code => ticket_id, :email => email.downcase, :remote_user_id => userId)
+        Ticket.create(:id_code => ticket_id, :email => email.downcase)
         puts "Added email: " + email + ", BurnerTickets ID: " + userId + ", ticket ID: " + ticket_id
       else
         unless Ticket.exists?(email: email)
           puts "Found ticket to transfer"
           ticket = Ticket.find_by(id_code: ticket_id)
-          ticket.update(email: email);
-          ticket.update(remote_user_id: userId)
+          ticket.update(email: email)
           puts "Transferred ticket" + ticket_id + " to " + email
           updatedCounter+=1
-          else
-            ignoredCounter+=1
-          end
+        else
+          ignoredCounter+=1
         end
       end
+    end
   rescue SocketError => e
     self.errors.add(:ticket_id, e.message)
     puts e.message
   end
 
   puts "Added " + counter.to_s + " Tickets to our database"
-  puts "Found " + ignoredCounter.to_s + " Tickets that are allready in the database"
+  puts "Found " + ignoredCounter.to_s + " Tickets that are already in the database"
   puts "Transferred " + updatedCounter.to_s + " Tickets to new burners"
 
 end

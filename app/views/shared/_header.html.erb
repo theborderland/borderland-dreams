@@ -1,4 +1,4 @@
-<% image_path = image_path("coverphoto.png") %>
+<% image_path = image_path("coverphoto.jpg") %>
 <% logo_path = image_path("logo_" + I18n.locale.to_s + ".png") %>
 
 <header>
@@ -6,30 +6,32 @@
 
   <div class="main_content top_menu" dir=<%=t :html_direction %>>
       <div class="row">
-        <div class="col-md-5" style='float: <%= I18n.t(:lang_direction) %>'>
+        <div class="col-md-5">
           <h1><a class="header-top-menu" href="/"> <div class='logophoto' style="background-image:url('<%= logo_path %>');"></div> </a></h1>
         </div>
-        <div>
+        <div class="nav-wrapper">
           <div class="header-nav col-xs-12">
-            <!-- %= link_to t("top_headline_faq"), '/pages/faq-'+I18n.locale.to_s % -->
-            <%= link_to "Dreams", camps_path %>
+            <% if Rails.application.config.x.firestarter_settings['multi_lang_support'] %>
+              <% if I18n.locale == I18n.default_locale %>
+                <%= link_to "EN", :lang=>'en'%>
+              <% else %>
+                <%= link_to "עב", :lang=>'he'%>
+              <%end%>
+            <%end%>
+
             <%= link_to t("how_can_i_help_title"), howcanihelp_path %>
-            <%= link_to "Old Dreams", chronicles_path(id: "old") %>
-            <% if user_signed_in? and !Rails.application.config.x.firestarter_settings['disable_open_new_dream'] %>
-            <%= link_to t("register_creation_menu"), new_camp_path %>
+            <% if user_signed_in? and !Rails.application.config.x.firestarter_settings['disable_open_new_dream'] and Lockdown.instance.allowed?('submit_dream') %>
+              <%= link_to t("register_creation_menu"), new_camp_path %>
             <% end %>
             <% if !user_signed_in? %>
-            <%= link_to t("login_menu"), new_user_session_path %>
-            <% end %>
-            <% if !user_signed_in? %>
-            <%= link_to t("register_menu"), new_user_registration_path %>
-            <% end %>
-            <% if user_signed_in? %>
+              <%= link_to t("login_menu"), new_user_session_path %>
+              <%= link_to t("register_menu"), new_user_registration_path %>
+            <% else %>
               <div class="dropdown">
                 <a class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> <%=t :private_area %></a>
                   <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                  <li><a href="/me"><%=t :my_area %></a></li>
-                  <li><%= link_to t("logout_menu"), destroy_user_session_path, method: :delete %></li>
+                  <li><%= link_to t(:my_area), me_path %></li>
+                  <li><%= link_to t(:logout_menu), destroy_user_session_path, method: :delete %></li>
                 </ul>
               </div>
             <% end %>

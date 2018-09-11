@@ -229,6 +229,7 @@ $main-image-height: 550px;
 
 .combo {
   margin-top: 10px;
+  font-size: 1.2em;
 
   &:first-child {
     margin-top: 0;
@@ -363,7 +364,6 @@ body {
   bottom: 0;
   left: 0;
   width: 100%;
-  text-align: left;
   padding: 14px 13px;
   z-index: 1;
   background: #f3f3f3;
@@ -372,4 +372,88 @@ body {
 
 .vertical-middle {
   vertical-align: middle !important;
+}
+
+.auto-ltr {
+  direction: ltr;
+  text-align: left;
+}
+
+.auto-rtl {
+  direction: rtl;
+  text-align: right;
+}
+
+.purr {
+  @extend .alert;
+  position: fixed;
+  top: 0.5em;
+  right: 3em;
+  width: auto;
+  padding: 20px;
+  &:first-letter { text-transform: uppercase; }
+}
+
+.field-description {
+  font-size: 15px;
+  margin: 0.1em 0 1em 0;
+}
+
+.best_in_place {
+  display: block;
+
+  &:hover {
+    background-color: rgba(235, 20, 120, 0.08);
+    cursor: pointer;
+  }
+
+  margin-bottom: 2em;
+}
+
+#camp-form {
+  a {
+    text-decoration: underline;
+    color: $c_pinky;
+  }
+
+  h2 {
+    font-size: 30px;
+    font-family: 'Dosis', sans-serif;
+    font-weight: bold;
+
+    margin: 2em 0 1em 0;
+  }
+
+  .ga-radio > span {
+    display: inline-block;
+    min-width: 10em;
+  }
+
+  .ga-explanation {
+    margin-top: 1em;
+  }
+}
+
+
+#add-new-person {
+  color: white !important;
+  text-decoration: none !important;
+}
+
+.pink-div {
+  color: $c_pinky;
+}
+
+.program {
+  .best_in_place {
+    margin: 0;
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  }
 }

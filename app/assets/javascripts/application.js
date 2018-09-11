@@ -16,13 +16,14 @@
 //= require blueimp-gallery-all
 //= require filterrific/filterrific-jquery
 //= require cocoon
-
+//= require best_in_place
+//= require best_in_place.jquery-ui
+//= require jquery.purr
+//= require best_in_place.purr
 $(function() {
 	//Fix the hidden element issue on some chrome browsers
   	window.scroll(0,1);
   	window.scroll(0,0);
-
-	$('.budgetprogressbar').budgetprogressbar();
 
 	$('.donate-now-button').click(function(){
 		$('.donate-now-button').prop('disabled', true);
@@ -38,7 +39,7 @@ $(function() {
 		$('.loading-new-dream').fadeIn();
 		setInterval(function(){
 			$('.loading-new-dream').fadeOut('fast', function() {
-				$(this).text("It usually takes 8 seconds. Take a deep breath while we're making the Playa for you. Creating a folder in the cloud and syncing...").fadeIn('fast'); 
+				$(this).text("זה לרוב לוקח כ-8 שניות. קח נשימה עמוקה בזמן שאנחנו מכינים את הפלאייה עבורך. יוצרים לך תיקייה בדרייב ומסנכרנים...").fadeIn('fast'); 
 			})}, 4000);
 	});
 });

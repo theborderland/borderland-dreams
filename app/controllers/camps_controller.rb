@@ -1,11 +1,12 @@
 class CampsController < ApplicationController
-  before_action :authenticate_user!, except: [:show, :guideview, :index]
-  before_action :load_camp!, except: [:index, :guideview, :new, :create]
+  before_action :authenticate_user!, except: [:show, :index]
+  before_action :load_camp!, except: [:index, :new, :create]
   before_action :enforce_delete_permission!, only: [:destroy, :archive]
-
+  before_action :enforce_guide!, only: %i(tag)
+  before_action :load_lang_detector, only: %i(show index)
 
   def index
-    filter = params[:filterrific] || { sorted_by: 'updated_at_desc' }
+    filter = params[:filterrific] || { sorted_by: 'random' }
     filter[:active] = true
     filter[:not_hidden] = true
 
@@ -24,31 +25,20 @@ class CampsController < ApplicationController
       format.html
       format.js
     end
-
-  end
-
-  def guideview
-    @camps = Camp.where(:event_id => Rails.application.config.default_event)
-    render :guideview
   end
 
   def new
-    if Ticket.exists?(email: current_user.email)
-      @camp = Camp.new
-    else
-      redirect_to camps_path
-      flash[:alert] = "#{t:need_ticket_to_create_camp}"
-    end
+    @camp = Camp.new
   end
 
   def edit
-    @camp = Camp.find params[:id]
+    @just_view = params[:just_view]
   end
 
   def create
     # Create camp without people then add them
-      @camp = Camp.new(camp_params)
-      @camp.creator = current_user
+    @camp = Camp.new(camp_params)
+    @camp.creator = current_user
 
     if create_camp
       flash[:notice] = t('created_new_dream')
@@ -74,6 +64,7 @@ class CampsController < ApplicationController
 
     # Decrement user grants. Check first if granting more than needed.
     granted = params['grants'].to_i
+
     if(granted <= 0)
       flash[:alert] = "#{t:cant_send_less_then_one}"
       redirect_to camp_path(@camp) and return
@@ -85,21 +76,18 @@ class CampsController < ApplicationController
     end
 
     if @camp.grants_received + granted > @camp.maxbudget
-        granted = @camp.maxbudget - @camp.grants_received
+      granted = @camp.maxbudget - @camp.grants_received
+    end
+
+    @grants_received_by_this_user = Grant.received_for_camp_by_user(@camp.id, current_user.id)
+
+    if !current_user.admin && @grants_received_by_this_user + granted > Grant.max_per_user_per_dream
+      flash[:alert] = "#{t:exceeds_max_grants_per_user_for_this_dream, max_grants_per_user_per_dream: Grant.max_per_user_per_dream}"
+      redirect_to camp_path(@camp) and return
     end
 
     if current_user.grants < granted
       flash[:alert] = "#{t:security_more_grants, granted: granted, current_user_grants: current_user.grants}"
-      redirect_to camp_path(@camp) and return
-    end
-
-    if Grant.all.sum(:amount) >= Rails.application.config.maxbudget
-      flash[:alert] = "Sorry, we've allready reached to max budget for Dreams this year – early Borderling gets the bird!"
-      redirect_to camp_path(@camp) and return
-    end
-
-    if !Ticket.exists?(email: current_user.email)
-      flash[:alert] = "You need a membership to the Borderland to give grants, but you seem eager, so I hope you'll get one soon!"
       redirect_to camp_path(@camp) and return
     end
 
@@ -137,7 +125,7 @@ class CampsController < ApplicationController
   end
 
   def update
-    if (@camp.creator != current_user) and (!current_user.admin)
+    if (@camp.creator != current_user) and !current_user.admin and !current_user.guide
       flash[:alert] = "#{t:security_cant_edit_dreams_you_dont_own}"
       redirect_to camp_path(@camp) and return
     end
@@ -146,12 +134,25 @@ class CampsController < ApplicationController
       if params[:done] == '1'
         redirect_to camp_path(@camp)
       else
-        redirect_to edit_camp_path(id: @camp.id)
+        respond_to do |format|
+          format.html { redirect_to edit_camp_path(id: @camp.id) }
+          format.json { respond_with_bip(@camp) }
+        end
       end
     else
-      flash.now[:notice] = "#{t:errors_str}: #{@camp.errors.full_messages.uniq.join(', ')}"
-      render :edit
+      respond_to do |format|
+        flash.now[:alert] = "#{t:errors_str}: #{@camp.errors.full_messages.uniq.join(', ')}"
+        format.html { render :action => "edit" }
+        format.json { respond_with_bip(@camp) }
+      end
     end
+  end
+
+  def tag
+    @camp.update_attributes(tag_list: params.require(:camp).require(:tag_list))
+
+    flash[:notice] = "#{t:tags_saved}"
+    redirect_to camp_path(@camp)
   end
 
   def destroy
@@ -209,6 +210,13 @@ class CampsController < ApplicationController
     end
   end
 
+  def enforce_guide!
+    if (!current_user.admin) && (!current_user.guide)
+      flash[:alert] = "#{t:security_cant_tag_dreams_you_dont_own}"
+      redirect_to camp_path(@camp)
+    end
+  end
+
   def enforce_delete_permission!
     if (@camp.creator != current_user) and (!current_user.admin)
       flash[:alert] = "#{t:security_cant_delete_dreams_you_dont_own}"
@@ -230,4 +238,9 @@ class CampsController < ApplicationController
   rescue ActiveRecord::RecordInvalid
     false
   end
+
+  def load_lang_detector
+    @detector = StringDirection::Detector.new(:dominant)
+  end
 end
+

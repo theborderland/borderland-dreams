@@ -1,15 +1,47 @@
+
+<% if (current_user && (current_user == @camp.creator)) %>
+  <% @can_edit = true %>
+<% end %>
+<% if (current_user && (current_user.guide || current_user.admin)) %>
+  <% @can_edit = @just_view %>
+
+  <%if @just_view %>
+  
+  <% else %>
+    <script>
+      $(function() {
+        $('input[type=radio],input[type=checkbox]').each((i,e) => { $(e).attr('disabled', true);});
+      });
+    </script>
+  <% end %>
+
+<% end %>
+
 <% content_for(:head) do %>
   <% browser_title = "Editing " + @camp.name + " - " + t(:browser_title_tag) %>
   <title><%= browser_title %></title>
 <% end %>
 
-<% if current_user && (@camp.creator == current_user or current_user.admin)%>
+<% if current_user && (@camp.creator == current_user or current_user.admin or current_user.guide)%>
 	<%= render 'form' %>
 
-    <div id="footer-bar" dir=<%=t :html_direction %>>
-      <button class="btn btn-success" id="save-camp"><%= t('save_camp') %></button>
-      <%= t('or_text') %>
-      <button class="btn btn-success" id="done-camp"><%= t('done_camp') %></button>
+    <div id="footer-bar" dir=<%=t :html_direction %> style=<%= "text-align:" + I18n.t('reverse_direction')%>>
+    <%if current_user.admin or current_user.guide %>
+      <%if @just_view %>
+        <%= link_to t(:open_dream_for_guide_edit_view_only), edit_camp_path(id: @camp.id), class: "btn btn-success" %>
+      <% else %>
+        <%= link_to t(:open_dream_for_guide_edit), edit_camp_path(id: @camp.id, just_view: !(@just_view)), class: "btn btn-success" %>
+      <% end %>
+    <% end %>
+
+      <%if @can_edit %>
+        <button class="btn btn-success" id="save-camp"><%= t('save_camp') %></button>
+        <%= t('or_text') %>
+        <button class="btn btn-success" id="done-camp"><%= t('done_camp') %></button>
+      <% else %>
+        <%= link_to t('back_to_dream'), camp_path(@camp), class: "btn btn-success" %>
+      <% end %>
+
     </div>
 <% else %>
     <p class="alert">Only the original creator can edit this page.</p>

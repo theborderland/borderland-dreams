@@ -1,5 +1,6 @@
 ActiveAdmin.register Grant do
-  permit_params :user_id, :camp_id, :amount
 
-  actions :index, :show
+actions :index, :show
+permit_params :user_id, :camp_id
+
 end

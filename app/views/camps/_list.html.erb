@@ -1,11 +1,7 @@
 <div id="filterrific_results">
-
-    <%=t :sort_by%>:
-    <%= filterrific_sorting_link(@filterrific, :updated_at) %>
-
     <div class="camps_list">
 
-        <% @camps.select { |camp| camp.event_id == Rails.application.config.default_event }.each do |camp| %>
+        <% @camps.each do |camp| %>
         <div class='col-md-4'>
             <a href="<%= url_for(camp) %>">
 
@@ -14,15 +10,17 @@
                         <% if camp.images.any? %>
                             <%= image_tag(camp.images.first.attachment.url(:square), :class => "grow") %>
                         <% else %>
-                            <%= image_tag('bsb_placeholder_square.jpg' , :class => "grow") %>
+                            <%= image_tag('bsb_placeholder_square.png' , :class => "grow") %>
                         <% end %>
 
                         <% @name = (Rails.configuration.x.firestarter_settings['multi_lang_support'] and camp.en_name.present? and I18n.locale.to_s == 'en')? camp.en_name : camp.name %>
-                        <h4 class="name"><%= truncate(@name, length: 60) %></h4>
+                        <%= simple_format(truncate(@name, length: 60),
+                                          { class: "name auto-#{@detector.direction(@name)}" },
+                                          wrapper_tag: 'h4') %>
 
                         <% @subtitle = (Rails.configuration.x.firestarter_settings['multi_lang_support'] and camp.en_subtitle.present? and I18n.locale.to_s == 'en')? camp.en_subtitle : camp.subtitle %>
                         <div class="description">
-                            <p><%= truncate(@subtitle, length: 256) %></p>
+                          <%= simple_format(truncate(@subtitle, length: 256), class: "auto-#{@detector.direction(@subtitle)}") %>
                         </div>
 
                         <div class="labels">
@@ -52,5 +50,4 @@
         <% end %>
 
     </div>
-
 </div>

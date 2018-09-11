@@ -2,7 +2,7 @@
 // Colors
 //
 
-$c-pinky: #D53A9F;
+$c-pinky: #eb1478;
 $c-pinky-darker: #D6136E;
 $c-pinky-darkest: #AB0F58;
 $c-greenish: #A9CBB7;
@@ -94,6 +94,9 @@ $font-weight-bold: 700;
 * {
   outline: none;
 }
+
+::-moz-selection { background: $c-pinky; color: white; }
+::selection { background: $c-pinky; color: white; }
 
 html, body {
   min-height: 100vh;

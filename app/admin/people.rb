@@ -1,6 +1,4 @@
 ActiveAdmin.register Person do
-  permit_params :email, :phone_number, :background, :has_ticket, :needs_early_arrival
-
   scope :in_camp, default: true
 
   csv do

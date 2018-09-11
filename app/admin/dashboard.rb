@@ -7,11 +7,13 @@ ActiveAdmin.register_page "Dashboard" do
 
     columns do
       column do
-        panel "Info" do
-          para User.count.to_s + " registered users"
+        panel I18n.t("activeadmin.info") do
+          para link_to(Camp.count.to_s + " " + I18n.t("activerecord.models.camp.other"), admin_camps_path)
+          para link_to(User.count.to_s + " " + I18n.t("activerecord.models.user.other"), admin_users_path)
+          para link_to(Person.count.to_s + " " + I18n.t("activerecord.models.person.other"), admin_people_path)
           para (User.count * default_coins).to_s + " Total available coins for all users"
           para Grant.sum(:amount).to_s + " coins were distributed"
-          para (Grant.sum(:amount) * Rails.application.config.coin_rate).to_s + " amount of money distributed"
+          para (Grant.sum(:amount) * Grant.value_for_currency).to_s + " amount of money distributed"
         end
       end
     end

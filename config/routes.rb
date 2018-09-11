@@ -17,10 +17,9 @@ Rails.application.routes.draw do
     post 'archive', on: :member
     patch 'toggle_granting', on: :member
     patch 'update_grants', on: :member
+    patch 'tag', on: :member
   end
 
-  get '/guideview' => 'camps#guideview'
-  get '/chronicles' => 'chronicles#index'
   get '/pages/:page' => 'pages#show'
   get '/me' => 'users#me'
   get '/howcanihelp' => 'howcanihelp#index'

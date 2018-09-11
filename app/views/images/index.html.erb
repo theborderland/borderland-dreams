@@ -24,6 +24,12 @@
 
         </div>
 
+        <div class="row">
+            <div class='safetytext'>
+            <p><%=t :form_safetybag_remember_sketch %></p>
+            </div>
+        </div>
+
         <%= form_tag camp_images_path(camp_id: @camp_id), method: :post, multipart: true do %>
         <div class="row">
             <%= label_tag :attachment, t(:upload_button) %>

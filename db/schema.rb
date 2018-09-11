@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170502215129) do
+ActiveRecord::Schema.define(version: 20180314145048) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     :index=>{:name=>"index_active_admin_comments_on_namespace"}
@@ -149,8 +149,16 @@ ActiveRecord::Schema.define(version: 20170502215129) do
     t.string   "projectmgmt_dream_pre_construction_site",                  :limit=>4096
     t.string   "en_name",                                                  :limit=>64
     t.string   "en_subtitle",                                              :limit=>255
-    t.string   "event_id",                                                 :limit=>128, :default=>"borderland2017"
     t.string   "dream_point_of_contact_email",                             :limit=>64
+    t.string   "safety_file_comments",                                     :limit=>4096
+    t.boolean  "ga_costumes",                                              :default=>false
+    t.boolean  "ga_consumables",                                           :default=>false
+    t.boolean  "ga_intoxicants",                                           :default=>false
+    t.boolean  "ga_valuable_equipment",                                    :default=>false
+    t.boolean  "ga_transport",                                             :default=>false
+    t.boolean  "ga_vehicle_costs",                                         :default=>false
+    t.boolean  "ga_sound_equipment",                                       :default=>false
+    t.text     "ga_explanation",                                           :limit=>4096
   end
 
   create_table "grants", force: :cascade do |t|
@@ -200,10 +208,28 @@ ActiveRecord::Schema.define(version: 20170502215129) do
     t.string "identifier"
   end
 
+  create_table "taggings", force: :cascade do |t|
+    t.integer  "tag_id",        :index=>{:name=>"index_taggings_on_tag_id"}
+    t.integer  "taggable_id",   :index=>{:name=>"index_taggings_on_taggable_id"}
+    t.string   "taggable_type", :index=>{:name=>"index_taggings_on_taggable_type"}
+    t.integer  "tagger_id",     :index=>{:name=>"index_taggings_on_tagger_id"}
+    t.string   "tagger_type"
+    t.string   "context",       :limit=>128, :index=>{:name=>"index_taggings_on_context"}
+    t.datetime "created_at"
+  end
+  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], :name=>"taggings_idx", :unique=>true
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], :name=>"index_taggings_on_taggable_id_and_taggable_type_and_context"
+  add_index "taggings", ["taggable_id", "taggable_type", "tagger_id", "context"], :name=>"taggings_idy"
+  add_index "taggings", ["tagger_id", "tagger_type"], :name=>"index_taggings_on_tagger_id_and_tagger_type"
+
+  create_table "tags", force: :cascade do |t|
+    t.string  "name",           :index=>{:name=>"index_tags_on_name", :unique=>true}
+    t.integer "taggings_count", :default=>0
+  end
+
   create_table "tickets", force: :cascade do |t|
-    t.text    "id_code"
-    t.string  "email",          :limit=>64, :default=>"", :null=>false
-    t.integer "remote_user_id"
+    t.text   "id_code"
+    t.string "email",   :limit=>64, :default=>"", :null=>false
   end
 
   create_table "users", force: :cascade do |t|

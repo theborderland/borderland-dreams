@@ -20,6 +20,8 @@ class Camp < ActiveRecord::Base
   
   accepts_nested_attributes_for :people, :roles, allow_destroy: true
 
+  acts_as_taggable
+
   validates :creator, presence: true
   validates :name, presence: true
   validates :subtitle, presence: true
@@ -31,7 +33,7 @@ class Camp < ActiveRecord::Base
   validates_with CanCreateNewDreamValidator, :on => :create
 
   filterrific(
-    default_filter_params: { sorted_by: 'updated_at_desc' },
+    default_filter_params: { sorted_by: 'random' },
     available_filters: [
       :sorted_by,
       :search_query,
@@ -40,8 +42,7 @@ class Camp < ActiveRecord::Base
       :not_seeking_funding,
       :active,
       :not_hidden,
-      :is_cocreation,
-      :is_current_event
+      :is_cocreation
     ]
   )
   # Scope definitions. We implement all Filterrific filters through ActiveRecord
@@ -92,6 +93,8 @@ class Camp < ActiveRecord::Base
          order("camps.name #{ direction }")
       when /^updated_at_/
          order("camps.updated_at #{ direction }")
+      when /^random$/
+         order("random()")
       when /^created_at_/
          order("camps.created_at #{ direction }")
          raise(ArgumentError, "Sort option: #{ sort_option.inspect }")
@@ -127,22 +130,39 @@ class Camp < ActiveRecord::Base
     where.not(camps: { cocreation: nil }).where.not(camps: { cocreation: '' })
   }
 
-  scope :is_current_event, lambda { |flag|
-    where(camps: { event_id: Rails.application.config.default_event })
+  # Used by ActiveAdmin
+  scope :default_select, lambda { |except=%w(safetybag_firstMemberName safetybag_firstMemberEmail safetybag_secondMemberName safetybag_secondMemberEmail)|
+    tn = table_name
+    names = (column_names-except).map { |c| "#{tn}.#{c}" }.join(', ')
+    select(names).group(names)
   }
 
-  scope :is_old_event, lambda { |flag|
-    where.not(camps: { event_id: Rails.application.config.default_event })
+  scope :displayed, -> {
+    q = default_select.joins("LEFT JOIN roles ON (roles.identifier = '#{:manager}')")
+            .joins("LEFT JOIN people ON (people.camp_id = camps.id)")
+            .joins("LEFT JOIN people_roles pr ON (pr.role_id = roles.id)")
+            .where('people.id = pr.person_id')
+    
+    if connection.adapter_name == 'SQLite'
+      q.select('people.name manager_name, people.email manager_email, people.phone_number manager_phone')
+    else
+      q.select('ARRAY_AGG(people.name) manager_name,
+                ARRAY_AGG(people.email) manager_email,
+                ARRAY_AGG(people.phone_number) manager_phone')
+    end
+  }
+
+  scope :displayed_with_tags, -> {
+    displayed.includes(:tags)
   }
 
   before_save do
     align_budget
   end
 
-
   def grants_received
     return self.grants.sum(:amount)
-  end 
+  end
 
   # Translating the real currency to budget
   # This called on create and on update
@@ -151,7 +171,7 @@ class Camp < ActiveRecord::Base
     if self.minbudget_realcurrency.nil?
       self.minbudget = nil
     elsif self.minbudget_realcurrency > 0
-      self.minbudget = (self.minbudget_realcurrency / Rails.application.config.coin_rate).ceil
+      self.minbudget = (self.minbudget_realcurrency / Grant.value_for_currency).ceil
     else
       self.minbudget = 0
     end
@@ -159,9 +179,23 @@ class Camp < ActiveRecord::Base
     if self.maxbudget_realcurrency.nil?
       self.maxbudget = nil
     elsif self.maxbudget_realcurrency > 0
-      self.maxbudget = (self.maxbudget_realcurrency / Rails.application.config.coin_rate).ceil
+      self.maxbudget = (self.maxbudget_realcurrency / Grant.value_for_currency).ceil
     else
       self.maxbudget = 0
     end
+  end
+
+  def website_url
+    @protocol_index = self.website.index("https://")
+
+    if @protocol_index == nil
+      @protocol_index = self.website.index("http://")
+    end
+
+    return @protocol_index == nil ? "http://" + self.website : self.website
+  end
+
+  def Camp.boolean_as_human_readable(bool)
+    return bool ? "Yes" : "No"
   end
 end

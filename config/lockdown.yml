@@ -1,7 +1,6 @@
 common: &common
-  enter_granting: 2017-03-09t23:59:00+01:00
-  granting_begins: 2017-04-28t23:59:00+01:00
-  granting_closes: 2017-05-08t23:59:00+01:00
+  submit_dream: 2019-04-30t16:00:00+02:00
+  safety_file: 2000-01-01t00:00:00+02:00
 
 development:
   <<: *common

@@ -30,7 +30,7 @@ Rails.application.configure do
   config.assets.gzip = true
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.serve_static_assets = false
+  config.serve_static_files = false
   config.assets.compile = true
 
   # Asset digests allow you to set far-future HTTP expiration dates on all assets,
@@ -92,3 +92,4 @@ Rails.application.configure do
     }
   }
 end
+

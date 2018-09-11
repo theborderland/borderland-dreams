@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
   protected
 
 	def configure_permitted_parameters
-	   devise_parameter_sanitizer.for(:sign_up)        << :ticket_id
+    # TODO: triggers error devise_parameter_sanitizer.for(:sign_up)        << :ticket_id
 	end
 
   # Before every request, we set the locale, from the specified or detected settings, or from the cookie

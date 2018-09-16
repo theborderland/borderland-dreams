@@ -16,6 +16,7 @@ You can see it in action here:
 * Install postgres - `brew install postgresql`
 * Install ImageMagick v6, for example [this way](https://stackoverflow.com/questions/42250292/rails-cant-install-rmagick-2-16-0-cant-find-magickwand-h#answer-43715913)
 ```
+    rbenv local
     gem install bundler
     bundle install
     bundle exec rake db:migrate

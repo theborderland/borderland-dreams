@@ -95,10 +95,10 @@ GEM
     concurrent-ruby (1.0.5)
     crass (1.0.4)
     debug_inspector (0.0.2)
-    devise (4.5.0)
+    devise (4.4.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
-      railties (>= 4.1.0, < 6.0)
+      railties (>= 4.1.0, < 5.2)
       responders
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
@@ -393,7 +393,7 @@ DEPENDENCIES
   cancan
   cocoon
   coffee-rails (~> 4.1.0)
-  devise (= 4.5.0)
+  devise (= 4.4.0)
   dotenv-rails
   dotiw
   draper

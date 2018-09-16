@@ -21,7 +21,7 @@ gem 'jquery-ui-rails'
 gem 'jbuilder', '~> 2.0'
 
 # User management
-gem 'devise', '4.5.0'
+gem 'devise', '4.4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

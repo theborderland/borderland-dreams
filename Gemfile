@@ -92,7 +92,7 @@ group :production do
   # postgres
   gem 'pg'
   # needed by aws
-  gem 'puma'
+  gem 'puma', '3.6.2'
 end
 
 group :production, :staging do

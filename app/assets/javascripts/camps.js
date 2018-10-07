@@ -22,8 +22,9 @@ $(document).ready(function() {
   $('#responsibles').bind('cocoon:before-remove', function(e, el) {
     $(this).data('remove-timeout', 1000);
     el.fadeOut('slow');
-  })
+  });
 
+  $('.budgetprogressbar').budgetprogressbar();
 });
 
 $(document).ready(function() {

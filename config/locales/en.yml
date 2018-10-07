@@ -56,14 +56,14 @@ en:
   form_basics_headline: Dream registration
   form_summary: Summary
   form_dream_name: Dream name
-  form_dream_name_en_label: Dream name in English (required)
-  form_dream_name_label: Dream name (required) 
+  form_dream_name_en_label: Dream name in English *
+  form_dream_name_label: Dream name *
   form_dream_name_guidetext_html: What's your dream prototype called?
-  form_subtitle_en_label: Summarize your dream in English (required)
-  form_subtitle_label: Summarize your dream (required)
+  form_subtitle_en_label: Summarize your dream in English *
+  form_subtitle_label: Summarize your dream *
   form_subtitle_guidetext_html: Brief summary of the dream prototype you are applying
     for the front page of the dream's site. Keep it short, up to 256 characters.
-  form_creator_name_label: Group / Artist name
+  form_creator_name_label: Group / Artist name *
   form_creator_name_guidetext_html: ''
   create_dream_loading_text: Making room for your dream in our magical cloud...
   create_dream_loading_text2: This usually takes ~8 seconds. Take a mindful breath as we integrate with the drive for you...
@@ -76,8 +76,7 @@ en:
   form_contact_phone_guidetext_html: Emergency contact
   form_about_the_artist_label: About the group/Artist
   form_dream_website_label: Web Site / Facebook page
-  form_dream_website_short: The dream website
-  
+
   form_dream_point_of_contact_email: Your contact person from Art Department
   dream_safety_file_comments_nop_message: Hurray! Nothing for you to update right now...
   dream_safety_file_comments_update: Update Comments
@@ -429,14 +428,12 @@ en:
   minimum_funding_reached: Minimum funding reached
   minimum_grants_needed: Minimum grants needed
   needed_to_fully_fund: Needed to fully fund
-  minimum_grants_realcurrency_needed: Minimum budget needed in NIS
-  needed_to_fully_fund_realcurrency: Needed to fully fund in NIS
   your_available_grants: Your available grants
   youre_out_of_grants: You're out of grants. Hats off!
   add_my_name: Add my name
   added_my_name: Your name was added
   delete_this_creation: Delete this creation
-  archive_this_creation: Archive this creation
+  archive_this_creation: Remove this creation
   delete_are_you_sure: Are you sure?
   are_you_sure: Are you sure?
   your_space: Your personal space
@@ -470,6 +467,7 @@ en:
   cant_send_less_then_one: One cannot send less than 1 grants
   dream_need_to_have_max_budget: Dream needs to have maximum budget. please contact
     dreamer or dream guides
+  exceeds_max_grants_per_user_for_this_dream: You cannot spend more than %{max_grants_per_user_per_dream} grants on one dream
   security_more_grants: Security error cannot grant more then available grants. you
     tried gifting %{granted} grants. you have %{current_user_grants}. nice try.
   security_cant_delete_dreams_you_dont_own: One cannot delete dreams he dont own -
@@ -586,8 +584,6 @@ en:
         updated_at: Update
         minfunded: Reached minimum funding
         fullyfunded: Reached maximum funding
-        minbudget_realcurrency: Minimum funding in Real Currency
-        maxbudget_realcurrency: Maximum funding in Real Currency
         safetybag_crewsize: Size of the team
         safetybag_plan: Work plan/schedule
         safetybag_builder: Construction supervisior

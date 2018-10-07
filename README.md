@@ -164,3 +164,7 @@ We've added the ability to show safety file comments for the dream-creator in th
 
 You will need to set the following env var:
 * `SHOW_SAFETY_FILE_COMMENTS=true`
+
+## FAQ
+Q: How do I set multi language support
+Set the `MULTI_LANG_SUPPORT` env variable to true on heroku

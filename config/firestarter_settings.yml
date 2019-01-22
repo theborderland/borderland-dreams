@@ -1,4 +1,5 @@
 defaults: &defaults
+  grant_value_for_currency: 10.0
   additional_info: true
   contact_phone: true
   description: true
@@ -34,6 +35,7 @@ defaults: &defaults
   show_point_of_contact: <%= ENV['SHOW_POINT_OF_CONTACT'] or false %>
   show_safety_file_comments: <%= ENV['SHOW_SAFETY_FILE_COMMENTS'] or false %>
   recaptcha: <%= ENV['RECAPTCHA'] or false %>
+  max_grants_per_user_per_dream: 10
 
 development:
   <<: *defaults

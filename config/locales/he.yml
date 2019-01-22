@@ -85,7 +85,7 @@ he:
   form_subtitle_label: "סיכום החלום במשפט (נדרש)"
   form_subtitle_guidetext_html: "סיכום קצר של החלום שאת מציעה. סיכום זה יופיע בעמוד הראשי של האתר. תעשי את זה קצר, עד 256 תווים."
   form_subtitle_en_label: "סיכום החלום במשפט באנגלית (נדרש)"
-  form_creator_name_label: "שם הקבוצה/אמן"
+  form_creator_name_label: "שם הקבוצה/אמן (נדרש)"
   form_creator_name_guidetext_html: ""
 
   create_dream_loading_text: "מכינים במיוחד עבורך מקום בענן הקסום שלנו..."
@@ -100,7 +100,6 @@ he:
   form_contact_phone_guidetext_html: "במידה ונצטרך להשיג אותך באופן דחוף."
   form_about_the_artist_label: "על הקבוצה/אמן"
   form_dream_website_label: "אתר אינטרנט/עמוד פייסבוק של הפרויקט"
-  form_dream_website_short: "אתר החלום"
 
   form_dream_point_of_contact_email: "איש הקשר שלכם ממחלקת קשרי אמנים"
   dream_safety_file_comments_nop_message: "הידד! אין לך מה לעדכן כרגע..."
@@ -364,9 +363,6 @@ he:
   minimum_grants_needed: "לבבות מינימלים שצריכים"
   needed_to_fully_fund: "לבבות מקסימלים שצריכים"
 
-  minimum_grants_realcurrency_needed: "תקציב מינימלי בשקלים"
-  needed_to_fully_fund_realcurrency: "תקציב החלום במלואו בשקלים"
-
   your_available_grants: "לבבות שנותרו לך"
   youre_out_of_grants: "השתמשת בכל הלבבות שלך. ריספקט"
 
@@ -413,6 +409,7 @@ he:
 
   cant_send_less_then_one: "לא ניתן לשלוח פחות מלב אחד"
   dream_need_to_have_max_budget: "החלום צריך תחילה להגדיר מקסימום תקציב. אנא פנה לבעל החלום ואו למדריכים החלומות"
+  exceeds_max_grants_per_user_for_this_dream: You cannot spend more than %{max_grants_per_user_per_dream} grants on one dream
   security_more_grants: "שגיאת מציאות. לא ניתן לתת יותר לבבות ממה שיש לך כרגע. ניסית לתת %{granted} ויש לך %{current_user_grants}. נסיון יפה."
   security_cant_delete_dreams_you_dont_own: "שגיאה - אתה לא יכול למחוק חלום שלא שייך לך - האקר הצטרף אלינו"
   security_cant_tag_dreams_you_dont_own: "שגיאה - רק מדריכים יכולים לתייג חלומות. רוצה לעזור לנו?"
@@ -539,8 +536,6 @@ he:
         updated_at: "עודכן"
         minfunded: "מימון מינימלי הושג"
         fullyfunded: "מימון מקסימלי הושג"
-        minbudget_realcurrency: "מימון מינימלי בשקלים"
-        maxbudget_realcurrency: "מימון מקסימלי בשקלים"
         safetybag_crewsize: "גודל הצוות"
         safetybag_plan: "תכנית עבודה"
         safetybag_builder: "אחראי בנייה"

@@ -18,10 +18,10 @@ class ApplicationController < ActionController::Base
   
   protected
 
-	def configure_permitted_parameters
-	   devise_parameter_sanitizer.for(:sign_up)        << :ticket_id
-	end
-
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:ticket_id])
+  end
+  
   # Before every request, we set the locale, from the specified or detected settings, or from the cookie
   def set_locale
     if language_change_necessary?

@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery-ui
 //= require_tree .
 //= require blueimp-gallery-all
 //= require filterrific/filterrific-jquery
@@ -25,8 +24,6 @@ $(function() {
 	//Fix the hidden element issue on some chrome browsers
   	window.scroll(0,1);
   	window.scroll(0,0);
-
-	$('.budgetprogressbar').budgetprogressbar();
 
 	$('.donate-now-button').click(function(){
 		$('.donate-now-button').prop('disabled', true);

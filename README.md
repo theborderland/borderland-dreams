@@ -12,11 +12,12 @@ You can see it in action here:
 
 ## To get started
 
-* Install ruby 2.3.1 (or any ruby will probably work).
+* Install (version number indicated in `Gemfile`).
 * Install postgres - `brew install postgresql`
-* Install imagemagick - `brew install imagemagick`
+* Install ImageMagick v6, for example [this way](https://stackoverflow.com/questions/42250292/rails-cant-install-rmagick-2-16-0-cant-find-magickwand-h#answer-43715913)
 ```
-    gem install bundler # if needed
+    rbenv local
+    gem install bundler
     bundle install
     bundle exec rake db:migrate
 ```
@@ -163,3 +164,7 @@ We've added the ability to show safety file comments for the dream-creator in th
 
 You will need to set the following env var:
 * `SHOW_SAFETY_FILE_COMMENTS=true`
+
+## FAQ
+Q: How do I set multi language support
+Set the `MULTI_LANG_SUPPORT` env variable to true on heroku

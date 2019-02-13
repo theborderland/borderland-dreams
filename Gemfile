@@ -124,8 +124,6 @@ group :development do
   # Awesome print helps us print!
   gem 'awesome_print'
 
-  gem 'byebug'
-
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', '~> 0.4.0', group: :doc
 end

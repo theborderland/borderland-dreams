@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
     render file: "public/404.html", status: :not_found
   end
 
+  # TODO: I think this isn't used?
   def iframe_action
     response.headers.delete "X-Frame-Options"
     render_something

@@ -5,6 +5,7 @@ class CampsController < ApplicationController
   before_action :enforce_guide!, only: %i(tag)
   before_action :load_lang_detector, only: %i(show index)
 
+  # TODO: Check out howcanihelp_controller for a suggestion on refactoring this method
   def index
     filter = params[:filterrific] || { sorted_by: 'updated_at_desc' }
     filter[:active] = true
@@ -37,6 +38,7 @@ class CampsController < ApplicationController
 
   def create
     # Create camp without people then add them
+    # TODO: slightly better: @camp = Camp.new(camp_params.merge(creator: current_user))
     @camp = Camp.new(camp_params)
     @camp.creator = current_user
 
@@ -65,6 +67,8 @@ class CampsController < ApplicationController
     # Decrement user grants. Check first if granting more than needed.
     granted = params['grants'].to_i
 
+    # TODO: these should really be validations on the model rather than
+    # checks in the controller
     if(granted <= 0)
       flash[:alert] = "#{t:cant_send_less_then_one}"
       redirect_to camp_path(@camp) and return
@@ -79,6 +83,11 @@ class CampsController < ApplicationController
       granted = @camp.maxbudget - @camp.grants_received
     end
 
+    # I'm not sure using a scope is the right way to go here, since this is
+    # pretty straightforward and used in only one place in the app. Cleaner would be
+    # @grants_received = @camp.grants.where(user: current_user)
+    # or
+    # @grants_received = current_user.grants.where(camp: @camp)
     @grants_received_by_this_user = Grant.received_for_camp_by_user(@camp.id, current_user.id)
 
     if !current_user.admin && @grants_received_by_this_user + granted > Grant.max_per_user_per_dream
@@ -97,6 +106,8 @@ class CampsController < ApplicationController
       # Increase camp grants.
       @camp.grants.new({:user_id => current_user.id, :amount => granted})      
 
+      # TODO: plz don't do if/elses to assign true/false! :P
+      # @camp.minfunded = (@camp.grants_received + granted) >= @camp.minbudget
       if @camp.grants_received + granted >= @camp.minbudget
         @camp.minfunded = true
       else
@@ -173,6 +184,7 @@ class CampsController < ApplicationController
 
   # Allow a user to join a particular camp.
   def join
+    # TODO: no need to assign this here; when just using current_user will do.
     @user = current_user
 
     #
@@ -182,6 +194,7 @@ class CampsController < ApplicationController
 
     if !@user
       flash[:notice] = "#{t:join_dream}"
+    # TODO: elsif @camp.users.include?(current_user)
     elsif @camp.users.where(id: @user.id).exists?
       flash[:notice] = "#{t:join_already_sent}"
     else
@@ -198,6 +211,10 @@ class CampsController < ApplicationController
 
   private
 
+  # TODO: We can't permit! attributes like this, because it means that anyone
+  # can update anything about a camp in any way (including the id, etc); recipe for disaster!
+  # we'll have to go through and determine which attributes can actually be updated via
+  # this endpoint and pass them to permit normally.
   def camp_params
     params.require(:camp).permit!
   end

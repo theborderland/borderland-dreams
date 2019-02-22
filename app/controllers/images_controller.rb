@@ -3,14 +3,28 @@ class ImagesController < ApplicationController
   before_action :enforce_permission!, only: [:create, :destroy, :archive]
   before_filter :camp_id
 
+  # TODO: You'll likely want to load up the camp here, so that
+  # if you need to put in permissions later you can
+  # before_filter :load_camp, only: :index
+  # def load_camp
+  #   @camp = Camp.find_by(id: params[:camp_id]) # <- later, ensure the current user can view this camp
+  # end
+  # then, in the view, just @camp.images will do
   def index
     @images = Image.where(camp_id: @camp_id)
   end
 
+  # TODO: this method doesn't appear to be used?
   def show
     image = Image.find_by_id(params[:id])
   end
 
+  # TODO: redirect is likely slightly cleaner in a before action
+  # before_action :enforce_attachment
+  # def enforce_attachment
+  #   return if params[:attachment]
+  #   redirect_to camp_images_path(params.slice(:camp_id)), flash: { alert: t(:error_no_image_selected) }
+  # end
   def create
     if params[:attachment].blank?
       flash[:alert] = t(:error_no_image_selected)
@@ -28,7 +42,9 @@ class ImagesController < ApplicationController
   end
 
   def destroy
+    # TODO: you should prefer Image.find over Image.find_by_id :)
     @image = Image.find_by_id(params[:id])
+    # TODO: Paperclip _should_ do this for you automatically,
     @image.attachment = nil
     @image.save!
     @image.destroy!

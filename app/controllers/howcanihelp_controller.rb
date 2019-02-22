@@ -1,4 +1,15 @@
 class HowcanihelpController < ApplicationController
+  # TODO: here's a stab at a refactor of this method:
+  # def index
+  #   hidden = current_user&.admin? || current_user&.guide?
+  #   @filterrific = initialize_filterrific(Camp, params[:filterrific].merge(
+  #     is_cocreation: true,
+  #     active: true,
+  #     hidden: hidden,
+  #     not_hidden: !hidden <- Do you really need this one?
+  #   )
+  #   @camps = @filteriffic.find.page(params[:page])
+  # end
   def index
     filter = params[:filterrific] || { sorted_by: 'updated_at_desc' }
     filter[:active] = true

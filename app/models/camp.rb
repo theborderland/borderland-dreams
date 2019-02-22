@@ -1,3 +1,4 @@
+# TODO: people have some differing opinions about where validators should live
 class CanCreateNewDreamValidator < ActiveModel::Validator
   def validate(record)
     if Rails.application.config.x.firestarter_settings['disable_open_new_dream']
@@ -101,6 +102,8 @@ class Camp < ActiveRecord::Base
       end
   }
 
+  # TODO: it's pretty bizarre for a scope to not return an activerecord relation;
+  # I think it wants to be 'return none if flag == '0''
   scope :not_fully_funded, lambda { |flag|
     return nil  if '0' == flag # checkbox unchecked
     where(fullyfunded: false)
@@ -183,6 +186,14 @@ class Camp < ActiveRecord::Base
     end
   end
 
+  # TODO: This would be much cleaner as
+  # def website_url
+  #   if self.website.index('https://') || self.website.index('https://')
+  #     self.website
+  #   else
+  #     "http://#{self.website}"
+  #   end
+  # end
   def website_url
     @protocol_index = self.website.index("https://")
 

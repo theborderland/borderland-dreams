@@ -1,7 +1,7 @@
 class ImagesController < ApplicationController
   before_action :authenticate_user!, except: [:show]
   before_action :enforce_permission!, only: [:create, :destroy, :archive]
-  before_filter :camp_id
+  before_action :camp_id
 
   def index
     @images = Image.where(camp_id: @camp_id)

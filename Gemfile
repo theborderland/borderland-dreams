@@ -56,11 +56,11 @@ gem 'filterrific'
 # Images at S3
 gem 'paperclip'
 gem 'aws-sdk', '< 2'
-gem 'rmagick'
+gem 'rmagick', '~> 2.16.0'
 
 gem 'nokogiri'
 
-gem 'newrelic_rpm'
+gem 'newrelic_rpm', '~> 6.0.0'
 
 gem 'cocoon'
 gem 'simple_form'
@@ -113,7 +113,7 @@ group :development do
   gem 'web-console', '~> 2.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+  gem 'spring', '~> 1.6.4'
 
   # Use rspec for testing the thing
   gem 'rspec-rails'

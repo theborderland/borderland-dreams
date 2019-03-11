@@ -37,6 +37,12 @@ defaults: &defaults
   recaptcha: <%= ENV['RECAPTCHA'] or false %>
   max_grants_per_user_per_dream: 10
 
+  # SAML authentication settings
+  saml_enabled: <%= ENV['SAML_CLIENT_ID'] or ENV['SAML_ENABLED'] or false %>
+  saml_idp_descriptor: <%= ENV['SAML_IDP_DESCRIPTOR'] or "./vendor/saml/idpssodescriptor.xml" %>
+  saml_client_id: <%= ENV['SAML_CLIENT_ID'] or "dreams-test" %>
+  saml_human_name: <%= ENV['SAML_HUMAN_NAME'] or "Borderland" %>
+
 development:
   <<: *defaults
 

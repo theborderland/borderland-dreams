@@ -1,7 +1,7 @@
 <% content_for(:head) do %>
   <% browser_title = t(:browser_title_tag) %>
   <title><%= browser_title %></title>
-  <%= javascript_include_tag 'blueimp_script' %> 
+  <%= javascript_include_tag 'blueimp_script' %>
 <% end %>
 
 
@@ -17,11 +17,11 @@
       </div>
       <div class="panel-body">
         <p><b><%=t :contact_email %></b>: <%= current_user.email %></p>
-        
-        <% if @my_dreams.exists? %>
-          <p><b><%=t(:your_dream, count: @my_dreams.count) %></b>: </p>
+
+        <% if current_user.created_camps.any? %>
+          <p><b><%=t(:your_dream, count: current_user.created_camps.count) %></b>: </p>
           <ul>
-            <% @my_dreams.each do |my_dream| %>
+            <% current_user.created_camps.each do |my_dream| %>
               <li><a href="<%= url_for(my_dream) %>"><%= my_dream.name %></a></li>
             <% end %>
           </ul>
@@ -48,7 +48,7 @@
           <br><br>
 
           <b><%=t :dreams_you_help_make %></b>:
-          <% @grants.each do |grant| %>
+          <% current_user.grants.each do |grant| %>
             <p>
               <a href="<%= url_for(grant.camp) %>"><%= grant.camp.name %></a><br>
               <span class="glyphicons glyphicons-coins"></span>

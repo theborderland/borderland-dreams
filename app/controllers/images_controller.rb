@@ -7,7 +7,7 @@ class ImagesController < ApplicationController
 
   def create
     assert(params[:attachment], :error_no_image_selected)
-    @image = Image.new(image_params.merge(user: current_user))
+    @image = Image.new(image_params)
 
     if @image.save
       redirect_to camp_images_path(params.slice(:camp_id))
@@ -33,6 +33,6 @@ class ImagesController < ApplicationController
   end
 
   def image_params
-    params.permit(:attachment, :camp_id)
+    params.permit(:attachment, :camp_id).merge(user: current_user)
   end
 end

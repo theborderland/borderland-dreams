@@ -4,11 +4,11 @@ class Grant < ActiveRecord::Base
 
   # This wants to be
   # def self.max_per_user_per_dream, etc.
-  def Grant.max_per_user_per_dream
+  def self.max_per_user_per_dream
     return Rails.configuration.x.firestarter_settings['max_grants_per_user_per_dream']
   end
 
-  def Grant.value_for_currency
+  def self.value_for_currency
     return Rails.configuration.x.firestarter_settings['grant_value_for_currency']
   end
 

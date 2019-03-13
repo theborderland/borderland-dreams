@@ -1,14 +1,10 @@
 <% content_for(:head) do %>
-  <% browser_title = t(:browser_title_tag) %>
-  <title><%= browser_title %></title>
+  <title><%= t(:browser_title_tag) %></title>
   <%= javascript_include_tag 'blueimp_script' %>
 <% end %>
 
-
-
 <% if user_signed_in? %>
   <%= render 'camps/dont_miss_out', except: nil %>
-  <% coin_image_path = image_path("coin.png") %>
   <div class="me col-md-5 col-xs-12" dir="<%=t :html_direction %>" style="float: <%=t :lang_direction%>">
     <div class="panel panel-default">
       <div class="panel-heading">
@@ -38,23 +34,20 @@
 
         <% if Rails.configuration.x.firestarter_settings["granting"] %>
           <b><%=t :your_available_grants %></b>:
-          <% if current_user.grants and current_user.grants > 0 %>
-            <% (1..current_user.grants).each do |i| %>
-              <img src='<%= coin_image_path %>' class='coin-image'/>
-            <% end %>
-          <% else %>
-            0
+          <% current_user.grants.count.times do |i| %>
+            <%= image_tag "coin.png", class: "coin-image" %>
           <% end %>
+          <%= '0' if current_user.grants.empty? %>
           <br><br>
 
           <b><%=t :dreams_you_help_make %></b>:
           <% current_user.grants.each do |grant| %>
             <p>
-              <a href="<%= url_for(grant.camp) %>"><%= grant.camp.name %></a><br>
+              <%= link_to grant.camp.name, camp_path(grant.camp) %><br>
               <span class="glyphicons glyphicons-coins"></span>
               <%= grant.created_at.strftime("%d/%m/%Y") %>
-              <% (1..grant.amount).each do |i| %>
-                <img src='<%= coin_image_path %>' class='coin-image-sm'/>
+              <% grant.amount.times do |i| %>
+                <%= image_tag "coin.png", class: "coin-image-sm" %>
               <% end %>
             </p>
           <% end %>

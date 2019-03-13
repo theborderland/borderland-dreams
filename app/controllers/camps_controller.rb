@@ -157,7 +157,7 @@ class CampsController < ApplicationController
   end
 
   def load_camp!
-    return if @camp = Camp.find_by(params.slice(:id))
+    return if @camp = Camp.find_by(params.permit(:id))
     flash[:alert] = t(:dream_not_found)
     redirect_to camps_path
   end

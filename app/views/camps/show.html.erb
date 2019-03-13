@@ -113,7 +113,7 @@
                     <% end %>
                     <!-- End of granting block -->
                 </div>
-            </div>    
+            </div>
             </div> <!-- /div Closing the upper if !-->
         <% end %>
 
@@ -203,13 +203,13 @@
         <% end %>
 
         <!-- Private user data  -->
-        <% if Rails.configuration.x.firestarter_settings["safetybag"] && 
+        <% if Rails.configuration.x.firestarter_settings["safetybag"] &&
             (current_user && current_user.guide || (@camp.creator == current_user)) %>
             <div class="panel panel-default">
-                
+
                 <div class="panel-heading"><b><%=t :creation_safetybaginfo_headline %></b></div>
                 <div class="panel-body">
-                <ul>    
+                <ul>
                     <li><span>
                         <b><%=t :form_safetybag_crewsize_label %></b> <%= @camp.safetybag_crewsize %>
                     </span></li>
@@ -332,8 +332,8 @@
                         <% if @camp.creator == current_user || current_user.guide %>
                             <br>
                             <li><span><b><%=t :cocreators_list_guidetext %></b>
-                                <% @users.each do |user| %>
-                                    <%= user.email %><br>
+                                <% @camp.users.pluck(:email).each do |email| %>
+                                    <%= email %><br>
                                 <% end %>
                             </span></li>
                         <% end %>
@@ -436,7 +436,6 @@
                     <br>
                 <% end %>
 
-                
                 <% random = Camp.active(true).not_hidden(true).order("RANDOM()").first %>
                 <a href="<%= url_for(random) %>" class="btn btn-primary camp-button" role="button">
                     <%=t :next_random_dream %> <span class="glyphicon glyphicon-random vertical-middle" aria-hidden="true"></span>

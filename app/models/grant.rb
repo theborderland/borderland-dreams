@@ -12,8 +12,4 @@ class Grant < ActiveRecord::Base
     return Rails.configuration.x.firestarter_settings['grant_value_for_currency']
   end
 
-  def Grant.received_for_camp_by_user(camp_id, user_id)
-    return self.where(camp_id: camp_id, user_id: user_id).sum(:amount)
-  end
-
 end

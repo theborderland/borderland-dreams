@@ -102,8 +102,6 @@ class Camp < ActiveRecord::Base
       end
   }
 
-  # TODO: it's pretty bizarre for a scope to not return an activerecord relation;
-  # I think it wants to be 'return none if flag == '0''
   scope :not_fully_funded, lambda { |flag|
     return nil  if '0' == flag # checkbox unchecked
     where(fullyfunded: false)
@@ -157,9 +155,7 @@ class Camp < ActiveRecord::Base
     displayed.includes(:tags)
   }
 
-  before_save do
-    align_budget
-  end
+  before_save :align_budget
 
   def grants_received
     return self.grants.sum(:amount)
@@ -186,21 +182,11 @@ class Camp < ActiveRecord::Base
     end
   end
 
-  # TODO: This would be much cleaner as
-  # def website_url
-  #   if self.website.index('https://') || self.website.index('https://')
-  #     self.website
-  #   else
-  #     "http://#{self.website}"
-  #   end
-  # end
   def website_url
-    @protocol_index = self.website.index("https://")
-
-    if @protocol_index == nil
-      @protocol_index = self.website.index("http://")
+    if self.website.index('https://') || self.website.index('http://')
+      self.website
+    else
+      "http://#{self.website}"
     end
-
-    return @protocol_index == nil ? "http://" + self.website : self.website
   end
 end

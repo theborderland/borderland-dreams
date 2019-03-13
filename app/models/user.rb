@@ -1,9 +1,5 @@
-require 'concerns/RegistrationValidation'
-
 class User < ActiveRecord::Base
-  include RegistrationValidation  
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+  include RegistrationValidation
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
@@ -25,5 +21,4 @@ class User < ActiveRecord::Base
       #user.name = auth.info.name # We don't persist usernames to the DB.
     end
   end
-  
 end

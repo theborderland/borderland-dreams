@@ -11,18 +11,12 @@ class ApplicationController < ActionController::Base
     render file: "public/404.html", status: :not_found
   end
 
-  # TODO: I think this isn't used?
-  def iframe_action
-    response.headers.delete "X-Frame-Options"
-    render_something
-  end
-  
   protected
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:ticket_id])
   end
-  
+
   # Before every request, we set the locale, from the specified or detected settings, or from the cookie
   def set_locale
     if language_change_necessary?
@@ -53,5 +47,17 @@ class ApplicationController < ActionController::Base
   # Reads the locale cookie and sets the locale from it
   def use_locale_from_cookie
     I18n.locale = cookies['locale']
+  end
+
+  private
+
+  def assert(condition, message, params = {})
+    return if condition
+    flash[:alert] = t(message, params)
+    redirect_to failure_path
+  end
+
+  def failure_path
+    raise NotImplementedError.new
   end
 end

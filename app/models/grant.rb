@@ -1,4 +1,4 @@
-class Grant < ActiveRecord::Base
+class Grant < ApplicationRecord
   include AppSettings
   belongs_to :user
   belongs_to :camp

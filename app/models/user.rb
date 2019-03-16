@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   extend AppSettings
   include RegistrationValidation
   devise :database_authenticatable, :registerable,

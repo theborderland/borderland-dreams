@@ -9,7 +9,7 @@ class CanCreateNewDreamValidator < ActiveModel::Validator
   end
 end
 
-class Camp < ActiveRecord::Base
+class Camp < ApplicationRecord
   include AppSettings
   belongs_to :creator, class_name: 'User', foreign_key: 'user_id'
 

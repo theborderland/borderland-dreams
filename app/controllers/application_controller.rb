@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  include AppSettings
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
@@ -6,6 +7,8 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale
   before_action :set_paper_trail_whodunnit
+
+  helper_method :app_setting
 
   def not_found
     render file: "public/404.html", status: :not_found
@@ -33,9 +36,10 @@ class ApplicationController < ActionController::Base
   private
 
   def assert(condition, message, params = {})
-    return if condition
+    return true if condition
     flash[:alert] = t(message, params)
     redirect_to failure_path
+    false
   end
 
   def failure_path

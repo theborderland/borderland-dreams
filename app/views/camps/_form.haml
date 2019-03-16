@@ -17,9 +17,9 @@
 
   });
 
-- if !Rails.configuration.x.firestarter_settings["disable_edit_safetybag"] or (current_user && (current_user.guide || current_user.admin))
+- if !app_setting("disable_edit_safetybag") or (current_user && (current_user.guide || current_user.admin))
   :javascript
-    $(function() { $(".hide_show_safetyfile").click(function(){ 
+    $(function() { $(".hide_show_safetyfile").click(function(){
     if($('.safetybar-info').css('display') === "none") {
       $('.safetybar-info').fadeIn();
       }else {
@@ -28,7 +28,7 @@
     })});
 - else
   :javascript
-    $(function() { $(".hide_show_safetyfile").click(function(){ 
+    $(function() { $(".hide_show_safetyfile").click(function(){
       alert( "Safety file is currrently disabled" );
     })});
 
@@ -49,7 +49,7 @@
     = t("form_basics_headline")
 
   .header-safetybag-description
-    - if Rails.configuration.x.firestarter_settings["safetybag"]
+    - if app_setting("safetybag")
       = t("form_basics_safety_bag")
 
   .combo#name
@@ -59,7 +59,7 @@
     %blockquote
       = best_in_place_if @can_edit, @camp, :name, html_attrs: {maxlength: 64, class: "form-control"}
 
-  - if Rails.configuration.x.firestarter_settings["multi_lang_support"]
+  - if app_setting("multi_lang_support")
     .combo
       = form.label t("form_dream_name_en_label")
       %blockquote
@@ -72,7 +72,7 @@
     %blockquote
       = best_in_place_if @can_edit, @camp, :subtitle, html_attrs: {maxlength: 255, class: "form-control"},as: :textarea, display_with: :simple_format
 
-  - if Rails.configuration.x.firestarter_settings["multi_lang_support"]
+  - if app_setting("multi_lang_support")
     .combo
       = form.label t("form_subtitle_en_label")
       %blockquote
@@ -87,7 +87,7 @@
 
   .combo#visability
     = form.label t("form_dream_visability")
-    
+
     = form.radio_button :is_public, true
     = form.label t("form_dream_visability_yes")
     = form.radio_button :is_public, false
@@ -96,7 +96,7 @@
     = t("form_dream_visability_guidetext_html")
 
   .combo#contact_phone
-    - if Rails.configuration.x.firestarter_settings["contact_phone"]
+    - if app_setting("contact_phone")
       = form.label t("form_contact_phone_label")
 
       .field-description
@@ -111,11 +111,11 @@
 
   .combo
     = form.label t("form_dream_website_label")
-    %blockquote  
+    %blockquote
       = best_in_place_if @can_edit, @camp, :website, html_attrs: {maxlength: 512, class: "form-control"}, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
 
   .combo#description
-    - if Rails.configuration.x.firestarter_settings["description"]
+    - if app_setting("description")
       = form.label t("form_description_label")
       .field-description
         = t("form_description_guidetext_html")
@@ -123,7 +123,7 @@
         = best_in_place_if @can_edit, @camp, :description, html_attrs: {maxlength: 4096, class: "form-control"}, as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
 
   .combo#electricity
-    - if Rails.configuration.x.firestarter_settings["electricity"]
+    - if app_setting("electricity")
       = form.label t("form_electricity_label")
       .field-description
         = t("form_electricity_guidetext_html")
@@ -131,7 +131,7 @@
         = best_in_place_if @can_edit, @camp, :electricity, html_attrs: {maxlength: 256, class: "form-control"}, as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
 
   .combo#fire
-    - if Rails.configuration.x.firestarter_settings["fire"]
+    - if app_setting("fire")
       = form.label t("form_fire_label")
       .field-description
         = t("form_fire_guidetext_html")
@@ -139,7 +139,7 @@
         = best_in_place_if @can_edit, @camp, :fire, html_attrs: {maxlength: 512, class: "form-control"}, as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
 
   .combo#noise
-    - if Rails.configuration.x.firestarter_settings["noise"]
+    - if app_setting("noise")
       = form.label t("form_noise_label")
       .field-description
         = t("form_noise_guidetext_html")
@@ -147,7 +147,7 @@
         = best_in_place_if @can_edit, @camp, :noise, html_attrs: {maxlength: 256, class: "form-control"}, place_holder: t(:form_click_to_edit_html)
 
   .combo#nature
-    - if Rails.configuration.x.firestarter_settings["nature"]
+    - if app_setting("nature")
       = form.label t("form_nature_label")
       .field-description
         = t("form_nature_guidetext_html")
@@ -155,7 +155,7 @@
         = best_in_place_if @can_edit, @camp, :nature, html_attrs: {maxlength: 512, class: "form-control"}, as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
 
   .combo#recycling
-    - if Rails.configuration.x.firestarter_settings["recycling"]
+    - if app_setting("recycling")
       = form.label t("form_recycling_label")
       .field-description
         = t("form_recycling_guidetext_html")
@@ -163,7 +163,7 @@
         = best_in_place_if @can_edit, @camp, :recycling, html_attrs: {maxlength: 512, class: "form-control"}, as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
 
   .combo#plan
-    - if Rails.configuration.x.firestarter_settings["plan"]
+    - if app_setting("plan")
       = form.label t("form_plan_label")
       .field-description
         = t("form_plan_guidetext_html")
@@ -171,7 +171,7 @@
         = best_in_place_if @can_edit, @camp, :plan, html_attrs: {maxlength: 1024, class: "form-control"}, as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
 
   .combo#light
-    - if Rails.configuration.x.firestarter_settings["light"]
+    - if app_setting("light")
       = form.label t("form_light_label")
       .field-description
         = t("form_light_guidetext_html")
@@ -179,7 +179,7 @@
         = best_in_place_if @can_edit, @camp, :light, html_attrs: {maxlength: 512, class: "form-control"}, place_holder: t(:form_click_to_edit_html)
 
   .combo#moop
-    - if Rails.configuration.x.firestarter_settings["moop"]
+    - if app_setting("moop")
       = form.label t("form_moop_label")
       .field-description
         = t("form_moop_guidetext_html")
@@ -187,7 +187,7 @@
         = best_in_place_if @can_edit, @camp, :moop, html_attrs: {maxlength: 1024, class: "form-control"}, as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
 
   .combo#cocreation
-    - if Rails.configuration.x.firestarter_settings["cocreation"]
+    - if app_setting("cocreation")
       = form.label t("form_cocreation_label")
       .field-description
         = t("form_cocreation_guidetext_html")
@@ -196,7 +196,7 @@
 
 
   .combo#neighbors
-    - if Rails.configuration.x.firestarter_settings["neighbors"]
+    - if app_setting("neighbors")
       = form.label t("form_neighbors_label")
       .field-description
         = t("form_neighbors_guidetext_html")
@@ -208,19 +208,19 @@
     = form.label t("form_project_management_crew")
     %span.label.label-success
       =t("private")
-  
-  - if Rails.configuration.x.firestarter_settings["crew_size"]
+
+  - if app_setting("crew_size")
     .row
       .combo.col-xs-7{ style: 'float:' + I18n.t('lang_direction')}
         = form.label t("form_safetybag_crewsize_label")
         %blockquote
           = best_in_place_if @can_edit, @camp, :safetybag_crewsize, html_attrs: {maxlength: 5, class: "form-control"}, place_holder: t(:form_click_to_edit_html)
         %br
-  
+
   #responsibles
     = form.fields_for :people do |person|
       = render 'person_fields', :f => person, :camp_id => @camp.id
-  
+
   - if @can_edit
     .row
       .links.col-xs-12
@@ -228,7 +228,7 @@
         %br
         %br
 
-  - if Rails.configuration.x.firestarter_settings["safetybag"]
+  - if app_setting("safetybag")
     .combo
       = t("form_extra_team_member_info")
 
@@ -244,8 +244,8 @@
       = form.label t("form_safetybag_second_member_name_label")
       = best_in_place_if @can_edit, @camp, :safetybag_secondMemberName, html_attrs: {maxlength: 64, class: "form-control"}, place_holder: t(:form_click_to_edit_html)
 
-  - if Rails.configuration.x.firestarter_settings["safetybag"]
-    
+  - if app_setting("safetybag")
+
     .header-heading.safetybag-header
       = t("form_safetybag_headline")
 
@@ -328,17 +328,17 @@
     .combo
       = t("form_safetybag_needs_to_fill")
 
-  - if Rails.configuration.x.firestarter_settings["granting"]
+  - if app_setting("granting")
     %br
     %br
     .header-heading
       = t("form_artgrants_headline")
 
   .combo#artgrants
-  - if Rails.configuration.x.firestarter_settings["granting"]
+  - if app_setting("granting")
     = t("form_artgrants_text_html")
-    
-  - if Rails.configuration.x.firestarter_settings["granting"] and !Rails.application.config.x.firestarter_settings['disable_edit_budget']
+
+  - if app_setting("granting") and !app_setting('disable_edit_budget')
     .combo#minbudget_realcurrency
       = form.label t("form_minigrants_realcurrency_label")
     .field-description
@@ -346,11 +346,10 @@
     %blockquote
       = best_in_place_if @can_edit, @camp, :minbudget_realcurrency, html_attrs: {maxlength: 6, class: "form-control"}, place_holder: t(:form_click_to_edit_html), display_with: :number_to_currency, :helper_options => {:unit => "", precision:0}
 
-  - if Rails.configuration.x.firestarter_settings["granting"] and !Rails.application.config.x.firestarter_settings['disable_edit_budget']
+  - if app_setting("granting") and !app_setting('disable_edit_budget')
     .combo#maxbudget_realcurrency
       = form.label t("form_maxigrants_realcurrency_label")
     .field-description
       = t("form_maxigrants_realcurrency_guidetext_html")
     %blockquote
       = best_in_place_if @can_edit, @camp, :maxbudget_realcurrency, html_attrs: {maxlength: 6, class: "form-control"}, place_holder: t(:form_click_to_edit_html), display_with: :number_to_currency, :helper_options => {:unit => "", precision:0}
-      

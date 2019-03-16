@@ -1,10 +1,11 @@
 require 'open-uri'
 
 module RegistrationValidation
- extend ActiveSupport::Concern
+  extend ActiveSupport::Concern
+  include AppSettings
 
   included do
-    validate :invite_code_valid, on: :create if Rails.configuration.x.firestarter_settings["user_authentication_codes"]
+    validate :invite_code_valid, on: :create if app_setting("user_authentication_codes")
   end
 
   private
@@ -23,7 +24,7 @@ module RegistrationValidation
   end
 
   def invite_code_remote_tickets_valid
-    return unless Rails.configuration.x.firestarter_settings["user_authentication_vs_tixwise"] && ENV['TICKETS_EVENT_URL']
+    return unless app_setting("user_authentication_vs_tixwise") && ENV['TICKETS_EVENT_URL']
     return unless parseTixWiseAsHash[self.email] == self.ticket_id
     return if User.exists?(ticket_id: self.ticket_id) || User.exists?(email: self.email)
     Ticket.create(id_code: self.ticket_id, email: self.email)

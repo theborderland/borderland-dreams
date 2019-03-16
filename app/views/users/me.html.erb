@@ -32,7 +32,7 @@
           <br>
         <% end %>
 
-        <% if Rails.configuration.x.firestarter_settings["granting"] %>
+        <% if app_setting("granting") %>
           <b><%=t :your_available_grants %></b>:
           <% current_user.grants.count.times do |i| %>
             <%= image_tag "coin.png", class: "coin-image" %>

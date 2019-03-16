@@ -2,6 +2,7 @@ class CampsController < ApplicationController
   include CanApplyFilters
   before_action :authenticate_user!, except: [:show, :index]
   before_action :load_camp!, except: [:index, :new, :create]
+  before_action :ensure_admin!, only: [:destroy, :archive]
   before_action :load_lang_detector, only: [:show, :index]
 
   # TODO: Check out howcanihelp_controller for a suggestion on refactoring this method
@@ -118,7 +119,6 @@ class CampsController < ApplicationController
   end
 
   def destroy
-    assert(current_user == @camp.owner || current_user.admin, :security_cant_delete_dreams_you_dont_own)
     @camp.destroy!
     redirect_to camps_path
   end
@@ -141,7 +141,6 @@ class CampsController < ApplicationController
   end
 
   def archive
-    assert(current_user == @camp.owner || current_user.admin, :security_cant_delete_dreams_you_dont_own)
     @camp.update!(active: false)
     redirect_to camps_path
   end
@@ -162,6 +161,10 @@ class CampsController < ApplicationController
     redirect_to camps_path
   end
 
+  def ensure_admin!
+    assert(current_user == @camp.creator || current_user.admin, :security_cant_delete_dreams_you_dont_own)
+  end
+
   def failure_path
     camp_path(@camp)
   end
@@ -169,7 +172,7 @@ class CampsController < ApplicationController
   def create_camp
     Camp.transaction do
       @camp.save!
-      if Rails.application.config.x.firestarter_settings['google_drive_integration'] and ENV['GOOGLE_APPS_SCRIPT'].present?
+      if app_setting('google_drive_integration') and ENV['GOOGLE_APPS_SCRIPT'].present?
         response = NewDreamAppsScript::createNewDreamFolder(@camp.creator.email, @camp.id, @camp.name)
         @camp.google_drive_folder_path = response['id']
         @camp.google_drive_budget_file_path = response['budget']

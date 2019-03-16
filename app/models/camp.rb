@@ -1,7 +1,9 @@
 # TODO: people have some differing opinions about where validators should live
 class CanCreateNewDreamValidator < ActiveModel::Validator
+  include AppSettings
+
   def validate(record)
-    if Rails.application.config.x.firestarter_settings['disable_open_new_dream']
+    if app_setting('disable_open_new_dream')
       record.errors[:base] << I18n.t("new_dream_is_disabled")
     end
   end
@@ -18,7 +20,7 @@ class Camp < ActiveRecord::Base
   has_many :roles, through: :people
 
   has_paper_trail
-  
+
   accepts_nested_attributes_for :people, :roles, allow_destroy: true
 
   acts_as_taggable
@@ -65,7 +67,7 @@ class Camp < ActiveRecord::Base
         "LOWER(camps.cocreation) LIKE ?",
       ]
 
-      if Rails.configuration.x.firestarter_settings["multi_lang_support"]
+      if app_setting("multi_lang_support")
         or_array.push("LOWER(camps.en_name) LIKE ?",
           "LOWER(camps.en_subtitle) LIKE ?")
       end
@@ -141,7 +143,7 @@ class Camp < ActiveRecord::Base
             .joins("LEFT JOIN people ON (people.camp_id = camps.id)")
             .joins("LEFT JOIN people_roles pr ON (pr.role_id = roles.id)")
             .where('people.id = pr.person_id')
-    
+
     if connection.adapter_name == 'SQLite'
       q.select('people.name manager_name, people.email manager_email, people.phone_number manager_phone')
     else

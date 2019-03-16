@@ -18,7 +18,6 @@
                     </b>
                 </span>
               <span class='coins-left' style='float: <%=t :reverse_direction %>'><%=t :coins_left %> <%= current_user.grants %></span>
-              </p>
             </div>
             <%= submit_tag t(:i_gift_thee_grants), :class => "btn btn-success donate-now-button" %>
           </div>
@@ -43,32 +42,20 @@
         </div>
 
         <div id="links">
-            <% @camp.images.each_with_index do |image, index| %>
-                <% status = "" %>
-                <% if index == 0 %>
-                    <% status = "active" %>
-                    <% @mainImage = image.attachment.url(:large) %>
-                <% end %>
-                <% image_url = image.attachment.url(:large)%>
-                <% thumb_url = image.attachment.url(:medium)%>
-
-                <div class="thumbnail">
-                    <a href="<%= image_url %>">
-                        <img src="<%= thumb_url %>">
-                    </a>
-                </div>
-
-            <% end %>
-
+          <% @camp.images.each_with_index do |image, index| %>
+              <div class="thumbnail">
+                <%= link_to image_tag(image.attachment.url(:medium)), image.attachment.url(:large) %>
+              </div>
+          <% end %>
         </div>
 
         <% content_for(:cover_head) do %>dream-site-header<% end %>
 
         <% content_for(:post_head) do %>
-            <% if defined? (@mainImage) %>
-                <div class='dream_main_image' style='background: linear-gradient(rgba(20,20,20, .7),rgba(20,20,20, .7)),url("<%= @mainImage %>") no-repeat center center fixed'>
+            <% if defined? (@main_image) %>
+                <div class='dream_main_image' style='background: linear-gradient(rgba(20,20,20, .7),rgba(20,20,20, .7)),url("<%= @main_image %>") no-repeat center center fixed'>
             <% else %>
-                <div class='dream_main_image' style="background: linear-gradient(rgba(20,20,20, .7),rgba(20,20,20, .7)),url('<%= @mainImage %>') no-repeat center center fixed">
+                <div class='dream_main_image' style="background: linear-gradient(rgba(20,20,20, .7),rgba(20,20,20, .7)),url('<%= @main_image %>') no-repeat center center fixed">
             <% end %>
             <div class="dream_main_text">
                 <div class="center-dream">
@@ -122,8 +109,8 @@
             <title><%= browser_title %></title>
             <%= javascript_include_tag 'blueimp_script' %>
             <%= javascript_include_tag 'multiprogress' %>
-            <% if defined? (@mainImage) %>
-                <meta property="og:image" content="<%= @mainImage %>"/>
+            <% if defined? (@main_image) %>
+                <meta property="og:image" content="<%= @main_image %>"/>
             <% end %>
         <% end %>
 

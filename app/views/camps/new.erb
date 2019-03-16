@@ -1,3 +1,7 @@
+<%= content_for :head do %>
+  <title><%= t(:browser_title_tag) %></title>
+<% end %>
+
 <% @can_edit = true %>
 
 <script type="text/javascript">
@@ -58,9 +62,4 @@
       <%= t("create_dream_loading_text") %>
     </span>
   </div>
-<% end %>
-<%= content_for :head do %>
-  <title>
-    <%= t('browser_title_tag') %>
-  </title>
 <% end %>

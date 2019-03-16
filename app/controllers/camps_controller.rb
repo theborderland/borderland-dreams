@@ -89,6 +89,7 @@ class CampsController < ApplicationController
 
   # Display a camp and its users
   def show
+    @main_image = @camp.images.first&.attachment&.url(:large)
   end
 
   # Allow a user to join a particular camp.

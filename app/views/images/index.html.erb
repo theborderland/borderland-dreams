@@ -8,8 +8,7 @@
         <div class="row">
             <% @camp.images.each do |image| %>
                 <div class="camp-image">
-                    <% image_url = image.attachment.url(:medium) %>
-                    <%= image_tag(image_url) %>
+                    <%= image_tag(image.attachment.url(:medium)) %>
                     <%= form_for image, url: camp_image_path(image.camp_id, image),  method: :delete do |form| %>
                         <%= form.submit t(:remove_image), { class: 'delete_button' } %>
                     <% end %>
@@ -50,7 +49,7 @@
             <%=t :creation_info_headline %>
         </h2>
         <div class="row">
-            <a href="<%= camp_path(@camp) %>" class="btn btn-info camp-button" role="button"><%=t :back_to_dream %></a>
+            <%= link_to t(:back_to_dream), camp_path(@camp), class: "btn btn-info camp-button" %>
         </div>
     </div>
 </div>

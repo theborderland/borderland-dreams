@@ -1,6 +1,5 @@
 <% content_for(:head) do %>
-  <% browser_title = t(:browser_title_tag) %>
-  <title><%= browser_title %></title>
+  <title><%= t :browser_title_tag %></title>
   <%= javascript_include_tag 'blueimp_script' %>
   <meta property="og:title" content="<%= t :how_can_i_help_title %>" />
   <meta property="og:description" content="<%= t :how_can_i_help_page_description %>" />

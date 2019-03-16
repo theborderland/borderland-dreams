@@ -5,6 +5,7 @@ class CampsController < ApplicationController
   before_action :ensure_admin_delete!, only: [:destroy, :archive]
   before_action :ensure_admin_tag!, only: [:tag]
   before_action :ensure_admin_update!, only: [:update]
+  before_action :ensure_grants!, only: [:update_grants]
   before_action :load_lang_detector, only: [:show, :index]
 
   # TODO: Check out howcanihelp_controller for a suggestion on refactoring this method
@@ -57,37 +58,20 @@ class CampsController < ApplicationController
     redirect_to camp_path(@camp)
   end
 
-  # Handle the grant updates in their own controller action
   def update_grants
-    # Reduce the number of grants assigned to the current user by the number
-    # of grants given away. Increase the number of grants assigned to the
-    # camp by the same number of grants.
-    @grants_received = current_user.grants.where(camp: @camp).sum(:amount)
-    granted = [
-      params[:grants].to_i,
-      @camp.maxbudget - @camp.grants_received
-    ].min
-
-    assert(@camp.maxbudget.present? :dream_need_to_have_max_budget)
-    assert(granted > 0, :cant_send_less_then_one)
-    assert(current_user.grants >= granted, :security_more_grants, granted: granted, current_user_grants: current_user.grants)
-    assert(
-      @grants_received + granted < app_setting('max_grants_per_user_per_dream') || current_user.admin,
-      :exceeds_max_grants_per_user_for_this_dream,
-      max_grants_per_user_per_dream: app_setting('max_grants_per_user_per_dream')
+    @camp.grants.build(user: current_user, amount: granted)
+    @camp.assign_attributes(
+      minfunded:   (@camp.grants_received + granted) >= @camp.minbudget,
+      fullyfunded: (@camp.grants_received + granted) >= @camp.maxbudget
     )
 
-    ActiveRecord::Base.transaction do
-      current_user.update!(grants: current_user.grants - granted)
-      @camp.grants.build(user: current_user, amount: granted)
-      @camp.assign_attributes(
-        minfunded:   (@camp.grants_received + granted) >= @camp.minbudget,
-        fullyfunded: (@camp.grants_received + granted) >= @camp.maxbudget
-      )
-      assert(@camp.save, :errors_str, message: @camp.errors.full_messages.uniq.join(', '))
+    if @camp.save
+      current_user.update(grants: current_user.grants_received - granted)
+      flash[:notice] = t(:thanks_for_sending, grants: granted)
+    else
+      flash[:error] = t(:errors_str, message: @camp.errors.full_messages.uniq.join(', '))
     end
 
-    flash[:notice] = t(:thanks_for_sending, grants: granted)
     redirect_to camp_path(@camp)
   end
 
@@ -170,6 +154,21 @@ class CampsController < ApplicationController
 
   def ensure_admin_update!
     assert(@camp.creator == current_user || current_user.admin || current_user.guide, :security_cant_edit_dreams_you_dont_own)
+  end
+
+  def ensure_grants!
+    assert(current_user.grants_received >= granted, :security_more_grants, granted: granted, current_user_grants: current_user.grants_received) ||
+    assert(@camp.maxbudget, :dream_need_to_have_max_budget) ||
+    assert(granted > 0, :cant_send_less_then_one) ||
+    assert(
+      current_user.admin || (current_user.grants_received + granted < app_settings('max_grants_per_user_per_dream')),
+      :exceeds_max_grants_per_user_for_this_dream,
+      max_grants_per_user_per_dream: app_setting('max_grants_per_user_per_dream')
+    )
+  end
+
+  def granted
+    @granted ||= [params[:grants].to_i, @camp.maxbudget - @camp.grants_received].min
   end
 
   def failure_path

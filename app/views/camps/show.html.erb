@@ -12,12 +12,12 @@
             <div>
                 <span>
                     <b> <%=t :donate_text %>
-                      <%= number_field_tag 'grants', nil, in: 0..current_user.grants, step: 1, value: 1, class:'donate-value form-control' %>
+                      <%= number_field_tag 'grants', nil, in: 0..current_user.grants_received, step: 1, value: 1, class:'donate-value form-control' %>
                       <%=t :coins_text %>
 
                     </b>
                 </span>
-              <span class='coins-left' style='float: <%=t :reverse_direction %>'><%=t :coins_left %> <%= current_user.grants %></span>
+              <span class='coins-left' style='float: <%=t :reverse_direction %>'><%=t :coins_left %> <%= current_user.grants_received %></span>
               </p>
             </div>
             <%= submit_tag t(:i_gift_thee_grants), :class => "btn btn-success donate-now-button" %>
@@ -94,7 +94,7 @@
 
                                 <!-- If user grants are > 0, allow user to asign them -->
                                 <% if @camp.grantingtoggle %>
-                                    <% if current_user && current_user.grants > 0 && !@camp.fullyfunded %>
+                                    <% if current_user && current_user.grants_received > 0 && !@camp.fullyfunded %>
 
                                         <button type="button" class="btn btn-success donate-button" data-toggle="modal" data-target="#donateModal">
                                           <%= t(:i_gift_thee_grants) %>

@@ -13,8 +13,9 @@ class User < ActiveRecord::Base
 
   schema_validations whitelist: [:id, :created_at, :updated_at, :encrypted_password]
 
-  # Again, from Rails Girls tutorial on Facebook auth.
-  # Used for handling the facebook auth callback.
+  def grants_received
+    @grants_received ||= self.grants.sum(:amount)
+  end
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

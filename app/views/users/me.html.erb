@@ -34,10 +34,10 @@
 
         <% if app_setting("granting") %>
           <b><%=t :your_available_grants %></b>:
-          <% current_user.grants.count.times do |i| %>
+          <% current_user.grants_received.times do |i| %>
             <%= image_tag "coin.png", class: "coin-image" %>
           <% end %>
-          <%= '0' if current_user.grants.empty? %>
+          <%= '0' if current_user.grants_received < 1 %>
           <br><br>
 
           <b><%=t :dreams_you_help_make %></b>:

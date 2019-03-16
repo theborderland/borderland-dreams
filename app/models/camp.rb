@@ -10,6 +10,7 @@ class CanCreateNewDreamValidator < ActiveModel::Validator
 end
 
 class Camp < ActiveRecord::Base
+  include AppSettings
   belongs_to :creator, class_name: 'User', foreign_key: 'user_id'
 
   has_many :memberships, dependent: :destroy
@@ -160,7 +161,7 @@ class Camp < ActiveRecord::Base
   before_save :align_budget
 
   def grants_received
-    return self.grants.sum(:amount)
+    @grants_received ||= self.grants.sum(:amount)
   end
 
   # Translating the real currency to budget

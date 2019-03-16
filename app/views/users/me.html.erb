@@ -44,7 +44,7 @@
           <br><br>
 
           <b><%=t :dreams_you_help_make %></b>:
-          <% current_user.grants.each do |grant| %>
+          <% Grant.where(user: current_user).each do |grant| %>
             <p>
               <%= link_to grant.camp.name, camp_path(grant.camp) %><br>
               <span class="glyphicons glyphicons-coins"></span>

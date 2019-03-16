@@ -34,7 +34,7 @@ describe CampsController do
     end
 
     it 'creates a camp' do
-      post :create, camp: camp_attributes
+      post :create, params: { camp: camp_attributes }
 
       c = Camp.find_by_contact_name camp_leader
 
@@ -47,7 +47,7 @@ describe CampsController do
 
     shared_examples_for 'should fail' do
       it 'should not succeed updating' do
-        post :update, camp: camp_attributes, id: camp.id
+        post :update, params: { camp: camp_attributes, id: camp.id }
 
         expect(flash[:alert]).to_not be_nil
       end
@@ -55,7 +55,7 @@ describe CampsController do
 
     shared_examples_for 'should succeed' do
       it 'should succeed updating' do
-        post :update, camp: camp_attributes, id: camp.id
+        post :update, params: { camp: camp_attributes, id: camp.id }
 
         expect(flash[:alert]).to be_nil
         expect(flash[:notice]).to be_nil
@@ -96,5 +96,9 @@ describe CampsController do
         it_behaves_like 'should succeed'
       end
     end
+  end
+
+  describe '#grant_update' do
+
   end
 end

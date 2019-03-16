@@ -21,7 +21,6 @@ module Firestarter
     config.i18n.default_locale = :he
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
-    config.active_record.raise_in_transactional_callbacks = true
     Rails.application.config.x.firestarter_settings = config_for(:firestarter_settings)
 
     config.autoload_paths += Dir["#{config.root}/lib/googleAppsScript/**/"]

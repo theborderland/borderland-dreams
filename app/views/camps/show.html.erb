@@ -59,8 +59,7 @@
             <% end %>
             <div class="dream_main_text">
                 <div class="center-dream">
-                    <% @name = (app_setting('multi_lang_support') and @camp.en_name.present? and I18n.locale.to_s == 'en')? @camp.en_name : @camp.name %>
-                    <p><%= @name %></p>
+                    <p><%= @camp.display_name %></p>
                     <p class='dream_main_creator'><%= @camp.contact_name %></p>
 
 

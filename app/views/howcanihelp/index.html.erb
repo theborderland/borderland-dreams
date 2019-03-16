@@ -52,8 +52,7 @@
                           <%= image_tag('bsb_placeholder_square.jpg' , :class => "grow") %>
                       <% end %>
 
-                      <% @name = (app_setting('multi_lang_support') and camp.en_name.present? and I18n.locale.to_s == 'en')? camp.en_name : camp.name %>
-                      <h4 class="name"><%= truncate(@name, length: 60) %></h4>
+                      <h4 class="name"><%= truncate(camp.display_name, length: 60) %></h4>
 
                       <div class="description">
                       <% if app_setting("cocreation") and camp.cocreation.present? %>
@@ -68,9 +67,7 @@
 
                               <!-- Only if never got grants and not opened for granting -->
                               <% if !camp.grantingtoggle and camp.grants_received <= 0%>
-                                  <h3 class='budget-not-opened'>
-                                      <%=t :granting_not_enabled %>
-                                  </h3>
+                                  <h3 class='budget-not-opened'><%=t :granting_not_enabled %></h3>
                               <% else %>
                                   <div class="budgetprogressbar" data-min="<%= camp.minbudget %>" data-max="<%= camp.maxbudget %>" data-value="<%= camp.grants_received %>"></div>
                               <% end %>

@@ -191,4 +191,12 @@ class Camp < ApplicationRecord
       "http://#{self.website}"
     end
   end
+
+  def display_name
+    if app_setting('multi_lang_support') && I18n.locale.to_s == 'en'
+      en_name || name
+    else
+      name
+    end
+  end
 end

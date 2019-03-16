@@ -1,5 +1,6 @@
 class CampsController < ApplicationController
   include CanApplyFilters
+  before_action :apply_filters, only: :index
   before_action :authenticate_user!, except: [:show, :index]
   before_action :load_camp!, except: [:index, :new, :create]
   before_action :ensure_admin_delete!, only: [:destroy, :archive]
@@ -8,27 +9,7 @@ class CampsController < ApplicationController
   before_action :ensure_grants!, only: [:update_grants]
   before_action :load_lang_detector, only: [:show, :index]
 
-  # TODO: Check out howcanihelp_controller for a suggestion on refactoring this method
   def index
-    filter = params[:filterrific] || { sorted_by: 'updated_at_desc' }
-    filter[:active] = true
-    filter[:not_hidden] = true
-
-    if (!current_user.nil? && (current_user.admin? || current_user.guide?))
-      filter[:hidden] = true
-      filter[:not_hidden] = false
-    end
-
-    @filterrific = initialize_filterrific(
-      Camp,
-      filter
-    ) or return
-    @camps = @filterrific.find.page(params[:page])
-
-    respond_to do |format|
-      format.html
-      format.js
-    end
   end
 
   def new

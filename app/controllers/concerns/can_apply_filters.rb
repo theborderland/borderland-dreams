@@ -1,12 +1,17 @@
 module CanApplyFilters
   def apply_filters
-    hidden = current_user&.admin? || current_user&.guide?
-    @filterrific = initialize_filterrific(Camp, params.fetch(:filterrific, {}).merge(
-      is_cocreation: true,
+    params[:filterrific] ||= { sorted_by: 'updated_at_desc' }
+    @filterrific = initialize_filterrific(Camp, params[:filterrific].merge(
       active: true,
-      hidden: hidden,
-      not_hidden: !hidden
+      not_hidden: !(current_user&.admin? || current_user&.guide?),
+      is_cocreation: is_cocreation?
     ))
-    @camps = @filterrific.find.page(params[:page])
+    @camps = @filterrific&.find&.page(params[:page])
+  end
+
+  private
+
+  def is_cocreation?
+    false
   end
 end

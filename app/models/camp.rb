@@ -170,7 +170,7 @@ class Camp < ActiveRecord::Base
     if self.minbudget_realcurrency.nil?
       self.minbudget = nil
     elsif self.minbudget_realcurrency > 0
-      self.minbudget = (self.minbudget_realcurrency / Grant.value_for_currency).ceil
+      self.minbudget = (self.minbudget_realcurrency / app_setting('grant_value_for_currency')).ceil
     else
       self.minbudget = 0
     end
@@ -178,7 +178,7 @@ class Camp < ActiveRecord::Base
     if self.maxbudget_realcurrency.nil?
       self.maxbudget = nil
     elsif self.maxbudget_realcurrency > 0
-      self.maxbudget = (self.maxbudget_realcurrency / Grant.value_for_currency).ceil
+      self.maxbudget = (self.maxbudget_realcurrency / app_setting('grant_value_for_currency')).ceil
     else
       self.maxbudget = 0
     end

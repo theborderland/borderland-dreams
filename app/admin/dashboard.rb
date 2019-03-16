@@ -13,7 +13,7 @@ ActiveAdmin.register_page "Dashboard" do
           para link_to(Person.count.to_s + " " + I18n.t("activerecord.models.person.other"), admin_people_path)
           para (User.count * default_coins).to_s + " Total available coins for all users"
           para Grant.sum(:amount).to_s + " coins were distributed"
-          para (Grant.sum(:amount) * Grant.value_for_currency).to_s + " amount of money distributed"
+          para (Grant.sum(:amount) * app_setting('grant_value_for_currency')).to_s + " amount of money distributed"
         end
       end
     end
@@ -24,7 +24,7 @@ ActiveAdmin.register_page "Dashboard" do
         #column ("Item") { |v| v.item }
         column (I18n.t("activeadmin.item")) do |v|
           if(v.item.present? and v.item.name.present?)
-            link_to v.item.name, [:admin, v.item] 
+            link_to v.item.name, [:admin, v.item]
           end
         end
         column (I18n.t("activeadmin.modified_at")) { |v| v.created_at.to_s :long }

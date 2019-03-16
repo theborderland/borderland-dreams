@@ -2,7 +2,9 @@ class CampsController < ApplicationController
   include CanApplyFilters
   before_action :authenticate_user!, except: [:show, :index]
   before_action :load_camp!, except: [:index, :new, :create]
-  before_action :ensure_admin!, only: [:destroy, :archive]
+  before_action :ensure_admin_delete!, only: [:destroy, :archive]
+  before_action :ensure_admin_tag!, only: [:tag]
+  before_action :ensure_admin_update!, only: [:update]
   before_action :load_lang_detector, only: [:show, :index]
 
   # TODO: Check out howcanihelp_controller for a suggestion on refactoring this method
@@ -70,9 +72,9 @@ class CampsController < ApplicationController
     assert(granted > 0, :cant_send_less_then_one)
     assert(current_user.grants >= granted, :security_more_grants, granted: granted, current_user_grants: current_user.grants)
     assert(
-      @grants_received + granted < Grant.max_per_user_per_dream || current_user.admin,
+      @grants_received + granted < app_setting('max_grants_per_user_per_dream') || current_user.admin,
       :exceeds_max_grants_per_user_for_this_dream,
-      max_grants_per_user_per_dream: Grant.max_per_user_per_dream
+      max_grants_per_user_per_dream: app_setting('max_grants_per_user_per_dream')
     )
 
     ActiveRecord::Base.transaction do
@@ -90,8 +92,6 @@ class CampsController < ApplicationController
   end
 
   def update
-    assert(@camp.creator == current_user || current_user.admin || current_user.guide, :security_cant_edit_dreams_you_dont_own)
-
     if @camp.update_attributes camp_params
       if params[:done] == '1'
         redirect_to camp_path(@camp)
@@ -111,7 +111,6 @@ class CampsController < ApplicationController
   end
 
   def tag
-    assert(current_user.admin || current_user.guide, :security_cant_tag_dreams_you_dont_own)
     @camp.update_attributes(tag_list: params.require(:camp).require(:tag_list))
 
     flash[:notice] = t(:tags_saved)
@@ -161,8 +160,16 @@ class CampsController < ApplicationController
     redirect_to camps_path
   end
 
-  def ensure_admin!
+  def ensure_admin_delete!
     assert(current_user == @camp.creator || current_user.admin, :security_cant_delete_dreams_you_dont_own)
+  end
+
+  def ensure_admin_tag!
+    assert(current_user.admin || current_user.guide, :security_cant_tag_dreams_you_dont_own)
+  end
+
+  def ensure_admin_update!
+    assert(@camp.creator == current_user || current_user.admin || current_user.guide, :security_cant_edit_dreams_you_dont_own)
   end
 
   def failure_path

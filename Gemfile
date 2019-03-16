@@ -1,21 +1,3 @@
-# TODO: Upgrade to rails 5!
-# I've done an initial upgrade to 5.0, which looks good to me, but I have not tested
-# all of the nooks and crannies of the app just yet. Note that some of the following
-# should happen before merging:
-
-# - Get rid of the 'show is already defined' warning (I do not know where this comes from)
-# - Get rid of the following activesupport deprecations: (I believe updating activesupport will fix these)
-# /Users/gdpelican/.rvm/gems/ruby-2.5.1@borderland-dreams/gems/activesupport-5.0.1/lib/active_support/xml_mini.rb:51: warning: constant ::Fixnum is deprecated
-# /Users/gdpelican/.rvm/gems/ruby-2.5.1@borderland-dreams/gems/activesupport-5.0.1/lib/active_support/xml_mini.rb:52: warning: constant ::Bignum is deprecated
-# /Users/gdpelican/.rvm/gems/ruby-2.5.1@borderland-dreams/gems/activesupport-5.0.1/lib/active_support/core_ext/numeric/conversions.rb:138: warning: constant ::Fixnum is deprecated
-# - Ensure that file uploading still works (I had a big bump on paperclip versions,
-#   and if that doesn't work out of the box I'd consider dropping back to 4.3.6)
-# - Add an 'ApplicationRecord' model to replace ActiveRecord::Base
-# - Have a solid look through this list:
-#   https://edgeguides.rubyonrails.org/upgrading_ruby_on_rails.html#upgrading-from-rails-4-2-to-rails-5-0
-# - Have a look at follow-on upgrades to 5.1 and 5.2... it's a small app, so an
-#   upgrade shouldn't be too painful.
-
 source 'https://rubygems.org'
 
 ruby '2.5.1'

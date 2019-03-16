@@ -66,7 +66,7 @@ class CampsController < ApplicationController
     )
 
     if @camp.save
-      current_user.update(grants: current_user.grants_received - granted)
+      current_user.update(grants: current_user.grants - granted)
       flash[:notice] = t(:thanks_for_sending, grants: granted)
     else
       flash[:error] = t(:errors_str, message: @camp.errors.full_messages.uniq.join(', '))
@@ -157,11 +157,11 @@ class CampsController < ApplicationController
   end
 
   def ensure_grants!
-    assert(current_user.grants_received >= granted, :security_more_grants, granted: granted, current_user_grants: current_user.grants_received) ||
     assert(@camp.maxbudget, :dream_need_to_have_max_budget) ||
+    assert(current_user.grants >= granted, :security_more_grants, granted: granted, current_user_grants: current_user.grants) ||
     assert(granted > 0, :cant_send_less_then_one) ||
     assert(
-      current_user.admin || (current_user.grants_received + granted < app_settings('max_grants_per_user_per_dream')),
+      current_user.admin || (@camp.grants.where(user: current_user).sum(:amount) + granted < app_setting('max_grants_per_user_per_dream')),
       :exceeds_max_grants_per_user_for_this_dream,
       max_grants_per_user_per_dream: app_setting('max_grants_per_user_per_dream')
     )

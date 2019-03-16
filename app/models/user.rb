@@ -5,17 +5,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
 
-  has_many :grants
   has_many :tickets
   has_many :memberships
   has_many :camps, through: :memberships
   has_many :created_camps, class_name: :Camp
 
   schema_validations whitelist: [:id, :created_at, :updated_at, :encrypted_password]
-
-  def grants_received
-    @grants_received ||= self.grants.sum(:amount)
-  end
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

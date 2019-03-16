@@ -36,10 +36,9 @@ class ApplicationController < ActionController::Base
   private
 
   def assert(condition, message, params = {})
-    return true if condition
+    return if condition
     flash[:alert] = t(message, params)
     redirect_to failure_path
-    false
   end
 
   def failure_path

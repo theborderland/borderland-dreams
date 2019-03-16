@@ -1,4 +1,3 @@
-# TODO: people have some differing opinions about where validators should live
 class CanCreateNewDreamValidator < ActiveModel::Validator
   include AppSettings
 

@@ -34,7 +34,7 @@ describe CampsController do
     end
 
     it 'creates a camp' do
-      post :create, camp: camp_attributes
+      post :create, params: { camp: camp_attributes }
 
       c = Camp.find_by_contact_name camp_leader
 
@@ -47,7 +47,7 @@ describe CampsController do
 
     shared_examples_for 'should fail' do
       it 'should not succeed updating' do
-        post :update, camp: camp_attributes, id: camp.id
+        post :update, params: { camp: camp_attributes, id: camp.id }
 
         expect(flash[:alert]).to_not be_nil
       end
@@ -55,7 +55,7 @@ describe CampsController do
 
     shared_examples_for 'should succeed' do
       it 'should succeed updating' do
-        post :update, camp: camp_attributes, id: camp.id
+        post :update, params: { camp: camp_attributes, id: camp.id }
 
         expect(flash[:alert]).to be_nil
         expect(flash[:notice]).to be_nil
@@ -95,6 +95,60 @@ describe CampsController do
         let(:admin) { true }
         it_behaves_like 'should succeed'
       end
+    end
+  end
+
+  describe '#update_grants' do
+    let!(:camp) { Camp.create!(camp_attributes.merge(creator: user)) }
+
+    before do
+      sign_in user
+      camp.update!(maxbudget_realcurrency: 80, minbudget_realcurrency: 50)
+    end
+
+    it 'should transfer grants' do
+      expect { patch :update_grants, params: { id: camp.id, grants: 3 } }.to change { Grant.count }.by(1)
+      expect(user.reload.grants).to eq 7
+      expect(camp.reload.grants_received).to eq 3
+      expect(Grant.exists?(camp: camp, user: user))
+    end
+
+    it 'should transfer grants' do
+      expect { patch :update_grants, params: { id: camp.id, grants: 10 } }.to change { Grant.count }.by(1)
+      expect(user.reload.grants).to eq 2
+      expect(camp.reload.grants_received).to eq camp.maxbudget
+      expect(camp.fullyfunded).to eq true
+      expect(Grant.exists?(camp: camp, user: user))
+      expect(Grant.last.amount).to eq camp.maxbudget
+    end
+
+    it 'should not transfer grants if the user does not have enough' do
+      user.update(grants: 2)
+      expect { patch :update_grants, params: { id: camp.id, grants: 3 } }.to_not change { Grant.count }
+      expect(flash[:alert]).to be_present
+    end
+
+    it 'should not transfer grants if no max budget is given' do
+      camp.update(maxbudget_realcurrency: nil)
+      expect { patch :update_grants, params: { id: camp.id, grants: 3 } }.to_not change { Grant.count }
+      expect(flash[:alert]).to be_present
+    end
+
+    it 'should not transfer grants if no grants are given' do
+      expect { patch :update_grants, params: { id: camp.id, grants: 0 } }.to_not change { Grant.count }
+      expect(flash[:alert]).to be_present
+    end
+
+    it 'should not transfer grants if too many grants are given' do
+      Rails.application.config.x.firestarter_settings["max_grants_per_user_per_dream"] = 7
+      Grant.create!(user: user, camp: camp, amount: 7)
+      expect { patch :update_grants, params: { id: camp.id, grants: 4 } }.to_not change { Grant.count }
+      expect(flash[:alert]).to be_present
+      Rails.application.config.x.firestarter_settings["max_grants_per_user_per_dream"] = 10
+    end
+
+    it 'should allow admins to give any amount of grants' do
+
     end
   end
 end

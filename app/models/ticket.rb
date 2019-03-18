@@ -1,2 +1,2 @@
-class Ticket < ActiveRecord::Base
+class Ticket < ApplicationRecord
 end

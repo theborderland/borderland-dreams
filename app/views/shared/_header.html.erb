@@ -11,7 +11,7 @@
         </div>
         <div>
           <div class="header-nav col-xs-12">
-            <% if Rails.application.config.x.firestarter_settings['multi_lang_support'] %>
+            <% if app_setting('multi_lang_support') %>
               <% if I18n.locale == I18n.default_locale %>
                 <%= link_to "EN", :lang=>'en'%>
               <% else %>
@@ -21,7 +21,7 @@
 
             <%= link_to t("top_headline_faq"), '/pages/faq-'+I18n.locale.to_s %>
             <%= link_to t("how_can_i_help_title"), howcanihelp_path %>
-            <% if user_signed_in? and !Rails.application.config.x.firestarter_settings['disable_open_new_dream'] and Lockdown.instance.allowed?('submit_dream') %>
+            <% if user_signed_in? and !app_setting('disable_open_new_dream') and Lockdown.instance.allowed?('submit_dream') %>
               <%= link_to t("register_creation_menu"), new_camp_path %>
             <% end %>
             <% if !user_signed_in? %>

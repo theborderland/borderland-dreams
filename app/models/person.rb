@@ -1,4 +1,4 @@
-class Person < ActiveRecord::Base
+class Person < ApplicationRecord
   belongs_to :camp, validate: true
   has_and_belongs_to_many :roles
 

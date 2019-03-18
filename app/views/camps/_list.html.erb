@@ -17,18 +17,18 @@
                             <%= image_tag('bsb_placeholder_square.jpg' , :class => "grow") %>
                         <% end %>
 
-                        <% @name = (Rails.configuration.x.firestarter_settings['multi_lang_support'] and camp.en_name.present? and I18n.locale.to_s == 'en')? camp.en_name : camp.name %>
+                        <% @name = (app_setting('multi_lang_support') and camp.en_name.present? and I18n.locale.to_s == 'en')? camp.en_name : camp.name %>
                         <%= simple_format(truncate(@name, length: 60),
                                           { class: "name auto-#{@detector.direction(@name)}" },
                                           wrapper_tag: 'h4') %>
 
-                        <% @subtitle = (Rails.configuration.x.firestarter_settings['multi_lang_support'] and camp.en_subtitle.present? and I18n.locale.to_s == 'en')? camp.en_subtitle : camp.subtitle %>
+                        <% @subtitle = (app_setting('multi_lang_support') and camp.en_subtitle.present? and I18n.locale.to_s == 'en')? camp.en_subtitle : camp.subtitle %>
                         <div class="description">
                           <%= simple_format(truncate(@subtitle, length: 256), class: "auto-#{@detector.direction(@subtitle)}") %>
                         </div>
 
                         <div class="labels">
-                            <% if Rails.configuration.x.firestarter_settings["granting_active"] and camp.minbudget %>
+                            <% if app_setting("granting_active") and camp.minbudget %>
 
                                 <h3 class='budget-info'><%= camp.grants_received %>/<%= camp.maxbudget %><br><%=t :funded %></h3>
 

@@ -1,12 +1,15 @@
 class CanCreateNewDreamValidator < ActiveModel::Validator
+  include AppSettings
+
   def validate(record)
-    if Rails.application.config.x.firestarter_settings['disable_open_new_dream']
+    if app_setting('disable_open_new_dream')
       record.errors[:base] << I18n.t("new_dream_is_disabled")
     end
   end
 end
 
-class Camp < ActiveRecord::Base
+class Camp < ApplicationRecord
+  include AppSettings
   belongs_to :creator, class_name: 'User', foreign_key: 'user_id'
 
   has_many :memberships, dependent: :destroy
@@ -17,7 +20,7 @@ class Camp < ActiveRecord::Base
   has_many :roles, through: :people
 
   has_paper_trail
-  
+
   accepts_nested_attributes_for :people, :roles, allow_destroy: true
 
   acts_as_taggable
@@ -64,7 +67,7 @@ class Camp < ActiveRecord::Base
         "LOWER(camps.cocreation) LIKE ?",
       ]
 
-      if Rails.configuration.x.firestarter_settings["multi_lang_support"]
+      if app_setting("multi_lang_support")
         or_array.push("LOWER(camps.en_name) LIKE ?",
           "LOWER(camps.en_subtitle) LIKE ?")
       end
@@ -140,7 +143,7 @@ class Camp < ActiveRecord::Base
             .joins("LEFT JOIN people ON (people.camp_id = camps.id)")
             .joins("LEFT JOIN people_roles pr ON (pr.role_id = roles.id)")
             .where('people.id = pr.person_id')
-    
+
     if connection.adapter_name == 'SQLite'
       q.select('people.name manager_name, people.email manager_email, people.phone_number manager_phone')
     else
@@ -154,12 +157,10 @@ class Camp < ActiveRecord::Base
     displayed.includes(:tags)
   }
 
-  before_save do
-    align_budget
-  end
+  before_save :align_budget
 
   def grants_received
-    return self.grants.sum(:amount)
+    @grants_received ||= self.grants.sum(:amount)
   end
 
   # Translating the real currency to budget
@@ -169,7 +170,7 @@ class Camp < ActiveRecord::Base
     if self.minbudget_realcurrency.nil?
       self.minbudget = nil
     elsif self.minbudget_realcurrency > 0
-      self.minbudget = (self.minbudget_realcurrency / Grant.value_for_currency).ceil
+      self.minbudget = (self.minbudget_realcurrency / app_setting('grant_value_for_currency')).ceil
     else
       self.minbudget = 0
     end
@@ -177,19 +178,25 @@ class Camp < ActiveRecord::Base
     if self.maxbudget_realcurrency.nil?
       self.maxbudget = nil
     elsif self.maxbudget_realcurrency > 0
-      self.maxbudget = (self.maxbudget_realcurrency / Grant.value_for_currency).ceil
+      self.maxbudget = (self.maxbudget_realcurrency / app_setting('grant_value_for_currency')).ceil
     else
       self.maxbudget = 0
     end
   end
 
   def website_url
-    @protocol_index = self.website.index("https://")
-
-    if @protocol_index == nil
-      @protocol_index = self.website.index("http://")
+    if self.website.index('https://') || self.website.index('http://')
+      self.website
+    else
+      "http://#{self.website}"
     end
+  end
 
-    return @protocol_index == nil ? "http://" + self.website : self.website
+  def display_name
+    if app_setting('multi_lang_support') && I18n.locale.to_s == 'en'
+      en_name || name
+    else
+      name
+    end
   end
 end

@@ -6,7 +6,7 @@
   <% @can_edit = @just_view %>
 
   <%if @just_view %>
-  
+
   <% else %>
     <script>
       $(function() {
@@ -18,8 +18,7 @@
 <% end %>
 
 <% content_for(:head) do %>
-  <% browser_title = "Editing " + @camp.name + " - " + t(:browser_title_tag) %>
-  <title><%= browser_title %></title>
+  <title><%= "Editing #{@camp.name} - #{t(:browser_title_tag)}" %></title>
 <% end %>
 
 <% if current_user && (@camp.creator == current_user or current_user.admin or current_user.guide)%>

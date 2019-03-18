@@ -20,13 +20,13 @@
       = f.text_field :background, class: 'form-control'
     - else
       = f.text_field :background, class: 'form-control', readonly: true
-    - if Rails.configuration.x.firestarter_settings["person_early_arrival"]
+    - if app_setting("person_early_arrival")
       .early-arrival
         = f.label :needs_early_arrival
         = f.check_box :needs_early_arrival, class: "checkbox"
         %br
 
-    - if Rails.configuration.x.firestarter_settings["person_has_ticket"]
+    - if app_setting("person_has_ticket")
       .has-ticket
         = f.label :has_ticket
         = f.check_box :has_ticket, class: "checkbox"

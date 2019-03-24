@@ -10,6 +10,7 @@ end
 
 class Camp < ApplicationRecord
   include AppSettings
+  extend AppSettings
   belongs_to :creator, class_name: 'User', foreign_key: 'user_id'
 
   has_many :memberships, dependent: :destroy
@@ -74,6 +75,9 @@ class Camp < ApplicationRecord
 
       num_or_conditions = or_array.length
 
+      puts('terms1')
+      puts(terms)
+
       where(
         terms.map {
           or_clauses = or_array.join(' OR ')
@@ -81,6 +85,8 @@ class Camp < ApplicationRecord
         }.join(' AND '),
         *terms.map { |e| [e] * num_or_conditions }.flatten
       )
+      puts('terms2')
+      puts(terms)
     }
 
   scope :sorted_by, lambda { |sort_option|

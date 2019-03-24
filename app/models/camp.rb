@@ -10,6 +10,7 @@ end
 
 class Camp < ApplicationRecord
   include AppSettings
+  extend AppSettings
   belongs_to :creator, class_name: 'User', foreign_key: 'user_id'
 
   has_many :memberships, dependent: :destroy

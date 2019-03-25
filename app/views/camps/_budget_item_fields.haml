@@ -6,6 +6,7 @@
     - else
       = f.text_field :description, class: 'form-control', readonly: true
     = f.label :amount
+    (#{app_setting("currency")})
     - if (@can_edit)
       = f.number_field :amount, class: 'form-control'
     - else

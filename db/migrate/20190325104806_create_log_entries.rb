@@ -9,6 +9,7 @@ class CreateLogEntries < ActiveRecord::Migration[5.0]
       t.integer :object_id
       t.string :object_name
       t.string :description
+      t.boolean :loomio_consumed
     end
   end
 end

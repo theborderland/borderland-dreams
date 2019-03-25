@@ -3,7 +3,7 @@ module AuditLog
 
   def audit_log(type, text=nil, object_id=nil, object_name=nil, user=current_user)
     LogEntry.new { |l|
-      l.type = type
+      l.sort = type
       l.user_id = user.email
       l.user_name = ""          # TODO users need pretty names
       l.object_id = object_id

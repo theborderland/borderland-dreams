@@ -356,9 +356,9 @@
 
   - if app_setting("granting") and app_setting("budgeting")
     .combo 
-      = form.label "Budget specification" # swap this for the language file
+      = form.label t("budget_label")
     .field-description
-      = t("form_budgetplan_guidetext_html") # swap this for the language file
+      = t("form_budgetplan_guidetext_html") 
     #responsibles
       = form.fields_for :budget_items do |budget_item|
         = render 'budget_item_fields', :f => budget_item, :camp_id => @camp.id

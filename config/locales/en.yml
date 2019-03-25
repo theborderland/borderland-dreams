@@ -229,6 +229,11 @@ en:
   form_safetybag_other_comments_guidetext_html: Do you have anything else to say?
   form_safetybag_remember_sketch: This is also the place to upload any sketch you may have
   form_budgetplan_label: Budget overview
+  budget_label: Budget
+  budget_description_label: Description
+  budget_amount_label: Amount
+  add_new_budget_item: Add new budget item
+  remove_budget_item: Remove budget item
   create_dream: Create Dream!
   update_dream: Update Dream!
   edit_dream: Edit Dream

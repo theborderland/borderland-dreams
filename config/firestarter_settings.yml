@@ -13,8 +13,10 @@ defaults: &defaults
   neighbors: <%= ENV['NEIGHBORS_FIELD'] or true %>
   recycling: <%= ENV['RECYCLING_FIELD'] or false %>
   budgetplan: <%= ENV['BUDGETPLAN_FIELD'] or true %>
-  seeking_members:  <%= ENV['SEEKING_MEMBERS_FIELD'] or true %>
+  seeking_members: <%= ENV['SEEKING_MEMBERS_FIELD'] or true %>
   granting: <%= ENV['GRANTING_ENABLED'] or true %>
+  budgeting: <%= ENV['BUDGETING_ENABLED'] or true %>
+  currency: <%= ENV['CURRENCY'] or "DKK" %>
   # Only people with "Ticket records of phone and email can register"
   user_authentication_codes: <%= ENV['USER_AUTHENTICATION_CODES'] or false %>
   user_authentication_vs_tixwise: <%= ENV['TIXWISE'] or false %>
@@ -23,8 +25,8 @@ defaults: &defaults
   footer_text: <%= ENV['FOOTER_TEXT'] or true %>
   creation_sidebar_welcome: <%= ENV['CREATION_SIDEBAR'] or true %>
   safetybag: <%= ENV['SAFETYBAG'] or true %>
-  person_early_arrival:  <%= ENV['PERSON_EARLY_ARRIVAL'] or false %>
-  person_has_ticket:  <%= ENV['PERSON_HAS_TICKET'] or false %>
+  person_early_arrival: <%= ENV['PERSON_EARLY_ARRIVAL'] or false %>
+  person_has_ticket: <%= ENV['PERSON_HAS_TICKET'] or false %>
   multi_lang_support: <%= ENV['MULTI_LANG_SUPPORT'] or false %>
   disable_open_new_dream: <%= ENV['disable_open_new_dream'] or false %>
   disable_edit_safetybag: <%= ENV['disable_edit_safetybag'] or false %>

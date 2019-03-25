@@ -38,6 +38,14 @@ ActiveRecord::Schema.define(version: 20190325151245) do
     t.datetime "updated_at",             :null=>false
   end
 
+  create_table "budget_items", force: :cascade do |t|
+    t.string   "description"
+    t.integer  "amount"
+    t.integer  "camp_id",     :index=>{:name=>"index_budget_items_on_camp_id"}
+    t.datetime "created_at",  :null=>false
+    t.datetime "updated_at",  :null=>false
+  end
+
   create_table "camps", force: :cascade do |t|
     t.string   "name",                          :limit=>64, :null=>false
     t.text     "subtitle",                      :limit=>255, :null=>false

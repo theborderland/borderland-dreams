@@ -304,3 +304,18 @@
       = t("form_maxigrants_realcurrency_guidetext_html")
     %blockquote
       = best_in_place_if @can_edit, @camp, :maxbudget_realcurrency, html_attrs: {maxlength: 6, class: "form-control"}, place_holder: t(:form_click_to_edit_html), display_with: :number_to_currency, :helper_options => {:unit => "", precision:0}
+
+  - if app_setting("granting") and app_setting("budgeting")
+    .combo 
+      = form.label t("budget_label")
+    .field-description
+      = t("form_budgetplan_guidetext_html") 
+    #responsibles
+      = form.fields_for :budget_items do |budget_item|
+        = render 'budget_item_fields', :f => budget_item, :camp_id => @camp.id
+    
+    - if @can_edit
+    .row.links.col-xs-12
+      = link_to_add_association t('add_new_budget_item'), form, :budget_items, render_options: { locals: { camp_id: @camp.id } }, class: 'btn btn-success', id: 'add-new-person'
+        %br
+        %br

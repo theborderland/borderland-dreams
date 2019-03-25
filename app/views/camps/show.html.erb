@@ -167,6 +167,28 @@
             </div>
         <% end %>
 
+        <% if @camp.budget_items.present? %>
+            <div class="camp-description">
+                <b><%=t :budget_label %></b>
+                <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col"><%=t :budget_description_label %></th>
+                        <th scope="col"><%=t :budget_amount_label %> (<%= app_setting("currency") %>)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <% @camp.budget_items.each do |budget_item| %>
+                    <tr>
+                        <td><%= budget_item.description %></td>
+                        <td><%= budget_item.amount %></td>
+                    </tr>
+                <% end %>
+                </tbody>
+                </table>
+            </div>
+        <% end %>
+
         <% if app_setting("cocreation") and @camp.cocreation.present? %>
             <div class="camp-description">
                 <b><%=t :form_cocreation_label %></b>
@@ -187,7 +209,7 @@
                 <%= button_to t(:add_my_name), :join_camp, {class: 'btn btn-success button join-dream-button'} %>
             <% end %>
         <% end %>
-
+        
         <!-- Private user data  -->
         <% if app_setting("safetybag") &&
             (current_user && current_user.guide || (@camp.creator == current_user)) %>

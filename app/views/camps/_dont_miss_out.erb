@@ -5,8 +5,9 @@
     action = t("dont_miss_out.actions.#{lockdown_info[0]}")
   end
 %>
-<div class="row alignedrow">
-  <p class="notice" style='float: <%=t :lang_direction %>' dir='<%=t :html_direction %>'>
-    <%= t(:'dont_miss_out.banner', time: time_left, action: action) %>
-  </p>
-</div>
+    <div class="row alignedrow">
+    <p class="notice" style='float: <%=t :lang_direction %>' dir='<%=t :html_direction %>'>
+        <%= t(:'dont_miss_out.banner', time: time_left, action: action) %>
+    </p>
+    </div>
+<% end %>

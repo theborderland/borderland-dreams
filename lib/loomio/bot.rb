@@ -5,6 +5,7 @@
 
 
 require ::File.expand_path('../../../config/environment', __FILE__)
+require_relative 'loomio_handler'
 
 @last_id = 0
 
@@ -21,7 +22,8 @@ def process(l)
   case l.type
   when :camp_created
     camp = l.object_id
-    r = loomio.create_thread(camp.name, camp.description)
+    loomio = LoomioHandler.new(username=ENV['LOOMIO_BOT_EMAIL'], password=ENV['LOOMIO_BOT_PASSWORD'])
+    r = loomio.new_thread(camp.name)
     l.object_id.loomio_thread_id = r
     l.processed = true
   else

@@ -160,6 +160,26 @@
             </div>
         <% end %>
 
+        <div class="camp-description">
+            <b>Budget</b>
+            <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Description</th>
+                    <th scope="col">Amount (DKK)</th>
+                </tr>
+            </thead>
+            <tbody>
+            <% @camp.budget_items.each do |budget_item| %>
+                <tr>
+                    <td><%= budget_item.description %></td>
+                    <td><%= budget_item.amount %></td>
+                </tr>
+            <% end %>
+            </tbody>
+            </table>
+        </div>
+
         <% if app_setting("budgetplan") and @camp.budgetplan.present? %>
             <div class="camp-description">
                 <b><%=t :form_budgetplan_label %></b>

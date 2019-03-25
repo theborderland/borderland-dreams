@@ -91,6 +91,8 @@ en:
   edit_person: Edit details
   remove_responsibility: Remove responsibility
   remove_person: Remove person
+  add_new_budget_item: Add new budget item
+  remove_budget_item: Remove budget item
   form_project_manager: Project manager
   project_roles:
     manager: Project manager

@@ -19,11 +19,12 @@ class Camp < ApplicationRecord
   has_many :grants
   has_many :people, class_name: 'Person'
   has_many :roles, through: :people
+  has_many :budget_items 
 
   has_paper_trail
 
-  accepts_nested_attributes_for :people, :roles, allow_destroy: true
-
+  accepts_nested_attributes_for :people, :roles, :budget_items, allow_destroy: true
+  
   acts_as_taggable
 
   validates :creator, presence: true

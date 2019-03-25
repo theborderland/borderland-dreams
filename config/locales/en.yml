@@ -141,9 +141,9 @@ en:
 
   form_artgrants_headline: Art grant information
   form_artgrants_text_html: <p>If you're not looking for an art grant, leave these fields blank.</p><p>Art grants are given by the Metaburn community. Each Metaburner has 10 art-grants to hand out. You can give all your grants to one project or spread them around. Once a grant has been gifted to a dream, it can't be taken back.</p>
-  form_minigrants_realcurrency_label: "Minumum number of grants needed:"
+  form_minigrants_realcurrency_label: "Minumum funding needed in real currency:"
   form_minigrants_realcurrency_guidetext_html: Necessary minimum budget level, below which you won't get funded.
-  form_maxigrants_realcurrency_label: "Grants needed to fully fund dream:"
+  form_maxigrants_realcurrency_label: "Funding in real currency needed to fully fund dream:"
   form_maxigrants_realcurrency_guidetext_html: "How many grants you need to fully fund your project."
   form_budgetplan_label: "Budget overview"
   form_budgetplan_guidetext_html: "How will you use your budget? Describe your costs, not too specific, not too vague, perfectly balanced."

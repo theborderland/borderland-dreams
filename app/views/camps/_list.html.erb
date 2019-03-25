@@ -6,6 +6,11 @@
     <div class="camps_list">
 
         <% @camps.each do |camp| %>
+        <% puts('pling minfunded') %>
+        <% puts(camp.name) %>
+        <% puts(camp.minfunded) %>
+        <% puts('plong') %>
+
         <div class='col-md-4'>
             <a href="<%= url_for(camp) %>">
 

@@ -49,6 +49,7 @@ class Camp < ApplicationRecord
       :is_cocreation
     ]
   )
+
   # Scope definitions. We implement all Filterrific filters through ActiveRecord
   # scopes. In this example we omit the implementation of the scopes for brevity.
   # Please see 'Scope patterns' for scope implementation details.
@@ -75,9 +76,6 @@ class Camp < ApplicationRecord
 
       num_or_conditions = or_array.length
 
-      puts('terms1')
-      puts(terms)
-
       where(
         terms.map {
           or_clauses = or_array.join(' OR ')
@@ -85,8 +83,6 @@ class Camp < ApplicationRecord
         }.join(' AND '),
         *terms.map { |e| [e] * num_or_conditions }.flatten
       )
-      puts('terms2')
-      puts(terms)
     }
 
   scope :sorted_by, lambda { |sort_option|
@@ -111,17 +107,17 @@ class Camp < ApplicationRecord
   }
 
   scope :not_fully_funded, lambda { |flag|
-    return nil  if '0' == flag # checkbox unchecked
+    return nil  if 0 == flag # checkbox unchecked
     where(fullyfunded: false)
   }
 
   scope :not_min_funded, lambda { |flag|
-    return nil  if '0' == flag # checkbox unchecked
+    return nil  if 0 == flag # checkbox unchecked
     where(minfunded: false)
   }
 
   scope :not_seeking_funding, lambda { |flag|
-    return nil  if '0' == flag # checkbox unchecked
+    return nil  if 0 == flag # checkbox unchecked
     where(grantingtoggle: true)
   }
 

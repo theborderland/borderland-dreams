@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170830102511) do
+ActiveRecord::Schema.define(version: 20190325150008) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     :index=>{:name=>"index_active_admin_comments_on_namespace"}
@@ -176,27 +176,6 @@ ActiveRecord::Schema.define(version: 20170830102511) do
     t.datetime "updated_at", :null=>false
     t.integer  "user_id",    :index=>{:name=>"index_memberships_on_user_id"}
     t.integer  "camp_id",    :index=>{:name=>"index_memberships_on_camp_id"}
-  end
-
-  create_table "people", force: :cascade do |t|
-    t.string   "name"
-    t.string   "email"
-    t.string   "phone_number"
-    t.string   "background"
-    t.datetime "created_at",          :null=>false
-    t.datetime "updated_at",          :null=>false
-    t.integer  "camp_id",             :null=>false, :index=>{:name=>"index_people_on_camp_id"}
-    t.boolean  "has_ticket"
-    t.boolean  "needs_early_arrival"
-  end
-
-  create_table "people_roles", force: :cascade do |t|
-    t.integer "person_id", :index=>{:name=>"index_people_roles_on_person_id"}
-    t.integer "role_id",   :index=>{:name=>"index_people_roles_on_role_id"}
-  end
-
-  create_table "roles", force: :cascade do |t|
-    t.string "identifier"
   end
 
   create_table "taggings", force: :cascade do |t|

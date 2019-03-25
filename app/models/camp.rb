@@ -17,12 +17,8 @@ class Camp < ApplicationRecord
   has_many :users, through: :memberships
   has_many :images #, :dependent => :destroy
   has_many :grants
-  has_many :people, class_name: 'Person'
-  has_many :roles, through: :people
 
   has_paper_trail
-
-  accepts_nested_attributes_for :people, :roles, allow_destroy: true
 
   acts_as_taggable
 
@@ -131,32 +127,6 @@ class Camp < ApplicationRecord
 
   scope :is_cocreation, lambda { |flag|
     where.not(camps: { cocreation: nil }).where.not(camps: { cocreation: '' })
-  }
-
-  # Used by ActiveAdmin
-  scope :default_select, lambda { |except=%w(safetybag_firstMemberName safetybag_firstMemberEmail safetybag_secondMemberName safetybag_secondMemberEmail)|
-    tn = table_name
-    names = (column_names-except).map { |c| "#{tn}.#{c}" }.join(', ')
-    select(names).group(names)
-  }
-
-  scope :displayed, -> {
-    q = default_select.joins("LEFT JOIN roles ON (roles.identifier = '#{:manager}')")
-            .joins("LEFT JOIN people ON (people.camp_id = camps.id)")
-            .joins("LEFT JOIN people_roles pr ON (pr.role_id = roles.id)")
-            .where('people.id = pr.person_id')
-
-    if connection.adapter_name == 'SQLite'
-      q.select('people.name manager_name, people.email manager_email, people.phone_number manager_phone')
-    else
-      q.select('ARRAY_AGG(people.name) manager_name,
-                ARRAY_AGG(people.email) manager_email,
-                ARRAY_AGG(people.phone_number) manager_phone')
-    end
-  }
-
-  scope :displayed_with_tags, -> {
-    displayed.includes(:tags)
   }
 
   before_save :align_budget

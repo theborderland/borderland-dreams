@@ -3,13 +3,13 @@ class CreateLogEntries < ActiveRecord::Migration[5.0]
     create_table :log_entries do |t|
       t.timestamps
       t.string :topic
-      t.string :type
+      t.string :sort
       t.integer :user_id
       t.string :user_name
       t.integer :object_id
       t.string :object_name
       t.string :description
-      t.boolean :loomio_consumed
+      t.boolean :loomio_consumed, default: false
     end
   end
 end

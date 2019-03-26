@@ -7,27 +7,35 @@ class LoomioHandler
   @@comments_uri = 'api/v1/comments'
   @@threads_uri = 'api/v1/discussions'
 
+  # login using username and password and set cookies
+  # for all the other requests within LoomioHandler
   def initialize(username, password)
     user = {user:{email:username,password:password}}
     security_response = self.class.post(@@base_uri + @@sessions_uri, body: user)
+    puts(security_response.value) # raises error if the request failed
 
+    # parse and set security cookies based on the post call
     @security_cookies = self.parse_set_cookie(security_response.headers['set-cookie'])
     self.class.default_cookies.add_cookies(@security_cookies)
 
+    # set headers used for all requests
     @headers = {
       'Content-Type': 'application/json'
     }
   end
 
-  def new_thread(name)
+  # create a thread (discussion) in loomio
+  def new_thread(name, description='')
     response = self.class.post(
       @@base_uri + @@threads_uri, 
-      body: {"discussion":{"title":name,"description":"","group_id":1259,"private":false,"forked_event_ids":[],"document_ids":[]}}.to_json,
+      body: {"discussion":{"title":name,"description":description,"group_id":1259,"private":false,"forked_event_ids":[],"document_ids":[]}}.to_json,
       headers: @headers
     )
-    return response['events'][0]['eventable_id'];
+    puts(response.value) # raises error if the request failed
+    return response
   end
 
+  # post a comment to loomio based on discussion_id
   def new_comment(name, discussion_id)
     response = self.class.post(
       @@base_uri + @@comments_uri, 
@@ -36,6 +44,7 @@ class LoomioHandler
     )
   end
 
+  # parse cookies coming from a set-cookies header of a response
   def parse_set_cookie(all_cookies_string)
     cookies = Hash.new
   
@@ -62,7 +71,3 @@ class LoomioHandler
     cookies
   end
 end
-
-lh = LoomioHandler.new(username=ENV['LOOMIO_BOT_EMAIL'], password=ENV['LOOMIO_BOT_PASSWORD'])
-disc_id = lh.new_thread('CONCEPTUALIZE THIS')
-lh.new_comment('First comment!', disc_id)

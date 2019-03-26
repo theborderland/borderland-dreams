@@ -27,8 +27,8 @@ class CampsController < ApplicationController
 
     if create_camp
       audit_log(:camp_created,
-                "Nameless user created camp %s" % [@camp.name], # TODO user playa name
-                @camp,
+                "Nameless user created dream: %s" % [@camp.name], # TODO user playa name
+                @camp.id,
                 @camp.name)
 
       flash[:notice] = t('created_new_dream')

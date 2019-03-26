@@ -29,7 +29,7 @@ gem 'devise', '4.4.0'
 # gem 'unicorn'
 
 # Use Capistrano for deployment
-# gem 'capistragem 'graphiql-rails', '1.5.0', group: :developmentno-rails', group: :development
+# gem 'capistrano-rails', group: :development
 
 # Use HAML for views
 gem 'haml'

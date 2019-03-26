@@ -187,8 +187,9 @@ en:
     safety file. Most of them are not shown in the public dream page
   form_safetybag_headline: Safety file info
   form_safetybag_show_hide: Show / Hide Safety file info
-  form_safetybag_needs_to_fill: Please notice the button above me. click it! You should
-    fill safety bag info till the 22/11
+  form_safetybag_needs_to_fill: Most dreams can skip this step. If your dream is a structure that is more than 50 m2 large or more than 3 meters high, it needs additional safety information and supporting documents. Show the safety section and fill in required details. 
+  form_add_new_safety_item: Add safety item
+  form_remove_safety_item: Remove safety item
   form_safetybag_crewsize_label: Crew size
   form_safetybag_crewsize_guidetext_html: How many people are you?
   form_safetybag_plan_label: Details work plan for safety file - what are you building

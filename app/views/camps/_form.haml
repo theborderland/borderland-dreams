@@ -201,33 +201,35 @@
       = t("form_safetybag_headline")
 
     %br
+    .combo.col-md-7
+      = t("form_safetybag_needs_to_fill")
     %br
-    .btn.btn-success.hide_show_safetyfile
-      = t("form_safetybag_show_hide")
+    %br
+    %br
+    .div.col-md-12
+      .btn.btn-success.hide_show_safetyfile
+        = t("form_safetybag_show_hide")
 
     .safetybar-info.hideme
-
-      .combo 
-        = form.label t("budget_label")
-      .field-description
-        = t("form_budgetplan_guidetext_html") 
-      #safetyitems
-        = form.fields_for :safety_item do |safety_item|
-          = render 'safety_item_fields', :f => safety_item, :camp_id => @camp.id
-      
-      - if @can_edit
-        .row.links.col-xs-12
-          = link_to_add_association t('add_new_safety_item'), form, :safety_items, render_options: { locals: { camp_id: @camp.id } }, class: 'btn btn-success', id: 'add-new-safety-item'
-          %br
-          %br
+      .div.safetybag
+        .combo 
+          = form.label t("form_safety_item_label")
+        .field-description
+          = t("form_budgetplan_guidetext_html") 
+        #safetyitems
+          = form.fields_for :safety_items do |safety_item|
+            = render 'safety_item_fields', :f => safety_item, :camp_id => @camp.id
+        
+        - if @can_edit
+          .row.links.col-xs-12
+            = link_to_add_association t('form_add_new_safety_item'), form, :safety_items, render_options: { locals: { camp_id: @camp.id } }, class: 'btn btn-success', id: 'add-new-safety-item'
+            %br
+            %br
 
       %br
-      %div.safetytext
+      %br
+      %div.safetytext.col-md-12
         = t("form_safetybag_remember_sketch")
-
-    %br
-    .combo
-      = t("form_safetybag_needs_to_fill")
 
   - if app_setting("granting")
     %br

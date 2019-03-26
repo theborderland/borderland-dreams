@@ -413,7 +413,16 @@ body {
   }
 }
 
+#safetybag {
+  clear: both !important;
+}
+
 #add-new-budget-item {
+  color: white !important;
+  text-decoration: none !important;
+}
+
+#add-new-safety-item {
   color: white !important;
   text-decoration: none !important;
 }

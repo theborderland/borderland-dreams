@@ -207,69 +207,19 @@
 
     .safetybar-info.hideme
 
-      .combo.safety
-        = form.label t("form_safetybag_plan_label")
-        .field-description
-          = t("form_safetybag_plan_guidetext_html")
-        %blockquote
-          = best_in_place_if @can_edit, @camp, :safetybag_plan, html_attrs: {maxlength: 4096, class: "form-control"}, place_holder: t(:form_click_to_edit_html)
-
-      .combo.safety
-        = form.label t("form_safetybag_materials_label")
-        .field-description
-          = t("form_safetybag_materials_guidetext_html")
-        %blockquote
-          = best_in_place_if @can_edit, @camp, :safetybag_materials, html_attrs: {maxlength: 4096, class: "form-control"}, place_holder: t(:form_click_to_edit_html)
-
-      .combo.safety
-        = form.label t("form_safetybag_work_in_height_label")
-        .field-description
-          = t("form_safetybag_work_in_height_guidetext_html")
-        %blockquote
-          = best_in_place_if @can_edit, @camp, :safetybag_work_in_height, html_attrs: {maxlength: 4096, class: "form-control"}, place_holder: t(:form_click_to_edit_html)
-
-      .combo.safety
-        = form.label t("form_safetybag_tools_label")
-        .field-description
-          = t("form_safetybag_tools_guidetext_html")
-        %blockquote
-          = best_in_place_if @can_edit, @camp, :safetybag_tools, html_attrs: {maxlength: 4096, class: "form-control"}, place_holder: t(:form_click_to_edit_html)
-
-      .combo.safety
-        = form.label t("form_safetybag_grounding_label")
-        .field-description
-          = t("form_safetybag_grounding_guidetext_html")
-        %blockquote
-          = best_in_place_if @can_edit, @camp, :safetybag_grounding, html_attrs: {maxlength: 4096, class: "form-control"}, place_holder: t(:form_click_to_edit_html)
-
-      .combo.safety
-        = form.label t("form_safetybag_safety_label")
-        .field-description
-          = t("form_safetybag_safety_guidetext_html")
-        %blockquote
-          = best_in_place_if @can_edit, @camp, :safetybag_safety, html_attrs: {maxlength: 4096, class: "form-control"}, place_holder: t(:form_click_to_edit_html)
-
-      .combo.safety
-        = form.label t("form_safetybag_electricity_label")
-        .field-description
-          = t("form_safetybag_electricity_guidetext_html")
-        %blockquote
-          = best_in_place_if @can_edit, @camp, :safetybag_electricity, html_attrs: {maxlength: 4096, class: "form-control"}, place_holder: t(:form_click_to_edit_html)
-
-      .combo.safety
-        = form.label t("form_safetybag_daily_routine_label")
-        .field-description
-          = t("form_safetybag_daily_routine_guidetext_html")
-        %blockquote
-          = best_in_place_if @can_edit, @camp, :safetybag_daily_routine, html_attrs: {maxlength: 4096, class: "form-control"}, place_holder: t(:form_click_to_edit_html)
-
-      .combo.safety
-        = form.label t("form_safetybag_other_comments_label")
-        .field-description
-          = t("form_safetybag_other_comments_guidetext_html")
-        %blockquote
-          = best_in_place_if @can_edit, @camp, :safetybag_other_comments, html_attrs: {maxlength: 4096, class: "form-control"}, place_holder: t(:form_click_to_edit_html)
-
+      .combo 
+        = form.label t("budget_label")
+      .field-description
+        = t("form_budgetplan_guidetext_html") 
+      #safetyitems
+        = form.fields_for :safety_item do |safety_item|
+          = render 'safety_item_fields', :f => safety_item, :camp_id => @camp.id
+      
+      - if @can_edit
+        .row.links.col-xs-12
+          = link_to_add_association t('add_new_safety_item'), form, :safety_items, render_options: { locals: { camp_id: @camp.id } }, class: 'btn btn-success', id: 'add-new-safety-item'
+          %br
+          %br
 
       %br
       %div.safetytext

@@ -1,0 +1,16 @@
+.nested-fields.panel.panel-default.col-md-7{ style: 'float:' + I18n.t('lang_direction')}
+  .panel-body
+    = f.label :headline
+    - if (@can_edit)
+      = f.text_field :headline, class: 'form-control'
+    - else
+      = f.text_field :headline, class: 'form-control', readonly: true
+    = f.label :information
+    - if (@can_edit)
+      = f.text_field :information, class: 'form-control'
+    - else
+      = f.text_field :information, class: 'form-control', readonly: true
+    
+    %br
+    - if (@can_edit)
+      = link_to_remove_association t("remove_safety_item"), f, class: 'remove_person fa fa-trash'

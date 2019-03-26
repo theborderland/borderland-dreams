@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     resources :images
     post 'join', on: :member
     post 'archive', on: :member
+    patch 'toggle_favorite', on: :member
     patch 'toggle_granting', on: :member
     patch 'update_grants', on: :member
     patch 'tag', on: :member

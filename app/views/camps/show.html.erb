@@ -313,6 +313,7 @@
                         <a href="<%= camp_images_path(@camp) %>" class="btn btn-primary camp-button" role="btn button"><%=t :manage_images %></a>
                     </span></li>
 
+                    <%= button_to "favorite", :toggle_favorite_camp, { method: :patch, class: "btn btn-danger" } %>
                     <!-- Granting system -->
                     <% if current_user.guide || current_user.admin %>
                         <%= button_to t(@camp.grantingtoggle? ? :turn_off_granting : :enable_granting),

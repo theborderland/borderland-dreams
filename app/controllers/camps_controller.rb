@@ -108,11 +108,17 @@ class CampsController < ApplicationController
   def toggle_favorite
     if !current_user
       flash[:notice] = "please log in :)"
-    # elsif @camp.favorite_users.include?(current_user)
-    #   @camp.favorite_users >> @user
-    else 
-      @camp.favorite_users << @user
+    elsif @camp.favorite_users.include?(current_user)
+      @camp.favorite_users.delete(current_user)
       redirect_to camp_path(@camp)
+
+    else
+      puts('===========================================================================')
+      puts(@user)
+      @camp.favorite_users << current_user
+      render json: {res: :ok}, status: 200
+      #@camp.favorites.find_by(user = ).destroy
+      # redirect_to camp_path(@camp)
     end
    
     # respond_to :json do

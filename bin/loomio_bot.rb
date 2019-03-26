@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby -w
 # Dreamy ~ the dumb dreams loomio bot
 
 # TODO
@@ -20,9 +21,10 @@ end
 def process(l)
   case l.type
   when :camp_created
-    camp = l.object_id
-    r = loomio.create_thread(camp.name, camp.description)
-    l.object_id.loomio_thread_id = r
+    puts("Processing %s" % l.text)
+    camp = Camp.find(l.object_id)
+    r = loomio.create_thread(camp.name)
+    camp.loomio_thread_id = r
     l.processed = true
   else
     puts("Event I don't care about: %s" % l.type)

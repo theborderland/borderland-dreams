@@ -1,5 +1,5 @@
 # config/initializers/loomio_bot.rb
 
-require ::File.expand_path('../../../daemons/loomio_bot/main', __FILE__)
+require ::File.expand_path('../../../lib/loomio/loomio_bot', __FILE__)
 
 run_bot

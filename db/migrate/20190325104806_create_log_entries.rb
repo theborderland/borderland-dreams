@@ -3,8 +3,9 @@ class CreateLogEntries < ActiveRecord::Migration[5.0]
     create_table :log_entries do |t|
       t.timestamps
       t.string :topic
-      t.string :sort
+      t.string :entry_type
       t.integer :user_id
+      t.string :user_email
       t.string :user_name
       t.integer :object_id
       t.string :object_name

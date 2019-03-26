@@ -1,10 +1,10 @@
 #!/usr/bin/env ruby
 # Dreamy ~ the dumb dreams loomio bot
+# imported and used from within the initializer: config/initializers/loomio_bot.rb
 
 # TODO
 # Don't busy loop
 require ::File.expand_path('../../../config/environment', __FILE__)
-# require ::File.expand_path('../../lib/loomio/loomio_handler', __FILE__)
 require_relative 'processors'
 require_relative 'loomio_handler'
 
@@ -31,9 +31,17 @@ def process(log_entry, loomio)
   end
 end
 
+# used from within the initializer: config/initializers/loomio_bot.rb
 def run_bot
+  if !ENV['LOOMIO_BOT_EMAIL'] || !ENV['LOOMIO_BOT_PASSWORD']
+    puts("LOOMIO_BOT_EMAIL or LOOMIO_BOT_PASSWORD not set. Exiting the loomio bot.")
+    return
+  end
+
   # initialize the handler here so that the authentication doesn't have to be repeated
   loomio = LoomioHandler.new(username=ENV['LOOMIO_BOT_EMAIL'], password=ENV['LOOMIO_BOT_PASSWORD'])
+
+  # start a new thread and run an infinite loop inside it
   Thread.new do
     loop do
       LogEntry
@@ -41,7 +49,7 @@ def run_bot
         .each { |log_entry|
           process(log_entry, loomio)
         }
-      sleep 1
+      sleep 5 # check for new events every 5 seconds
     end
   end
 end

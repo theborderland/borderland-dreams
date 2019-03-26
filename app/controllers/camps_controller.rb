@@ -105,6 +105,21 @@ class CampsController < ApplicationController
     redirect_to @camp
   end
 
+  def toggle_favorite
+    if !current_user
+      flash[:notice] = "please log in :)"
+    # elsif @camp.favorite_users.include?(current_user)
+    #   @camp.favorite_users >> @user
+    else 
+      @camp.favorite_users << @user
+      redirect_to camp_path(@camp)
+    end
+   
+    # respond_to :json do
+    #   render {result: :success}
+    # end
+  end
+
   def archive
     @camp.update!(active: false)
     redirect_to camps_path

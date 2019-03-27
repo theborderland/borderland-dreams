@@ -1,18 +1,7 @@
-<script>
-    $(document).ready(function() {
-        $("#favorite-button").click(function (e) {
-            if(e.target.classList.contains("glyphicon-star")) {
-                $("#favorite-button").removeClass('starred')
-                $("#star-icon").removeClass('glyphicon-star')
-                $("#star-icon").addClass("glyphicon-star-empty")
-            } else {
-                $("#favorite-button").addClass('starred')
-                $("#star-icon").removeClass("glyphicon-star-empty")
-                $("#star-icon").addClass('glyphicon-star')
-            }
-        });
-    });
-</script>
+<% content_for(:head) do %>
+  <title><%= t(:browser_title_tag) %></title>
+  <%= javascript_include_tag 'favorite_button' %>
+<% end %>
 
 <div class="modal" id="donateModal" tabindex="-1" role="dialog" aria-labelledby="donateModalLabel" dir=<%=t :html_direction %>>
   <% if app_setting("granting_active") and current_user and @camp.minbudget %>

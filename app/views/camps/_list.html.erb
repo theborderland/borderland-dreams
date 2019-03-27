@@ -6,7 +6,7 @@
     <div class="camps_list">
         
         <% @camps.each do |camp| %>
-            <%= render :partial => 'camps/card', locals: { camp: camp, display_desc: false, css_classes: "col-md-4" } %>
+            <%= render :partial => 'camps/card', locals: { camp: camp, display_desc: true, css_classes: "col-md-4" } %>
         <% end %>
 
     </div>

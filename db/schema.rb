@@ -158,6 +158,15 @@ ActiveRecord::Schema.define(version: 20190326162758) do
     t.string   "en_subtitle",                                              :limit=>255
     t.string   "dream_point_of_contact_email",                             :limit=>64
     t.string   "safety_file_comments",                                     :limit=>4096
+    t.string   "loomio_thread_id"
+    t.string   "loomio_thread_key"
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer  "user_id",    :index=>{:name=>"index_favorites_on_user_id"}
+    t.integer  "camp_id",    :index=>{:name=>"index_favorites_on_camp_id"}
+    t.datetime "created_at", :null=>false
+    t.datetime "updated_at", :null=>false
   end
 
   create_table "grants", force: :cascade do |t|

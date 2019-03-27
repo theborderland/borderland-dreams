@@ -65,10 +65,10 @@
             <div class="dream_main_text">
                 <div class="center-dream">
                     <p><%= @camp.display_name %> 
-                                    <%= link_to :toggle_favorite_camp, method: :patch, class: (@camp.favorite_users.include?(current_user) ? 'favorite-button starred' : 'favorite-button'), id: 'favorite-button', :remote => true do %>
-                                        <span id="star-icon" class="glyphicon <%= @camp.favorite_users.include?(current_user) ? 'glyphicon-star' : 'glyphicon-star-empty' %>"></span>
-                                    <% end %>
-                                </p>
+                        <%= link_to :toggle_favorite_camp, method: :patch, class: (@camp.favorite_users.include?(current_user) ? 'favorite-button starred' : 'favorite-button'), id: 'favorite-button', style: "position: absolute;", :remote => true do %>
+                            <span id="star-icon" class="glyphicon <%= @camp.favorite_users.include?(current_user) ? 'glyphicon-star' : 'glyphicon-star-empty' %>"></span>
+                        <% end %>
+                    </p>
                     <p class='dream_main_creator'><%= @camp.contact_name %></p>
 
 
@@ -322,7 +322,6 @@
                         <a href="<%= camp_images_path(@camp) %>" class="btn btn-primary camp-button" role="btn button"><%=t :manage_images %></a>
                         </span>
                     </li>
-                    <%= button_to (@camp.favorite_users.include?(current_user) ? 'Unfavorite' : 'Favorite'), :toggle_favorite_camp, { method: :patch, class: "btn btn-danger", id: "favorite-button", remote: true } %>
               
                     <!-- Granting system -->
                     <% if current_user.guide || current_user.admin %>

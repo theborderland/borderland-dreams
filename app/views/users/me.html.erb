@@ -3,20 +3,13 @@
   <%= javascript_include_tag 'blueimp_script' %>
 <% end %>
 
-<%
-=begin%>
+<% begin %>
  <%= render 'camps/dont_miss_out', except: nil %> 
-<%
-=end%>
+<% end %>
 <div class='me'>
 <div class="profile col-md-5 col-xs-12" dir="<%=t :html_direction %>" style="float: <%=t :lang_direction%>">
   <div class="panel panel-default">
     <div class="panel-heading">
-      <%
-=begin%>
- <%= image_tag "personalzone_#{I18n.locale}.png" %> 
-<%
-=end%>
       <h1><%=t(:your_space) %></h1>
     </div>
     <div class="panel-body">

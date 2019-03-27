@@ -35,6 +35,11 @@
           ) %>
         </div>
 
+        <div class="form-inline tag-filter">
+          </span>Select Tag:</span>
+          <%= f.select :with_tags, @filterrific.select_options[:with_tags], include_blank: 'All' %>
+        </div>
+
         <div class="form-inline">
           <%= f.check_box(:not_fully_funded, class: 'filterrific-periodically-observed checkbox') %>
           <span><span class="glyphicon glyphicon-heart gi-1-5x" aria-hidden="true"></span>&nbsp&nbsp<%=t :hide_fully_funded %></span>

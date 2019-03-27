@@ -4,7 +4,6 @@ class CampsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
   before_action :load_camp!, except: [:index, :new, :create]
   before_action :ensure_admin_delete!, only: [:destroy, :archive]
-  before_action :ensure_admin_tag!, only: [:tag]
   before_action :ensure_admin_update!, only: [:update]
   before_action :ensure_grants!, only: [:update_grants]
   before_action :load_lang_detector, only: [:show, :index]
@@ -76,10 +75,21 @@ class CampsController < ApplicationController
   end
 
   def tag
-    @camp.update_attributes(tag_list: params.require(:camp).require(:tag_list))
+    @camp.update_attributes(tag_list: @camp.tag_list.add(params.require(:camp).require(:tag_list)))
+    respond_to do |format|
+      format.json {
+        render json: @camp.tags
+      }
+    end
+  end
 
-    flash[:notice] = t(:tags_saved)
-    redirect_to camp_path(@camp)
+  def remove_tag
+    @camp.update_attributes(tag_list: @camp.tag_list.remove(params.require(:camp).require(:tag)))
+    respond_to do |format|
+      format.json {
+        render json: @camp.tags
+      }
+    end
   end
 
   def destroy

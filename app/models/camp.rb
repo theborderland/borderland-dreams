@@ -40,6 +40,7 @@ class Camp < ApplicationRecord
     available_filters: [
       :sorted_by,
       :search_query,
+      :with_tags,
       :not_fully_funded,
       :not_min_funded,
       :not_seeking_funding,
@@ -83,6 +84,10 @@ class Camp < ApplicationRecord
         *terms.map { |e| [e] * num_or_conditions }.flatten
       )
     }
+
+  scope :with_tags, lambda { |tag|
+    Camp.tagged_with(tag)
+  }
 
   scope :sorted_by, lambda { |sort_option|
       # extract the sort direction from the param value.
@@ -136,6 +141,10 @@ class Camp < ApplicationRecord
 
   def grants_received
     @grants_received ||= self.grants.sum(:amount)
+  end
+
+  def self.options_for_tags
+    ActsAsTaggableOn::Tag.most_used(20).map { |tag| [tag.name + ' ( ' + tag.taggings_count.to_s+ ' )', tag.name]}
   end
 
   # Translating the real currency to budget

@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :tickets
   has_many :memberships
   has_many :camps, through: :memberships
+  has_many :favorites
+  has_many :favorite_camps, through: :favorites, source: :camp
   has_many :created_camps, class_name: :Camp
 
   schema_validations whitelist: [:id, :created_at, :updated_at, :encrypted_password]

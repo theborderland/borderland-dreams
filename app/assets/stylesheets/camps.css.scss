@@ -1,3 +1,26 @@
+.favorite-button {
+  position: absolute;
+  z-index: 99;
+  padding: 5px 15px;
+  display: inline-block !important;
+  background: transparent;
+  border: 0;
+  color: white !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  width: initial;
+  text-decoration: none;
+  line-height: 1.2;
+  &.starred {
+    color: $c-pinky !important;
+  }
+  &:hover {
+    color: $c-pinky !important;
+  }
+}
+
 .camps_list {
   padding-top: 20px;
 

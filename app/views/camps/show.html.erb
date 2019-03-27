@@ -383,21 +383,6 @@
         </div> <!-- safety-file-comments -->
         <% end %>
 
-        <% if app_setting("safetybag") && (current_user&.guide || (@camp.creator == current_user))%>
-          <div class="panel panel-default">
-              <div class="panel-heading"><b><%=t :form_extra_team_member_head %></b></div>
-              <div class="panel-body">
-              <ul>
-              <li><span><b><%=t :form_safetybag_first_member_name_label %>:</b> <%= @camp.safetybag_firstMemberName %></span></li>
-              <li><span><b><%=t :form_safetybag_first_member_email_label %>:</b> <%= @camp.safetybag_secondMemberName %></span></li>
-              <li><span><b><%=t :form_safetybag_second_member_name_label %>:</b> <%= @camp.safetybag_firstMemberEmail %></span></li>
-              <li><span><b><%=t :form_safetybag_second_member_email_label %>:</b> <%= @camp.safetybag_secondMemberEmail %></span></li>
-              </ul>
-              </div>
-          </div>
-        <br>
-        <% end %>
-
       <% if current_user&.guide || current_user&.admin %>
         <%= render 'tags' %>
 

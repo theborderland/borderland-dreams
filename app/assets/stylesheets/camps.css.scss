@@ -413,6 +413,13 @@ body {
   }
 }
 
+#safety-form {
+  a {
+    text-decoration: underline;
+    color: $c_pinky;
+  }
+}
+
 #safetybag {
   clear: both !important;
 }

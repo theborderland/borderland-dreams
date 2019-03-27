@@ -16,6 +16,7 @@ class Camp < ApplicationRecord
   has_many :memberships, dependent: :destroy
   has_many :users, through: :memberships
   has_many :images #, :dependent => :destroy
+  has_many :safety_sketches
   has_many :grants
   has_many :budget_items 
   has_many :safety_items 

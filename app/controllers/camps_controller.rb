@@ -60,6 +60,9 @@ class CampsController < ApplicationController
     if @camp.update_attributes camp_params
       if params[:done] == '1'
         redirect_to camp_path(@camp)
+      elsif params[:safetysave] == '1'
+        puts(camp_safety_sketches_path(@camp))
+        redirect_to camp_safety_sketches_path(@camp)
       else
         respond_to do |format|
           format.html { redirect_to edit_camp_path(@camp) }
@@ -73,7 +76,7 @@ class CampsController < ApplicationController
         format.json { respond_with_bip(@camp) }
       end
     end
-  end
+  end 
 
   def tag
     @camp.update_attributes(tag_list: params.require(:camp).require(:tag_list))

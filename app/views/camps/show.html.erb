@@ -1,3 +1,15 @@
+<script>
+    $(document).ready(function() {
+        $("#favorite-button").click(function (e) {
+            if(e.target.value === 'Favorite') {
+                $("#favorite-button").prop('value', 'Unfavorite')
+            } else {
+                $("#favorite-button").prop('value', 'Favorite')
+            }
+        });
+    });
+</script>
+
 <div class="modal" id="donateModal" tabindex="-1" role="dialog" aria-labelledby="donateModalLabel" dir=<%=t :html_direction %>>
   <% if app_setting("granting_active") and current_user and @camp.minbudget %>
     <%= form_tag({controller: "camps", action: "update_grants"}, method: "patch", id:"donateForm") do %>
@@ -311,9 +323,10 @@
                     </span></li>
                     <li><span>
                         <a href="<%= camp_images_path(@camp) %>" class="btn btn-primary camp-button" role="btn button"><%=t :manage_images %></a>
-                    </span></li>
-
-                    <%= button_to "favorite", :toggle_favorite_camp, { method: :patch, class: "btn btn-danger" } %>
+                        </span>
+                    </li>
+                    <%= button_to (@camp.favorite_users.include?(current_user) ? 'Unfavorite' : 'Favorite'), :toggle_favorite_camp, { method: :patch, class: "btn btn-danger", id: "favorite-button", remote: true } %>
+              
                     <!-- Granting system -->
                     <% if current_user.guide || current_user.admin %>
                         <%= button_to t(@camp.grantingtoggle? ? :turn_off_granting : :enable_granting),

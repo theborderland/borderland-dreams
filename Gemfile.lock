@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/activeadmin/activeadmin.git
-  revision: 475d2ad9bbbff247027ea0f1ebc0bc511d672e54
+  revision: 21469050740f9d5fba2c584296a9d3c278f2fd09
   specs:
     activeadmin (2.0.0.rc1)
       arbre (~> 1.1, >= 1.1.1)
@@ -167,6 +167,10 @@ GEM
       multi_json (~> 1.11)
       os (>= 0.9, < 2.0)
       signet (~> 0.7)
+    graphiql-rails (1.5.0)
+      railties
+      sprockets-rails
+    graphql (1.8.13)
     haml (5.0.4)
       temple (>= 0.8.0)
       tilt
@@ -454,6 +458,8 @@ DEPENDENCIES
   filterrific
   font-awesome-sass
   google-api-client
+  graphiql-rails (= 1.5.0)
+  graphql (= 1.8.13)
   haml
   jbuilder (~> 2.0)
   jquery-rails

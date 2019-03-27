@@ -1,12 +1,9 @@
-<div id="filterrific_results">
-
-    <%=t :sort_by%>:
-    <%= filterrific_sorting_link(@filterrific, :updated_at) %>
-
+<div id="filterrific_results" class="col-md-7 favorite_camps_container">
+    <h1><%= t(:your_favorite_dreams) %></h1>
     <div class="camps_list">
         
-        <% @camps.each do |camp| %>
-        <div class='col-md-4'>
+        <% current_user.favorite_camps.each do |camp| %>
+        <div class='card'>
             <a href="<%= url_for(camp) %>">
 
                 <div class="panel panel-info">
@@ -21,11 +18,6 @@
                         <%= simple_format(truncate(@name, length: 60),
                                           { class: "name auto-#{@detector.direction(@name)}" },
                                           wrapper_tag: 'h4') %>
-
-                        <% @subtitle = (app_setting('multi_lang_support') and camp.en_subtitle.present? and I18n.locale.to_s == 'en')? camp.en_subtitle : camp.subtitle %>
-                        <div class="description">
-                          <%= simple_format(truncate(@subtitle, length: 256), class: "auto-#{@detector.direction(@subtitle)}") %>
-                        </div>
 
                         <div class="labels">
                             <% if app_setting("granting_active") and camp.minbudget %>

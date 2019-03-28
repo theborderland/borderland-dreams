@@ -28,8 +28,7 @@ class CampsController < ApplicationController
     if create_camp
       audit_log(:camp_created,
                 "Nameless user created dream: %s" % [@camp.name], # TODO user playa name
-                @camp.id,
-                @camp.name)
+                @camp)
 
       flash[:notice] = t('created_new_dream')
       redirect_to edit_camp_path(id: @camp.id)

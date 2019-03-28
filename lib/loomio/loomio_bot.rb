@@ -9,8 +9,8 @@ require_relative 'processors'
 require_relative 'loomio_handler'
 
 @processors_hash = {
-  'camp_created': Processors.method(:process_camp_created),
-  'other_entry_type': Processors.method(:process_other_entry_type)
+  'camp_created': Processors.method(:camp_created),
+  'other_entry_type': Processors.method(:other_entry_type)
 }.stringify_keys
 @predefined_entry_types = @processors_hash.keys
 
@@ -25,7 +25,8 @@ def process(log_entry, loomio)
     end
 
   puts("Event I don't care about: %s" % log_entry.entry_type)
-  # log_entry.loomio_consumed = true
+  log_entry.loomio_consumed = true
+  log_entry.save!
 
   puts("Done processing %s" % log_entry.description)
   end
@@ -33,13 +34,10 @@ end
 
 # used from within the initializer: config/initializers/loomio_bot.rb
 def run_bot
-  if !ENV['LOOMIO_BOT_EMAIL'] || !ENV['LOOMIO_BOT_PASSWORD']
-    puts("LOOMIO_BOT_EMAIL or LOOMIO_BOT_PASSWORD not set. Exiting the loomio bot.")
-    return
-  end
+  return if !ENV['LOOMIO_USER']
 
   # initialize the handler here so that the authentication doesn't have to be repeated
-  loomio = LoomioHandler.new(username=ENV['LOOMIO_BOT_EMAIL'], password=ENV['LOOMIO_BOT_PASSWORD'])
+  loomio = LoomioHandler.new()
 
   # start a new thread and run an infinite loop inside it
   Thread.new do

@@ -2,14 +2,19 @@ require 'httparty'
 
 class LoomioHandler
   include HTTParty
-  @@base_uri = 'https://talk.theborderland.se/'
+  @@base_uri = ENV['LOOMIO_BASE_URL'].nil? ? 'https://talk.theborderland.se/' : ENV['LOOMIO_BASE_URL']
   @@sessions_uri = 'api/v1/sessions'
   @@comments_uri = 'api/v1/comments'
   @@threads_uri = 'api/v1/discussions'
+  @@group_id = ENV['LOOMIO_GROUP_ID']
 
   # login using username and password and set cookies
   # for all the other requests within LoomioHandler
-  def initialize(username, password)
+  def initialize(username=ENV['LOOMIO_USER'], password=ENV['LOOMIO_PASSWORD'])
+    if !username || !password || !ENV['LOOMIO_GROUP_ID']
+      raise ArgumentError, "LOOMIO_USER, LOOMIO_PASSWORD, LOOMIO_GROUP_ID environment variables must be set"
+    end
+
     user = {user:{email:username,password:password}}
     security_response = self.class.post(@@base_uri + @@sessions_uri, body: user)
     puts(security_response.value) # raises error if the request failed
@@ -28,7 +33,7 @@ class LoomioHandler
   def new_thread(name, description='')
     response = self.class.post(
       @@base_uri + @@threads_uri, 
-      body: {"discussion":{"title":name,"description":description,"group_id":1259,"private":false,"forked_event_ids":[],"document_ids":[]}}.to_json,
+      body: {"discussion":{"title":name,"description":description,"group_id":@@group_id,"private":false,"forked_event_ids":[],"document_ids":[]}}.to_json,
       headers: @headers
     )
     puts(response.value) # raises error if the request failed
@@ -38,10 +43,11 @@ class LoomioHandler
   # post a comment to loomio based on discussion_id
   def new_comment(name, discussion_id)
     response = self.class.post(
-      @@base_uri + @@comments_uri, 
+      @@base_uri + @@comments_uri,
       body: {"comment":{"body":name,"discussion_id":discussion_id,"document_ids":[]}}.to_json,
       headers: @headers
     )
+    return response
   end
 
   # parse cookies coming from a set-cookies header of a response

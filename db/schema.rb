@@ -190,7 +190,7 @@ ActiveRecord::Schema.define(version: 20190325154055) do
     t.string   "user_email"
     t.string   "user_name"
     t.integer  "object_id"
-    t.string   "object_name"
+    t.string   "object_type"
     t.string   "description"
     t.boolean  "loomio_consumed", :default=>false
   end

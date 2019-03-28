@@ -17,7 +17,8 @@ class Camp < ApplicationRecord
   has_many :users, through: :memberships
   has_many :images #, :dependent => :destroy
   has_many :grants
-  has_many :budget_items 
+  has_many :budget_items
+  has_many :log_entries, as: :object
 
   has_paper_trail
 

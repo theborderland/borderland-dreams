@@ -55,13 +55,14 @@ class CampsController < ApplicationController
     redirect_to camp_path(@camp)
   end
 
-  def get_flag_states(flag_types_list)
-    result = []
-    flag_types_list.each do |flag_type|
-      result.push(@camp.flag_type_is_raised(flag_type))
-    end
-    result
-  end
+  # def get_flag_states
+  #   params.permit(:flag_types_list)
+  #   result = []
+  #   params[:flag_types_list].split(',').each do |flag_type|
+  #     result.push(@camp.flag_type_is_raised(flag_type))
+  #   end
+  #   redirect_to camp_path(@camp)
+  # end
 
   def create_flag_event
     FlagEvent.create(flag_type: params[:flag_type], user: current_user, camp: @camp, value: params[:value])

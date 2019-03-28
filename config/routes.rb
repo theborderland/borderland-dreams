@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :camps, :path => 'dreams' do
     resources :images
     resources :safety_sketches
+    get 'get_flag_states', on: :member
     post 'join', on: :member
     post 'archive', on: :member
     post 'create_flag_event', on: :member

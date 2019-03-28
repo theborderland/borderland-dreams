@@ -18,6 +18,7 @@ class Camp < ApplicationRecord
   has_many :grants
   has_many :people, class_name: 'Person'
   has_many :roles, through: :people
+  has_many :flag_events
 
   has_paper_trail
 

@@ -1,16 +1,5 @@
-<% if (current_user && (current_user == @camp.creator)) %>
-  <% @can_edit = true %>
-<% end %>
 <% if (current_user && (current_user.guide || current_user.admin)) %>
-  <% @can_edit = @just_view %>
-  <%if @just_view %>
-  <% else %>
-    <script>
-      $(function() {
-        $('input[type=radio],input[type=checkbox]').each((i,e) => { $(e).attr('disabled', true);});
-    });
-    </script>
-  <% end %>
+  <% @can_edit = true %>
 <% end %>
 
 <% content_for(:head) do %>
@@ -88,17 +77,9 @@
             <% end %>
 
         <% end %>
-        <!-- SAFETY ITEMS END -->
+        <!-- SAFETY ITEMS END --> 
 
         <div id="footer-bar" dir=<%=t :html_direction %> style=<%= "text-align:" + I18n.t('reverse_direction')%>>
-            <%if current_user.admin or current_user.guide %>
-            <%if @just_view %>
-            <%= link_to t(:open_dream_for_guide_edit_view_only), camp_safety_sketch_path(id: @camp.id), class: "btn btn-success" %>
-            <% else %>
-            <%= link_to t(:open_dream_for_guide_edit), camp_safety_sketch_path(id: @camp.id, just_view: !(@just_view)), class: "btn btn-success" %>
-            <% end %>
-            <% end %>
-
             <%if @can_edit %>
             <button class="btn btn-success" id="save-safety"><%= t('save_camp') %></button>
             <%= t('or_text') %>

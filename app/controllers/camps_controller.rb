@@ -78,6 +78,18 @@ class CampsController < ApplicationController
     # flag and create the event if that's the case
     if (@camp.flag_type_is_raised(incoming_flag_type).to_s != incoming_flag_value.to_s)
       FlagEvent.create(flag_type: incoming_flag_type, user: current_user, camp: @camp, value: incoming_flag_value)
+      
+      if (incoming_flag_value.to_s == 'true')
+        message_string = "Nameless user raised a concern %s" % [incoming_flag_type] 
+      else
+        message_string = "Nameless user removed a concern %s" % [incoming_flag_type]
+      end
+
+      audit_log(
+        'flag_raised',
+        message_string,
+        @camp
+      )
     end
 
     redirect_to camp_path(@camp)

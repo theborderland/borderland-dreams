@@ -210,19 +210,7 @@
             </div>
         <% end %>
 
-        <% if app_setting("dreamcrew") %>
-            <div class="panel panel-default">
-                    <div class="panel-heading"><h2 class="header-sub-heading">Dream crew (!)</h2></div>
-                    <div class="panel-body">
-                        <img class='img-circle dreamcrew-photo' src='https://talk.theborderland.se/system/users/uploaded_avatars/000/000/001/large/46502342_1942024132767485_6589040522864623616_o.jpg' />
-                        <img class='img-circle dreamcrew-photo' src='http://lorempixel.com/output/animals-q-c-500-500-5.jpg' />
-                        <img class='img-circle dreamcrew-photo' src='http://lorempixel.com/output/animals-q-c-500-500-5.jpg' />
-                        <img class='img-circle dreamcrew-photo' src='http://lorempixel.com/output/animals-q-c-500-500-5.jpg' />
-                        <img class='img-circle dreamcrew-photo' src='http://lorempixel.com/output/animals-q-c-500-500-5.jpg' />
-
-                    </div>
-            </div>
-        <% end %>
+        <%= render 'camps/crew' %>
 
         <% if current_user &&
             ((@camp.creator == current_user) || (current_user.guide || current_user.admin)) %>

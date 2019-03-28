@@ -1,0 +1,23 @@
+<% if app_setting("dreamcrew") %>
+    <div class="panel panel-default">
+            <div class="panel-heading"><h2 class="header-sub-heading">Dream crew (!)</h2></div>
+            <div class="panel-body">
+                <%= simple_form_for @camp, url: { action: 'remove_member'} do |f| %>
+                  <div id="tag-container" class="tag-container">
+                      <img class='img-circle dreamcrew-photo' src='https://talk.theborderland.se/system/users/uploaded_avatars/000/000/001/large/46502342_1942024132767485_6589040522864623616_o.jpg' />
+                      <% @camp.memberships.each do |member| %>
+                        <%= remove_member_camp_path(member) %>
+                        <%= link_to image_tag('crewmate.png', :class => "img-circle dreamcrew-photo brightness"), remove_member_camp_path(member), method: :post %>
+                      <% end %>
+                  </div>
+                <% end %>
+
+                <%= simple_form_for @camp, url: { action: 'add_member', method: 'post'} do |f| %>
+                  <%= f.text_field :member_email, class: 'form-control', value: '' %>
+                  <%= f.submit 'Add member (!)', id: 'member-add', class: 'btn btn-success btn-sm' %>
+                <% end %>
+
+            </div>
+    </div>
+<% end %>
+

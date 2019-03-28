@@ -118,6 +118,25 @@ class CampsController < ApplicationController
     redirect_to @camp
   end
 
+  # Add a user to a camp
+  def add_member
+    email = params[:camp]['member_email']
+    member = User.where(email: email).first
+    @camp.users << member
+    flash[:notice] = 'You added a new crewmember. Praise be!'
+    redirect_to @camp
+  rescue ActiveRecord::RecordInvalid => e
+    flash[:notice] = 'That person is already in your crew. Way to go!'
+    redirect_to @camp
+  end
+
+
+  # Add a user to a camp
+  def remove_member
+    flash[:notice] = params
+    redirect_to @camp
+  end
+
   def toggle_favorite
     if !current_user
       flash[:notice] = "please log in :)"

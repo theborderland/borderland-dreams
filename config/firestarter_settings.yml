@@ -25,6 +25,7 @@ defaults: &defaults
   footer_text: <%= ENV['FOOTER_TEXT'] or true %>
   creation_sidebar_welcome: <%= ENV['CREATION_SIDEBAR'] or true %>
   safetybag: <%= ENV['SAFETYBAG'] or true %>
+  dreamcrew: <%= ENV['DREAMCREW'] or true %>
   person_early_arrival: <%= ENV['PERSON_EARLY_ARRIVAL'] or false %>
   person_has_ticket: <%= ENV['PERSON_HAS_TICKET'] or false %>
   multi_lang_support: <%= ENV['MULTI_LANG_SUPPORT'] or false %>

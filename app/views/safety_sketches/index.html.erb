@@ -1,3 +1,6 @@
+<% if (current_user && (current_user == @camp.creator)) %>
+  <% @can_edit = true %>
+<% end %>
 <% if (current_user && (current_user.guide || current_user.admin)) %>
   <% @can_edit = true %>
 <% end %>
@@ -77,7 +80,11 @@
             <% end %>
 
         <% end %>
-        <!-- SAFETY ITEMS END --> 
+        <!-- SAFETY ITEMS END -->
+
+        <%if @just_view %>
+            <h2 class="header-sub-heading camp-upload_image">Just view</h2>
+        <% end %>
 
         <div id="footer-bar" dir=<%=t :html_direction %> style=<%= "text-align:" + I18n.t('reverse_direction')%>>
             <%if @can_edit %>

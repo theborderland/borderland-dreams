@@ -6,7 +6,7 @@ class Processors
     camp = log_entry.object
 
     response = loomio.new_thread(camp.name,
-                                 url_helper.camp_url(camp))
+                                 url_helper.camp_url(camp, host: "tivedstorp-dreams.herokuapp.com", protocol: "https"))
 
     thread_id = response['discussions'][0]['id']
     thread_key = response['discussions'][0]['key']

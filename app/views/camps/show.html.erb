@@ -181,7 +181,13 @@
 
         <div>
             <% if user_signed_in? %>
-                <%= link_to 'My Link', create_flag_event_camp_path(flag_type: "alcohol", value: true), method: :post %>
+                <%= link_to 'Alcohol On', create_flag_event_camp_path(flag_type: "alcohol", value: true), method: :post %>
+            <% end %>
+        </div>
+
+        <div>
+            <% if user_signed_in? %>
+                <%= link_to 'Alcohol Off', create_flag_event_camp_path(flag_type: "alcohol", value: false), method: :post %>
             <% end %>
         </div>
 

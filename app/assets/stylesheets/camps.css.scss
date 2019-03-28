@@ -436,7 +436,23 @@ body {
   }
 }
 
+#safety-form {
+  a {
+    text-decoration: underline;
+    color: $c_pinky;
+  }
+}
+
+#safetybag {
+  clear: both !important;
+}
+
 #add-new-budget-item {
+  color: white !important;
+  text-decoration: none !important;
+}
+
+#add-new-safety-item {
   color: white !important;
   text-decoration: none !important;
 }

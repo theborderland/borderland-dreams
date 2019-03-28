@@ -40,7 +40,7 @@ class Camp < ApplicationRecord
     available_filters: [
       :sorted_by,
       :search_query,
-      :with_tags,
+      :tagged_with,
       :not_fully_funded,
       :not_min_funded,
       :not_seeking_funding,
@@ -84,10 +84,6 @@ class Camp < ApplicationRecord
         *terms.map { |e| [e] * num_or_conditions }.flatten
       )
     }
-
-  scope :with_tags, lambda { |tag|
-    Camp.tagged_with(tag)
-  }
 
   scope :sorted_by, lambda { |sort_option|
       # extract the sort direction from the param value.

@@ -6,7 +6,7 @@ module CanApplyFilters
       not_hidden: !(current_user&.admin? || current_user&.guide?),
       is_cocreation: is_cocreation?
     ), select_options: {
-      with_tags: Camp.options_for_tags
+        tagged_with: Camp.options_for_tags
     })
     @camps = @filterrific&.find&.page(params[:page])
   end

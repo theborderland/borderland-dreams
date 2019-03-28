@@ -9,5 +9,9 @@
             <%= render :partial => 'camps/card', locals: { camp: camp, display_desc: true, css_classes: "col-md-4" } %>
         <% end %>
 
+        <% @camps.count_all_flags.each do |camp_id, flag_sum| %>
+            <%= render :partial => 'camps/card', locals: { camp: @camps.where(['id = ?', camp_id])[0], display_desc: true, css_classes: "col-md-4", flag_sum: flag_sum } %>
+        <% end %>
+
     </div>
 </div>

@@ -147,6 +147,11 @@ class Camp < ApplicationRecord
     @grants_received ||= self.grants.sum(:amount)
   end
 
+  def flag_count(flag_type)
+    relevant_events = FlagEvent.where(["flag_type == ? and camp_id = ?", flag_type, self.id])
+    relevant_events.count
+  end
+
   def flag_type_is_raised(flag_type)
     relevant_events = FlagEvent.where(["flag_type == ? and camp_id = ?", flag_type, self.id])
     last_event = relevant_events.where(created_at: relevant_events.select('MAX(created_at)')).first
@@ -194,5 +199,28 @@ class Camp < ApplicationRecord
     else
       name
     end
+  end
+  
+  def self.count_all_flags
+    sql = %{
+    SELECT
+      camp_id, COUNT(*)
+    FROM
+      flag_events
+    GROUP BY
+      camp_id
+    }
+    # puts(sql)
+    results = ActiveRecord::Base.connection.execute(
+      sql
+    )
+    final_hash = Hash.new
+    results.each do |result|
+      camp_id = result['camp_id']
+      count = result['COUNT(*)']
+      final_hash[camp_id] = count
+    end
+    # returns list of lists holding [camp_id, flag_count]
+    final_hash.sort_by {|_key, value| -value}
   end
 end

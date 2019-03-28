@@ -65,7 +65,15 @@ class CampsController < ApplicationController
   # end
 
   def create_flag_event
-    FlagEvent.create(flag_type: flag_type, user: current_user, camp: @camp, value: value)
+    incoming_flag_type = params[:flag_type]
+    incoming_flag_value = params[:value]
+
+    # validate that the flag_event is attempting to change the global state of the
+    # flag and create the event if that's the case
+    if (@camp.flag_type_is_raised(incoming_flag_type).to_s != incoming_flag_value.to_s)
+      FlagEvent.create(flag_type: incoming_flag_type, user: current_user, camp: @camp, value: incoming_flag_value)
+    end
+
     redirect_to camp_path(@camp)
   end
 

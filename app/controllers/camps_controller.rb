@@ -75,21 +75,21 @@ class CampsController < ApplicationController
   end
 
   def tag
-    @camp.update_attributes(tag_list: @camp.tag_list.add(params.require(:camp).require(:tag_list)))
-    respond_to do |format|
-      format.json {
-        render json: @camp.tags
-      }
-    end
+    @camp.update(tag_list: @camp.tag_list.add(tag_params))
+    render json: @camp.tags
+  end
+
+  def tag_params
+    params.require(:camp).require(:tag_list)
   end
 
   def remove_tag
-    @camp.update_attributes(tag_list: @camp.tag_list.remove(params.require(:camp).require(:tag)))
-    respond_to do |format|
-      format.json {
-        render json: @camp.tags
-      }
-    end
+    @camp.update(tag_list: @camp.tag_list.remove(remove_tag_params))
+    render json: @camp.tags
+  end
+
+  def remove_tag_params
+    params.require(:camp).require(:tag)
   end
 
   def destroy

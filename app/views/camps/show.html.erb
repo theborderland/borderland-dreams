@@ -181,7 +181,28 @@
 
         <div>
             <% if user_signed_in? %>
-                <%= link_to 'My Link', create_flag_event_camp_path(flag_type: "alcohol", value: true), method: :post %>
+
+                <div>
+                    <% if @camp.flag_type_is_raised('restricted_items') %>
+                        <span>Restricted items is raaaaaaised</span>
+                    <% else %>
+                        <span>Restricted items is not raised</span>
+                    <% end %> 
+                    <%= image_tag("greenflag.png", :alt => "green monster", :size => '100') %>
+                </div>
+
+                <%= link_to create_flag_event_camp_path(flag_type: "restricted_items", value: true), method: :post do %>
+                    <%= image_tag("greenflag.png", :alt => "green monster", :size => '100') %>
+                <% end %>
+                <%= link_to 'Incomplete budget', create_flag_event_camp_path(flag_type: "incomplete_budget", value: true), method: :post %>
+                <%= link_to 'Transport', create_flag_event_camp_path(flag_type: "transport", value: true), method: :post %>
+                <%= link_to 'Unnecessary material use', create_flag_event_camp_path(flag_type: "unnecessary_material", value: true), method: :post %>
+                <%= link_to 'Looks good to me', create_flag_event_camp_path(flag_type: "restricted_items", value: true), method: :post %>
+                
+
+                <%= link_to :toggle_favorite_camp, method: :patch, class: (@camp.favorite_users.include?(current_user) ? 'favorite-button starred' : 'favorite-button'), id: 'favorite-button', style: "position: absolute;", :remote => true do %>
+                    <span id="star-icon" class="glyphicon <%= @camp.favorite_users.include?(current_user) ? 'glyphicon-star' : 'glyphicon-star-empty' %>"></span>
+                <% end %>
             <% end %>
         </div>
 

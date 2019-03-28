@@ -86,8 +86,6 @@ ActiveRecord::Schema.define(version: 20190327152450) do
     t.string   "en_subtitle",                                              :limit=>255
     t.string   "dream_point_of_contact_email",                             :limit=>64
     t.string   "safety_file_comments",                                     :limit=>4096
-    t.string   "loomio_thread_id"
-    t.string   "loomio_thread_key"
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -114,20 +112,6 @@ ActiveRecord::Schema.define(version: 20190327152450) do
     t.string   "attachment_content_type"
     t.integer  "attachment_file_size",    :limit=>8
     t.datetime "attachment_updated_at"
-  end
-
-  create_table "log_entries", force: :cascade do |t|
-    t.datetime "created_at",      :null=>false
-    t.datetime "updated_at",      :null=>false
-    t.string   "topic"
-    t.string   "entry_type"
-    t.integer  "user_id"
-    t.string   "user_email"
-    t.string   "user_name"
-    t.integer  "object_id"
-    t.string   "object_name"
-    t.string   "description"
-    t.boolean  "loomio_consumed", :default=>false
   end
 
   create_table "memberships", force: :cascade do |t|
@@ -221,6 +205,8 @@ ActiveRecord::Schema.define(version: 20190327152450) do
     t.boolean  "guide",                  :default=>false
     t.boolean  "admin",                  :default=>false
     t.integer  "grants",                 :default=>10
+    t.string   "name"
+    t.string   "avatar"
   end
 
   create_table "versions", force: :cascade do |t|

@@ -76,7 +76,7 @@ class CampsController < ApplicationController
         format.json { respond_with_bip(@camp) }
       end
     end
-  end 
+  end
 
   def tag
     @camp.update_attributes(tag_list: params.require(:camp).require(:tag_list))

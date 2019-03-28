@@ -15,7 +15,7 @@ class User < ApplicationRecord
   schema_validations whitelist: [:id, :created_at, :updated_at, :encrypted_password]
 
   def self.from_omniauth(auth)
-    u = where(uid: auth.uid).or(email: auth.uid).first_or_create! do |user|
+    u = where(email: auth.uid).first_or_create! do |user|
       user.email = auth.uid # .info.email TODO for supporting other things than keycloak
       user.password = Devise.friendly_token[0,20]
     end

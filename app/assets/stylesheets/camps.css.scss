@@ -1,3 +1,26 @@
+.favorite-button {
+  position: absolute;
+  z-index: 99;
+  padding: 5px 15px;
+  display: inline-block !important;
+  background: transparent;
+  border: 0;
+  color: white !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  width: initial;
+  text-decoration: none;
+  line-height: 1.2;
+  &.starred {
+    color: $c-pinky !important;
+  }
+  &:hover {
+    color: $c-pinky !important;
+  }
+}
+
 .camps_list {
   padding-top: 20px;
 
@@ -176,23 +199,25 @@ $main-image-height: 550px;
   }
 }
 
+$heart-size: 72px;
+
 #donateModal {
   .modal-dialog {
-    max-width: 460px;
+    max-width: 492px;
   }
   .donate-value {
     display: inline-block;
     width: 70px;
-    margin: 0 0.5em;
+    margin: 0 .5em;
   }
 
-  .coins-left {
+  .coins-left  {
     line-height: 2em;
   }
 
   .donate-now-button {
     background: $c-donate-color;
-    width: 100%;
+    width:100%;
 
     &:active {
       background: darken($c-donate-color, 15%) !important;
@@ -206,6 +231,181 @@ $main-image-height: 550px;
       background: darken($c-donate-color, 10%) !important;
     }
   }
+
+  .donate-now-button-disabled {
+    background: $c-donate-color;
+    color: white;
+    width: 100%;
+    cursor: no-drop;
+  }
+
+  #heart1 {
+    @extend .heart;
+    background: no-repeat center image-url("hearts/heart_default.png");
+
+    &:hover {
+      background: no-repeat center image-url("hearts/heart_default_hover.png");
+      background-size: $heart-size $heart-size;
+    }
+
+    &:active {
+      background: no-repeat center image-url("hearts/heart_01.png");
+      background-size: $heart-size $heart-size;
+    }
+  }
+  #heart2 {
+    @extend .heart;
+    background: no-repeat center image-url("hearts/heart_default.png");
+    &:hover {
+      background: no-repeat center image-url("hearts/heart_default_hover.png");
+      background-size: $heart-size $heart-size;
+    }
+    &:active {
+      background: no-repeat center image-url("hearts/heart_02.png");
+      background-size: $heart-size $heart-size;
+    }
+  }
+  #heart3 {
+    @extend .heart;
+    background: no-repeat center image-url("hearts/heart_default.png");
+    &:hover {
+      background: no-repeat center image-url("hearts/heart_default_hover.png");
+      background-size: $heart-size $heart-size;
+    }
+    &:active {
+      background: no-repeat center image-url("hearts/heart_03.png");
+      background-size: $heart-size $heart-size;
+    }
+  }
+  #heart4 {
+    @extend .heart;
+    background: no-repeat center image-url("hearts/heart_default.png");
+    &:hover {
+      background: no-repeat center image-url("hearts/heart_default_hover.png");
+      background-size: $heart-size $heart-size;
+    }
+    &:active {
+      background: no-repeat center image-url("hearts/heart_04.png");
+      background-size: $heart-size $heart-size;
+    }
+  }
+  #heart5 {
+    @extend .heart;
+    background: no-repeat center image-url("hearts/heart_default.png");
+    &:hover {
+      background: no-repeat center image-url("hearts/heart_default_hover.png");
+      background-size: $heart-size $heart-size;
+    }
+    &:active {
+      background: no-repeat center image-url("hearts/heart_05.png");
+      background-size: $heart-size $heart-size;
+    }
+  }
+  #heart6 {
+    @extend .heart;
+    background: no-repeat center image-url("hearts/heart_default.png");
+    &:hover {
+      background: no-repeat center image-url("hearts/heart_default_hover.png");
+      background-size: $heart-size $heart-size;
+    }
+    &:active {
+      background: no-repeat center image-url("hearts/heart_06.png");
+      background-size: $heart-size $heart-size;
+    }
+  }
+  #heart7 {
+    @extend .heart;
+    background: no-repeat center image-url("hearts/heart_default.png");
+    &:hover {
+      background: no-repeat center image-url("hearts/heart_default_hover.png");
+      background-size: $heart-size $heart-size;
+    }
+    &:active {
+      background: no-repeat center image-url("hearts/heart_07.png");
+      background-size: $heart-size $heart-size;
+    }
+  }
+  #heart8 {
+    @extend .heart;
+    background: no-repeat center image-url("hearts/heart_default.png");
+    &:hover {
+      background: no-repeat center image-url("hearts/heart_default_hover.png");
+      background-size: $heart-size $heart-size;
+    }
+    &:active {
+      background: no-repeat center image-url("hearts/heart_08.png");
+      background-size: $heart-size $heart-size;
+    }
+  }
+  #heart9 {
+    @extend .heart;
+    background: no-repeat center image-url("hearts/heart_default.png");
+    &:hover {
+      background: no-repeat center image-url("hearts/heart_default_hover.png");
+      background-size: $heart-size $heart-size;
+    }
+    &:active {
+      background: no-repeat center image-url("hearts/heart_09.png");
+      background-size: $heart-size $heart-size;
+    }
+  }
+  #heart10 {
+    @extend .heart;
+    background: no-repeat center image-url("hearts/heart_default.png");
+    &:hover {
+      background: no-repeat center image-url("hearts/heart_default_hover.png");
+      background-size: $heart-size $heart-size;
+    }
+    &:active {
+      background: no-repeat center image-url("hearts/heart_10.png");
+      background-size: $heart-size $heart-size;
+    }
+  }
+
+
+}
+
+.heartSelected {
+  @extend .heart;
+  background: no-repeat center image-url("hearts/heart_default_hover.png") !important;
+  background-size: $heart-size $heart-size !important;
+}
+
+.heart-default {
+  @extend .heart;
+}
+
+.disabledHeart {
+  opacity: 0.5;
+}
+
+.hearts {
+  text-align: center;
+
+  img {
+    vertical-align:top;
+  }
+
+  margin-bottom: 1em;
+}
+
+.add-my-name {
+  font-size: 14px;
+  display: inline;
+}
+
+.heart {
+  display: inline-block;
+  background-size: $heart-size $heart-size;
+  width: $heart-size;
+  height: $heart-size;
+  position: relative;
+
+  -webkit-transition: all 1.2s ease;  
+  -moz-transition: all 1.2s ease;  
+  -o-transition: all 1.2s ease;  
+  -ms-transition: all 1.2s ease;  
+  transition: all 1.2s ease;
 }
 
 .top_message {
@@ -334,6 +534,17 @@ body {
       width: 94%;
     }
   }
+  .heart {
+    margin: -6px;
+  }
+
+   .disabledHeart {
+    margin: -6px;
+  }
+
+   .heartSelected {
+    margin: -6px;
+  }
 }
 
 @media (max-width: 540px) {
@@ -413,7 +624,23 @@ body {
   }
 }
 
+#safety-form {
+  a {
+    text-decoration: underline;
+    color: $c_pinky;
+  }
+}
+
+#safetybag {
+  clear: both !important;
+}
+
 #add-new-budget-item {
+  color: white !important;
+  text-decoration: none !important;
+}
+
+#add-new-safety-item {
   color: white !important;
   text-decoration: none !important;
 }

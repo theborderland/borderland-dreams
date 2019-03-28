@@ -6,7 +6,6 @@ class CampsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
   before_action :load_camp!, except: [:index, :new, :create]
   before_action :ensure_admin_delete!, only: [:destroy, :archive]
-  before_action :ensure_admin_tag!, only: [:tag]
   before_action :ensure_admin_update!, only: [:update]
   before_action :ensure_grants!, only: [:update_grants]
   before_action :load_lang_detector, only: [:show, :index]
@@ -66,6 +65,9 @@ class CampsController < ApplicationController
     if @camp.update_attributes camp_params
       if params[:done] == '1'
         redirect_to camp_path(@camp)
+      elsif params[:safetysave] == '1'
+        puts(camp_safety_sketches_path(@camp))
+        redirect_to camp_safety_sketches_path(@camp)
       else
         respond_to do |format|
           format.html { redirect_to edit_camp_path(@camp) }
@@ -82,10 +84,21 @@ class CampsController < ApplicationController
   end
 
   def tag
-    @camp.update_attributes(tag_list: params.require(:camp).require(:tag_list))
+    @camp.update(tag_list: @camp.tag_list.add(tag_params))
+    render json: @camp.tags
+  end
 
-    flash[:notice] = t(:tags_saved)
-    redirect_to camp_path(@camp)
+  def tag_params
+    params.require(:camp).require(:tag_list)
+  end
+
+  def remove_tag
+    @camp.update(tag_list: @camp.tag_list.remove(remove_tag_params))
+    render json: @camp.tags
+  end
+
+  def remove_tag_params
+    params.require(:camp).require(:tag)
   end
 
   def destroy
@@ -109,6 +122,18 @@ class CampsController < ApplicationController
       @camp.users << @user
     end
     redirect_to @camp
+  end
+
+  def toggle_favorite
+    if !current_user
+      flash[:notice] = "please log in :)"
+    elsif @camp.favorite_users.include?(current_user)
+      @camp.favorite_users.delete(current_user)
+      render json: {res: :ok}, status: 200
+    else
+      @camp.favorite_users << current_user
+      render json: {res: :ok}, status: 200
+    end
   end
 
   def archive

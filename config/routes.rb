@@ -17,11 +17,14 @@ Rails.application.routes.draw do
   
   resources :camps, :path => 'dreams' do
     resources :images
+    resources :safety_sketches
     post 'join', on: :member
     post 'archive', on: :member
+    patch 'toggle_favorite', on: :member
     patch 'toggle_granting', on: :member
     patch 'update_grants', on: :member
-    patch 'tag', on: :member
+    post 'remove_tag', on: :member
+    post 'tag', on: :member
   end
 
   get '/pages/:page' => 'pages#show'

@@ -65,7 +65,7 @@ class CampsController < ApplicationController
   # end
 
   def create_flag_event
-    FlagEvent.create(flag_type: params[:flag_type], user: current_user, camp: @camp, value: params[:value])
+    FlagEvent.create(flag_type: flag_type, user: current_user, camp: @camp, value: value)
     redirect_to camp_path(@camp)
   end
 

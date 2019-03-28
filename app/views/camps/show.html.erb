@@ -1,12 +1,43 @@
 <% content_for(:head) do %>
   <title><%= t(:browser_title_tag) %></title>
-  <%= javascript_include_tag 'favorite_button' %>
 <% end %>
-
+<style>
+.flag {
+}
+.active {
+    background: green !important;
+}
+</style>
+<script>
+    $( document ).ready(function() {
+        var flags = $('.flag');
+        $('.flag').click(function (e) {
+            if(!e.target.classList.contains("active")) {
+                flags.each(function(i) {
+                    $(flags[i]).removeClass('active')
+                });
+                $(e.target).addClass('active')
+                console.log(e.target.id)
+            } else {
+                $(e.target).removeClass('active')
+            } 
+			// var button = $(event.target).parent();
+            // if(e.target.classList.contains("glyphicon-star")) {
+            //             button.removeClass('starred')
+            //             button.find("#star-icon").removeClass('glyphicon-star')
+            //             button.find("#star-icon").addClass("glyphicon-star-empty")
+            // } else {
+            //             button.addClass('starred')
+            //             button.find("#star-icon").removeClass("glyphicon-star-empty")
+            // button.find("#star-icon").addClass('glyphicon-star')
+            // }
+        });
+    });
+</script>
 <div class="modal" id="donateModal" tabindex="-1" role="dialog" aria-labelledby="donateModalLabel" dir=<%=t :html_direction %>>
   <% if app_setting("granting_active") and current_user and @camp.minbudget %>
     <%= form_tag({controller: "camps", action: "update_grants"}, method: "patch", id:"donateForm") do %>
-      <div class="modal-dialog" role="document">
+      <div class="modal-dialog" role="document"> 
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" style='float: <%=t :reverse_direction %>' data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -182,18 +213,55 @@
         <div>
             <% if user_signed_in? %>
 
-                <div>
+                <div class="flag" id='restricted_items'>
                     <% if @camp.flag_type_is_raised('restricted_items') %>
-                        <span>Restricted items is raaaaaaised</span>
+                        <%= image_tag("redflag.png", :alt => "green monster", :size => '100') %>
+                        <span>Restricted items is raised.</span>
+                        <input >
                     <% else %>
+                        <%= image_tag("greenflag.png", :alt => "green monster", :size => '100') %>
                         <span>Restricted items is not raised</span>
                     <% end %> 
-                    <%= image_tag("greenflag.png", :alt => "green monster", :size => '100') %>
+
+                    <%= link_to create_flag_event_camp_path(flag_type: "restricted_items", value: !@camp.flag_type_is_raised('restricted_items')), method: :post do %>
+
+                        <button>magic button</button>
+                    <% end %>
+
                 </div>
 
-                <%= link_to create_flag_event_camp_path(flag_type: "restricted_items", value: true), method: :post do %>
-                    <%= image_tag("greenflag.png", :alt => "green monster", :size => '100') %>
+                <div class="flag" id='incomplete_budget'>
+                    <% if @camp.flag_type_is_raised('incomplete_budget') %>
+                        <%= image_tag("redflag.png", :alt => "green monster", :size => '100') %>
+                        <span>incomplete_budget is raised.</span>
+                    <% else %>
+                        <%= image_tag("greenflag.png", :alt => "green monster", :size => '100') %>
+                        <span>incomplete_budget is not raised</span>
+                    <% end %> 
+
+                    <%= link_to create_flag_event_camp_path(flag_type: "incomplete_budget", value: !@camp.flag_type_is_raised('incomplete_budget')), method: :post do %>
+
+                        <button>magic button</button>
+                    <% end %>
+
+                </div>
+
+
+                <%= form_tag({controller: "camps", action: "create_flag_event"}, method: "post", id:"flag-form") do |f| %>
+                    
+                    <% ['incomplete_budget', 'restricted_items', 'transport', 'unnecessary_material'].each do |flag_type| %>
+                        <%= label_tag flag_type, flag_type %>
+                        <%= check_box_tag flag_type, {}, flag_type %>
+                    <% end %>
+
+                    <%= hidden_field_tag :flag_type, "hello-world" %>
+                    <%= hidden_field_tag :value, 'true' %>
+                    <%= submit_tag 'flag', :class => "btn btn-success donate-now-button" %>
+                     
                 <% end %>
+
+
+                <hr/>
                 <%= link_to 'Incomplete budget', create_flag_event_camp_path(flag_type: "incomplete_budget", value: true), method: :post %>
                 <%= link_to 'Transport', create_flag_event_camp_path(flag_type: "transport", value: true), method: :post %>
                 <%= link_to 'Unnecessary material use', create_flag_event_camp_path(flag_type: "unnecessary_material", value: true), method: :post %>

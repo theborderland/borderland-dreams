@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.5.1'
+ruby '~> 2.5.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.7'
@@ -24,6 +24,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'devise', '4.4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+gem 'omniauth-facebook'
+gem 'omniauth-saml'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -33,9 +35,6 @@ gem 'devise', '4.4.0'
 
 # Use HAML for views
 gem 'haml'
-
-# Enable Facebook authentication.
-gem 'omniauth-facebook'
 
 # Admin backend
 gem 'activeadmin', github: 'activeadmin'
@@ -87,6 +86,10 @@ gem 'best_in_place', '~> 3.0.1'
 # Tag dreams
 gem 'acts-as-taggable-on', '~> 4.0'
 
+# GraphQL API
+gem 'graphql', '1.8.13'
+gem 'graphiql-rails', '1.5.0', group: :development
+
 group :production do
   # needed by herokus
   gem 'rails_12factor'
@@ -128,3 +131,4 @@ group :development do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', '~> 0.4.0', group: :doc
 end
+

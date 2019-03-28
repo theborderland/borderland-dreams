@@ -1,8 +1,12 @@
+Rails.application.routes.default_url_options = ActionMailer::Base.default_url_options
+
 class Processors
   def self.camp_created(log_entry, loomio) # static method
+    url_helper = Class.new{ include Rails.application.routes.url_helpers }.new
     camp = log_entry.object
 
-    response = loomio.new_thread(camp.name, "hello")
+    response = loomio.new_thread(camp.name,
+                                 url_helper.camp_url(camp))
 
     thread_id = response['discussions'][0]['id']
     thread_key = response['discussions'][0]['key']

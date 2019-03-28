@@ -40,7 +40,7 @@ def run_bot
   loomio = LoomioHandler.new()
 
   # start a new thread and run an infinite loop inside it
-  Thread.new do
+  #Thread.new do
     loop do
       LogEntry
         .where("loomio_consumed IS 'f'") # extract all log_entries that haven't been processed yet
@@ -49,6 +49,7 @@ def run_bot
         }
       sleep 5 # check for new events every 5 seconds
     end
-  end
+  #end
 end
 
+run_bot

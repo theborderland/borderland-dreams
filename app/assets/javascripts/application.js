@@ -55,6 +55,19 @@ $(function() {
 					button.find("#star-icon").removeClass("glyphicon-star-empty")
           button.find("#star-icon").addClass('glyphicon-star')
         }
-    });
+		});
+		
+		$(function() {
+			$("#toggle").click(function() {
+				if ($(this).is(":checked")) {
+					$("#grid-view").hide();
+					$("#table-view").show();
+				} else {
+
+					$("#grid-view").show();
+					$("#table-view").hide();
+				}
+			});
+		});
 });
 });

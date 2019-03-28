@@ -71,9 +71,9 @@ class CampsController < ApplicationController
   # end
 
   def create_flag_event
+    puts("==========================")
     incoming_flag_type = params[:flag_type]
     incoming_flag_value = params[:value]
-
     # validate that the flag_event is attempting to change the global state of the
     # flag and create the event if that's the case
     if (@camp.flag_type_is_raised(incoming_flag_type).to_s != incoming_flag_value.to_s)

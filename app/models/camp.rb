@@ -149,7 +149,10 @@ class Camp < ApplicationRecord
 
   def flag_type_is_raised(flag_type)
     relevant_events = FlagEvent.where(["flag_type == ? and camp_id = ?", flag_type, self.id])
-    relevant_events.where(created_at: relevant_events.select('MAX(created_at)')).first.value
+    last_event = relevant_events.where(created_at: relevant_events.select('MAX(created_at)')).first
+    return last_event.value if last_event != nil
+
+    false
   end
   
   def self.options_for_tags

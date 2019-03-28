@@ -221,7 +221,9 @@
                 <%= button_to t(:add_my_name), :join_camp, {class: 'btn btn-success button join-dream-button'} %>
             <% end %>
         <% end %>
-        
+
+        <%= render 'loomio_comments' %>
+
     </div> <!-- col-md-8 -->
 
     <div class="col-md-4">
@@ -394,13 +396,11 @@
         </div> <!-- safety-file-comments -->
         <% end %>
 
-      <% if current_user&.guide || current_user&.admin %>
         <%= render 'tags' %>
-
-      <% end %>
-
 
     </div> <!-- col-md-3 -->
 
 </div> <!-- row -->
 </div>
+
+<%= javascript_include_tag 'loomio' %>

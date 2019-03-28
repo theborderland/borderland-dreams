@@ -300,7 +300,6 @@
                 </div>
             </div>
         <% end %>
-
     </div> <!-- col-md-8 -->
 
     <div class="col-md-4">
@@ -325,9 +324,15 @@
                     </span></li>
                     <li><span>
                         <a href="<%= camp_images_path(@camp) %>" class="btn btn-primary camp-button" role="btn button"><%=t :manage_images %></a>
-                        </span>
-                    </li>
-              
+
+                    <!-- Safety features -->
+
+                    <% if app_setting("safetybag") %>
+                        <li><span>
+                            <a href="<%= camp_safety_sketches_path(@camp) %>" class="btn btn-warning camp-button" role="btn button"><%=t :safety %></a>
+                        </span></li>
+                    <% end %>
+
                     <!-- Granting system -->
                     <% if current_user.guide || current_user.admin %>
                         <%= button_to t(@camp.grantingtoggle? ? :turn_off_granting : :enable_granting),
@@ -465,21 +470,6 @@
                 </div>
             </div>
         </div> <!-- safety-file-comments -->
-        <% end %>
-
-        <% if app_setting("safetybag") && (current_user&.guide || (@camp.creator == current_user))%>
-          <div class="panel panel-default">
-              <div class="panel-heading"><b><%=t :form_extra_team_member_head %></b></div>
-              <div class="panel-body">
-              <ul>
-              <li><span><b><%=t :form_safetybag_first_member_name_label %>:</b> <%= @camp.safetybag_firstMemberName %></span></li>
-              <li><span><b><%=t :form_safetybag_first_member_email_label %>:</b> <%= @camp.safetybag_secondMemberName %></span></li>
-              <li><span><b><%=t :form_safetybag_second_member_name_label %>:</b> <%= @camp.safetybag_firstMemberEmail %></span></li>
-              <li><span><b><%=t :form_safetybag_second_member_email_label %>:</b> <%= @camp.safetybag_secondMemberEmail %></span></li>
-              </ul>
-              </div>
-          </div>
-        <br>
         <% end %>
 
       <% if current_user&.guide || current_user&.admin %>

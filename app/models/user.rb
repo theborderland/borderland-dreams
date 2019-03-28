@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :omniauthable, :omniauth_providers => [ :facebook, :saml ]
 
   has_many :tickets
+  has_many :roles, -> { distinct("name") }
   has_many :memberships
   has_many :camps, through: :memberships
   has_many :favorites
@@ -18,12 +19,22 @@ class User < ApplicationRecord
     u = where(provider: auth.provider, uid: auth.uid).first_or_create! do |user|
       user.email = auth.uid # .info.email TODO for supporting other things than keycloak
       user.password = Devise.friendly_token[0,20]
-      user.grants = 0
+      user.grants = nil
     end
     # Omniauth doesn't know the keycloak schema
-    u.name = auth.extra.raw_info.all.fetch("urn:oid:2.5.4.42", []).fetch(0, "")
+    info = auth.extra.raw_info
+    u.name = info.all.fetch("urn:oid:2.5.4.42", []).fetch(0, "")
     # Last name : urn:oid:2.5.4.4
-    # Roles: raw_info.all["Role"] : array[string]
+
+    for rolename in info.all["Role"]
+      r = Role.where(name: rolename).first_or_create!
+      if rolename.eql? "Borderland 2019 Membership" and u.grants.nil? # TODO multi event support, hacky
+        u.grants = 10
+      end
+      u.roles << r
+    end
+
+
     # avatars: get https://talk.theborderland.se/api/v1/profile/{username}
     # either loomio picture or gravatar
     u.save!

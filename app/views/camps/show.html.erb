@@ -179,6 +179,12 @@
             </div>
         <% end %>
 
+        <div>
+            <% if user_signed_in? %>
+                <%= link_to 'My Link', create_flag_event_camp_path(flag_type: "alcohol", value: true), method: :post %>
+            <% end %>
+        </div>
+
         <% if @camp.budget_items.present? %>
             <div class="camp-description">
                 <b><%=t :budget_label %></b>

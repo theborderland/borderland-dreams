@@ -56,6 +56,14 @@ class CampsController < ApplicationController
     redirect_to camp_path(@camp)
   end
 
+  def get_flag_states(flag_types_list)
+    result = []
+    flag_types_list.each do |flag_type|
+      result.push(@camp.flag_type_is_raised(flag_type))
+    end
+    result
+  end
+
   def update
     if @camp.update_attributes camp_params
       if params[:done] == '1'
@@ -86,6 +94,8 @@ class CampsController < ApplicationController
     @camp.destroy!
     redirect_to camps_path
   end
+
+  def 
 
   # Display a camp and its users
   def show

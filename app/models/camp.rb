@@ -164,6 +164,10 @@ class Camp < ApplicationRecord
     @grants_received ||= self.grants.sum(:amount)
   end
 
+  def flag_type_is_raised(type)
+    FlagEvent.where(:flag_type == type && camp_id == @camp.id).maximum(:timestamp).value
+  end
+
   # Translating the real currency to budget
   # This called on create and on update
   # Rounding up 0.1 = 1, 1.2 = 2

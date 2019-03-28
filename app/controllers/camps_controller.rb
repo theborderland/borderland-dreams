@@ -64,6 +64,10 @@ class CampsController < ApplicationController
     result
   end
 
+  def create_flag_event(flag_type, value)
+    FlagEvent.create(:flag_type: flag_type, :user: current_user, :camp: @camp, value)
+  end
+
   def update
     if @camp.update_attributes camp_params
       if params[:done] == '1'

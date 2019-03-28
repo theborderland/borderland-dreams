@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :people, only: [:show, :update]
     post 'join', on: :member
     post 'archive', on: :member
+    post 'create_flag_event', on: :member
     patch 'toggle_granting', on: :member
     patch 'update_grants', on: :member
     patch 'tag', on: :member

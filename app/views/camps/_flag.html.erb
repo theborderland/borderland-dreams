@@ -1,7 +1,9 @@
 <div class="flag <%= (camp.flag_type_is_raised(flag_type) ? 'raised' : '') %>">
     <div>
         <%= image_tag("greenflag.png", :size => '100', :class => (camp.flag_type_is_raised(flag_type) ? 'startled' : '')) %>
-        <span><%= flag_name %></span>
+        <b><span><%= flag_name %></span></b>
+        <br>
+        <span>Monstered count: <%= camp.flag_count(flag_type) %></span>
     </div>
     <div>
         <%= form_tag({controller: "camps", action: "create_flag_event"}, method: "post", id: "incomplete_budget_form", class: 'hidden-form') do %>

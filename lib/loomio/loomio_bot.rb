@@ -43,7 +43,7 @@ def run_bot
   #Thread.new do
     loop do
       LogEntry
-        .where("loomio_consumed IS 'f'") # extract all log_entries that haven't been processed yet
+        .where(loomio_consumed: [false, nil]) # extract all log_entries that haven't been processed yet
         .each { |log_entry|
           process(log_entry, loomio)
         }

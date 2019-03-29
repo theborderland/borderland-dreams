@@ -4,20 +4,31 @@
             <div class="panel-body">
                 <%= simple_form_for @camp, url: { action: 'remove_member'} do |f| %>
                   <div id="tag-container" class="tag-container">
-                      <img class='img-circle dreamcrew-photo' src='https://talk.theborderland.se/system/users/uploaded_avatars/000/000/001/large/46502342_1942024132767485_6589040522864623616_o.jpg' />
+                      <div class="profile-pic">
+                        <%= image_tag('crewpope.png', :class => "img-circle dreamcrew-photo") %>
+                        <span class="tooltiptext"><b><%= @camp.creator.name %></b></span>
+                      </div>
                       <% @camp.memberships.each do |member| %>
-                        <%= remove_member_camp_path(member) %>
-                        <%= link_to image_tag('crewmate.png', :class => "img-circle dreamcrew-photo brightness"), remove_member_camp_path(member), method: :post %>
+                        <div class="profile-pic">
+                          <%= image_tag('crew-default.png', :class => "img-circle dreamcrew-photo") %>
+                          <%= link_to '✘', remove_member_camp_path(@camp, member), class: 'edit', method: :post %>
+                          <span class="tooltiptext"><b><%= member.user.name %></b></span>
+                        </div>
                       <% end %>
+                    <% if current_user && (@camp.creator == current_user || current_user.is_crewmember(@camp)) %>
+                      <div class="profile-pic">
+                        <%= image_tag('crewmate.png', :class => "img-circle") %>
+                      </div>
+                    <% end %>
                   </div>
                 <% end %>
 
-                <%= simple_form_for @camp, url: { action: 'add_member', method: 'post'} do |f| %>
-                  <%= f.text_field :member_email, class: 'form-control', value: '' %>
-                  <%= f.submit 'Add member (!)', id: 'member-add', class: 'btn btn-success btn-sm' %>
+                <% if current_user && (@camp.creator == current_user || current_user.is_crewmember(@camp)) %>
+                  <%= simple_form_for @camp, url: { action: 'add_member', method: 'post'} do |f| %>
+                    <%= f.text_field :member_email, class: 'form-control', value: '' %>
+                    <%= f.submit 'Add member (!)', id: 'member-add', class: 'btn btn-success btn-sm' %>
+                  <% end %>
                 <% end %>
-
             </div>
     </div>
 <% end %>
-

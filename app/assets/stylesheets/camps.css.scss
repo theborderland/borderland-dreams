@@ -493,15 +493,55 @@ div label input {
   padding-top: 10px;
 }
 
-.dreamcrew-photo {
+.profile-pic {
   width: 25%;
   margin-right: 5%;
   margin-top: 15px;
+  position: relative;
+  display: inline-block;
+  &:hover {
+    .edit {
+      display: block;
+    }
+    .tooltiptext {
+      visibility: visible;
+    }
+  }
+}
+
+.dreamcrew-photo {
+  width: 100%;
   &:hover {
     filter: brightness(1.2);
     cursor: pointer;
   }
+}
 
+.edit {
+  padding-top: 7px; 
+  padding-right: 7px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: none;
+  color: red;
+}
+
+.edit a {
+  color: red;
+}
+
+.tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: $c_pinky;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
 }
 
 body {

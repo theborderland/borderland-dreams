@@ -28,4 +28,9 @@ class User < ApplicationRecord
     u.save!
     u
   end
+
+  def is_crewmember(camp)
+    camp.users.find_by(email: self.email).present?
+  end
+
 end

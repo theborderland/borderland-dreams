@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190328114828) do
+ActiveRecord::Schema.define(version: 20190329110728) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     :index=>{:name=>"index_active_admin_comments_on_namespace"}
@@ -36,6 +36,13 @@ ActiveRecord::Schema.define(version: 20190328114828) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",             :null=>false
     t.datetime "updated_at",             :null=>false
+  end
+
+  create_table "approvals", force: :cascade do |t|
+    t.integer  "camp_id",    :index=>{:name=>"index_approvals_on_camp_id"}
+    t.integer  "user_id",    :index=>{:name=>"index_approvals_on_user_id"}
+    t.datetime "created_at", :null=>false
+    t.datetime "updated_at", :null=>false
   end
 
   create_table "budget_items", force: :cascade do |t|

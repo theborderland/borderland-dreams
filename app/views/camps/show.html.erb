@@ -166,25 +166,6 @@
             </div>
         <% end %>
 
-        <div>
-            <% if user_signed_in? %>
-                <%= render :partial => 'camps/flag', locals: { flag_type: 'restricted_items', flag_name: 'Restricted items', camp: @camp } %>
-                <%= render :partial => 'camps/flag', locals: { flag_type: 'incomplete_budget', flag_name: 'Incomplete budget', camp: @camp } %>
-                <%= render :partial => 'camps/flag', locals: { flag_type: 'transport', flag_name: 'Transport', camp: @camp } %>
-                <%= render :partial => 'camps/flag', locals: { flag_type: 'unnecessary_material', flag_name: 'Unnecessary material', camp: @camp } %>
-                <hr/>
-                <%= link_to 'Incomplete budget', create_flag_event_camp_path(flag_type: "incomplete_budget", value: true), method: :post %>
-                <%= link_to 'Transport', create_flag_event_camp_path(flag_type: "transport", value: true), method: :post %>
-                <%= link_to 'Unnecessary material use', create_flag_event_camp_path(flag_type: "unnecessary_material", value: true), method: :post %>
-                <%= link_to 'Looks good to me', create_flag_event_camp_path(flag_type: "restricted_items", value: true), method: :post %>
-                
-
-                <%= link_to :toggle_favorite_camp, method: :patch, class: (@camp.favorite_users.include?(current_user) ? 'favorite-button starred' : 'favorite-button'), id: 'favorite-button', style: "position: absolute;", :remote => true do %>
-                    <span id="star-icon" class="glyphicon <%= @camp.favorite_users.include?(current_user) ? 'glyphicon-star' : 'glyphicon-star-empty' %>"></span>
-                <% end %>
-            <% end %>
-        </div>
-
         <% if @camp.budget_items.present? %>
             <div class="camp-description">
                 <b><%=t :budget_label %></b>
@@ -299,6 +280,21 @@
                 </div>
             </div>
         <% end %>
+    
+        <% if user_signed_in? and !@camp.grantingtoggle %>
+                <div class="flags">
+                    <%= render :partial => 'camps/flag', locals: { flag_type: 'restricted_items', flag_name: 'Restricted items', camp: @camp } %>
+                    <%= render :partial => 'camps/flag', locals: { flag_type: 'incomplete_budget', flag_name: 'Incomplete budget', camp: @camp } %>
+                    <%= render :partial => 'camps/flag', locals: { flag_type: 'transport', flag_name: 'Transport', camp: @camp } %>
+                    <%= render :partial => 'camps/flag', locals: { flag_type: 'unnecessary_material', flag_name: 'Unnecessary material', camp: @camp } %>
+
+                    <%= link_to :toggle_approval_camp, method: :patch, class: (@camp.approvers.include?(current_user) ? 'ha' : 'ho') do %>
+                        <%= @camp.approvers.include?(current_user) ? 'Remove approval' : 'Approve' %>
+                    <% end %>
+                    <br />
+                    <%= @camp.approvers.count %> approvers
+                </div>                
+            <% end %>
 
         <div class="creation-info">
             <ul>

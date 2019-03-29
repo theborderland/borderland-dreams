@@ -172,6 +172,18 @@ class CampsController < ApplicationController
     end
   end
 
+  def toggle_approval
+    if !current_user
+      flash[:notice] = "please log in :)"
+    elsif @camp.approvers.include?(current_user)
+      @camp.approvers.delete(current_user)
+      redirect_to @camp
+    else
+      @camp.approvers << current_user
+      redirect_to @camp
+    end
+  end
+
   def archive
     @camp.update!(active: false)
     redirect_to camps_path

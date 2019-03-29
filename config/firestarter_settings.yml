@@ -22,9 +22,10 @@ defaults: &defaults
   user_authentication_vs_tixwise: <%= ENV['TIXWISE'] or false %>
   add_to_list: <%= ENV['ADD_TO_LIST'] or true %>
   granting_active: <%= ENV['GRANTING_ACTIVE'] or true %>
-  footer_text: <%= ENV['FOOTER_TEXT'] or true %>
+  footer_text: <%= ENV['FOOTER_TEXT'] or false %>
   creation_sidebar_welcome: <%= ENV['CREATION_SIDEBAR'] or true %>
   safetybag: <%= ENV['SAFETYBAG'] or true %>
+  dreamcrew: <%= ENV['DREAMCREW'] or true %>
   person_early_arrival: <%= ENV['PERSON_EARLY_ARRIVAL'] or false %>
   person_has_ticket: <%= ENV['PERSON_HAS_TICKET'] or false %>
   multi_lang_support: <%= ENV['MULTI_LANG_SUPPORT'] or false %>
@@ -42,6 +43,11 @@ defaults: &defaults
   saml_idp_descriptor: <%= ENV['SAML_IDP_DESCRIPTOR'] or "./vendor/saml/idpssodescriptor.xml" %>
   saml_client_id: <%= ENV['SAML_CLIENT_ID'] or "dreams-test" %>
   saml_human_name: <%= ENV['SAML_HUMAN_NAME'] or "Borderland" %>
+
+  # Graphics
+  cover_photo: <%= ENV['cover_photo'] or 'coverphoto.png' %>
+  logo: <%= ENV['logo'] or 'logo_en.png' %>
+  placeholder: <%= ENV['placeholder'] or 'bsb_placeholder_square.jpg' %>
 
 development:
   <<: *defaults

@@ -29,9 +29,11 @@
 	.logophoto {
 		background-repeat: no-repeat;
 		background-size: 200px 60px;
-		width: 200px;
+		width: 250px;
 		height: 60px;
 		margin: 10px 0 0 0;
+    -webkit-filter: drop-shadow(20px 20px 20px #222);
+    filter: drop-shadow(20px 20px 20px #222);
 	}
 }
 

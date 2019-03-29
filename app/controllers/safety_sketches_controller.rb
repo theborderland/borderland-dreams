@@ -23,7 +23,7 @@ class SafetySketchesController < ApplicationController
 
   def load_camp!
     @camp = Camp.find(params[:camp_id])
-    assert(current_user == @camp.creator || current_user.admin, :security_cant_change_images_you_dont_own)
+    assert(current_user == @camp.creator || current_user.is_crewmember(@camp) || current_user.admin, :security_cant_change_images_you_dont_own)
   end
 
   def ensure_image!

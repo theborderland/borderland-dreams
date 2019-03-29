@@ -7,6 +7,10 @@ class UsersController < ApplicationController
                        .where('users.id != ?', current_user.id).select('users.email')
   end
 
+  def show
+    @user = User.find(params[:id])
+  end
+
   def load_lang_detector
     @detector = StringDirection::Detector.new(:dominant)
   end

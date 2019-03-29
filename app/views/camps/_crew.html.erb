@@ -10,7 +10,7 @@
                       </div>
                       <% @camp.memberships.each do |member| %>
                           <div class="profile-pic">
-                          <%= link_to image_tag('crew-default.png', :class => "img-circle dreamcrew-photo"), member %>
+                          <%= link_to image_tag('crew-default.png', :class => "img-circle dreamcrew-photo"), member.user %>
                           <%= link_to '✘', remove_member_camp_path(@camp, member), class: 'edit', method: :post %>
                           <span class="tooltiptext"><b><%= member.user.name %></b></span>
                         </div>

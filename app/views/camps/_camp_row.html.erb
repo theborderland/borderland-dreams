@@ -11,3 +11,8 @@
     <%= flag_sum %>
   </a>
 </td>
+<td>
+  <a href="<%= url_for(@the_camp) %>">
+    <%= @the_camp.approvers.count %>
+  </a>
+</td> 

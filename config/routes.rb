@@ -24,6 +24,7 @@ Rails.application.routes.draw do
     post 'archive', on: :member
     post 'create_flag_event', on: :member
     patch 'toggle_favorite', on: :member
+    patch 'toggle_approval', on: :member
     patch 'toggle_granting', on: :member
     patch 'update_grants', on: :member
     post 'remove_tag', on: :member

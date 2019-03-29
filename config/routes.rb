@@ -14,7 +14,8 @@ Rails.application.routes.draw do
       omniauth_callbacks: 'users/omniauth_callbacks',
       registrations: 'users/registrations' 
   }
-  
+
+
   resources :camps, :path => 'dreams' do
     resources :images
     resources :safety_sketches
@@ -25,10 +26,12 @@ Rails.application.routes.draw do
     patch 'update_grants', on: :member
     post 'remove_tag', on: :member
     post 'tag', on: :member
+    patch 'add_member', on: :member
+    post 'remove_member', on: :member
   end
 
+  get '/users/:id', to: 'users#show', as: :user
   get '/pages/:page' => 'pages#show'
-  get '/me' => 'users#me'
   get '/howcanihelp' => 'howcanihelp#index'
   
   get '*unmatched_route' => 'application#not_found'

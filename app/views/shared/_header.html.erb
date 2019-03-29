@@ -1,5 +1,5 @@
-<% image_path = image_path("coverphoto.png") %>
-<% logo_path = image_path("logo_" + I18n.locale.to_s + ".png") %>
+<% image_path = image_path(app_setting('cover_photo')) %>
+<% logo_path = image_path(app_setting('logo')) %>
 
 <header>
 <div class="container coverphoto <%= yield(:cover_head) %>" style="background-image:url('<%= image_path %>');background-position: center; ">
@@ -35,7 +35,7 @@
               <div class="dropdown">
                 <a class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> <%=t :private_area %></a>
                   <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                  <li><%= link_to t(:my_area), me_path %></li>
+                  <li><%= link_to t(:my_area), current_user %></li>
                   <li><%= link_to t(:logout_menu), destroy_user_session_path, method: :delete %></li>
                 </ul>
               </div>

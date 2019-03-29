@@ -1,12 +1,4 @@
-<% content_for(:head) do %>
-  <title><%= t(:browser_title_tag) %></title>
-  <%= javascript_include_tag 'blueimp_script' %>
-<% end %>
-
-<% begin %>
- <%= render 'camps/dont_miss_out', except: nil %> 
-<% end %>
-<div class='me'>
+<% if current_user == @user %>
 <div class="profile col-md-5 col-xs-12" dir="<%=t :html_direction %>" style="float: <%=t :lang_direction%>">
   <div class="panel panel-default">
     <div class="panel-heading">
@@ -59,6 +51,4 @@
     </div>
   </div>
 </div>
-
-<%= render :partial => 'users/favorites', locals: { camps: @camps } %>
-</div class='me'>
+<% end %>

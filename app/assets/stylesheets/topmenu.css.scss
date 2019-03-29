@@ -18,6 +18,8 @@
   max-width: none;
   background-repeat: no-repeat;
   background-size: 274px 82px;
+  -webkit-filter: drop-shadow(7px 7px 7px #222);
+  filter: drop-shadow(7px 7px 7px #222);
 }
 
 .header-top-menu {
@@ -48,7 +50,8 @@
 
     &:hover {
         color: $c-pinky !important;
-        background: rgba(0, 0, 0, 0.7) !important;
+        -webkit-filter: drop-shadow(15px 15px 15px #222);
+        filter: drop-shadow(15px 15px 15px #222);
         border-radius: 4px;
       }
   }
@@ -81,6 +84,10 @@
     border-radius: 4px;
     font-size: 24px;
     font-weight: 500;
+    &:hover {
+        color: $c-pinky !important;
+        background-color: rgba(255,255,255,0.4);
+      }
   }
 
   .dropdown-menu>li>a {

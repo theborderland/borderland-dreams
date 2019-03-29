@@ -1,6 +1,6 @@
 <% if app_setting("dreamcrew") %>
     <div class="panel panel-default">
-            <div class="panel-heading"><h2 class="header-sub-heading">Dream crew (!)</h2></div>
+            <div class="panel-heading"><h2 class="header-sub-heading"><%=t :dreamcrew %></h2></div>
             <div class="panel-body">
                 <%= simple_form_for @camp, url: { action: 'remove_member'} do |f| %>
                   <div id="tag-container" class="tag-container">
@@ -26,7 +26,7 @@
                 <% if current_user && (@camp.creator == current_user || current_user.is_crewmember(@camp)) %>
                   <%= simple_form_for @camp, url: { action: 'add_member', method: 'post'} do |f| %>
                     <%= f.text_field :member_email, class: 'form-control', value: '' %>
-                    <%= f.submit 'Add member (!)', id: 'member-add', class: 'btn btn-success btn-sm' %>
+                    <%= f.submit t(:add_crewmember), id: 'member-add', class: 'btn btn-success btn-sm' %>
                   <% end %>
                 <% end %>
             </div>

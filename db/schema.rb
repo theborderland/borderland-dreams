@@ -172,7 +172,10 @@ ActiveRecord::Schema.define(version: 20190329160313) do
   end
 
   create_table "roles", force: :cascade do |t|
-    t.string "identifier"
+    t.string   "name"
+    t.integer  "user_id",    :index=>{:name=>"index_roles_on_user_id"}
+    t.datetime "created_at", :null=>false
+    t.datetime "updated_at", :null=>false
   end
 
   create_table "safety_items", force: :cascade do |t|

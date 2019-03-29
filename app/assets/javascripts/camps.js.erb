@@ -132,52 +132,52 @@ $(document).ready(function() {
    });
 
    // On donate - Animate hearts
-  $('.donate-now-button').click(function(){
-    $('.donate-now-button').prop('disabled', true);
-    $('.donate-now-button').css('cursor', 'wait');
-    $('#donateModal').css('cursor', 'wait');
-    var heartsToHandle = $('.heartSelected');
-    animationCount = heartsToHandle.length;
-    var increaseBy = 1;
-    var defaultSpeed = 100;
-    $('.heartSelected').each(function(){
-      var heartImage = "<%= asset_path('hearts/heart_default_hover.png') %>";
-      var animatedHeartImg = $(this).data('animated-heart');
-      $heartAsImage = $('<img>').attr('src',heartImage).attr('width',defaultHeartSize+'px').attr('height',defaultHeartSize+'px');
-        $(this).replaceWith($heartAsImage);
+  // $('.donate-now-button').click(function(){
+  //   $('.donate-now-button').prop('disabled', true);
+  //   $('.donate-now-button').css('cursor', 'wait');
+  //   $('#donateModal').css('cursor', 'wait');
+  //   var heartsToHandle = $('.heartSelected');
+  //   animationCount = heartsToHandle.length;
+  //   var increaseBy = 1;
+  //   var defaultSpeed = 100;
+  //   $('.heartSelected').each(function(){
+  //     var heartImage = "<%= asset_path('hearts/heart_default_hover.png') %>";
+  //     var animatedHeartImg = $(this).data('animated-heart');
+  //     $heartAsImage = $('<img>').attr('src',heartImage).attr('width',defaultHeartSize+'px').attr('height',defaultHeartSize+'px');
+  //       $(this).replaceWith($heartAsImage);
 
-       var animateUp = {
-        height: ($heartAsImage.height()+increaseBy),
-        width: ($heartAsImage.width()+increaseBy)
-      };
-      var animateDown = {
-        height: ($heartAsImage.height()-increaseBy),
-        width: ($heartAsImage.width()-increaseBy)
-      };
+  //      var animateUp = {
+  //       height: ($heartAsImage.height()+increaseBy),
+  //       width: ($heartAsImage.width()+increaseBy)
+  //     };
+  //     var animateDown = {
+  //       height: ($heartAsImage.height()-increaseBy),
+  //       width: ($heartAsImage.width()-increaseBy)
+  //     };
 
-       $heartAsImage
-      .animate(animateUp,defaultSpeed)
-      .animate(animateDown,defaultSpeed)
-      .animate(animateUp,defaultSpeed)
-      .animate(animateDown,defaultSpeed)
-      .animate(animateUp,defaultSpeed,"linear", function() {
-        var heartSize = defaultHeartSize + increaseBy;
-        $heartAsImageAnimated = $('<img>').attr('src',animatedHeartImg).attr('width',heartSize+'px').attr('height',heartSize+'px');
-        $(this).replaceWith($heartAsImageAnimated);
-        $heartAsImageAnimated.animate({
-          height: (heartSize + increaseBy),
-          width: (heartSize + increaseBy)
-        },defaultSpeed*2, function() {
-          $(this).animate({
-            height: (heartSize),
-            width: (heartSize),
-          },defaultSpeed*2,function() {
-            if (!--animationCount) {
-              $('#donateForm').submit();
-            }
-          });
-        });
-      })
-    });
-  });
+  //      $heartAsImage
+  //     .animate(animateUp,defaultSpeed)
+  //     .animate(animateDown,defaultSpeed)
+  //     .animate(animateUp,defaultSpeed)
+  //     .animate(animateDown,defaultSpeed)
+  //     .animate(animateUp,defaultSpeed,"linear", function() {
+  //       var heartSize = defaultHeartSize + increaseBy;
+  //       $heartAsImageAnimated = $('<img>').attr('src',animatedHeartImg).attr('width',heartSize+'px').attr('height',heartSize+'px');
+  //       $(this).replaceWith($heartAsImageAnimated);
+  //       $heartAsImageAnimated.animate({
+  //         height: (heartSize + increaseBy),
+  //         width: (heartSize + increaseBy)
+  //       },defaultSpeed*2, function() {
+  //         $(this).animate({
+  //           height: (heartSize),
+  //           width: (heartSize),
+  //         },defaultSpeed*2,function() {
+  //           if (!--animationCount) {
+  //             $('#donateForm').submit();
+  //           }
+  //         });
+  //       });
+  //     })
+  //   });
+  // });
 });

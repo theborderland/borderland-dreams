@@ -4,7 +4,12 @@
 <% end %>
 
 
+<% if current_user == @user %>
+<%= render 'camps/dont_miss_out', except: nil %>
+<% end %>
+
 <div class='me'>
+    <%= render :partial => 'users/your_space'  %>
     <%= render :partial => 'users/favorites', locals: { camps: @camps, user: @user } %>
 </div>
 

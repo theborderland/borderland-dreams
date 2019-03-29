@@ -1,7 +1,4 @@
-<% if (current_user && (current_user == @camp.creator)) %>
-  <% @can_edit = true %>
-<% end %>
-<% if (current_user && (current_user.guide || current_user.admin)) %>
+<% if (current_user && ((@camp.creator == current_user || current_user.is_crewmember(@camp)) || (current_user.guide || current_user.admin))) %>
   <% @can_edit = true %>
 <% end %>
 
@@ -9,7 +6,7 @@
   <title><%= "Editing #{@camp.name} - #{t(:browser_title_tag)}" %></title>
 <% end %>
 
-<% if current_user && (@camp.creator == current_user or current_user.admin or current_user.guide)%>
+<% if (current_user && (@camp.creator == current_user || current_user.is_crewmember(@camp) || (current_user.guide || current_user.admin)))%>
 
 <div dir='<%=t :html_direction %>'>
 

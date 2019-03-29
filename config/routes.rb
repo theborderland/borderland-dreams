@@ -6,14 +6,19 @@ Rails.application.routes.draw do
   post "/graphql", to: "graphql#execute"
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  
+
   root 'camps#index'
-  
-  devise_for :users,
-    controllers: { 
-      omniauth_callbacks: 'users/omniauth_callbacks',
-      registrations: 'users/registrations' 
-  }
+
+  c = Rails.application.config.x.firestarter_settings # TODO ?
+  if c['saml_enabled']
+    devise_for :users, :skip => [ :registrations ],
+               controllers: {
+                 omniauth_callbacks: 'users/omniauth_callbacks',
+                 registrations: 'users/registrations'
+               }
+  else
+    devise_for :users
+  end
 
 
   resources :camps, :path => 'dreams' do
@@ -30,10 +35,11 @@ Rails.application.routes.draw do
     post 'set_color', on: :member
     post 'remove_tag', on: :member
     post 'tag', on: :member
+    patch 'add_member', on: :member
+    post 'remove_member', on: :member
   end
 
   get '/users/:id', to: 'users#show', as: :user
-  get '/me' => 'users#me'
   get '/pages/:page' => 'pages#show'
   get '/howcanihelp' => 'howcanihelp#index'
   

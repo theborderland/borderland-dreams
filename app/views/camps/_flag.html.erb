@@ -1,7 +1,7 @@
 <div class="flag <%= (camp.flag_type_is_raised(flag_type) ? 'raised' : '') %>">
     <div class="inner" id="flagz">
-        <%= image_tag("angry-monster.gif", :size => '75', :class => 'angry') %>
-        <%= image_tag("calm-monster.gif", :size => '75', :class => 'calm') %>
+        <%= image_tag("angry-monster.gif", :size => '100', :class => 'angry') %>
+        <%= image_tag("calm-monster.gif", :size => '100', :class => 'calm') %>
         <p><%= flag_name %></p>
         <% if camp.flag_count(flag_type) > 0 %>
             <span>Monster awoken <%= camp.flag_count(flag_type) %> times</span>

@@ -150,7 +150,7 @@ class Camp < ApplicationRecord
   end
 
   def flag_count(flag_type)
-    relevant_events = FlagEvent.where(["flag_type == ? and camp_id = ?", flag_type, self.id])
+    relevant_events = FlagEvent.where(["flag_type == ? and camp_id = ? and value = ?", flag_type, self.id, true])
     relevant_events.count
   end
 

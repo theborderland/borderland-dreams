@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190327152450) do
+ActiveRecord::Schema.define(version: 20190328113601) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     :index=>{:name=>"index_active_admin_comments_on_namespace"}
@@ -155,7 +155,29 @@ ActiveRecord::Schema.define(version: 20190327152450) do
   end
 
   create_table "roles", force: :cascade do |t|
-    t.string "identifier"
+    t.string   "name"
+    t.integer  "user_id",    :index=>{:name=>"index_roles_on_user_id"}
+    t.datetime "created_at", :null=>false
+    t.datetime "updated_at", :null=>false
+  end
+
+  create_table "safety_items", force: :cascade do |t|
+    t.string   "headline"
+    t.string   "information"
+    t.integer  "camp_id",     :index=>{:name=>"index_safety_items_on_camp_id"}
+    t.datetime "created_at",  :null=>false
+    t.datetime "updated_at",  :null=>false
+  end
+
+  create_table "safety_sketches", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "camp_id"
+    t.datetime "created_at",              :null=>false
+    t.datetime "updated_at",              :null=>false
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.bigint   "attachment_file_size"
+    t.datetime "attachment_updated_at"
   end
 
   create_table "safety_items", force: :cascade do |t|

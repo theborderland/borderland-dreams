@@ -26,10 +26,11 @@ Rails.application.routes.draw do
     patch 'update_grants', on: :member
     post 'remove_tag', on: :member
     post 'tag', on: :member
+    patch 'add_member', on: :member
+    post 'remove_member', on: :member
   end
 
   get '/users/:id', to: 'users#show', as: :user
-  get '/me' => 'users#me'
   get '/pages/:page' => 'pages#show'
   get '/howcanihelp' => 'howcanihelp#index'
   

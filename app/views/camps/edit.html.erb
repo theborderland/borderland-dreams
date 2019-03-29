@@ -1,5 +1,5 @@
 
-<% if (current_user && (current_user == @camp.creator)) %>
+<% if (current_user && (current_user == @camp.creator || current_user.is_crewmember(@camp))) %>
   <% @can_edit = true %>
 <% end %>
 <% if (current_user && (current_user.guide || current_user.admin)) %>
@@ -21,7 +21,7 @@
   <title><%= "Editing #{@camp.name} - #{t(:browser_title_tag)}" %></title>
 <% end %>
 
-<% if current_user && (@camp.creator == current_user or current_user.admin or current_user.guide)%>
+<% if current_user && (@camp.creator == current_user or current_user.admin or current_user.guide or current_user.is_crewmember(@camp))%>
 	<%= render 'form' %>
 
     <div id="footer-bar" dir=<%=t :html_direction %> style=<%= "text-align:" + I18n.t('reverse_direction')%>>

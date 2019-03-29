@@ -6,7 +6,7 @@ class CampsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
   before_action :load_camp!, except: [:index, :new, :create]
   before_action :ensure_admin_delete!, only: [:destroy, :archive]
-  before_action :ensure_admin_update!, only: [:update]
+  before_action :ensure_admin_update!, only: [:update, :add_member, :remove_member]
   before_action :ensure_grants!, only: [:update_grants]
   before_action :load_lang_detector, only: [:show, :index]
 
@@ -111,16 +111,32 @@ class CampsController < ApplicationController
     @main_image = @camp.images.first&.attachment&.url(:large)
   end
 
-  # Allow a user to join a particular camp.
-  def join
-    if !current_user
-      flash[:notice] = t(:join_dream)
-    elsif @camp.users.include?(current_user)
-      flash[:notice] = t(:join_already_sent)
+  # Add a user to a camp
+  def add_member
+    email = params[:camp]['member_email']
+    member = User.where(email: email).first
+    if member == @camp.creator
+      flash[:notice] = 'That person is already in your crew. Way to go!'
     else
-      flash[:notice] = t(:join_dream)
-      @camp.users << @user
+      flash[:notice] = 'You added a new crewmember, and they can now edit your shared dream. Praise be!'
+      @camp.users << member
     end
+    redirect_to @camp
+  rescue ActiveRecord::RecordInvalid => e
+    flash[:notice] = 'That person is already in your crew. Way to go!'
+    redirect_to @camp
+  rescue ActiveRecord::AssociationTypeMismatch => e
+    flash[:alert] = 'Could not find that email. Maybe your crewmate is not a member yet?'
+    redirect_to @camp
+  end
+
+
+  # Add a user to a camp
+  def remove_member
+    member_id = params[:format]
+    @member = Membership.find(member_id)
+    @member.destroy
+    flash[:notice] = 'You removed a member of your crew. And so it goes.'
     redirect_to @camp
   end
 
@@ -166,7 +182,7 @@ class CampsController < ApplicationController
   end
 
   def ensure_admin_update!
-    assert(@camp.creator == current_user || current_user.admin || current_user.guide, :security_cant_edit_dreams_you_dont_own)
+    assert(@camp.creator == current_user || current_user.admin || current_user.guide || current_user.is_crewmember(@camp), :security_cant_edit_dreams_you_dont_own)
   end
 
   def ensure_grants!

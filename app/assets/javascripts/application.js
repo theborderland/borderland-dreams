@@ -94,26 +94,21 @@ $(function() {
 			return false;
 		}
 		var elements = $('[id^="edit_camp"]');
-		console.log(elements);
 
 		$('.change_color').css('visibility', 'hidden');
 
 		elements.each(index => {
 			var basic = $(elements[index]).find('.basic');
-			console.log(elements[index]);
 			var things = $(elements[index]).attr('id').split('_');
 			var the_id = things[things.length - 1];
-			console.log($(elements[index]).attr('id').split('_'), the_id)
 			basic.spectrum({
 				// color: "#f00",
 				change: function(color) {
 					var rgb = color.toRgb();
-					console.log(basic);
 					var rgb_string = 'rgb('+rgb['r']+','+rgb['g']+','+rgb['b']+')';
 					// basic.find("#basic-log").text("change called: " + color.toHexString());
 					basic.val(rgb_string)
-					console.log(basic.closest('.panel-info'+the_id), '.panel-info'+the_id);
-					console.log(rgb_string);
+
 					$('.panel-info'+the_id).css('background-color', rgb_string)
 					elements[index].submit();
 				}});

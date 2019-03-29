@@ -85,9 +85,13 @@ class CampsController < ApplicationController
         message_string = "Nameless user removed a concern %s" % [incoming_flag_type]
       end
 
+      if comment != nil
+        final_message = message_string + "\n" + comment
+      end
+
       audit_log(
         'flag_raised',
-        message_string + "\n" + comment,
+        final_message,
         @camp
       )
     end

@@ -31,7 +31,6 @@ Rails.application.routes.draw do
   end
 
   get '/users/:id', to: 'users#show', as: :user
-  get '/me' => 'users#me'
   get '/pages/:page' => 'pages#show'
   get '/howcanihelp' => 'howcanihelp#index'
   

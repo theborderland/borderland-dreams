@@ -5,12 +5,12 @@
                 <%= simple_form_for @camp, url: { action: 'remove_member'} do |f| %>
                   <div id="tag-container" class="tag-container">
                       <div class="profile-pic">
-                        <%= image_tag('crewpope.png', :class => "img-circle dreamcrew-photo") %>
+                          <%= link_to image_tag('crewpope.png', :class => "img-circle dreamcrew-photo"), @camp.creator %>
                         <span class="tooltiptext"><b><%= @camp.creator.name %></b></span>
                       </div>
                       <% @camp.memberships.each do |member| %>
-                        <div class="profile-pic">
-                          <%= image_tag('crew-default.png', :class => "img-circle dreamcrew-photo") %>
+                          <div class="profile-pic">
+                          <%= link_to image_tag('crew-default.png', :class => "img-circle dreamcrew-photo"), member %>
                           <%= link_to '✘', remove_member_camp_path(@camp, member), class: 'edit', method: :post %>
                           <span class="tooltiptext"><b><%= member.user.name %></b></span>
                         </div>

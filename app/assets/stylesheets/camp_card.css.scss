@@ -68,14 +68,30 @@ p {
 .flag {
   padding: 10px 20px;
   margin: 20px 0;
-  cursor: pointer;
   display: flex;
   justify-content: space-between;
+  img {
+    cursor: pointer;
+    transition: 500ms filter;
+    &:hover {
+      filter: hue-rotate(270deg);
+      animation: shake 0.5s;
+      animation-iteration-count: infinite;
+    }
+  }
+}
+.flags {
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 .startled {
   animation: shake 0.5s;
   animation-iteration-count: infinite;
   filter: hue-rotate(270deg);
+  &:hover {
+    filter: hue-rotate(0deg) !important;
+    animation-iteration-count: 0 !important;
+  }
 }
 .raised.active {
   background: rgba(0, 255, 0, 0.2) !important;
@@ -84,10 +100,12 @@ p {
 .active {
   background: rgba(255, 0, 0, 0.2);
   img {
-    animation: shake 0.5s;
-    animation-iteration-count: infinite;
+    // animation: shake 0.5s;
+    // animation-iteration-count: infinite;
 
-    filter: hue-rotate(270deg);
+    animation: rainbow 300ms steps(36) infinite, shake 0.5s infinite;
+
+    //filter: hue-rotate(270deg);
   }
   img.startled {
     animation-iteration-count: 0;
@@ -95,6 +113,34 @@ p {
   }
   form {
     display: block !important;
+    .btn-red {
+      background: red;
+      color: white;
+    }
+    .btn-green {
+      background: green;
+      color: white;
+    }
+  }
+}
+
+@-webkit-keyframes rainbow {
+  from {
+    -webkit-filter: hue-rotate(10deg);
+  }
+  to {
+    -webkit-filter: hue-rotate(360deg);
+  }
+}
+
+@keyframes rainbow {
+  from {
+    -webkit-filter: hue-rotate(10deg);
+    filter: hue-rotate(10deg);
+  }
+  to {
+    -webkit-filter: hue-rotate(360deg);
+    filter: hue-rotate(360deg);
   }
 }
 .hidden-form {

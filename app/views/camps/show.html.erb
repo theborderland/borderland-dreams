@@ -4,15 +4,16 @@
 <script>
     $( document ).ready(function() {
         var flags = $('.flag');
-        var restricted_items_form;
         $('.flag').click(function (e) {
-            if(!e.target.classList.contains("active")) {
+            console.log(e);
+            console.log($('.flag'))
+            if(!e.currentTarget.classList.contains("active")) {
                 flags.each(function(i) {
                     $(flags[i]).removeClass('active')
                 });
-                $(e.target).addClass('active')
+                $(e.currentTarget).addClass('active')
             } else {
-                $(e.target).removeClass('active')
+                $(e.currentTarget).removeClass('active')
             } 
         });
     });

@@ -65,33 +65,73 @@ p {
     transform: translate(1px, -2px) rotate(-1deg);
   }
 }
+#approve-button {
+  background: green;
+  color: white;
+  padding: 20px;
+  font-size: 14px;
+  display: block;
+  background: #00bc69;
+  box-shadow: 3px 5px 0 0 #006c36;
+  border-radius: 8px;
+  max-width: 150px;
+  font-weight: 500;
+  &.clicked {
+    background: #006c36;
+    box-shadow: 0 0 0 0 transparent;
+  }
+  &:hover {
+    box-shadow: 1px 1px 0 0 #006c36;
+  }
+}
+.small {
+  font-size: 10px;
+  text-align: center;
+}
+.flags {
+  display: flex;
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  justify-content: space-between;
+}
 .flag {
-  padding: 10px 20px;
-  margin: 20px 0;
+  padding: 10px;
+  margin: 0;
   display: flex;
   justify-content: space-between;
+  position: relative;
+
+  .inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    p {
+      font-size: 14px;
+      margin: 5px 0;
+      padding: 0;
+      text-align: center;
+    }
+    span {
+      font-size: 10px;
+    }
+  }
   img {
     cursor: pointer;
     transition: 500ms filter;
     &:hover {
-      filter: hue-rotate(270deg);
       animation: shake 0.5s;
       animation-iteration-count: infinite;
     }
   }
 }
-.flags {
-  padding: 10px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-}
+
 .startled {
   animation: shake 0.5s;
   animation-iteration-count: infinite;
-  filter: hue-rotate(270deg);
-  &:hover {
-    filter: hue-rotate(0deg) !important;
-    animation-iteration-count: 0 !important;
-  }
+  filter: hue-rotate(-90deg);
+}
+.startled.active {
+  animation: rainbow 500ms steps(36) infinite, shake 3s infinite !important;
 }
 .raised.active {
   background: rgba(0, 255, 0, 0.2) !important;
@@ -100,16 +140,13 @@ p {
 .active {
   background: rgba(255, 0, 0, 0.2);
   img {
-    // animation: shake 0.5s;
-    // animation-iteration-count: infinite;
-
-    animation: rainbow 300ms steps(36) infinite, shake 0.5s infinite;
-
-    //filter: hue-rotate(270deg);
+    filter: hue-rotate(-90deg);
+    animation: rainbow 500ms steps(36) infinite, shake 0.5s infinite;
   }
   img.startled {
     animation-iteration-count: 0;
     filter: hue-rotate(0deg);
+    animation: rainbow 500ms steps(36) infinite;
   }
   form {
     display: block !important;
@@ -125,26 +162,43 @@ p {
 }
 
 @-webkit-keyframes rainbow {
-  from {
-    -webkit-filter: hue-rotate(10deg);
+  0% {
+    -webkit-filter: hue-rotate(-90deg);
+    filter: hue-rotate(-90deg);
   }
-  to {
-    -webkit-filter: hue-rotate(360deg);
+  50% {
+    -webkit-filter: hue-rotate(0deg);
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    -webkit-filter: hue-rotate(-90deg);
+    filter: hue-rotate(-90deg);
   }
 }
 
 @keyframes rainbow {
-  from {
-    -webkit-filter: hue-rotate(10deg);
-    filter: hue-rotate(10deg);
+  0% {
+    -webkit-filter: hue-rotate(-90deg);
+    filter: hue-rotate(-90deg);
   }
-  to {
-    -webkit-filter: hue-rotate(360deg);
-    filter: hue-rotate(360deg);
+  50% {
+    -webkit-filter: hue-rotate(0deg);
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    -webkit-filter: hue-rotate(-90deg);
+    filter: hue-rotate(-90deg);
   }
 }
 .hidden-form {
   display: none;
+  position: absolute;
+  padding: 20px;
+  top: 150px;
+  left: 0px;
+  background: white;
+  z-index: 99;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.25);
 }
 
 .creation-info {

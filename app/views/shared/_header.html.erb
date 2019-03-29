@@ -1,5 +1,5 @@
-<% image_path = image_path("coverphoto.png") %>
-<% logo_path = image_path("logo_" + I18n.locale.to_s + ".png") %>
+<% image_path = image_path(app_setting('cover_photo')) %>
+<% logo_path = image_path(app_setting('logo')) %>
 
 <header>
 <div class="container coverphoto <%= yield(:cover_head) %>" style="background-image:url('<%= image_path %>');background-position: center; ">

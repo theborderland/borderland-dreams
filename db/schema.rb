@@ -158,6 +158,25 @@ ActiveRecord::Schema.define(version: 20190327152450) do
     t.string "identifier"
   end
 
+  create_table "safety_items", force: :cascade do |t|
+    t.string   "headline"
+    t.string   "information"
+    t.integer  "camp_id",     :index=>{:name=>"index_safety_items_on_camp_id"}
+    t.datetime "created_at",  :null=>false
+    t.datetime "updated_at",  :null=>false
+  end
+
+  create_table "safety_sketches", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "camp_id"
+    t.datetime "created_at",              :null=>false
+    t.datetime "updated_at",              :null=>false
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.bigint   "attachment_file_size"
+    t.datetime "attachment_updated_at"
+  end
+
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id",        :index=>{:name=>"index_taggings_on_tag_id"}
     t.string   "taggable_type", :index=>{:name=>"index_taggings_on_taggable_type"}

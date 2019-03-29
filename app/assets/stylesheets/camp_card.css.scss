@@ -103,7 +103,20 @@ p {
   display: flex;
   justify-content: space-between;
   position: relative;
-
+  img.calm {
+    display: block;
+  }
+  img.angry {
+    display: none;
+  }
+  &.active {
+    img.calm {
+      display: none;
+    }
+    img.angry {
+      display: block;
+    }
+  }
   .inner {
     display: flex;
     flex-direction: column;
@@ -128,29 +141,32 @@ p {
   }
 }
 
-.startled {
-  animation: shake 0.5s;
-  animation-iteration-count: infinite;
-  filter: hue-rotate(-90deg);
-}
-.startled.active {
-  animation: rainbow 500ms steps(36) infinite, shake 3s infinite !important;
+.raised {
+  img.angry {
+    display: block;
+    animation: shake 0.5s infinite !important;
+  }
+  img.calm {
+    display: none;
+  }
 }
 .raised.active {
   background: rgba(0, 255, 0, 0.2) !important;
+  img.angry {
+    display: block;
+    animation: shake 3s 0 !important;
+  }
+  img.calm {
+    display: none;
+  }
 }
 
 .active {
   background: rgba(255, 0, 0, 0.2);
   img {
-    filter: hue-rotate(-90deg);
-    animation: rainbow 500ms steps(36) infinite, shake 0.5s infinite;
+    animation: shake 0.5s infinite;
   }
-  img.startled {
-    animation-iteration-count: 0;
-    filter: hue-rotate(0deg);
-    animation: rainbow 500ms steps(36) infinite;
-  }
+
   form {
     display: block !important;
     .btn-red {
@@ -164,35 +180,6 @@ p {
   }
 }
 
-@-webkit-keyframes rainbow {
-  0% {
-    -webkit-filter: hue-rotate(-90deg);
-    filter: hue-rotate(-90deg);
-  }
-  50% {
-    -webkit-filter: hue-rotate(0deg);
-    filter: hue-rotate(0deg);
-  }
-  100% {
-    -webkit-filter: hue-rotate(-90deg);
-    filter: hue-rotate(-90deg);
-  }
-}
-
-@keyframes rainbow {
-  0% {
-    -webkit-filter: hue-rotate(-90deg);
-    filter: hue-rotate(-90deg);
-  }
-  50% {
-    -webkit-filter: hue-rotate(0deg);
-    filter: hue-rotate(0deg);
-  }
-  100% {
-    -webkit-filter: hue-rotate(-90deg);
-    filter: hue-rotate(-90deg);
-  }
-}
 .hidden-form {
   display: none;
   position: absolute;

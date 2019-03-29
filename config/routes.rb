@@ -6,14 +6,19 @@ Rails.application.routes.draw do
   post "/graphql", to: "graphql#execute"
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  
+
   root 'camps#index'
-  
-  devise_for :users,
-    controllers: { 
-      omniauth_callbacks: 'users/omniauth_callbacks',
-      registrations: 'users/registrations' 
-  }
+
+  c = Rails.application.config.x.firestarter_settings # TODO ?
+  if c['saml_enabled']
+    devise_for :users, :skip => [ :registrations ],
+               controllers: {
+                 omniauth_callbacks: 'users/omniauth_callbacks',
+                 registrations: 'users/registrations'
+               }
+  else
+    devise_for :users
+  end
 
 
   resources :camps, :path => 'dreams' do

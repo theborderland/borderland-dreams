@@ -47,6 +47,7 @@ defaults: &defaults
   # Graphics
   cover_photo: <%= ENV['cover_photo'] or 'coverphoto.png' %>
   logo: <%= ENV['logo'] or 'logo_en.png' %>
+  placeholder: <%= ENV['placeholder'] or 'bsb_placeholder_square.jpg' %>
 
 development:
   <<: *defaults

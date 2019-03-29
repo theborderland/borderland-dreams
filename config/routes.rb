@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     patch 'toggle_approval', on: :member
     patch 'toggle_granting', on: :member
     patch 'update_grants', on: :member
+    post 'set_color', on: :member
     post 'remove_tag', on: :member
     post 'tag', on: :member
   end

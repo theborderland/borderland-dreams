@@ -12,4 +12,6 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w[*.png *.jpg *.jpeg *.gif]
 Rails.application.config.assets.precompile += %w( blueimp_script.js loomio-embed.min.js loomio )
 Rails.application.config.assets.precompile += %w( multiprogress.js )
+Rails.application.config.assets.precompile += %w( spectrum.js )
 Rails.application.config.assets.precompile += %w( jquery.autogrowtextarea.js )
+Rails.application.config.assets.precompile += %w( spectrum.css )

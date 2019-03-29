@@ -20,7 +20,7 @@ class User < ApplicationRecord
   end
 
   def self.from_omniauth(auth)
-    u = where(uid: auth.uid).first_or_create! do |user| # provider: auth.provider,
+    u = where(email: auth.uid).first_or_create! do |user|
       user.email = auth.uid # .info.email TODO for supporting other things than keycloak
       user.password = Devise.friendly_token[0,20]
       user.grants = nil

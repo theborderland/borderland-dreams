@@ -14,7 +14,8 @@ Rails.application.routes.draw do
       omniauth_callbacks: 'users/omniauth_callbacks',
       registrations: 'users/registrations' 
   }
-  
+
+
   resources :camps, :path => 'dreams' do
     resources :images
     resources :safety_sketches
@@ -27,8 +28,9 @@ Rails.application.routes.draw do
     post 'tag', on: :member
   end
 
-  get '/pages/:page' => 'pages#show'
+  get '/users/:id', to: 'users#show', as: :user
   get '/me' => 'users#me'
+  get '/pages/:page' => 'pages#show'
   get '/howcanihelp' => 'howcanihelp#index'
   
   get '*unmatched_route' => 'application#not_found'

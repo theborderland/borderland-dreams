@@ -21,8 +21,7 @@
 
             <%= link_to t("top_headline_faq"), '/pages/faq-'+I18n.locale.to_s %>
             <%= link_to t("how_can_i_help_title"), howcanihelp_path %>
-            <% if user_signed_in? and !app_setting('disable_open_new_dream') and Lockdown.instance.allowed?('submit_dream') and current_user.roles.include?(Role.where(name: "Borderland 2019 Membership").first())
-                # TODO multi burn support %>
+            <% if user_signed_in? and !app_setting('disable_open_new_dream') and Lockdown.instance.allowed?('submit_dream') and current_user.is_member? %>
                 <%= link_to t("register_creation_menu"), new_camp_path %>
             <% end %>
             <% if !user_signed_in? %>

@@ -14,11 +14,8 @@ class CampsController < ApplicationController
   end
 
   def new
-    if current_user.roles.include?(Role.where(name: "Borderland 2019 Membership").first()) # TODO multi burn support
-      @camp = Camp.new
-    else
-      raise "Na ha! You didn't say the magic word"
-    end
+    raise "Na ha! You didn't say the magic word" unless current_user.is_member?
+    @camp = Camp.new
   end
 
   def edit

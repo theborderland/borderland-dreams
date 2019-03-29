@@ -35,7 +35,7 @@
 
       <% if app_setting("granting") %>
         <b><%=t :your_available_grants %></b>:
-        <% if current_user.grants and current_user.grants > 0 %>
+        <% if current_user.grants.to_i > 0 %>
           <% current_user.grants.times do |i| %>
             <%= image_tag "coin.png", class: "coin-image" %>
           <% end %>

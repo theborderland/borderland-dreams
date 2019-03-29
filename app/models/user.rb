@@ -15,6 +15,10 @@ class User < ApplicationRecord
 
   schema_validations whitelist: [:id, :created_at, :updated_at, :encrypted_password]
 
+  def is_member?
+    roles.pluck(:name).include?("Borderland 2019 Membership")
+  end
+
   def self.from_omniauth(auth)
     u = where(uid: auth.uid).first_or_create! do |user| # provider: auth.provider,
       user.email = auth.uid # .info.email TODO for supporting other things than keycloak
@@ -23,16 +27,11 @@ class User < ApplicationRecord
     end
     # Omniauth doesn't know the keycloak schema
     info = auth.extra.raw_info
-    u.name = info.all.fetch("urn:oid:2.5.4.42", []).fetch(0, "")
+    u.name = info.all.dig("urn:oid:2.5.4.42", 0).to_s
     # Last name : urn:oid:2.5.4.4
 
-    for rolename in info.all["Role"]
-      r = Role.where(name: rolename).first_or_create!
-      if rolename.eql? "Borderland 2019 Membership" and u.grants.nil? # TODO multi event support, hacky
-        u.grants = 10
-      end
-      u.roles << r
-    end
+    info.all["Role"].map { |name| u.roles.build(name: name) }
+    u.grants ||= 10 if u.roles.map(&:name).include?("Borderland 2019 Membership") # TODO multi event
 
 
     # avatars: get https://talk.theborderland.se/api/v1/profile/{username}

@@ -12,7 +12,7 @@
                           <div class="profile-pic">
                           <%= link_to image_tag('crew-default.png', :class => "img-circle dreamcrew-photo"), member.user %>
                           <%= link_to '✘', remove_member_camp_path(@camp, member), class: 'edit', method: :post %>
-                          <span class="tooltiptext"><b><%= member.user.name %></b></span>
+                          <span class="tooltiptext"><b><%= member.user.name or "" %></b></span>
                         </div>
                       <% end %>
                     <% if current_user && (@camp.creator == current_user || current_user.is_crewmember(@camp)) %>

@@ -10,7 +10,7 @@ require_relative 'loomio_handler'
 
 @processors_hash = {
   'camp_created': Processors.method(:camp_created),
-  'other_entry_type': Processors.method(:other_entry_type)
+  'flag_raised': Processors.method(:flag_raised)
 }.stringify_keys
 @predefined_entry_types = @processors_hash.keys
 

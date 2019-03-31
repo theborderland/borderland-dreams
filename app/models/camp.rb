@@ -17,9 +17,14 @@ class Camp < ApplicationRecord
   has_many :users, through: :memberships
   has_many :favorites
   has_many :favorite_users, through: :favorites, source: :user
+  has_many :approvals
+  has_many :approvers, through: :approvals, source: :user
   has_many :images #, :dependent => :destroy
   has_many :safety_sketches
   has_many :grants
+  has_many :people, class_name: 'Person'
+  has_many :roles, through: :people
+  has_many :flag_events
   has_many :budget_items 
   has_many :safety_items 
 
@@ -144,6 +149,19 @@ class Camp < ApplicationRecord
     @grants_received ||= self.grants.sum(:amount)
   end
 
+  def flag_count(flag_type)
+    relevant_events = FlagEvent.where(["flag_type = ? and camp_id = ? and value = ?", flag_type, self.id, true])
+    relevant_events.count
+  end
+
+  def flag_type_is_raised(flag_type)
+    relevant_events = FlagEvent.where(["flag_type = ? and camp_id = ?", flag_type, self.id])
+    last_event = relevant_events.where(created_at: relevant_events.select('MAX(created_at)')).first
+    return last_event.value if last_event != nil
+
+    false
+  end
+  
   def self.options_for_tags
     ActsAsTaggableOn::Tag.most_used(20).map { |tag| [tag.name + ' ( ' + tag.taggings_count.to_s+ ' )', tag.name]}
   end
@@ -183,5 +201,35 @@ class Camp < ApplicationRecord
     else
       name
     end
+  end
+  
+  def self.count_all_flags
+    sql = %{
+    SELECT
+      camp_id, COUNT(*)
+    FROM
+      flag_events
+    GROUP BY
+      camp_id
+    }
+    # puts(sql)
+    results = ActiveRecord::Base.connection.execute(
+      sql
+    )
+    if !results.any?
+      return []
+    end
+
+    final_hash = Hash.new
+    results.each do |result|
+      camp_id = result['camp_id']
+      count = result['count']
+      if !count
+        count = 0
+      end
+      final_hash[camp_id] = count
+    end
+    # returns list of lists holding [camp_id, flag_count]
+    final_hash.sort_by {|_key, value| -value}
   end
 end

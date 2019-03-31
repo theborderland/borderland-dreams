@@ -21,6 +21,12 @@ class Processors
     log_entry.save
   end
 
-  def self.other_entry_type(log_entry, loomio)
+  def self.flag_raised(log_entry, loomio)
+    url_helper = Class.new{ include Rails.application.routes.url_helpers }.new
+    camp = log_entry.object
+
+    response = loomio.new_comment(log_entry.description, camp.loomio_thread_id)
+    log_entry.loomio_consumed = true
+    log_entry.save
   end
 end

@@ -1,0 +1,18 @@
+<td>
+  <a href="<%= url_for(@the_camp) %>">
+    <% @name = (app_setting('multi_lang_support') and camp.en_name.present? and I18n.locale.to_s == 'en')? camp.en_name : camp.name %>
+    <%= simple_format(truncate(@name, length: 60),
+                      { class: "name auto-#{@detector.direction(@name)}" },
+                      wrapper_tag: 'h4') %>
+  </a>
+</td>
+<td>
+  <a href="<%= url_for(@the_camp) %>">
+    <%= flag_sum %>
+  </a>
+</td>
+<td>
+  <a href="<%= url_for(@the_camp) %>">
+    <%= @the_camp.approvers.count %>
+  </a>
+</td> 

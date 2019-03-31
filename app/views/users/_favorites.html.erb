@@ -3,7 +3,7 @@
     <div class="camps_list">
         
         <% user.favorite_camps.each do |camp| %>
-            <%= render :partial => 'camps/card', locals: { camp: camp, display_desc: false } %>
+            <%= render :partial => 'camps/camp_card', locals: { camp: camp, display_desc: false } %>
         <% end %>
 
     </div>

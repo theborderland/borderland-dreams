@@ -29,9 +29,15 @@ class User < ApplicationRecord
     info = auth.extra.raw_info
     u.name = info.all.dig("urn:oid:2.5.4.42", 0).to_s
     # Last name : urn:oid:2.5.4.4
-
-    info.all["Role"].map { |name| u.roles.build(name: name) }
-    u.grants ||= 10 if u.roles.map(&:name).include?("Borderland 2019 Membership") # TODO multi event
+    for rolename in info.all["Role"]
+      r = Role.where(name: rolename).first_or_create!
+      if rolename.eql? "Borderland 2019 Membership" and u.grants.nil? # TODO multi event support, hacky
+        u.grants = 10
+      end
+      u.roles << r
+    end
+    #info.all["Role"].map { |name| u.roles.build(name: name) }
+    #u.grants ||= 10 if u.roles.map(&:name).include?("Borderland 2019 Membership") # TODO multi event
 
 
     # avatars: get https://talk.theborderland.se/api/v1/profile/{username}

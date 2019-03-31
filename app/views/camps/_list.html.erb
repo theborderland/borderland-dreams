@@ -21,9 +21,9 @@
         <th>Approvers</th>
     </tr>
     <% @camps.count_all_flags.each do |camp_id, flag_sum| %>
-    <% @the_camp = @camps.where(['id = ?', camp_id])[0] %>
-    <tr>
-        <%= render :partial => 'camps/camp_row', locals: { camp: @the_camp, flag_sum: flag_sum } %>
-    </tr>
+        <% @the_camp = @camps.find(camp_id) %>
+        <tr>
+            <%= render :partial => 'camps/camp_row', locals: { camp: @the_camp, flag_sum: flag_sum } %>
+        </tr>
     <% end %>
 </table>

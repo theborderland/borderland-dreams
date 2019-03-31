@@ -223,7 +223,7 @@ class Camp < ApplicationRecord
     final_hash = Hash.new
     results.each do |result|
       camp_id = result['camp_id']
-      count = result['COUNT(*)']
+      count = result['count']
       if !count
         count = 0
       end

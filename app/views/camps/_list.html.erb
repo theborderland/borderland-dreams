@@ -1,20 +1,20 @@
 <div id='grid-view'>
-<div id="filterrific_results">
+    <div id="filterrific_results">
 
-    <%=t :sort_by%>:
-    <%= filterrific_sorting_link(@filterrific, :updated_at) %>
+        <%=t :sort_by%>:
+        <%= filterrific_sorting_link(@filterrific, :updated_at) %>
 
-    <div class="camps_list">
-        
-        <% @camps.each do |camp| %>
-            <%= render :partial => 'camps/camp_card', locals: { camp: camp, display_desc: true, css_classes: "col-md-4" } %>
-        <% end %>
+        <div class="camps_list">
+            
+            <% @camps.each do |camp| %>
+                <%= render :partial => 'camps/camp_card', locals: { camp: camp, display_desc: true, css_classes: "col-md-4" } %>
+            <% end %>
+        </div>
+
     </div>
-
-</div>
 </div>
 
-<table id='table-view' style='display: none'>
+<!-- table id='table-view' style='display: none'>
     <tr>
         <th>Dream name</th>
         <th>Monster actions</th>
@@ -26,4 +26,4 @@
             <%= render :partial => 'camps/camp_row', locals: { camp: @the_camp, flag_sum: flag_sum } %>
         </tr>
     <% end %>
-</table>
+</table -->

@@ -216,6 +216,10 @@ class Camp < ApplicationRecord
     results = ActiveRecord::Base.connection.execute(
       sql
     )
+    if !results.any?
+      return []
+    end
+
     final_hash = Hash.new
     results.each do |result|
       camp_id = result['camp_id']

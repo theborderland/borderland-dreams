@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190328113601) do
+ActiveRecord::Schema.define(version: 20190329110728) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     :index=>{:name=>"index_active_admin_comments_on_namespace"}
@@ -36,6 +36,13 @@ ActiveRecord::Schema.define(version: 20190328113601) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",             :null=>false
     t.datetime "updated_at",             :null=>false
+  end
+
+  create_table "approvals", force: :cascade do |t|
+    t.integer  "camp_id",    :index=>{:name=>"index_approvals_on_camp_id"}
+    t.integer  "user_id",    :index=>{:name=>"index_approvals_on_user_id"}
+    t.datetime "created_at", :null=>false
+    t.datetime "updated_at", :null=>false
   end
 
   create_table "budget_items", force: :cascade do |t|
@@ -93,6 +100,15 @@ ActiveRecord::Schema.define(version: 20190328113601) do
   create_table "favorites", force: :cascade do |t|
     t.integer  "user_id",    :index=>{:name=>"index_favorites_on_user_id"}
     t.integer  "camp_id",    :index=>{:name=>"index_favorites_on_camp_id"}
+    t.datetime "created_at", :null=>false
+    t.datetime "updated_at", :null=>false
+  end
+
+  create_table "flag_events", force: :cascade do |t|
+    t.string   "flag_type"
+    t.integer  "user_id",    :index=>{:name=>"index_flag_events_on_user_id"}
+    t.integer  "camp_id",    :index=>{:name=>"index_flag_events_on_camp_id"}
+    t.boolean  "value"
     t.datetime "created_at", :null=>false
     t.datetime "updated_at", :null=>false
   end
@@ -159,6 +175,25 @@ ActiveRecord::Schema.define(version: 20190328113601) do
     t.integer  "user_id",    :index=>{:name=>"index_roles_on_user_id"}
     t.datetime "created_at", :null=>false
     t.datetime "updated_at", :null=>false
+  end
+
+  create_table "safety_items", force: :cascade do |t|
+    t.string   "headline"
+    t.string   "information"
+    t.integer  "camp_id",     :index=>{:name=>"index_safety_items_on_camp_id"}
+    t.datetime "created_at",  :null=>false
+    t.datetime "updated_at",  :null=>false
+  end
+
+  create_table "safety_sketches", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "camp_id"
+    t.datetime "created_at",              :null=>false
+    t.datetime "updated_at",              :null=>false
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.bigint   "attachment_file_size"
+    t.datetime "attachment_updated_at"
   end
 
   create_table "safety_items", force: :cascade do |t|

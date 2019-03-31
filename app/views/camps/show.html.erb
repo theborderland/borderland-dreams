@@ -1,8 +1,24 @@
 <% content_for(:head) do %>
   <title><%= t(:browser_title_tag) %></title>
-  <%= javascript_include_tag 'favorite_button' %>
 <% end %>
-
+<script>
+    $( document ).ready(function() {
+        var flags = $('.flag');
+        $('.hidden-form').click(function(e) {
+            e.stopPropagation();
+        });
+        $('.flag').click(function (e) {
+            if(!e.currentTarget.classList.contains("active")) {
+                flags.each(function(i) {
+                    $(flags[i]).removeClass('active')
+                });
+                $(e.currentTarget).addClass('active')
+            } else {
+                $(e.currentTarget).removeClass('active')
+            } 
+        });
+    });
+</script>
 <%= render 'camps/donate_form' %>
 
 <div class="row">
@@ -178,6 +194,24 @@
             <div class="camp-description">
                 <b><%=t :form_cocreation_label %></b>
                 <%= simple_format(@camp.cocreation, class: "auto-#{@detector.direction(@camp.cocreation)}" ) %>
+            </div>
+        <% end %>
+
+        <% if user_signed_in? and !@camp.grantingtoggle %>
+            <div class="flags-box">
+                <strong>Any monsters you need to startle for this dream? Anything in the budget that looks strange or wrong?</strong>
+                <div class="flags">
+                    <%= render :partial => 'camps/flag', locals: { flag_type: 'restricted_items', flag_name: 'Restricted items', camp: @camp } %>
+                    <%= render :partial => 'camps/flag', locals: { flag_type: 'incomplete_budget', flag_name: 'Incomplete budget', camp: @camp } %>
+                    <%= render :partial => 'camps/flag', locals: { flag_type: 'transport', flag_name: 'Transport', camp: @camp } %>
+                    <%= render :partial => 'camps/flag', locals: { flag_type: 'unnecessary_material', flag_name: 'Unnecessary material', camp: @camp } %>
+                    <div>
+                        <%= link_to :toggle_approval_camp, method: :patch, id: "approve-button", class: (@camp.approvers.include?(current_user) ? 'clicked' : '') do %>
+                            <%= @camp.approvers.include?(current_user) ? 'You have approved this dream, click again to remove' : 'No issues! This dream looks good to me' %>
+                        <% end %>
+                        <span class="small"><%= @camp.approvers.count %> approvers</span>
+                    </div>
+                </div>
             </div>
         <% end %>
 

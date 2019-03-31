@@ -12,5 +12,4 @@ db/*.sqlite3
 client_secret.json
 
 public/assets/
-
 .vscode

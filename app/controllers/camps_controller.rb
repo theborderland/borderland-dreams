@@ -62,6 +62,44 @@ class CampsController < ApplicationController
     redirect_to camp_path(@camp)
   end
 
+  # def get_flag_states
+  #   params.permit(:flag_types_list)
+  #   result = []
+  #   params[:flag_types_list].split(',').each do |flag_type|
+  #     result.push(@camp.flag_type_is_raised(flag_type))
+  #   end
+  #   redirect_to camp_path(@camp)
+  # end
+
+  def create_flag_event
+    incoming_flag_type = params[:flag_type]
+    incoming_flag_value = params[:value]
+    comment = params[:comment]
+    # validate that the flag_event is attempting to change the global state of the
+    # flag and create the event if that's the case
+    if (@camp.flag_type_is_raised(incoming_flag_type).to_s != incoming_flag_value.to_s)
+      FlagEvent.create(flag_type: incoming_flag_type, user: current_user, camp: @camp, value: incoming_flag_value)
+      
+      if (incoming_flag_value.to_s == 'true')
+        message_string = "Nameless user raised a concern %s" % [incoming_flag_type] 
+      else
+        message_string = "Nameless user removed a concern %s" % [incoming_flag_type]
+      end
+
+      if comment != nil
+        final_message = message_string + "\n" + comment
+      end
+
+      audit_log(
+        'flag_raised',
+        final_message,
+        @camp
+      )
+    end
+
+    redirect_to camp_path(@camp)
+  end
+
   def update
     if @camp.update_attributes camp_params
       if params[:done] == '1'
@@ -107,6 +145,8 @@ class CampsController < ApplicationController
     redirect_to camps_path
   end
 
+  def 
+
   # Display a camp and its users
   def show
     @main_image = @camp.images.first&.attachment&.url(:large)
@@ -150,6 +190,18 @@ class CampsController < ApplicationController
     else
       @camp.favorite_users << current_user
       render json: {res: :ok}, status: 200
+    end
+  end
+
+  def toggle_approval
+    if !current_user
+      flash[:notice] = "please log in :)"
+    elsif @camp.approvers.include?(current_user)
+      @camp.approvers.delete(current_user)
+      redirect_to @camp
+    else
+      @camp.approvers << current_user
+      redirect_to @camp
     end
   end
 

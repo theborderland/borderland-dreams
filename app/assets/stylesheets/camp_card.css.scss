@@ -30,6 +30,166 @@
 p {
   padding-bottom: 1em;
 }
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
+#approve-button {
+  background: green;
+  color: white;
+  padding: 20px;
+  font-size: 14px;
+  display: block;
+  background: #00bc69;
+  box-shadow: 3px 5px 0 0 #006c36;
+  border-radius: 8px;
+  max-width: 150px;
+  font-weight: 500;
+  text-align: center;
+  &.clicked {
+    background: #006c36;
+    box-shadow: 0 0 0 0 transparent;
+  }
+  &:hover {
+    box-shadow: 1px 1px 0 0 #006c36;
+  }
+}
+.small {
+  font-size: 10px;
+  text-align: center;
+}
+.flags-box {
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.flags {
+  display: flex;
+  justify-content: space-between;
+}
+.flag {
+  padding: 10px;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  img.calm {
+    display: block;
+  }
+  img.angry {
+    display: none;
+  }
+  &.active {
+    img.calm {
+      display: none;
+    }
+    img.angry {
+      display: block;
+    }
+  }
+  .inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    p {
+      font-size: 14px;
+      margin: 5px 0;
+      padding: 0;
+      text-align: center;
+    }
+    span {
+      font-size: 10px;
+    }
+  }
+  img {
+    cursor: pointer;
+    transition: 500ms filter;
+    &:hover {
+      animation: shake 0.5s;
+      animation-iteration-count: infinite;
+    }
+  }
+}
+
+.raised {
+  img.angry {
+    display: block;
+    animation: shake 0.5s infinite !important;
+  }
+  img.calm {
+    display: none;
+  }
+}
+.raised.active {
+  background: rgba(0, 255, 0, 0.2) !important;
+  img.angry {
+    display: block;
+    animation: shake 3s 0 !important;
+  }
+  img.calm {
+    display: none;
+  }
+}
+
+.active {
+  background: rgba(255, 0, 0, 0.2);
+  img {
+    animation: shake 0.5s infinite;
+  }
+
+  form {
+    display: block !important;
+    .btn-red {
+      background: red;
+      color: white;
+    }
+    .btn-green {
+      background: green;
+      color: white;
+    }
+  }
+}
+
+.hidden-form {
+  display: none;
+  position: absolute;
+  padding: 20px;
+  top: 180px;
+  left: 0px;
+  background: white;
+  z-index: 99;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.25);
+}
 
 .creation-info {
   .dream-point-of-contact {

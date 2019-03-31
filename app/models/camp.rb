@@ -224,6 +224,9 @@ class Camp < ApplicationRecord
     results.each do |result|
       camp_id = result['camp_id']
       count = result['COUNT(*)']
+      if !count
+        count = 0
+      end
       final_hash[camp_id] = count
     end
     # returns list of lists holding [camp_id, flag_count]

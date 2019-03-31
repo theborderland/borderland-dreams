@@ -3,7 +3,7 @@
             <div class="panel-heading"><h2 class="header-sub-heading"><%=t :dreamcrew %></h2></div>
             <div class="panel-body">
                 <%= simple_form_for @camp, url: { action: 'remove_member'} do |f| %>
-                  <div id="tag-container" class="tag-container">
+                  <div id="crew-container" class="crew-container">
                       <div class="profile-pic">
                           <%= link_to image_tag('crewpope.png', :class => "img-circle dreamcrew-photo"), @camp.creator %>
                         <span class="tooltiptext"><b><%= @camp.creator.name %></b></span>

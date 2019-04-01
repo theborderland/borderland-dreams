@@ -273,21 +273,6 @@
                 </div>
             </div>
         <% end %>
-    
-        <% if user_signed_in? and !@camp.grantingtoggle %>
-                <div class="flags">
-                    <%= render :partial => 'camps/flag', locals: { flag_type: 'restricted_items', flag_name: 'Restricted items', camp: @camp } %>
-                    <%= render :partial => 'camps/flag', locals: { flag_type: 'incomplete_budget', flag_name: 'Incomplete budget', camp: @camp } %>
-                    <%= render :partial => 'camps/flag', locals: { flag_type: 'transport', flag_name: 'Transport', camp: @camp } %>
-                    <%= render :partial => 'camps/flag', locals: { flag_type: 'unnecessary_material', flag_name: 'Unnecessary material', camp: @camp } %>
-
-                    <%= link_to :toggle_approval_camp, method: :patch, class: (@camp.approvers.include?(current_user) ? 'ha' : 'ho') do %>
-                        <%= @camp.approvers.include?(current_user) ? 'Remove approval' : 'Approve' %>
-                    <% end %>
-                    <br />
-                    <%= @camp.approvers.count %> approvers
-                </div>                
-            <% end %>
 
         <div class="creation-info">
             <ul>

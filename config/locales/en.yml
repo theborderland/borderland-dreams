@@ -477,4 +477,5 @@ en:
       wrong_length: "Needs to be %{count} characters long"
       not_saved: Not saved
       tags_saved: Tags are saved
-  form_tags: "Tags"
+  form_tags: Tags
+  add_tag: Add tag

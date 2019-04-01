@@ -1,11 +1,13 @@
-<div class='card <%= css_classes if defined?(css_classes)%>'>
+<%= javascript_include_tag 'spectrum.js' %>
+<%= stylesheet_link_tag 'spectrum.css' %>
+<div class='card camp-<%=camp.id %> <%= css_classes if defined?(css_classes)%>'>
     <% if user_signed_in? %>
         <%= link_to toggle_favorite_camp_path(:id => camp.id), method: :patch, class: (camp.favorite_users.include?(current_user) ? 'favorite-button starred' : 'favorite-button'), id: 'favorite-button', :remote => true do %>
-            <span id="star-icon" class="glyphicon <%= camp.favorite_users.include?(current_user) ? 'glyphicon-star' : 'glyphicon-star-empty' %>"></span>
+            <span id="star-icon" class="glyphicon < %= camp.favorite_users.include?(current_user) ? 'glyphicon-star' : 'glyphicon-star-empty' %>"></span>
         <% end %>
     <% end %>
     <a href="<%= url_for(camp) %>">
-        <div class="panel panel-info">
+        <div class="panel panel-info<%=camp.id%>" style='background-color: <%=camp.color%>'>
             <div class="panel-body camp-index">
                 
                 <% if camp.images.any? %>
@@ -51,6 +53,13 @@
                     <h4 style="color: #eb1478; position: absolute; top:4px; right:20px;"><span class="glyphicon glyphicon-lock" aria-hidden="true"></h4>
                 <% end %>
             </div>
+
         </div>
+        
     </a>
+                    <%= form_for camp, url: set_color_camp_path(camp.id), method: :post, :remote => false do |f| %>
+                    <%= f.text_field :color, value: camp.color, class: "basic" %>
+                    <em id='basic-log'></em>    
+                    <%= f.submit :change_color, class: 'change_color' %>      
+                <% end %>
 </div>

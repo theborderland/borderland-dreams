@@ -81,13 +81,13 @@ class CampsController < ApplicationController
       FlagEvent.create(flag_type: incoming_flag_type, user: current_user, camp: @camp, value: incoming_flag_value)
       
       if (incoming_flag_value.to_s == 'true')
-        message_string = "Nameless user raised a concern %s" % [incoming_flag_type] 
+	      message_string = "Someone startled %s monster!" % [incoming_flag_type] 
       else
-        message_string = "Nameless user removed a concern %s" % [incoming_flag_type]
+	      message_string = "Someone calmed %s monster." % [incoming_flag_type]
       end
 
       if comment != nil
-        final_message = message_string + "\n" + comment
+        final_message = message_string + "\n\n" + comment
       end
 
       audit_log(

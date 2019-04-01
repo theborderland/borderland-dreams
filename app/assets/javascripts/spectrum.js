@@ -36,7 +36,7 @@
         clickoutFiresChange: true,
         showInitial: false,
         showPalette: false,
-        showPaletteOnly: false,
+        showPaletteOnly: true,
         hideAfterPaletteSelect: false,
         togglePaletteOnly: false,
         showSelectionPalette: true,
@@ -55,7 +55,7 @@
         replacerClassName: "",
         showAlpha: false,
         theme: "sp-light",
-        palette: [["#ffffff", "#000000", "#ff0000", "#ff8000", "#ffff00", "#008000", "#0000ff", "#4b0082", "#9400d3"]],
+        palette: [['#FCFCFC', '#A4E4FC', '#B8B8F8', '#D8B8F8', '#F8B8F8', '#F8A4C0', '#F0D0B0', '#FCE0A8', '#F8D878', '#D8F878', '#B8F8B8', '#B8F8D8', '#00FCFC', '#F8D8F8', '#000000']],
         selectionPalette: [],
         disabled: false,
         offset: null

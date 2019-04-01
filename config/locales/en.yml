@@ -149,6 +149,17 @@ en:
   add_new_safety_item: Add new safety item
   remove_safety_item: Remove safety item
 
+  flag_instruction_html: Any monsters you need to startle for this dream? <br> Anything in the budget that looks strange or wrong?
+  monster_awoken: Monster awoken
+  times_awoken: times
+  dream_approved: You have approved this dream, click again to remove
+  dream_unapproved: No issues! Dream looks good to me.
+  startle_monster_instruction: This monster has been startled. Would you like to calm it down? Do this if the problem has been fixed or if the monster was unfairly awoken.
+  calm_monster_instruction: Would you like to startle this monster? Only do this if there are breaches of the funding guidelines.
+  monster_action_reason: What is the reason?
+  startle: Startle monster
+  calm: Calm monster
+
   form_add_new_safety_item: Add safety item
   form_remove_safety_item: Remove safety item
   form_budgetplan_label: Budget overview

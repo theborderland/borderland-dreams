@@ -199,7 +199,7 @@
 
         <% if user_signed_in? and !@camp.grantingtoggle %>
             <div class="flags-box">
-                <strong>Any monsters you need to startle for this dream? Anything in the budget that looks strange or wrong?</strong>
+                <strong><%=t :flag_instruction_html %></strong>
                 <div class="flags row">
                     <%= render :partial => 'camps/flag', locals: { flag_type: 'restricted_items', flag_name: 'Restricted items', camp: @camp } %>
                     <%= render :partial => 'camps/flag', locals: { flag_type: 'incomplete_budget', flag_name: 'Incomplete budget', camp: @camp } %>
@@ -207,7 +207,7 @@
                     <%= render :partial => 'camps/flag', locals: { flag_type: 'transport', flag_name: 'Transport issue', camp: @camp } %>
                     <div class="col-sm-4">
                         <%= link_to :toggle_approval_camp, method: :patch, id: "approve-button", class: (@camp.approvers.include?(current_user) ? 'clicked' : '') do %>
-                            <%= @camp.approvers.include?(current_user) ? 'You have approved this dream, click again to remove' : 'No issues! This dream looks good to me' %>
+                            <%= @camp.approvers.include?(current_user) ? t('dream_approved') : t('dream_unapproved') %>
                         <% end %>
                         <div class="small"><%= @camp.approvers.count %> approvers</div>
                     </div>

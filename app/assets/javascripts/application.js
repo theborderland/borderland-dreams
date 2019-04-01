@@ -97,21 +97,21 @@ $(function() {
 
 		$('.change_color').css('visibility', 'hidden');
 
-		elements.each(index => {
-			var basic = $(elements[index]).find('.basic');
-			var things = $(elements[index]).attr('id').split('_');
-			var the_id = things[things.length - 1];
-			basic.spectrum({
-				// color: "#f00",
-				change: function(color) {
-					var rgb = color.toRgb();
-					var rgb_string = 'rgb('+rgb['r']+','+rgb['g']+','+rgb['b']+')';
-					// basic.find("#basic-log").text("change called: " + color.toHexString());
-					basic.val(rgb_string)
+		elements.each(function (index) {
+		  var basic = $(elements[index]).find('.basic');
+		  var things = $(elements[index]).attr('id').split('_');
+		  var the_id = things[things.length - 1];
+		  basic.spectrum({
+		    // color: "#f00",
+		    change: function change(color) {
+		      var rgb = color.toRgb();
+		      var rgb_string = 'rgb(' + rgb['r'] + ',' + rgb['g'] + ',' + rgb['b'] + ')'; // basic.find("#basic-log").text("change called: " + color.toHexString());
 
-					$('.panel-info'+the_id).css('background-color', rgb_string)
-					elements[index].submit();
-				}});
+		      basic.val(rgb_string);
+		      $('.panel-info' + the_id).css('background-color', rgb_string);
+		      elements[index].submit();
+		    }
+		  });
 		});
 });
 });

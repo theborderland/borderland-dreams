@@ -49,7 +49,7 @@
                       <% if camp.images.any? %>
                           <%= image_tag(camp.images.first.attachment.url(:square), :class => "grow") %>
                       <% else %>
-                          <%= image_tag(app_setting('placeholder' , :class => "grow") %>
+                          <%= image_tag(app_setting('placeholder' , :class => "grow")) %>
                       <% end %>
 
                       <h4 class="name"><%= truncate(camp.display_name, length: 60) %></h4>

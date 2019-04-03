@@ -122,6 +122,12 @@ class CampsController < ApplicationController
     end
   end
 
+  def set_color
+    # @camp.update(tag_list: @camp.tag_list.add(tag_params))
+    @camp.update(color: camp_params["color"])
+    # render json: camp_params
+  end
+
   def tag
     @camp.update(tag_list: @camp.tag_list.add(tag_params))
     render json: @camp.tags

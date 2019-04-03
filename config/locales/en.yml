@@ -149,13 +149,15 @@ en:
   add_new_safety_item: Add new safety item
   remove_safety_item: Remove safety item
 
-  flag_instruction_html: Any monsters you need to startle for this dream? <br> Anything in the budget that looks strange or wrong?
+  flag_instruction_html: >
+    Any monsters you need to startle for this dream? Please check the <a href="https://talk.theborderland.se/d/zJY8uwNe/dreamiquette-guidelines-for-dreamers" style="color: rgb(235, 20, 120)">funding guidelines</a>. Anything in the budget that looks strange or wrong?
   monster_awoken: Monster awoken
   times_awoken: times
   dream_approved: You have approved this dream, click again to remove
   dream_unapproved: No issues! Dream looks good to me.
   startle_monster_instruction: This monster has been startled. Would you like to calm it down? Do this if the problem has been fixed or if the monster was unfairly awoken.
-  calm_monster_instruction: Would you like to startle this monster? Only do this if there are breaches of the funding guidelines.
+  calm_monster_instruction_html: >
+    Would you like to startle this monster? Only do this if there are breaches of the <a href="https://talk.theborderland.se/d/zJY8uwNe/dreamiquette-guidelines-for-dreamers" style="color: rgb(235, 20, 120)">budget guidelines</a>.
   monster_action_reason: What is the reason?
   startle: Startle monster
   calm: Calm monster
@@ -477,4 +479,5 @@ en:
       wrong_length: "Needs to be %{count} characters long"
       not_saved: Not saved
       tags_saved: Tags are saved
-  form_tags: "Tags"
+  form_tags: Tags
+  add_tag: Add tag

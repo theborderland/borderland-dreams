@@ -57,7 +57,7 @@
         </div>
         
     </a>
-    <% if false %>
+    <% if user_signed_in? %>
         <%= form_for camp, url: set_color_camp_path(camp.id), method: :post, :remote => false do |f| %>
             <%= f.text_field :color, value: camp.color, class: "basic" %>
             <em id='basic-log'></em>    

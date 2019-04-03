@@ -44,7 +44,7 @@ $(function() {
 	});
 
 	$(document).ready(function() {
-    $('[id^="favorite-button"]').click(function (e) {
+		$(document).on("click", '[class^="favorite-button"]', function(e) {
 				var button = $(event.target).parent();
         if(e.target.classList.contains("glyphicon-star")) {
 					button.removeClass('starred')

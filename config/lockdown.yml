@@ -1,5 +1,5 @@
 common: &common
-  submit_dream: 2019-05-06t00:00:00+02:00
+  submit_dream: 2019-04-01t00:00:00+02:00
 
 development:
   <<: *common

@@ -57,9 +57,11 @@
         </div>
         
     </a>
-                    <%= form_for camp, url: set_color_camp_path(camp.id), method: :post, :remote => false do |f| %>
-                    <%= f.text_field :color, value: camp.color, class: "basic" %>
-                    <em id='basic-log'></em>    
-                    <%= f.submit :change_color, class: 'change_color' %>      
-                <% end %>
+    <% if false %>
+        <%= form_for camp, url: set_color_camp_path(camp.id), method: :post, :remote => false do |f| %>
+            <%= f.text_field :color, value: camp.color, class: "basic" %>
+            <em id='basic-log'></em>    
+            <%= f.submit :change_color, class: 'change_color' %>      
+        <% end %>
+    <% end %>
 </div>

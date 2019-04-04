@@ -46,7 +46,7 @@ class Camp < ApplicationRecord
   validates_with CanCreateNewDreamValidator, :on => :create
 
   filterrific(
-    default_filter_params: { sorted_by: 'updated_at_desc' },
+    default_filter_params: { sorted_by: 'random' },
     available_filters: [
       :sorted_by,
       :search_query,
@@ -108,6 +108,27 @@ class Camp < ApplicationRecord
          order("camps.name #{ direction }")
       when /^updated_at_/
          order("camps.updated_at #{ direction }")
+      when /^random$/
+         order("random()")
+      when /^color$/
+         order("camps.color")
+      when /^dreamyness$/
+         rnd = rand(1..10)
+         if rnd == 1
+          order("camps.color asc")
+         elsif rnd == 2
+          order("camps.color desc")
+         elsif rnd == 3
+          order("camps.updated_at asc")
+         elsif rnd == 4
+          order("camps.updated_at desc")
+         elsif rnd == 5
+          order("camps.name asc")
+         elsif rnd == 6
+          order("camps.name desc")
+         else 
+          order("random()")
+         end
       when /^created_at_/
          order("camps.created_at #{ direction }")
          raise(ArgumentError, "Sort option: #{ sort_option.inspect }")

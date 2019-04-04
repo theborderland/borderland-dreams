@@ -1,6 +1,6 @@
 module CanApplyFilters
   def apply_filters
-    params[:filterrific] ||= { sorted_by: 'updated_at_desc' }
+    params[:filterrific] ||= { sorted_by: 'dreamyness' }
     @filterrific = initialize_filterrific(Camp, params[:filterrific].merge(
       active: true,
       not_hidden: !(current_user&.admin? || current_user&.guide?),

@@ -56,6 +56,19 @@ $(function() {
           button.find("#star-icon").addClass('glyphicon-star')
         }
 		});
+
+		// remove list-view-toggle from dom when someone interacts with
+		// filterrific because filteriffic breaks list view
+		$('#filterrific_filter').change(function(e){
+			$("#grid-view").show();
+			$("#table-view").hide();
+			$("#list-view-toggle").remove()
+		})
+		$('#filterrific_filter').keydown(function(e){
+			$("#grid-view").show();
+			$("#table-view").hide();
+			$("#list-view-toggle").remove()
+		})
 		
 		$(function() {
 			$("#toggle").click(function() {

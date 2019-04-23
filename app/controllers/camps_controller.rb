@@ -80,10 +80,20 @@ class CampsController < ApplicationController
     if (@camp.flag_type_is_raised(incoming_flag_type).to_s != incoming_flag_value.to_s)
       FlagEvent.create(flag_type: incoming_flag_type, user: current_user, camp: @camp, value: incoming_flag_value)
       
-      if (incoming_flag_value.to_s == 'true')
-	      message_string = "Someone startled %s monster!" % [incoming_flag_type] 
+      if (@camp.creator == current_user)
+        flagger = 'Dreamer'
+      elsif (current_user.is_crewmember(@camp))
+        flagger = 'Crew member '
+      elsif (current_user.admin || current_user.guide)
+        flagger = 'Guide '
       else
-	      message_string = "Someone calmed %s monster." % [incoming_flag_type]
+        flagger = 'Someone '
+      end
+
+      if (incoming_flag_value.to_s == 'true')
+        message_string = flagger + " startled %s monster!" % [incoming_flag_type] 
+      else
+        message_string = flagger + " calmed %s monster." % [incoming_flag_type]
       end
 
       if comment != nil

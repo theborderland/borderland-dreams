@@ -60,34 +60,6 @@ en:
   form_about_the_artist_label: About the crew / artist
   form_dream_website_label: Web Site / Social Media
 
-  form_dream_point_of_contact_email: Your contact person from Art Department
-  dream_safety_file_comments_nop_message: Nothing for you to update right now.
-  dream_safety_file_comments_update: Update Comments
-
-  form_project_management: Project Management
-  form_project_management_crew: Crew
-  form_project_management_crew_desc: Relevant (/your personal) background information will be saved for the art fund's evaluation of the performance's potential. If unused/unmanned please leave the field empty.
-  choose_person: Choose a person
-  add_a_new_person: Add a new person
-  edit_person: Edit details
-  add_tag: Add tag
-  remove_responsibility: Remove responsibility
-  remove_person: Remove person
-  form_project_manager: Project manager
-  project_roles:
-    manager: Project manager
-    vp: Project vice manager
-    qa: Daily inspection supervisor
-    liquidation: Disassembly supervisor
-    cfo: Fund raising supervisor
-    construction: Construction supervisor
-    foreman: Foreman
-    pyromaniac: Fire and flammability supervisor
-    designer: Designer
-  form_project_management_is_theme_camp_dream: "Does this art installation belong to a theme camp?"
-  form_project_management_is_dream_near_theme_camp: "Is this art installation planned to be set up in or close to the theme camp?"
-  form_project_management_dream_pre_construction_site: Construction site
-  form_project_management_dream_pre_construction_site_guidetext_html: "Where will you build your art installation, prior to arriving at the Quarry?"
   form_description_label: Full description of yer concept
   form_description_guidetext_html: "Give a detailed, interesting and funny description. Don't overdo it, but don't underdo it either, you want people to understand what you're planning. You've got 4096 characters, use as many as you like."
   form_electricity_label: "Do you need electricity from the grid? How much in Watts?"
@@ -113,17 +85,17 @@ en:
 
   form_artgrants_headline: Art grant information
   form_artgrants_text_html: "<p>If you're not looking for an art grant, leave these fields blank.</p><p> Art grants are given by the Borderland community. Each Borderling has 10 grantlets to hand out. You can give a total of five grantlets to one project. Once a grantlet has been gifted to a dream, it can't be taken back.</p>"
-  form_minigrants_realcurrency_label: "Minumum funding needed in real currency:"
-  form_minigrants_realcurrency_guidetext_html: "Necessary minimum budget level, below which you won't get funded."
-  form_maxigrants_realcurrency_label: "Funding in real currency needed to fully fund dream:"
-  form_maxigrants_realcurrency_guidetext_html: "How many grantlets you need to fully fund your project."
+  form_minigrants_realcurrency_label: "Minumum funding needed (in DKK):"
+  form_minigrants_realcurrency_guidetext_html: "Minimum budget level, below which you won't be able to realise the project."
+  form_maxigrants_realcurrency_label: "Maximum funding needed (in DKK):"
+  form_maxigrants_realcurrency_guidetext_html: "How much money would you need to fully fund your project?"
   form_budgetplan_label: "Budget overview"
-  form_budgetplan_guidetext_html: "How will you use your budget? Describe your costs, not too specific, not too vague, perfectly balanced."
+  form_budgetplan_guidetext_html: "How will you use your budget? Press 'Add new budget item' to add new budget posts. Add as many budget posts as you need, but don't be too specific nor too vague."
 
   form_click_to_edit_html: <a>Click to edit</a>
 
   form_safety_head: Safety Portfolio
-  form_safety_head_description: "Safety Portfolio and placement in the Quarry must be completed before February 15, 1763"
+  form_safety_head_description: "Safety Portfolio and placement in the Quarry must be completed before June 5, 2019."
   form_heavy_equip: Request for Mechanical Engineering Equipment - MEE
   form_is_heavey_equip_needed: "Does the construction of the art installation require the use of any MEE?"
   form_heavy_equip_desc: Attention! Coordination of needs will be performed privately with the art department.
@@ -177,41 +149,21 @@ en:
   add_new_safety_item: Add new safety item
   remove_safety_item: Remove safety item
 
+  flag_instruction_html: >
+    Any monsters you need to startle for this dream? Please check the <a href="https://talk.theborderland.se/d/zJY8uwNe/dreamiquette-guidelines-for-dreamers" style="color: rgb(235, 20, 120)">funding guidelines</a>. Anything in the budget that looks strange or wrong?
+  monster_awoken: Monster awoken
+  times_awoken: times
+  dream_approved: You have approved this dream, click again to remove
+  dream_unapproved: No issues! Dream looks good to me.
+  startle_monster_instruction: This monster has been startled. Would you like to calm it down? Do this if the problem has been fixed or if the monster was unfairly awoken.
+  calm_monster_instruction_html: >
+    Would you like to startle this monster? Only do this if there are breaches of the <a href="https://talk.theborderland.se/d/zJY8uwNe/dreamiquette-guidelines-for-dreamers" style="color: rgb(235, 20, 120)">budget guidelines</a>.
+  monster_action_reason: What is the reason?
+  startle: Startle monster
+  calm: Calm monster
+
   form_add_new_safety_item: Add safety item
   form_remove_safety_item: Remove safety item
-  form_safetybag_crewsize_label: Crew size
-  form_safetybag_crewsize_guidetext_html: "How many people are you?"
-  form_safetybag_plan_label: Details work plan for safety file - what are you building and in what order
-  form_safetybag_plan_guidetext_html: Setup plan Break plan
-  form_safetybag_builder_label: Construction Manager
-  form_safetybag_builder_guidetext_html: What is the name of your main builder
-  form_safetybag_safetyer_label: Safety Manager
-  form_safetybag_safetyer_guidetext_html: What is the name of your main safety manager
-  form_safetybag_mooper_label: Moop Manager
-  form_safetybag_mooper_guidetext_html: What is the name of the moop manager
-  form_safetybag_materials_label: Materials
-  form_safetybag_materials_guidetext_html: "In which materials are you going to use?"
-  form_safetybag_work_in_height_label: "Work in height - Yes / No, and which?"
-  form_safetybag_work_in_height_guidetext_html: "Will you work in height? if so how?"
-  form_extra_team_member_head: Extra Team Members
-  form_extra_team_member_info: Write here your team members that still hasn't registered for the event. Note - right now there is up to 2 members per project.
-  form_safetybag_first_member_name_label: Team member name
-  form_safetybag_first_member_email_label: Team member email
-  form_safetybag_second_member_name_label: Extra team member 2 name
-  form_safetybag_second_member_email_label: Extra team member 2 email
-  form_safetybag_tools_label: Tools
-  form_safetybag_tools_guidetext_html: "What tools are you going to use?"
-  form_safetybag_grounding_label: Mounting to ground
-  form_safetybag_grounding_guidetext_html: "How is your project would be mounted to the ground?"
-  form_safetybag_safety_label: Securing / Marking / Preventing injuries
-  form_safetybag_safety_guidetext_html: "How will you secure your project, mark it and prevent injuries?"
-  form_safetybag_electricity_label: Electricity safety
-  form_safetybag_electricity_guidetext_html: How will you make sure that any electricity use is safe
-  form_safetybag_daily_routine_label: Daily routine
-  form_safetybag_daily_routine_guidetext_html: "Who will check daily the project and what does it include?"
-  form_safetybag_other_comments_label: Other commnets for safety file
-  form_safetybag_other_comments_guidetext_html: "Do you have anything else to say?"
-  form_safetybag_remember_sketch: This is also the place to upload any sketch you may have
   form_budgetplan_label: Budget overview
   budget_label: Budget
   budget_description_label: Description
@@ -439,22 +391,6 @@ en:
         updated_at: Update
         minfunded: Reached minimum funding
         fullyfunded: Reached maximum funding
-        safetybag_crewsize: Size of the team
-        safetybag_plan: Work plan/schedule
-        safetybag_builder: Construction supervisior
-        safetybag_safetyer: Safety supervisior
-        safetybag_mooper: MOOP supervisior
-        safetybag_materials: Materials
-        safetybag_work_in_height: Work at height
-        safetybag_tools: Tools
-        safetybag_grounding: Fastening to the ground
-        safetybag_safety: Safety
-        safetybag_electricity: Electricity safety
-        safetybag_daily_routine: Daily check routine
-        safetybag_other_comments: Notes to Safety Portfolio
-        safetybag_firstMemberName: Name of additional team member
-        safetybag_firstMemberEmail: Email of additional team member
-        safetybag_secondMemberName: Name of additional team member 2
         safetybag_secondMemberEmail: Email of additional team member 2
         about_the_artist: About the artist
         website: Web site
@@ -543,4 +479,5 @@ en:
       wrong_length: "Needs to be %{count} characters long"
       not_saved: Not saved
       tags_saved: Tags are saved
-  form_tags: "Tags"
+  form_tags: Tags
+  add_tag: Add tag

@@ -792,6 +792,8 @@ body {
 
 #table-view {
   display:none;
+  margin: 0 auto;
+  margin-top: 40px;
 
   th {
     text-align: center;
@@ -811,3 +813,8 @@ body {
   }
 }
 
+.card {
+  .edit_camp {
+  margin-top: -20px;
+  }
+}

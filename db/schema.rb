@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190329110728) do
+ActiveRecord::Schema.define(version: 20190329160313) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     :index=>{:name=>"index_active_admin_comments_on_namespace"}
@@ -95,6 +95,7 @@ ActiveRecord::Schema.define(version: 20190329110728) do
     t.string   "safety_file_comments",                                     :limit=>4096
     t.string   "loomio_thread_id"
     t.string   "loomio_thread_key"
+    t.string   "color"
   end
 
   create_table "favorites", force: :cascade do |t|

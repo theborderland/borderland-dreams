@@ -2,7 +2,7 @@
     <div id="filterrific_results">
 
         <%=t :sort_by%>:
-        <%= filterrific_sorting_link(@filterrific, :updated_at) %>
+        <%= filterrific_sorting_link(@filterrific, :dreamyness) %>
 
         <div class="camps_list">
             
@@ -14,4 +14,18 @@
     </div>
 </div>
 
-
+<table id='table-view' style='display: none'>
+    <tr>
+        <th>Dream name</th>
+        <th>Monster actions</th>
+        <th>Approvers</th>
+    </tr>
+    <% @camps.count_all_flags.each do |camp_id, flag_sum| %>
+    <% @the_camp = @camps.where(['id = ?', camp_id])[0] %>
+    <tr>
+        <% if @the_camp%>
+            <%= render :partial => 'camps/camp_row', locals: { camp: @the_camp, flag_sum: flag_sum } %>
+        <%end%>
+    </tr>
+    <% end %>
+</table>

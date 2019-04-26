@@ -170,20 +170,20 @@ class CampsController < ApplicationController
 
   # Add a user to a camp
   def add_member
-    email = params[:camp]['member_email']
+    email = params[:camp]['member_email'].downcase
     member = User.where(email: email).first
     if member == @camp.creator
       flash[:notice] = 'That person is already in your crew. Way to go!'
     else
-      flash[:notice] = 'You added a new crewmember, and they can now edit your shared dream. Praise be!'
       @camp.users << member
+      flash[:notice] = 'You added a new crewmember, and they can now edit your shared dream. Praise be!'
     end
     redirect_to @camp
   rescue ActiveRecord::RecordInvalid => e
     flash[:notice] = 'That person is already in your crew. Way to go!'
     redirect_to @camp
   rescue ActiveRecord::AssociationTypeMismatch => e
-    flash[:alert] = 'Could not find that email. Maybe your crewmate is not a member yet?'
+    flash[:alert] = 'Could not find that email. Maybe your crewmate is not a member yet? Make sure he first Register to the dreams platform'
     redirect_to @camp
   end
 

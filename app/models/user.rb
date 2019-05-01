@@ -16,7 +16,8 @@ class User < ApplicationRecord
   schema_validations whitelist: [:id, :created_at, :updated_at, :encrypted_password]
 
   def is_member?
-    roles.pluck(:name).include?("Borderland 2019 Membership")
+    true
+    #roles.pluck(:name).include?("Borderland 2019 Membership")
   end
 
   def self.from_omniauth(auth)

@@ -38,7 +38,7 @@ defaults: &defaults
   recaptcha: <%= ENV['RECAPTCHA'] or false %>
   max_grants_per_user_per_dream: <%= ENV['MAX_GRANTS_PER_USER_PER_DREAM'] or 10 %>
   # Max art grant budget per dream
-  maxbudget: <%= ENV['MAX_TOTAL_GRANTS'] or 10 %>
+  maxbudget: <%= ENV['MAX_TOTAL_GRANTS'] or 1000000 %>
 
   # SAML authentication settings
   saml_enabled: <%= ENV['SAML_CLIENT_ID'] or ENV['SAML_ENABLED'] or false %>

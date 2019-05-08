@@ -273,6 +273,7 @@ en:
   reset_pass_wont_change: Your password won't change until you access the link above and create a new one.
   cant_send_less_then_one: One cannot send less than 1 grants
   dream_need_to_have_max_budget: Dream needs to have maximum budget. please contact dreamer or dream guides
+  reached_max_for_dream: Sorry, we've already reached to max budget for Dreams this year – early Borderling gets the bird!
   exceeds_max_grants_per_user_for_this_dream: "You cannot spend more than %{max_grants_per_user_per_dream} grants on one dream"
   security_more_grants: "Security error cannot grant more then available grants. you tried gifting %{granted} grants. you have %{current_user_grants}. nice try."
   security_cant_delete_dreams_you_dont_own: One cannot delete dreams he dont own - hacker come join us

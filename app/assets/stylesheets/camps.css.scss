@@ -241,123 +241,123 @@ $heart-size: 72px;
 
   #heart1 {
     @extend .heart;
-    background: no-repeat center image-url("hearts/heart_default.png");
+    background: no-repeat center image-url("hearts/heart_default.gif");
 
     &:hover {
-      background: no-repeat center image-url("hearts/heart_default_hover.png");
+      background: no-repeat center image-url("hearts/heart_hover.gif");
       background-size: $heart-size $heart-size;
     }
 
     &:active {
-      background: no-repeat center image-url("hearts/heart_01.png");
+      background: no-repeat center image-url("hearts/heart_selected.gif");
       background-size: $heart-size $heart-size;
     }
   }
   #heart2 {
     @extend .heart;
-    background: no-repeat center image-url("hearts/heart_default.png");
+    background: no-repeat center image-url("hearts/heart_default.gif");
     &:hover {
-      background: no-repeat center image-url("hearts/heart_default_hover.png");
+      background: no-repeat center image-url("hearts/heart_hover.gif");
       background-size: $heart-size $heart-size;
     }
     &:active {
-      background: no-repeat center image-url("hearts/heart_02.png");
+      background: no-repeat center image-url("hearts/heart_selected.gif");
       background-size: $heart-size $heart-size;
     }
   }
   #heart3 {
     @extend .heart;
-    background: no-repeat center image-url("hearts/heart_default.png");
+    background: no-repeat center image-url("hearts/heart_default.gif");
     &:hover {
-      background: no-repeat center image-url("hearts/heart_default_hover.png");
+      background: no-repeat center image-url("hearts/heart_hover.gif");
       background-size: $heart-size $heart-size;
     }
     &:active {
-      background: no-repeat center image-url("hearts/heart_03.png");
+      background: no-repeat center image-url("hearts/heart_selected.gif");
       background-size: $heart-size $heart-size;
     }
   }
   #heart4 {
     @extend .heart;
-    background: no-repeat center image-url("hearts/heart_default.png");
+    background: no-repeat center image-url("hearts/heart_default.gif");
     &:hover {
-      background: no-repeat center image-url("hearts/heart_default_hover.png");
+      background: no-repeat center image-url("hearts/heart_hover.gif");
       background-size: $heart-size $heart-size;
     }
     &:active {
-      background: no-repeat center image-url("hearts/heart_04.png");
+      background: no-repeat center image-url("hearts/heart_selected.gif");
       background-size: $heart-size $heart-size;
     }
   }
   #heart5 {
     @extend .heart;
-    background: no-repeat center image-url("hearts/heart_default.png");
+    background: no-repeat center image-url("hearts/heart_default.gif");
     &:hover {
-      background: no-repeat center image-url("hearts/heart_default_hover.png");
+      background: no-repeat center image-url("hearts/heart_hover.gif");
       background-size: $heart-size $heart-size;
     }
     &:active {
-      background: no-repeat center image-url("hearts/heart_05.png");
+      background: no-repeat center image-url("hearts/heart_selected.gif");
       background-size: $heart-size $heart-size;
     }
   }
   #heart6 {
     @extend .heart;
-    background: no-repeat center image-url("hearts/heart_default.png");
+    background: no-repeat center image-url("hearts/heart_default.gif");
     &:hover {
-      background: no-repeat center image-url("hearts/heart_default_hover.png");
+      background: no-repeat center image-url("hearts/heart_hover.gif");
       background-size: $heart-size $heart-size;
     }
     &:active {
-      background: no-repeat center image-url("hearts/heart_06.png");
+      background: no-repeat center image-url("hearts/heart_selected.gif");
       background-size: $heart-size $heart-size;
     }
   }
   #heart7 {
     @extend .heart;
-    background: no-repeat center image-url("hearts/heart_default.png");
+    background: no-repeat center image-url("hearts/heart_default.gif");
     &:hover {
-      background: no-repeat center image-url("hearts/heart_default_hover.png");
+      background: no-repeat center image-url("hearts/heart_hover.gif");
       background-size: $heart-size $heart-size;
     }
     &:active {
-      background: no-repeat center image-url("hearts/heart_07.png");
+      background: no-repeat center image-url("hearts/heart_selected.gif");
       background-size: $heart-size $heart-size;
     }
   }
   #heart8 {
     @extend .heart;
-    background: no-repeat center image-url("hearts/heart_default.png");
+    background: no-repeat center image-url("hearts/heart_default.gif");
     &:hover {
-      background: no-repeat center image-url("hearts/heart_default_hover.png");
+      background: no-repeat center image-url("hearts/heart_hover.gif");
       background-size: $heart-size $heart-size;
     }
     &:active {
-      background: no-repeat center image-url("hearts/heart_08.png");
+      background: no-repeat center image-url("hearts/heart_selected.gif");
       background-size: $heart-size $heart-size;
     }
   }
   #heart9 {
     @extend .heart;
-    background: no-repeat center image-url("hearts/heart_default.png");
+    background: no-repeat center image-url("hearts/heart_default.gif");
     &:hover {
-      background: no-repeat center image-url("hearts/heart_default_hover.png");
+      background: no-repeat center image-url("hearts/heart_hover.gif");
       background-size: $heart-size $heart-size;
     }
     &:active {
-      background: no-repeat center image-url("hearts/heart_09.png");
+      background: no-repeat center image-url("hearts/heart_selected.gif");
       background-size: $heart-size $heart-size;
     }
   }
   #heart10 {
     @extend .heart;
-    background: no-repeat center image-url("hearts/heart_default.png");
+    background: no-repeat center image-url("hearts/heart_default.gif");
     &:hover {
-      background: no-repeat center image-url("hearts/heart_default_hover.png");
+      background: no-repeat center image-url("hearts/heart_hover.gif");
       background-size: $heart-size $heart-size;
     }
     &:active {
-      background: no-repeat center image-url("hearts/heart_10.png");
+      background: no-repeat center image-url("hearts/heart_selected.gif");
       background-size: $heart-size $heart-size;
     }
   }
@@ -367,7 +367,7 @@ $heart-size: 72px;
 
 .heartSelected {
   @extend .heart;
-  background: no-repeat center image-url("hearts/heart_default_hover.png") !important;
+  background: no-repeat center image-url("hearts/heart_selected.gif") !important;
   background-size: $heart-size $heart-size !important;
 }
 

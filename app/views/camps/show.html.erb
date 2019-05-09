@@ -114,9 +114,7 @@
             <% end %>
         <% end %>
 
-    <% if current_user && (@camp.creator == current_user || current_user.is_crewmember(@camp)) %>
-        <%= render 'camps/budget_misaligned', except: nil %>
-      <% end %>
+    <%= render 'camps/budget_misaligned', except: nil %>
 
     <% if current_user && (@camp.creator == current_user || current_user.is_crewmember(@camp)) %>
         <%= render 'camps/dont_miss_out', except: nil %>

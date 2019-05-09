@@ -8,7 +8,6 @@
         </a>
 
         <div class="camps_list">
-            
             <% @camps.each do |camp| %>
                 <%= render :partial => 'camps/camp_card', locals: { camp: camp, display_desc: true, css_classes: "col-md-4" } %>
             <% end %>

@@ -64,6 +64,7 @@ gem 'newrelic_rpm', '~> 6.0.0'
 
 gem 'cocoon'
 gem 'simple_form'
+gem 'jquery-turbolinks'
 gem 'font-awesome-sass'
 gem 'google-api-client'
 gem 'rack-timeout'

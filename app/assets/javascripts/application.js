@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.turbolinks
 //= require_tree .
 //= require blueimp-gallery-all
 //= require filterrific/filterrific-jquery

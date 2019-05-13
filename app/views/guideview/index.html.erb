@@ -6,7 +6,7 @@
 <% end %>
 
 <div class="top_message" dir=<%=t :html_direction %>>
-  <div class="panel panel-default">
+  <div class="panel panel-default row">
     <div class="panel-heading">
       <% if user_signed_in? %>
         <%=t :welcome_user_title %>
@@ -60,6 +60,67 @@
       </div>
     </div>
   </div>
+
+
+    <table class="table table-striped table-hover ">
+        <tr>
+            <th class="col-md-6"></th> 
+            <th class="col-md-2">Current</th>
+            <th class="col-md-2">Total</th>
+            <th class="col-md-2">(%) of total</th>
+        </tr>
+
+        <tr>
+          <td>
+            Borderling participation (at least 1 grantlet given)
+          </td>
+          <td>
+            <% @participation = Grant.distinct.count('user_id') %>
+            <%= @participation %>
+          </td>
+          <td>
+            3210
+          </td>
+          <td>
+            <%= number_to_percentage(100*@participation.to_f/3210, precision: 1) %>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            Grants given (incl. prefunded permanent art & core functions)
+          </td>
+          <td>
+            <% @prefunded_grants = Grant.where(user_id: 1247).sum(:amount) %>
+            <% @dream_grants = Grant.all.where.not(user_id: 1247).sum(:amount) %>
+            <%= @prefunded_grants + @dream_grants %>
+          </td>
+          <td>
+            35916
+          </td>
+          <td>
+            <%= number_to_percentage(100*(@prefunded_grants + @dream_grants).to_f/35916, precision: 1) %>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            Grants given (excluding prefunded)
+          </td>
+          <td>
+            <%= @dream_grants %>
+          </td>
+          <td>
+            <% @total_dream_grants = 35916 - @prefunded_grants %>
+            <%= @total_dream_grants %>
+          </td>
+          <td>
+            <%= number_to_percentage(100*@dream_grants.to_f/@total_dream_grants, precision: 1) %>
+          </td>
+        </tr>
+    </table>
+
 </div>
+
 
 <%= render partial: 'guideview/list', locals: { camps: @camps } %>

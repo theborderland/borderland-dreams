@@ -1,10 +1,19 @@
+<div class="row">
+    <div class="col-md-2">
+        <a href="/" class="btn btn-primary camp-button" role="button">
+            48 random dreams! <span class="glyphicon glyphicon-random vertical-middle" aria-hidden="true"></span>
+        </a>
+    </div>
+</div>
 <div id="filterrific_results">
-    <table>
+    <table class="table table-striped table-hover sortable">
         <tr>
-            <th>Name</th>
-            <th>Min budget</th>
-            <th>Max budget</th>
-            <th>Grantlets</th>
+            <th class="col-md-7">Sort by:       Name</th> 
+            <th class="col-md-1">Min</th>
+            <th class="col-md-1">Max</th>
+            <th class="col-md-1">Grantlets</th>
+            <th class="col-md-1">(%)/min</th>
+            <th class="col-md-1">(%)/max</th>
         </tr>
 
             <% @camps.each do |camp| %>

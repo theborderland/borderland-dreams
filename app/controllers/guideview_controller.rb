@@ -4,6 +4,7 @@ class GuideviewController < ApplicationController
   before_action :load_lang_detector, only: [:show, :index]
 
   def index
+    @camps = Camp.all.page().per(1000)
   end
 
   private

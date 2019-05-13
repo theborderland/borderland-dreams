@@ -15,14 +15,21 @@
   <td>
     <a href="<%= url_for(camp) %>">
       <% if app_setting("granting_active") and camp.maxbudget %>
-        <%= camp.minbudget %>
+        <%= camp.maxbudget %>
       <% end %>
     </a>
   </td>
   <td>
     <a href="<%= url_for(camp) %>">
-      <% if app_setting("granting_active") and camp.maxbudget %>
+      <% if app_setting("granting_active") and camp.grants_received %>
         <%= camp.grants_received %>
+      <% end %>
+    </a>
+  </td> 
+  <td>
+    <a href="<%= url_for(camp) %>">
+      <% if app_setting("granting_active") and camp.grants_received %>
+        <%= number_to_percentage(100*camp.grants_received.to_f/camp.minbudget.to_f, precision: 1) %>
       <% end %>
     </a>
   </td>  

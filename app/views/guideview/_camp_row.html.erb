@@ -29,7 +29,8 @@
   <td>
     <a href="<%= url_for(camp) %>">
       <% if app_setting("granting_active") and camp.grants_received %>
-        <%= number_to_percentage(100*camp.grants_received.to_f/camp.minbudget.to_f, precision: 1) %>
+        <% @percentage = (camp.grants_received == 0 or camp.minbudget == 0)? 0 : 100*camp.grants_received.to_f/camp.minbudget.to_f %>
+        <%= number_to_percentage(@percentage, precision: 1) %>
       <% end %>
     </a>
   </td>  

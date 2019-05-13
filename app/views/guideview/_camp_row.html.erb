@@ -7,12 +7,23 @@
   </td>
   <td>
     <a href="<%= url_for(camp) %>">
-      Hej <%= camp.name %>
+      <% if app_setting("granting_active") and camp.minbudget %>
+        <%= camp.minbudget %>
+      <% end %>
     </a>
   </td>
   <td>
     <a href="<%= url_for(camp) %>">
-      Då <%= camp.name %>
+      <% if app_setting("granting_active") and camp.maxbudget %>
+        <%= camp.minbudget %>
+      <% end %>
     </a>
-  </td> 
+  </td>
+  <td>
+    <a href="<%= url_for(camp) %>">
+      <% if app_setting("granting_active") and camp.maxbudget %>
+        <%= camp.grants_received %>
+      <% end %>
+    </a>
+  </td>  
 </tr>

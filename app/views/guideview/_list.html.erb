@@ -1,15 +1,14 @@
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Min budget</th>
-        <th>Max budget</th>
-        <th>Grantlets</th>
-    </tr>
+<div id="filterrific_results">
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Min budget</th>
+            <th>Max budget</th>
+            <th>Grantlets</th>
+        </tr>
 
-    <div id="filterrific_results">
-        <% @camps.each do |camp| %>
-            <%= render :partial => 'guideview/camp_row', locals: { camp: camp, display_desc: true, css_classes: "col-md-4" } %>
-        <% end %>
-    </div>
-
-</table>
+            <% @camps.each do |camp| %>
+                <%= render :partial => 'guideview/camp_row', locals: { camp: camp, display_desc: true, css_classes: "col-md-12" } %>
+            <% end %>
+    </table>
+</div>

@@ -99,7 +99,7 @@
             35916
           </td>
           <td>
-            <%= number_to_percentage(100*@all_grants.to_f/35916, precision: 1) %>
+            <%= number_to_percentage(100*(@prefunded_grants + @dream_grants).to_f/35916, precision: 1) %>
           </td>
         </tr>
 

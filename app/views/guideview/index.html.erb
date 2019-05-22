@@ -125,7 +125,7 @@
             Grants redistributed from dreams not reaching minimum
           </td>
           <td>
-            <% @withdrawn = -Grant.where(user_id: 999999).where("amount < ?", 0).sum(:amount) %>
+            <% @withdrawn = -Grant.where(user_id: 0).where("amount < ?", 0).sum(:amount) %>
             <%= @withdrawn %>
           </td>
           <td>

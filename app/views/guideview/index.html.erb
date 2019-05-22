@@ -91,7 +91,7 @@
             Grants given (incl. infrastructure, prefunded art and committee)
           </td>
           <td>
-            <%= @all_grants = Grant.all.sum(:amount) %>
+            <% @all_grants = Grant.all.sum(:amount) %>
             <% @prefunded_grants = Grant.where(user_id: 999999).sum(:amount) %>
             <% @dream_grants = Grant.all.where.not(user_id: 0).where.not(user_id: 999999).sum(:amount) %>
             <% @committee_grants = Grant.where(user_id: 0).where("amount > ?", 0).sum(:amount) %>

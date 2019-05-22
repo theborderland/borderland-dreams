@@ -146,7 +146,7 @@
             <%= @minbudgets %>
           </td>
           <td>
-            <%= number_to_percentage(100*@dream_grants.to_f/@total_dream_grants, precision: 1) %>
+            <%= number_to_percentage(100*@minbudgets.to_f/@total_dream_grants, precision: 1) %>
           </td>
         </tr>
     </table>

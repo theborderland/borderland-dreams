@@ -91,16 +91,16 @@
             Grants given (incl. infrastructure, prefunded art and committee)
           </td>
           <td>
-            <% @prefunded_grants = Grant.where(user_id: 0).where("amount > ?", 0).sum(:amount) %>
-            <% @dream_grants = Grant.all.where.not(user_id: 0).sum(:amount) %>
-            <% @withdrawn = -Grant.where(user_id: 0).where("amount < ?", 0).sum(:amount) %>
+            <% @prefunded_grants = Grant.where(user_id: 999999).where("amount > ?", 0).sum(:amount) %>
+            <% @dream_grants = Grant.all.where.not(user_id: 0).where.not(user_id: 999999).sum(:amount) %>
+            <% @withdrawn = -Grant.where(user_id: 999999).where("amount < ?", 0).sum(:amount) %>
             <%= @prefunded_grants + @dream_grants %>
           </td>
           <td>
-            35916
+            37321
           </td>
           <td>
-            <%= number_to_percentage(100*(@prefunded_grants + @dream_grants).to_f/35916, precision: 1) %>
+            <%= number_to_percentage(100*(@prefunded_grants + @dream_grants).to_f/37321, precision: 1) %>
           </td>
         </tr>
 
@@ -112,7 +112,7 @@
             <%= @dream_grants %>
           </td>
           <td>
-            <% @total_dream_grants = 35916 - @prefunded_grants %>
+            <% @total_dream_grants = 37321 - @prefunded_grants %>
             <%= @total_dream_grants %>
           </td>
           <td>

@@ -170,6 +170,18 @@ class Camp < ApplicationRecord
     @grants_received ||= self.grants.sum(:amount)
   end
 
+  def grants_public
+    @grants_public ||= self.grants.where.not(user_id: 0).where.not(user_id: 999999).sum(:amount)
+  end
+
+  def grants_prefund
+    @grants_prefund ||= self.grants.where(user_id: 999999).sum(:amount)
+  end
+
+  def grants_committee
+    @grants_committee ||= self.grants.where(user_id: 0).sum(:amount)
+  end
+
   def flag_count(flag_type)
     relevant_events = FlagEvent.where(["flag_type = ? and camp_id = ? and value = ?", flag_type, self.id, true])
     relevant_events.count

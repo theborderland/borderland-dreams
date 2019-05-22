@@ -88,11 +88,12 @@
 
         <tr>
           <td>
-            Grants given (incl. prefunded permanent art & core functions)
+            Grants given (incl. infrastructure, prefunded art and committee)
           </td>
           <td>
-            <% @prefunded_grants = Grant.where(user_id: 1247).sum(:amount) %>
-            <% @dream_grants = Grant.all.where.not(user_id: 1247).sum(:amount) %>
+            <% @prefunded_grants = Grant.where(user_id: 0).where("amount > ?", 0).sum(:amount) %>
+            <% @dream_grants = Grant.all.where.not(user_id: 0).sum(:amount) %>
+            <% @withdrawn = -Grant.where(user_id: 0).where("amount < ?", 0).sum(:amount) %>
             <%= @prefunded_grants + @dream_grants %>
           </td>
           <td>
@@ -105,7 +106,7 @@
 
         <tr>
           <td>
-            Grants given (excluding prefunded)
+            Grants from Borderlings (excluding prefunded)
           </td>
           <td>
             <%= @dream_grants %>
@@ -113,6 +114,36 @@
           <td>
             <% @total_dream_grants = 35916 - @prefunded_grants %>
             <%= @total_dream_grants %>
+          </td>
+          <td>
+            <%= number_to_percentage(100*@dream_grants.to_f/@total_dream_grants, precision: 1) %>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            Grants redistributed from dreams not reaching minimum
+          </td>
+          <td>
+            <%= @withdrawn %>
+          </td>
+          <td>
+
+          </td>
+          <td>
+            <%= number_to_percentage(100*@withdrawn.to_f/@total_dream_grants, precision: 1) %>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            Minimum budgets (and as fraction of total budget)
+          </td>
+          <td>
+          </td>
+          <td>
+            <% @minbudgets = @camps.sum(:minbudget) %>
+            <%= @minbudgets %>
           </td>
           <td>
             <%= number_to_percentage(100*@dream_grants.to_f/@total_dream_grants, precision: 1) %>

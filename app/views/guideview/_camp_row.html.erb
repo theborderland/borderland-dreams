@@ -28,6 +28,27 @@
   </td> 
   <td>
     <a href="<%= url_for(camp) %>">
+      <% if app_setting("granting_active") and camp.grants_prefund %>
+        <%= camp.grants_prefund %>
+      <% end %>
+    </a>
+  </td> 
+  <td>
+    <a href="<%= url_for(camp) %>">
+      <% if app_setting("granting_active") and camp.grants_public %>
+        <%= camp.grants_public %>
+      <% end %>
+    </a>
+  </td> 
+  <td>
+    <a href="<%= url_for(camp) %>">
+      <% if app_setting("granting_active") and camp.grants_committee %>
+        <%= camp.grants_committee %>
+      <% end %>
+    </a>
+  </td> 
+  <td>
+    <a href="<%= url_for(camp) %>">
       <% if app_setting("granting_active") and camp.grants_received %>
         <% @percentage = (camp.grants_received == 0 or camp.minbudget == 0)? 0 : 100*camp.grants_received.to_f/camp.minbudget.to_f %>
         <%= number_to_percentage(@percentage, precision: 1) %>

@@ -91,16 +91,17 @@
             Grants given (incl. infrastructure, prefunded art and committee)
           </td>
           <td>
-            <% @prefunded_grants = Grant.where(user_id: 999999).where("amount > ?", 0).sum(:amount) %>
+            <%= @all_grants = Grant.all.sum(:amount) %>
+            <% @prefunded_grants = Grant.where(user_id: 999999).sum(:amount) %>
             <% @dream_grants = Grant.all.where.not(user_id: 0).where.not(user_id: 999999).sum(:amount) %>
-            <% @withdrawn = -Grant.where(user_id: 999999).where("amount < ?", 0).sum(:amount) %>
-            <%= @prefunded_grants + @dream_grants %>
+            <% @committee_grants = Grant.where(user_id: 0).where("amount > ?", 0).sum(:amount) %>
+            <%= @all_grants %>
           </td>
           <td>
-            37321
+            35481
           </td>
           <td>
-            <%= number_to_percentage(100*(@prefunded_grants + @dream_grants).to_f/37321, precision: 1) %>
+            <%= number_to_percentage(100*all_grants.to_f/35481, precision: 1) %>
           </td>
         </tr>
 
@@ -112,11 +113,10 @@
             <%= @dream_grants %>
           </td>
           <td>
-            <% @total_dream_grants = 37321 - @prefunded_grants %>
-            <%= @total_dream_grants %>
+            <%= @dream_grants %>
           </td>
           <td>
-            <%= number_to_percentage(100*@dream_grants.to_f/@total_dream_grants, precision: 1) %>
+            <%= number_to_percentage(100*@dream_grants.to_f/@all_grants, precision: 1) %>
           </td>
         </tr>
 
@@ -125,13 +125,14 @@
             Grants redistributed from dreams not reaching minimum
           </td>
           <td>
+            <% @withdrawn = -Grant.where(user_id: 999999).where("amount < ?", 0).sum(:amount) %>
             <%= @withdrawn %>
           </td>
           <td>
 
           </td>
           <td>
-            <%= number_to_percentage(100*@withdrawn.to_f/@total_dream_grants, precision: 1) %>
+            <%= number_to_percentage(100*@withdrawn.to_f/@all_grants, precision: 1) %>
           </td>
         </tr>
 
@@ -146,7 +147,7 @@
             <%= @minbudgets %>
           </td>
           <td>
-            <%= number_to_percentage(100*@minbudgets.to_f/@total_dream_grants, precision: 1) %>
+            <%= number_to_percentage(100*@minbudgets.to_f/@all_grants, precision: 1) %>
           </td>
         </tr>
     </table>

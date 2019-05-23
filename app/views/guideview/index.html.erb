@@ -107,6 +107,21 @@
 
         <tr>
           <td>
+            Grants prefunded
+          </td>
+          <td>
+            <%= @prefunded_grants %>
+          </td>
+          <td>
+            <%= @prefunded_grants %>
+          </td>
+          <td>
+            <%= number_to_percentage(100*@prefunded_grants.to_f/@all_grants, precision: 1) %>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
             Grants from Borderlings
           </td>
           <td>
@@ -122,17 +137,17 @@
 
         <tr>
           <td>
-            Grants redistributed from dreams not reaching minimum
+            Grants withdrawn from dreams not reaching minimum
           </td>
           <td>
-            <% @withdrawn = -Grant.where(user_id: 0).where("amount < ?", 0).sum(:amount) %>
+            <% @withdrawn = Grant.where(user_id: 0).where("amount < ?", 0).sum(:amount) %>
             <%= @withdrawn %>
           </td>
           <td>
 
           </td>
           <td>
-            <%= number_to_percentage(100*@withdrawn.to_f/@all_grants, precision: 1) %>
+            <%= number_to_percentage(-100*@withdrawn.to_f/@all_grants, precision: 1) %>
           </td>
         </tr>
 

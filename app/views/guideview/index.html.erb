@@ -107,7 +107,7 @@
 
         <tr>
           <td>
-            Grants from Borderlings (excluding prefunded)
+            Grants from Borderlings
           </td>
           <td>
             <%= @dream_grants %>
@@ -133,6 +133,21 @@
           </td>
           <td>
             <%= number_to_percentage(100*@withdrawn.to_f/@all_grants, precision: 1) %>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            Grants from committee total
+          </td>
+          <td>
+            <%= @committee_grants %>
+          </td>
+          <td>
+            <%= @committee_grants %>
+          </td>
+          <td>
+            <%= number_to_percentage(100*@committee_grants.to_f/@all_grants, precision: 1) %>
           </td>
         </tr>
 

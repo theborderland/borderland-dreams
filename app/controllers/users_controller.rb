@@ -1,15 +1,14 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
+  before_action :load_lang_detector, only: [:show, :index, :me]
 
-  def me
-    @grants = Grant.where(user_id: current_user.id).find_each
-    @my_dreams = current_user.created_camps
+  def show
     @memberships = current_user.created_camps.joins(:memberships).joins(:users)
                        .where('users.id != ?', current_user.id).select('users.email')
+    @user = User.find(params[:id])
+  end
 
-    respond_to do |format|
-      format.html
-      format.js
-    end
+  def load_lang_detector
+    @detector = StringDirection::Detector.new(:dominant)
   end
 end

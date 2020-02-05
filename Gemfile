@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
-ruby '2.3.1'
+ruby '~> 2.5.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.7.1'
+gem 'rails', '~> 5.0.7'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -21,9 +21,11 @@ gem 'jquery-ui-rails'
 gem 'jbuilder', '~> 2.0'
 
 # User management
-gem 'devise'
+gem 'devise', '4.4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+gem 'omniauth-facebook'
+gem 'omniauth-saml'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -33,9 +35,6 @@ gem 'devise'
 
 # Use HAML for views
 gem 'haml'
-
-# Enable Facebook authentication.
-gem 'omniauth-facebook'
 
 # Admin backend
 gem 'activeadmin', github: 'activeadmin'
@@ -56,14 +55,16 @@ gem 'filterrific'
 # Images at S3
 gem 'paperclip'
 gem 'aws-sdk', '< 2'
-gem 'rmagick'
+gem 'aws-sdk-s3'
+gem 'rmagick', '~> 2.16.0'
 
 gem 'nokogiri'
 
-gem 'newrelic_rpm'
+gem 'newrelic_rpm', '~> 6.0.0'
 
 gem 'cocoon'
 gem 'simple_form'
+gem 'jquery-turbolinks'
 gem 'font-awesome-sass'
 gem 'google-api-client'
 gem 'rack-timeout'
@@ -71,8 +72,6 @@ gem 'rack-timeout'
 gem 'paper_trail'
 
 gem 'schema_validations'
-
-gem 'rest-client'
 
 # recaptcha to identify humans - for setup where registration is open for all
 gem 'recaptcha', require: "recaptcha/rails"
@@ -88,13 +87,17 @@ gem 'best_in_place', '~> 3.0.1'
 # Tag dreams
 gem 'acts-as-taggable-on', '~> 4.0'
 
+# GraphQL API
+gem 'graphql', '1.8.13'
+gem 'graphiql-rails', '1.5.0', group: :development
+
 group :production do
   # needed by herokus
   gem 'rails_12factor'
   # postgres
   gem 'pg'
   # needed by aws
-  gem 'puma'
+  gem 'puma', '3.11.4'
 end
 
 group :production, :staging do
@@ -105,7 +108,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   # Use sqlite3 as the database for Active Record
-  gem 'sqlite3'
+  gem 'sqlite3', '~> 1.3.1'
   # For environment vars
   gem 'dotenv-rails'
 end
@@ -115,7 +118,7 @@ group :development do
   gem 'web-console', '~> 2.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+  gem 'spring', '~> 1.6.4'
 
   # Use rspec for testing the thing
   gem 'rspec-rails'
@@ -129,3 +132,4 @@ group :development do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', '~> 0.4.0', group: :doc
 end
+

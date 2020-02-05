@@ -1,0 +1,34 @@
+<% if app_setting("dreamcrew") %>
+    <div class="panel panel-default">
+            <div class="panel-heading"><h2 class="header-sub-heading"><%=t :dreamcrew %></h2></div>
+            <div class="panel-body">
+                <%= simple_form_for @camp, url: { action: 'remove_member'} do |f| %>
+                  <div id="crew-container" class="crew-container">
+                      <div class="profile-pic">
+                          <%= link_to image_tag('crewpope.png', :class => "img-circle dreamcrew-photo"), @camp.creator %>
+                        <span class="tooltiptext"><b><%= @camp.creator.name %></b></span>
+                      </div>
+                      <% @camp.memberships.each do |member| %>
+                          <div class="profile-pic">
+                          <%= link_to image_tag('crew-default.png', :class => "img-circle dreamcrew-photo"), member.user %>
+                          <%= link_to '✘', remove_member_camp_path(@camp, member), class: 'edit', method: :post %>
+                          <span class="tooltiptext"><b><%= member.user.name or "" %></b></span>
+                        </div>
+                      <% end %>
+                    <% if current_user && (@camp.creator == current_user || current_user.is_crewmember(@camp)) %>
+                      <div class="profile-pic">
+                        <%= image_tag('crewmate.png', :class => "img-circle") %>
+                      </div>
+                    <% end %>
+                  </div>
+                <% end %>
+
+                <% if current_user && (@camp.creator == current_user || current_user.is_crewmember(@camp)) %>
+                  <%= simple_form_for @camp, url: { action: 'add_member', method: 'post'} do |f| %>
+                    <%= f.text_field :member_email, class: 'form-control', value: '' %>
+                    <%= f.submit t(:add_crewmember), id: 'member-add', class: 'btn btn-success btn-sm' %>
+                  <% end %>
+                <% end %>
+            </div>
+    </div>
+<% end %>

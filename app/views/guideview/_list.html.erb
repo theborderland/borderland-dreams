@@ -1,0 +1,26 @@
+<div id="filterrific_results">
+    <div class="row">
+        <div class="col-md-2">
+            <a href="/" class="btn btn-primary camp-button" role="button">
+                48 random dreams! <span class="glyphicon glyphicon-random vertical-middle" aria-hidden="true"></span>
+            </a>
+        </div>
+    </div>
+    <table class="table table-striped table-hover sortable">
+        <tr>
+            <th class="col-md-4">Sort by:       Name</th> 
+            <th class="col-md-1">Min</th>
+            <th class="col-md-1">Max</th>
+            <th class="col-md-1">Final</th>
+            <th class="col-md-1">Prefunded</th>
+            <th class="col-md-1">Dreamgrants</th>
+            <th class="col-md-1">Committee</th>
+            <th class="col-md-1">(%)/min</th>
+            <th class="col-md-1">(%)/max</th>
+        </tr>
+
+            <% @camps.each do |camp| %>
+                <%= render :partial => 'guideview/camp_row', locals: { camp: camp, display_desc: true, css_classes: "col-md-12" } %>
+            <% end %>
+    </table>
+</div>

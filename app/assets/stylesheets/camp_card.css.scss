@@ -30,6 +30,167 @@
 p {
   padding-bottom: 1em;
 }
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
+#approve-button {
+  background: green;
+  color: white;
+  padding: 20px;
+  font-size: 14px;
+  display: block;
+  background: #00bc69;
+  box-shadow: 3px 5px 0 0 #006c36;
+  border-radius: 8px;
+  font-weight: 500;
+  text-align: center;
+  max-width: 80%;
+  margin: auto;
+  &.clicked {
+    background: #006c36;
+    box-shadow: 0 0 0 0 transparent;
+  }
+  &:hover {
+    box-shadow: 1px 1px 0 0 #006c36;
+  }
+}
+.small {
+  margin: auto;
+  font-size: 10px;
+  text-align: center;
+}
+.flags-box {
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.flags {
+  justify-content: space-between;
+}
+.flag {
+  padding: 10px;
+  margin: 0;
+  justify-content: space-between;
+  position: relative;
+  img.calm {
+    display: block;
+  }
+  img.angry {
+    display: none;
+  }
+  &.active {
+    img.calm {
+      display: none;
+    }
+    img.angry {
+      display: block;
+    }
+  }
+  .inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    p {
+      font-weight: bold;
+      font-size: 14px;
+      margin: 5px 0;
+      padding: 0;
+      text-align: center;
+    }
+    span {
+      font-size: 10px;
+    }
+  }
+  img {
+    cursor: pointer;
+    transition: 500ms filter;
+    &:hover {
+      animation: shake 0.5s;
+      animation-iteration-count: infinite;
+    }
+  }
+}
+
+.raised {
+  img.angry {
+    display: block;
+    animation: shake 0.5s infinite !important;
+  }
+  img.calm {
+    display: none;
+  }
+}
+.raised.active {
+  background: rgba(0, 255, 0, 0.2) !important;
+  img.angry {
+    display: block;
+    animation: shake 3s 0 !important;
+  }
+  img.calm {
+    display: none;
+  }
+}
+
+.active {
+  background: rgba(255, 0, 0, 0.2);
+  img {
+    animation: shake 0.5s infinite;
+  }
+
+  form {
+    display: block !important;
+    .btn-red {
+      background: red;
+      color: white;
+    }
+    .btn-green {
+      background: green;
+      color: white;
+    }
+  }
+}
+
+.hidden-form {
+  display: none;
+  position: absolute;
+  padding: 20px;
+  top: 180px;
+  left: 0px;
+  background: white;
+  z-index: 99;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.25);
+}
 
 .creation-info {
   .dream-point-of-contact {
@@ -75,39 +236,43 @@ p {
   }
 }
 
-.carousel-inner{
-  width:100%;
+.carousel-inner {
+  width: 100%;
   height: 400px;
 }
 
 .carousel-caption {
   max-width: 400px;
-  text-align:center;
+  text-align: center;
   top: 270px;
 }
 
 .camp-description {
   margin-top: 10px;
-
-  &.gad {
-    > h2 {
-      font-weight: bold;
-      margin: 2em 0 1em 0;
-    }
-
-    label {
-      font-weight: normal;
-      min-width: 10em;
-    }
-
-    .explanation {
-      margin-top: 1em;
-    }
-  }
 }
 
 .delete-button {
   background: white;
   color: red;
   padding-top: 40px;
+}
+
+table {
+  margin: 10px 0;
+  border-radius: 6px;
+  th {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: rgba(0, 0, 0, 0.8);
+    border-bottom: 1px solid #ddd !important;
+  }
+  tbody {
+    td {
+      border-top: 0 !important;
+    }
+    tr:nth-child(2) {
+      background: #f1f1f1;
+    }
+  }
 }

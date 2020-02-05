@@ -1,0 +1,54 @@
+<% if current_user == @user %>
+<div class="profile col-md-5 col-xs-12" dir="<%=t :html_direction %>" style="float: <%=t :lang_direction%>">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h1><%=t(:your_space) %></h1>
+    </div>
+    <div class="panel-body">
+      <p><b><%=t :contact_email %></b>: <%= current_user.email %></p>
+
+      <% if current_user.created_camps.any? %>
+        <p><b><%=t(:your_dream, count: current_user.created_camps.count) %></b>: </p>
+        <ul>
+          <% current_user.created_camps.each do |my_dream| %>
+            <li><a href="<%= url_for(my_dream) %>"><%= my_dream.name %></a></li>
+          <% end %>
+        </ul>
+
+        <% if @memberships.exists? %>
+          <p><b><%=t :cocreators_list_guidetext %></b></p>
+
+          <% @memberships.each do |member| %>
+            <span><%= member.email %></span><br>
+          <% end %>
+        <% end %>
+        <br>
+      <% end %>
+
+      <% if app_setting("granting") %>
+        <b><%=t :your_available_grants %></b>:
+        <% if current_user.grants? && current_user.grants.to_i > 0 %>
+          <% current_user.grants.times do |i| %>
+            <%= image_tag "coin.png", class: "coin-image" %>
+          <% end %>
+        <% else %>
+          0
+        <% end %>
+        <br><br>
+
+        <b><%=t :dreams_you_help_make %></b>:
+        <% Grant.where(user: current_user).each do |grant| %>
+          <p>
+            <%= link_to grant.camp.name, camp_path(grant.camp) %><br>
+            <span class="glyphicons glyphicons-coins"></span>
+            <%= grant.created_at.strftime("%d/%m/%Y") %>
+            <% grant.amount.times do |i| %>
+              <%= image_tag "coin.png", class: "coin-image-sm" %>
+            <% end %>
+          </p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<% end %>

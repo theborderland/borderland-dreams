@@ -1,53 +1,44 @@
-<div id="filterrific_results">
-    <div class="camps_list">
-
-        <% @camps.each do |camp| %>
-        <div class='col-md-4'>
-            <a href="<%= url_for(camp) %>">
-
-                <div class="panel panel-info">
-                    <div class="panel-body camp-index">
-                        <% if camp.images.any? %>
-                            <%= image_tag(camp.images.first.attachment.url(:square), :class => "grow") %>
-                        <% else %>
-                            <%= image_tag('bsb_placeholder_square.png' , :class => "grow") %>
-                        <% end %>
-
-                        <% @name = (Rails.configuration.x.firestarter_settings['multi_lang_support'] and camp.en_name.present? and I18n.locale.to_s == 'en')? camp.en_name : camp.name %>
-                        <%= simple_format(truncate(@name, length: 60),
-                                          { class: "name auto-#{@detector.direction(@name)}" },
-                                          wrapper_tag: 'h4') %>
-
-                        <% @subtitle = (Rails.configuration.x.firestarter_settings['multi_lang_support'] and camp.en_subtitle.present? and I18n.locale.to_s == 'en')? camp.en_subtitle : camp.subtitle %>
-                        <div class="description">
-                          <%= simple_format(truncate(@subtitle, length: 256), class: "auto-#{@detector.direction(@subtitle)}") %>
-                        </div>
-
-                        <div class="labels">
-                            <% if Rails.configuration.x.firestarter_settings["granting_active"] and camp.minbudget %>
-
-                                <h3 class='budget-info'><%= camp.grants_received %>/<%= camp.maxbudget %><br><%=t :funded %></h3>
-
-                                <!-- Only if never got grants and not opened for granting -->
-                                <% if !camp.grantingtoggle and camp.grants_received <= 0%>
-                                    <h3 class='budget-not-opened'>
-                                        <%=t :granting_not_enabled %>
-                                    </h3>
-                                <% else %>
-                                    <div class="budgetprogressbar" data-min="<%= camp.minbudget %>" data-max="<%= camp.maxbudget %>" data-value="<%= camp.grants_received %>"></div>
-                                <% end %>
-
-                            <% end %>
-                        </div>
-
-                        <% if !camp.is_public? %>
-                            <h4 style="color: #eb1478; position: absolute; top:4px; right:20px;"><span class="glyphicon glyphicon-lock" aria-hidden="true"></h4>
-                        <% end %>
-                    </div>
-                </div>
+<div id='grid-view'>
+    <div class="row">
+        <div class="col-md-2">
+            <a href="/" class="btn btn-primary camp-button" role="button">
+                48 random dreams! <span class="glyphicon glyphicon-random vertical-middle" aria-hidden="true"></span>
             </a>
         </div>
-        <% end %>
-
+        <div class="col-md-2">
+            <a href="/guideview" class="btn btn-info camp-button" role="button">
+                All dreams & stats
+            </a>
+        </div>
+    </div>
+    <div id="filterrific_results" class="row">
+        <div class="camps_list">
+            <% @camps.each do |camp| %>
+                <%= render :partial => 'camps/camp_card', locals: { camp: camp, display_desc: true, css_classes: "col-md-4" } %>
+            <% end %>
+        </div>
+    </div>
+    <div class="row">
+        <a href="/" class="btn btn-primary camp-button" role="button">
+            48 random dreams! <span class="glyphicon glyphicon-random vertical-middle" aria-hidden="true"></span>
+        </a>
     </div>
 </div>
+
+<% if !@filterrific.tagged_with %>
+    <table id='table-view' style='display: none'>
+        <tr>
+            <th>Dream name</th>
+            <th>Monster actions</th>
+            <th>Approvers</th>
+        </tr>
+        <% @camps.count_all_flags.each do |camp_id, flag_sum| %>
+        <% @the_camp = @camps.where(['id = ?', camp_id])[0] %>
+        <tr>
+            <% if @the_camp %>
+                <%= render :partial => 'camps/camp_row', locals: { camp: @the_camp, flag_sum: flag_sum } %>
+            <% end %>
+        </tr>
+        <% end %>
+    </table>
+<% end %>

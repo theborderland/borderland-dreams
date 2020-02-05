@@ -16,6 +16,7 @@ You can see it in action here:
 * Install postgres - `brew install postgresql`
 * Install ImageMagick v6, for example [this way](https://stackoverflow.com/questions/42250292/rails-cant-install-rmagick-2-16-0-cant-find-magickwand-h#answer-43715913)
 ```
+    rbenv local 2.5.1
     gem install bundler
     bundle install
     bundle exec rake db:migrate
@@ -80,10 +81,6 @@ Guide and admins can close/open granting and edit dreams
 Ticket ids are imported from a two column csv file of IDs which can be set to any url using `IMPORT_CSV_URL` env variable
 Rake task is in lib/tasks/import.rake and is run with "bundle exec rake import"
 
-## Ticket ID Import through BurnetTickets
-
-Run task `bundle exec rake import_burnertickets` and check that the "tickets" table is populated.
-
 ## Ticket verifier through TixWise
 
 We've added an optional verification through tixwise - you need to aquire an API from them and then set `TICKETS_EVENT_URL` ENV variable to a url such as:
@@ -96,6 +93,26 @@ Make sure you change the username, password, token and event id
 
 ### Make sure all the env variables are set
 On heroku use - https://github.com/xavdid/heroku-config
+
+#### Keycloak integration
+
+Place your IDP descriptor in `./vendor/saml/idpssodescriptor.xml` or provide an
+alternative path in the `SAML_IDP_DESCRIPTOR` environment variable. 
+
+Other environment variables:
+  * `SAML_ENABLE=1` enable SAML and hide built-in registration
+  * `SAML_CLIENT_ID` client id provided to the IdP
+  * `SAML_HUMAN_NAME` name of IdP presented to user
+
+#### Loomio integration
+
+Dreams can post updates to a Loomio group, to enable it set
+  * `LOOMIO_USER`
+  * `LOOMIO_PASSWORD`
+  * `LOOMIO_GROUP_ID` id of group to post to
+  * `LOOMIO_BASE_URL` protocol and hostname of loomio instance
+
+Then run the bot as its own process with `rails runner lib/loomio/loomio_bot.rb`.
 
 ### Creating initial database
 
@@ -167,3 +184,7 @@ We've added the ability to show safety file comments for the dream-creator in th
 
 You will need to set the following env var:
 * `SHOW_SAFETY_FILE_COMMENTS=true`
+
+## FAQ
+Q: How do I set multi language support
+Set the `MULTI_LANG_SUPPORT` env variable to true on heroku

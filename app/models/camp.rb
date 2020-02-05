@@ -1,24 +1,37 @@
 class CanCreateNewDreamValidator < ActiveModel::Validator
+  include AppSettings
+
   def validate(record)
-    if Rails.application.config.x.firestarter_settings['disable_open_new_dream']
+    if app_setting('disable_open_new_dream')
       record.errors[:base] << I18n.t("new_dream_is_disabled")
     end
   end
 end
 
-class Camp < ActiveRecord::Base
+class Camp < ApplicationRecord
+  include AppSettings
+  extend AppSettings
   belongs_to :creator, class_name: 'User', foreign_key: 'user_id'
 
   has_many :memberships, dependent: :destroy
   has_many :users, through: :memberships
+  has_many :favorites
+  has_many :favorite_users, through: :favorites, source: :user
+  has_many :approvals
+  has_many :approvers, through: :approvals, source: :user
   has_many :images #, :dependent => :destroy
+  has_many :safety_sketches
   has_many :grants
   has_many :people, class_name: 'Person'
   has_many :roles, through: :people
+  has_many :flag_events
+  has_many :budget_items 
+  has_many :safety_items 
 
   has_paper_trail
-  
-  accepts_nested_attributes_for :people, :roles, allow_destroy: true
+
+  accepts_nested_attributes_for :budget_items, allow_destroy: true
+  accepts_nested_attributes_for :safety_items, allow_destroy: true
 
   acts_as_taggable
 
@@ -37,6 +50,7 @@ class Camp < ActiveRecord::Base
     available_filters: [
       :sorted_by,
       :search_query,
+      :tagged_with,
       :not_fully_funded,
       :not_min_funded,
       :not_seeking_funding,
@@ -45,6 +59,7 @@ class Camp < ActiveRecord::Base
       :is_cocreation
     ]
   )
+
   # Scope definitions. We implement all Filterrific filters through ActiveRecord
   # scopes. In this example we omit the implementation of the scopes for brevity.
   # Please see 'Scope patterns' for scope implementation details.
@@ -64,7 +79,7 @@ class Camp < ActiveRecord::Base
         "LOWER(camps.cocreation) LIKE ?",
       ]
 
-      if Rails.configuration.x.firestarter_settings["multi_lang_support"]
+      if app_setting("multi_lang_support")
         or_array.push("LOWER(camps.en_name) LIKE ?",
           "LOWER(camps.en_subtitle) LIKE ?")
       end
@@ -95,6 +110,25 @@ class Camp < ActiveRecord::Base
          order("camps.updated_at #{ direction }")
       when /^random$/
          order("random()")
+      when /^color$/
+         order("camps.color")
+      when /^dreamyness$/
+         rnd = rand(1..10)
+         if rnd == 1
+          order("camps.color asc")
+         elsif rnd == 2
+          order("camps.color desc")
+         elsif rnd == 3
+          order("camps.updated_at asc")
+         elsif rnd == 4
+          order("camps.updated_at desc")
+         elsif rnd == 5
+          order("camps.name asc")
+         elsif rnd == 6
+          order("camps.name desc")
+         else 
+          order("random()")
+         end
       when /^created_at_/
          order("camps.created_at #{ direction }")
          raise(ArgumentError, "Sort option: #{ sort_option.inspect }")
@@ -104,17 +138,17 @@ class Camp < ActiveRecord::Base
   }
 
   scope :not_fully_funded, lambda { |flag|
-    return nil  if '0' == flag # checkbox unchecked
+    return nil  if 0 == flag # checkbox unchecked
     where(fullyfunded: false)
   }
 
   scope :not_min_funded, lambda { |flag|
-    return nil  if '0' == flag # checkbox unchecked
+    return nil  if 0 == flag # checkbox unchecked
     where(minfunded: false)
   }
 
   scope :not_seeking_funding, lambda { |flag|
-    return nil  if '0' == flag # checkbox unchecked
+    return nil  if 0 == flag # checkbox unchecked
     where(grantingtoggle: true)
   }
 
@@ -130,38 +164,39 @@ class Camp < ActiveRecord::Base
     where.not(camps: { cocreation: nil }).where.not(camps: { cocreation: '' })
   }
 
-  # Used by ActiveAdmin
-  scope :default_select, lambda { |except=%w(safetybag_firstMemberName safetybag_firstMemberEmail safetybag_secondMemberName safetybag_secondMemberEmail)|
-    tn = table_name
-    names = (column_names-except).map { |c| "#{tn}.#{c}" }.join(', ')
-    select(names).group(names)
-  }
-
-  scope :displayed, -> {
-    q = default_select.joins("LEFT JOIN roles ON (roles.identifier = '#{:manager}')")
-            .joins("LEFT JOIN people ON (people.camp_id = camps.id)")
-            .joins("LEFT JOIN people_roles pr ON (pr.role_id = roles.id)")
-            .where('people.id = pr.person_id')
-    
-    if connection.adapter_name == 'SQLite'
-      q.select('people.name manager_name, people.email manager_email, people.phone_number manager_phone')
-    else
-      q.select('ARRAY_AGG(people.name) manager_name,
-                ARRAY_AGG(people.email) manager_email,
-                ARRAY_AGG(people.phone_number) manager_phone')
-    end
-  }
-
-  scope :displayed_with_tags, -> {
-    displayed.includes(:tags)
-  }
-
-  before_save do
-    align_budget
-  end
+  before_save :align_budget
 
   def grants_received
-    return self.grants.sum(:amount)
+    @grants_received ||= self.grants.sum(:amount)
+  end
+
+  def grants_public
+    @grants_public ||= self.grants.where.not(user_id: 0).where.not(user_id: 999999).sum(:amount)
+  end
+
+  def grants_prefund
+    @grants_prefund ||= self.grants.where(user_id: 999999).sum(:amount)
+  end
+
+  def grants_committee
+    @grants_committee ||= self.grants.where(user_id: 0).sum(:amount)
+  end
+
+  def flag_count(flag_type)
+    relevant_events = FlagEvent.where(["flag_type = ? and camp_id = ? and value = ?", flag_type, self.id, true])
+    relevant_events.count
+  end
+
+  def flag_type_is_raised(flag_type)
+    relevant_events = FlagEvent.where(["flag_type = ? and camp_id = ?", flag_type, self.id])
+    last_event = relevant_events.where(created_at: relevant_events.select('MAX(created_at)')).first
+    return last_event.value if last_event != nil
+
+    false
+  end
+  
+  def self.options_for_tags
+    ActsAsTaggableOn::Tag.most_used(20).map { |tag| [tag.name + ' ( ' + tag.taggings_count.to_s+ ' )', tag.name]}
   end
 
   # Translating the real currency to budget
@@ -171,7 +206,7 @@ class Camp < ActiveRecord::Base
     if self.minbudget_realcurrency.nil?
       self.minbudget = nil
     elsif self.minbudget_realcurrency > 0
-      self.minbudget = (self.minbudget_realcurrency / Grant.value_for_currency).ceil
+      self.minbudget = (self.minbudget_realcurrency / app_setting('grant_value_for_currency')).ceil
     else
       self.minbudget = 0
     end
@@ -179,23 +214,55 @@ class Camp < ActiveRecord::Base
     if self.maxbudget_realcurrency.nil?
       self.maxbudget = nil
     elsif self.maxbudget_realcurrency > 0
-      self.maxbudget = (self.maxbudget_realcurrency / Grant.value_for_currency).ceil
+      self.maxbudget = (self.maxbudget_realcurrency / app_setting('grant_value_for_currency')).ceil
     else
       self.maxbudget = 0
     end
   end
 
   def website_url
-    @protocol_index = self.website.index("https://")
-
-    if @protocol_index == nil
-      @protocol_index = self.website.index("http://")
+    if self.website.index('https://') || self.website.index('http://')
+      self.website
+    else
+      "http://#{self.website}"
     end
-
-    return @protocol_index == nil ? "http://" + self.website : self.website
   end
 
-  def Camp.boolean_as_human_readable(bool)
-    return bool ? "Yes" : "No"
+  def display_name
+    if app_setting('multi_lang_support') && I18n.locale.to_s == 'en'
+      en_name || name
+    else
+      name
+    end
+  end
+  
+  def self.count_all_flags
+    sql = %{
+    SELECT
+      camp_id, COUNT(*)
+    FROM
+      flag_events
+    GROUP BY
+      camp_id
+    }
+    # puts(sql)
+    results = ActiveRecord::Base.connection.execute(
+      sql
+    )
+    if !results.any?
+      return []
+    end
+
+    final_hash = Hash.new
+    results.each do |result|
+      camp_id = result['camp_id']
+      count = result['count']
+      if !count
+        count = 0
+      end
+      final_hash[camp_id] = count
+    end
+    # returns list of lists holding [camp_id, flag_count]
+    final_hash.sort_by {|_key, value| -value}
   end
 end

@@ -1,10 +1,9 @@
 <% content_for(:head) do %>
-  <% browser_title = t(:browser_title_tag) %>
-  <title><%= browser_title %></title>
-  <%= javascript_include_tag 'blueimp_script' %> 
+  <title><%= t :browser_title_tag %></title>
+  <%= javascript_include_tag 'blueimp_script' %>
   <meta property="og:title" content="<%= t :how_can_i_help_title %>" />
   <meta property="og:description" content="<%= t :how_can_i_help_page_description %>" />
-  <meta property="og:image" content="<%= ENV['APP_URL'] %>assets/coverphoto.jpg" />
+  <meta property="og:image" content="<%= ENV['APP_URL'] %>assets/coverphoto.png" />
 <% end %>
 
 <div class="top_message" dir=<%=t :html_direction %>>
@@ -50,28 +49,25 @@
                       <% if camp.images.any? %>
                           <%= image_tag(camp.images.first.attachment.url(:square), :class => "grow") %>
                       <% else %>
-                          <%= image_tag('bsb_placeholder_square.png' , :class => "grow") %>
+                          <%= image_tag(app_setting('placeholder') , :class => "grow") %>
                       <% end %>
 
-                      <% @name = (Rails.configuration.x.firestarter_settings['multi_lang_support'] and camp.en_name.present? and I18n.locale.to_s == 'en')? camp.en_name : camp.name %>
-                      <h4 class="name"><%= truncate(@name, length: 60) %></h4>
+                      <h4 class="name"><%= truncate(camp.display_name, length: 60) %></h4>
 
                       <div class="description">
-                      <% if Rails.configuration.x.firestarter_settings["cocreation"] and camp.cocreation.present? %>
+                      <% if app_setting("cocreation") and camp.cocreation.present? %>
                           <p><%=simple_format(camp.cocreation) %></p>
                       <% end %>
                       </div>
 
                       <div class="labels">
-                          <% if Rails.configuration.x.firestarter_settings["granting_active"] and camp.minbudget %>
+                          <% if app_setting("granting_active") and camp.minbudget %>
 
                               <h3 class='budget-info'><%= camp.grants_received %>/<%= camp.maxbudget %><br><%=t :funded %></h3>
 
                               <!-- Only if never got grants and not opened for granting -->
                               <% if !camp.grantingtoggle and camp.grants_received <= 0%>
-                                  <h3 class='budget-not-opened'>
-                                      <%=t :granting_not_enabled %>
-                                  </h3>
+                                  <h3 class='budget-not-opened'><%=t :granting_not_enabled %></h3>
                               <% else %>
                                   <div class="budgetprogressbar" data-min="<%= camp.minbudget %>" data-max="<%= camp.maxbudget %>" data-value="<%= camp.grants_received %>"></div>
                               <% end %>

@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '~> 2.5.1'
+ruby '~> 2.7.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.7'
@@ -37,7 +37,7 @@ gem 'omniauth-saml'
 gem 'haml'
 
 # Admin backend
-gem 'activeadmin', github: 'activeadmin'
+gem 'activeadmin', '~> 2.4.0'
 gem 'cancan' # or cancancan
 gem 'draper'
 gem 'pundit'

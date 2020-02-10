@@ -1,0 +1,5 @@
+.env
+.env_pg
+.git
+tmp
+log

@@ -1,7 +1,7 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  config.force_ssl = true
+  config.force_ssl = !ENV['DONT_FORCE_SSL_IN_PRODUCTION'].present?
   # Code is not reloaded between requests.
   config.cache_classes = true
 

@@ -1,0 +1,15 @@
+version: '3'
+services:
+  web:
+    build: .
+    image: dreams:latest
+    ports:
+    - "3000:3000"
+    volumes:
+    - .:/application
+    env_file:
+      - .env
+  postgres:
+    image: postgres
+    env_file:
+      - .env_pg

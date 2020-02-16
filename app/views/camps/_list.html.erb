@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-2">
             <a href="/" class="btn btn-primary camp-button" role="button">
-                48 random dreams! <span class="glyphicon glyphicon-random vertical-middle" aria-hidden="true"></span>
+                Randomize dreams! <span class="glyphicon glyphicon-random vertical-middle" aria-hidden="true"></span>
             </a>
         </div>
         <div class="col-md-2">
@@ -14,13 +14,15 @@
     <div id="filterrific_results" class="row">
         <div class="camps_list">
             <% @camps.each do |camp| %>
-                <%= render :partial => 'camps/camp_card', locals: { camp: camp, display_desc: true, css_classes: "col-md-4" } %>
+		<% cache camp do %>
+		    <%= render :partial => 'camps/camp_card', locals: { camp: camp, display_desc: true, css_classes: "col-md-4" } %>
+		<% end %>
             <% end %>
         </div>
     </div>
     <div class="row">
         <a href="/" class="btn btn-primary camp-button" role="button">
-            48 random dreams! <span class="glyphicon glyphicon-random vertical-middle" aria-hidden="true"></span>
+            Randomize dreams! <span class="glyphicon glyphicon-random vertical-middle" aria-hidden="true"></span>
         </a>
     </div>
 </div>
@@ -36,7 +38,7 @@
         <% @the_camp = @camps.where(['id = ?', camp_id])[0] %>
         <tr>
             <% if @the_camp %>
-                <%= render :partial => 'camps/camp_row', locals: { camp: @the_camp, flag_sum: flag_sum } %>
+		    <%= render :partial => 'camps/camp_row', locals: { camp: @the_camp, flag_sum: flag_sum }, cached: true %>
             <% end %>
         </tr>
         <% end %>

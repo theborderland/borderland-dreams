@@ -8,7 +8,7 @@ module CanApplyFilters
     ), select_options: {
         tagged_with: Camp.options_for_tags
     })
-    @camps = @filterrific&.find&.page(params[:page])
+    @camps = @filterrific&.find
   end
 
   private

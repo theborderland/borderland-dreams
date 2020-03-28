@@ -108,8 +108,14 @@
     <%= form.label t("form_dream_visability_yes") %>
     <%= form.radio_button :is_public, false %>
     <%= form.label t("form_dream_visability_no") %>
-    <br/>
+    <hr/>
     <%= t("form_dream_visability_guidetext_html") %>
+  </div>
+  <div class="combo" id="artwalk">
+    <h2><%= t("form_dream_artwalk_participation") %></h2>
+    <%= form.input :is_in_artwalk, as: :radio_buttons %>
+    <hr/>
+    <%= t("form_dream_artwalk_guidetext_html") %>
   </div>
   <div class="combo" id="contact_phone">
     <% if app_setting("contact_phone") %>

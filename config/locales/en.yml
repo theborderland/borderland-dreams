@@ -55,6 +55,10 @@ en:
   form_dream_visability_yes: "Yes, show my ideas to the world!"
   form_dream_visability_no: "No, Hide it for now"
   form_dream_visability_guidetext_html: Public dreams will be shown on the main page. Private dreams will be shown only with a direct link
+  form_dream_artwalk_participation: "Will your dream participate in the artwalk?"
+  form_dream_artwalk_participation_yes: "Yes!"
+  form_dream_artwalk_participation_no: "No!"
+  form_dream_artwalk_guidetext_html: Every year a artwalk is organized where non members are invited to a guided walk of the Borderland. Add your dream to be part of the walk!
   form_contact_phone_label: Your phone number (won't be published)
   form_contact_phone_guidetext_html: Emergency contact
   form_about_the_artist_label: About the crew / artist

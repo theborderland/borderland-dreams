@@ -1,0 +1,51 @@
+<% content_for(:head) do %>
+  <title><%= t :browser_title_tag %></title>
+  <%= javascript_include_tag 'blueimp_script' %>
+  <meta property="og:title" content="<%= t :old_dreams_title %>" />
+  <meta property="og:description" content="<%= t :old_dreams_description %>" />
+  <meta property="og:image" content="<%= ENV['APP_URL'] %>assets/coverphoto.png" />
+<% end %>
+
+<div class="top_message" dir=<%=t :html_direction %>>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3><%= t(:old_dreams_title) %></h3>
+    </div>
+    <div class="panel-body">
+      <div class="col-md-12">
+      <%= t(:old_dreams_title_desc_html) %><br>
+        <b><%=t :search_title %></b>
+        <%= form_for_filterrific @filterrific do |f| %>
+
+        <div>
+          <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
+          <%= f.text_field(
+            :search_query,
+            class: 'filterrific-periodically-observed form-control'
+          ) %>
+        </div>
+
+        <%= render_filterrific_spinner %>
+
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="filterrific_results">
+
+  <%=t :sort_by%>:
+  <%= filterrific_sorting_link(@filterrific, :updated_at) %>
+
+  <div class="camps_list">
+
+    <% @camps.each do |camp| %>
+	<% cache camp do %>
+	    <%= render :partial => 'camps/camp_card', locals: { camp: camp, display_desc: true, css_classes: "col-md-4" } %>
+	<% end %>
+    <% end %>
+
+  </div>
+
+</div>

@@ -6,6 +6,7 @@
     </div>
     <div class="panel-body">
       <p><b><%=t :contact_email %></b>: <%= current_user.email %></p>
+      <p><b><%=t :talk_username %></b>: <%= current_user.talk_username %></p>
 
       <% if current_user.created_camps.any? %>
         <p><b><%=t(:your_dream, count: current_user.created_camps.count) %></b>: </p>

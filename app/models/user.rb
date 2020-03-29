@@ -1,3 +1,6 @@
+require 'open-uri'
+require 'json'
+
 class User < ApplicationRecord
   extend AppSettings
   include RegistrationValidation
@@ -41,8 +44,24 @@ class User < ApplicationRecord
     #u.grants ||= 10 if u.roles.map(&:name).include?("Borderland 2019 Membership") # TODO multi event
 
 
-    # avatars: get https://talk.theborderland.se/api/v1/profile/{username}
-    # either loomio picture or gravatar
+    if !u.talk_id.nil? 
+      talk_data = JSON.parse(URI.parse('https://talk.theborderland.se/api/v1/profile/'+u.talk_id.to_s).read)
+      if !talk_data["users"].nil? and talk_data["users"].length > 0 
+        # Update talk username
+        if !talk_data["users"][0]["username"].nil?
+          u.talk_username = talk_data["users"][0]["username"];
+        end
+        # If user doesnt have a name set, pick it from talk
+        if u.name.nil? and !talk_data["users"][0]["name"].nil?
+          u.name = talk_data["users"][0]["name"];
+        end
+        # Update avatar from talk
+        if !talk_data["users"][0]["avatar_url"].nil?
+          u.avatar = "http://talk.theborderland.se/" + talk_data["users"][0]["avatar_url"]["medium"];
+        end
+      end
+    end
+
     u.save!
     u
   end

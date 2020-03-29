@@ -281,26 +281,19 @@
       <div class="field-description">
           <%= t("form_minigrants_realcurrency_guidetext_html") %>
       </div>
-      <blockquote>
-          <%= best_in_place_if @can_edit, @camp, :minbudget_realcurrency, html_attrs: {maxlength: 6, class: "form-control"}, place_holder: t(:form_click_to_edit_html), display_with: :number_to_currency, :helper_options => {:unit => "", precision:0} %>
-      </blockquote>
-  <% end %>
-  <% if app_setting("granting") and !app_setting('disable_edit_budget') %>
+	  <%= form.text_field :minbudget_realcurrency, class: 'form-control', readonly: true %>
+
+
       <div class="combo" id="maxbudget_realcurrency">
           <%= form.label t("form_maxigrants_realcurrency_label") %>
       </div>
       <div class="field-description">
           <%= t("form_maxigrants_realcurrency_guidetext_html") %>
-      </div>
-      <blockquote>
-          <%= best_in_place_if @can_edit, @camp, :maxbudget_realcurrency, html_attrs: {maxlength: 6, class: "form-control"}, place_holder: t(:form_click_to_edit_html), display_with: :number_to_currency, :helper_options => {:unit => "", precision:0} %>
-      </blockquote>
 
-    <div class="field-description">
-      <%= t("form_artgrants_text_footer_html", ratio:app_setting('grant_value_for_currency')) %>
-    </div>
-  <% end %>
-  <% if app_setting("granting") and app_setting("budgeting") %>
+      </div>
+	  <%= form.text_field :maxbudget_realcurrency, class: 'form-control', readonly: true %>
+
+
       <div class="combo">
           <%= form.label t("budget_label") %>
       </div>

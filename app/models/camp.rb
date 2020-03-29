@@ -164,7 +164,6 @@ class Camp < ApplicationRecord
     where.not(camps: { cocreation: nil }).where.not(camps: { cocreation: '' })
   }
 
-  before_save :align_budget
 
   def grants_received
     @grants_received ||= self.grants.sum(:amount)
@@ -203,12 +202,24 @@ class Camp < ApplicationRecord
   # This called on create and on update
   # Rounding up 0.1 = 1, 1.2 = 2
   def align_budget
+    budget_items = BudgetItem.where("camp_id = ?", self.id)
+
+    min_budget_from_items = budget_items.sum(:min_budget)
+    if min_budget_from_items > 0
+      self.minbudget_realcurrency = min_budget_from_items
+    end
+
     if self.minbudget_realcurrency.nil?
       self.minbudget = nil
     elsif self.minbudget_realcurrency > 0
       self.minbudget = (self.minbudget_realcurrency / app_setting('grant_value_for_currency')).ceil
     else
       self.minbudget = 0
+    end
+
+    max_budget_from_items = budget_items.sum(:max_budget)
+    if max_budget_from_items > 0
+      self.maxbudget_realcurrency = max_budget_from_items
     end
 
     if self.maxbudget_realcurrency.nil?
@@ -218,6 +229,8 @@ class Camp < ApplicationRecord
     else
       self.maxbudget = 0
     end
+
+    self.save
   end
 
   def website_url

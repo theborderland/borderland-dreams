@@ -2,7 +2,7 @@ module CanApplyFilters
   def apply_filters
     params[:filterrific] ||= { sorted_by: 'random' }
     @filterrific = initialize_filterrific(Camp, params[:filterrific].merge(
-      active: true,
+      active: is_active?,
       not_hidden: !(current_user&.admin? || current_user&.guide?),
       is_cocreation: is_cocreation?
     ), select_options: {
@@ -15,5 +15,9 @@ module CanApplyFilters
 
   def is_cocreation?
     false
+  end
+
+  def is_active?
+    true
   end
 end

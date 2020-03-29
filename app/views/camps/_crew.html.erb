@@ -5,14 +5,28 @@
                 <%= simple_form_for @camp, url: { action: 'remove_member'} do |f| %>
                   <div id="crew-container" class="crew-container">
                       <div class="profile-pic">
+			<% if @camp.creator.avatar %>
+                          <%= link_to image_tag(@camp.creator.avatar, :class => "img-circle dreamcrew-photo"), @camp.creator %>
+			<% else %>
                           <%= link_to image_tag('crewpope.png', :class => "img-circle dreamcrew-photo"), @camp.creator %>
-                        <span class="tooltiptext"><b><%= @camp.creator.name %></b></span>
+			<% end %>
+                          <span class="tooltiptext">
+			    <p><b><%=t :user %>:</b> <%= @camp.creator.name ? @camp.creator.name : "-" %></p>
+			    <p><b><%=t :talk_user %>:</b> <%= @camp.creator.talk_username ? @camp.creator.talk_username : "-" %></p>
+			  </span>
                       </div>
                       <% @camp.memberships.each do |member| %>
                           <div class="profile-pic">
-                          <%= link_to image_tag('crew-default.png', :class => "img-circle dreamcrew-photo"), member.user %>
+			  <% if member.user.avatar %>
+			    <%= link_to image_tag(member.user.avatar, :class => "img-circle dreamcrew-photo"), member.user %>
+			  <% else %>
+			    <%= link_to image_tag('crew-default.png', :class => "img-circle dreamcrew-photo"), member.user %>
+			  <% end %>
                           <%= link_to '✘', remove_member_camp_path(@camp, member), class: 'edit', method: :post %>
-                          <span class="tooltiptext"><b><%= member.user.name or "" %></b></span>
+                          <span class="tooltiptext">
+			    <p><b><%=t :user %>:</b> <%= member.user.name? ? member.user.name : "-" %></p>
+			    <p><b><%=t :talk_user %>:</b> <%= member.user.talk_username? ? member.user.talk_username : "-" %></p>
+			  </span>
                         </div>
                       <% end %>
                     <% if current_user && (@camp.creator == current_user || current_user.is_crewmember(@camp)) %>

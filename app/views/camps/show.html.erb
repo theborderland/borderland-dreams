@@ -113,8 +113,6 @@
             <% end %>
         <% end %>
 
-    <%= render 'camps/budget_misaligned', except: nil %>
-
     <% if current_user && (@camp.creator == current_user || current_user.is_crewmember(@camp)) %>
         <%= render 'camps/dont_miss_out', except: nil %>
       <% end %>
@@ -176,14 +174,16 @@
                 <thead>
                     <tr>
                         <th scope="col"><%=t :budget_description_label %></th>
-                        <th scope="col"><%=t :budget_amount_label %> (<%= app_setting("currency") %>)</th>
+                        <th scope="col"><%=t :budget_min_budget_label %> (<%= app_setting("currency") %>)</th>
+                        <th scope="col"><%=t :budget_max_budget_label %> (<%= app_setting("currency") %>)</th>
                     </tr>
                 </thead>
                 <tbody>
                 <% @camp.budget_items.each do |budget_item| %>
                     <tr>
                         <td><%= budget_item.description %></td>
-                        <td><%= budget_item.amount %></td>
+                        <td><%= !budget_item.min_budget.nil? ? budget_item.min_budget : budget_item.amount %></td>
+                        <td><%= budget_item.max_budget %></td>
                     </tr>
                 <% end %>
                 </tbody>

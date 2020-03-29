@@ -103,19 +103,31 @@
     </blockquote>
   </div>
   <div class="combo" id="visability">
-    <%= form.label t("form_dream_visability") %>
+    <h2><%= t("form_dream_visability") %></h2>
     <%= form.radio_button :is_public, true %>
     <%= form.label t("form_dream_visability_yes") %>
     <%= form.radio_button :is_public, false %>
     <%= form.label t("form_dream_visability_no") %>
+    <p><%= t("form_dream_visability_guidetext_html") %></p>
     <hr/>
-    <%= t("form_dream_visability_guidetext_html") %>
+  </div>
+  <div class="combo" id="active">
+    <h2><%= t("form_dream_active") %></h2>
+    <%= form.radio_button :active, true %>
+    <%= form.label t("yes_text") %>
+    <%= form.radio_button :active, false %>
+    <%= form.label t("no_text") %>
+    <p><%= t("form_dream_active_guidetext_html") %></p>
+    <hr/>
   </div>
   <div class="combo" id="artwalk">
     <h2><%= t("form_dream_artwalk_participation") %></h2>
-    <%= form.input :is_in_artwalk, as: :radio_buttons %>
+    <%= form.radio_button :is_in_artwalk, true %>
+    <%= form.label t("yes_text") %>
+    <%= form.radio_button :is_in_artwalk, false %>
+    <%= form.label t("no_text") %>
+    <p><%= t("form_dream_artwalk_guidetext_html") %></p>
     <hr/>
-    <%= t("form_dream_artwalk_guidetext_html") %>
   </div>
   <div class="combo" id="contact_phone">
     <% if app_setting("contact_phone") %>

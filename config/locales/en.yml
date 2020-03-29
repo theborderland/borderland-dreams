@@ -55,9 +55,9 @@ en:
   form_dream_visability_yes: "Yes, show my ideas to the world!"
   form_dream_visability_no: "No, Hide it for now"
   form_dream_visability_guidetext_html: Public dreams will be shown on the main page. Private dreams will be shown only with a direct link
+  form_dream_active_participation: "Is this dream participating in the upcoming burn?"
+  form_dream_active_guidetext_html: If you enable this then the dream will be on the front page, if not it is listed in the old dreams list!
   form_dream_artwalk_participation: "Will your dream participate in the artwalk?"
-  form_dream_artwalk_participation_yes: "Yes!"
-  form_dream_artwalk_participation_no: "No!"
   form_dream_artwalk_guidetext_html: Every year a artwalk is organized where non members are invited to a guided walk of the Borderland. Add your dream to be part of the walk!
   form_contact_phone_label: Your phone number (won't be published)
   form_contact_phone_guidetext_html: Emergency contact
@@ -191,6 +191,9 @@ en:
   coins_text: Grantlet
   coins_left: 'Available Grantlings:'
   currency: NIS
+  old_dreams_title: "Old dreams"
+  old_dreams_title_desc_html: Where do old dreams go to die? This page! Welcome to the elephantine tomb of withered bones and leftover skimpy clothes that is the old dreams page. The main idea is that you can find your old dreams here and wake them back up by going to edit and then marking them as active again! 
+  old_dreams_description: List of old dreams that are not marked as active
   how_can_i_help_title: "How can I help?"
   how_can_i_help_title_desc_html: "In this page you will find all our dreamers current needs. Find a dream you'd like to join, and click" 
   how_can_i_help_page_description: "In this page you will find all our dreamers current needs. Find a dream you'd like to join, and click add my name\""

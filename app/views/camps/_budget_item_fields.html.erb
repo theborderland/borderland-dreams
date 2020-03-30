@@ -6,12 +6,19 @@
     <% else %>
       <%= f.text_field :description, class: 'form-control', readonly: true %>
     <% end %>
-    <%= f.label :amount %>
+    <%= f.label :min_budget %>
     <%= app_setting("currency") %>
     <% if (@can_edit) %>
-      <%= f.number_field :amount, class: 'form-control' %>
+      <%= f.number_field :min_budget, class: 'form-control' %>
     <% else %>
-      <%= f.text_field :amount, class: 'form-control', readonly: true %>
+      <%= f.text_field :min_budget, class: 'form-control', readonly: true %>
+    <% end %>
+    <%= f.label :max_budget %>
+    <%= app_setting("currency") %>
+    <% if (@can_edit) %>
+      <%= f.number_field :max_budget, class: 'form-control' %>
+    <% else %>
+      <%= f.text_field :max_budget, class: 'form-control', readonly: true %>
     <% end %>
     <br/>
     <% if (@can_edit) %>

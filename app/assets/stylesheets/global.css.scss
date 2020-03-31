@@ -163,6 +163,29 @@ ul {
 li {
   display: block;
 }
+
+article a {
+  color: $c-pinky;
+}
+
+article li {
+  display: list-item;
+}
+
+article h1,
+h2,
+h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+article ol,
+ul {
+  margin-top: 0;
+  margin-bottom: 10px;
+  padding-inline-start: 40px;
+}
+
 h1 {
   font-size: 32px;
 }
